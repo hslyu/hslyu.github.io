@@ -9,7 +9,7 @@ education:
   - period: "2021–2026"
     degree: "Ph.D. in Electrical Engineering"
     school: "POSTECH"
-    details: "Advised by Dr. Hyun Jong Yang · Dissertation: Advancing Aerial Networks with Cross-Layer Optimization over Heterogeneous Airframes"
+    details: "Advised by Dr. Hyun Jong Yang"
   - period: "2018–2021"
     degree: "M.S. in Electrical Engineering"
     school: "UNIST"
@@ -27,8 +27,6 @@ awards:
   - { year: "2022", title: "Korea Aerospace Industries Paper Award", organization: "KAI · First wireless communications paper in the award's history" }
   - { year: "2022", title: "Bae & Jung Scholarship", organization: "Bae & Jung Foundation" }
   - { year: "2015", title: "National Supercomputing Competition, Second Award", organization: "KISTI" }
-  - { year: "2014", title: "National Science & Technology Scholarship", organization: "KOSAF" }
-  - { year: "2014", title: "Overseas Studies Scholarship", organization: "UNIST" }
 reviewer:
   - "IEEE Transactions on Communications (TCOM), 2026"
   - "IEEE Journal on Selected Areas in Communications (JSAC), 2025"

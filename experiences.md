@@ -23,16 +23,16 @@ hide-header: true
 
 ## Academic service
 
-**Reviewer**
+<p class="subsection-label"><strong>Reviewer</strong></p>
 
 {% for item in site.data.experience.reviewer %}- {{ item }}
 {% endfor %}
 
-**Open-source localization**
+<p class="subsection-label"><strong>Open-source localization</strong></p>
 
 - QGroundControl Korean localization — 2nd highest contributor, 2018–2021
 - PX4 User Guide Korean localization, 2018–2021
 
-**Talks**
+<p class="subsection-label"><strong>Talks</strong></p>
 
 - “The Role of Aerial Networks in 6G Wireless,” KICS Summer Conference, June 2025
