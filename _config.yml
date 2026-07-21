@@ -26,6 +26,8 @@ description: "Hyeonsu Lyu is a researcher working at the intersection of wireles
 ###############################################
 
 navbar-links:
+  Experiences: "experiences"
+  Publications: "publications"
   Curriculum Vitae: "https://drive.google.com/file/d/1-H6PntAxvBCCP8vXNWFxk9JjG7QjDsyK/view?usp=sharing"
   Google Scholar: "https://scholar.google.com/citations?user=06N525AAAAAJ"
   GitHub: "https://github.com/hslyu"
@@ -157,8 +159,8 @@ footer-hover-col: "#0085A1"
 #mobile-theme-col: "#0085A1"
 
 # For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
-#site-css:
-#  - "/assets/css/custom-styles.css"
+site-css:
+  - "/assets/css/custom-styles.css"
 
 # If you have common JavaScript files that should be included in every page, list them here
 #site-js:
