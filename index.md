@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Hyeonsu Lyu
-share-title: Hyeonsu Lyu | Wireless × AI × Robotics
+share-title: Hyeonsu Lyu | Wireless × AI × Robotics
 ---
 
 ![Hyeonsu Lyu at IEEE INFOCOM 2022](https://sites.google.com/sitesv-images-rt/ACHe0d3wpM7iGqWnpC6mBJwSNzWHfmNA5Qkxw7Xb5JlMwl47ghLx0n8kH8BoEfIe9zEtKgJQ2fKdVpNG70Zm69RXQxh_VkFphi4rG6DDIsB_RXwoMqTFD1yjmgQIRIsC97SCvjkIIExNKZcHljxp0YUYG3uQ0y54RiKNm8xjaIrEmb3PsrJ5Lili_K5b4PHOf7mqUUKHSoAr2zJDL7Gs5rnx_hT8plWTPh0TwH0kzi3l4Uo=w1280)
