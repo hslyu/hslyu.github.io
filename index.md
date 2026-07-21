@@ -39,4 +39,4 @@ My work focuses on communication systems for AI and robotics, as well as intelli
 
 ## Contact
 
-`hl dot lyu at snu dot ac dot kr`
+<span class="contact-address">hl <code>dot</code> lyu <code>at</code> snu <code>dot</code> ac <code>dot</code> kr</span>
