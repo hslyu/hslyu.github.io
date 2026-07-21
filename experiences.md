@@ -5,8 +5,12 @@ hide-header: true
 
 ## Professional experience
 
-- Postdoctoral Researcher, Seoul National University — Mar. 2026–Mar. 2027
-- Visiting Scholar, University of Texas at Austin — Aug. 2025–Feb. 2026
+<div class="career-timeline">
+<article><time>Mar. 2026–Mar. 2027</time><div><h3>Postdoctoral Researcher</h3><p>Seoul National University</p></div></article>
+<article><time>Aug. 2025–Feb. 2026</time><div><h3>Visiting Scholar</h3><p>University of Texas at Austin</p></div></article>
+<article><time>2021–2026</time><div><h3>Ph.D. in Electrical Engineering</h3><p>POSTECH · Advisor: Dr. Hyun Jong Yang</p></div></article>
+<article><time>2018–2021</time><div><h3>M.S. in Electrical Engineering</h3><p>UNIST</p></div></article>
+</div>
 
 ## Education
 
@@ -18,19 +22,14 @@ hide-header: true
 
 ## Honors and awards
 
-- 2026 — The 32nd Humantech Paper Awards, Samsung
-- 2025 — Best Paper Award, IEEE International Conference on ICT Convergence
-- 2025 — International Collaboration Support Program, IITP-6G·Cloud Research and Education Open Hub
-- 2025 — Overseas Dispatch Support Program, POSTECH
-- 2025 — Pre-Ph.D. Research Support Program, KICS
-- 2024 — Grand Prize in Patent Competition, POSTECH and Korea Invention Promotion Association
-- 2023 — KICS Best Paper Award, KICS
-- 2022 — Korea Aerospace Industries Paper Award, KAI
-  - First wireless communications paper in KAI Paper Awards history
-- 2022 — Bae & Jung Scholarship, Bae & Jung Foundation
-- 2015 — National Supercomputing Competition, Second Award, KISTI
-- 2014 — National Science & Technology Scholarship, KOSAF
-- 2014 — Overseas Studies Scholarship, UNIST
+<div class="award-cards">
+<article><span>2026</span><h3>Humantech Paper Award</h3><p>32nd Samsung Humantech Paper Awards</p></article>
+<article><span>2025</span><h3>Best Paper Award</h3><p>IEEE International Conference on ICT Convergence</p></article>
+<article><span>2024</span><h3>Grand Prize in Patent Competition</h3><p>POSTECH and Korea Invention Promotion Association</p></article>
+<article><span>2023</span><h3>KICS Best Paper Award</h3><p>Korean Institute of Communications and Information Sciences</p></article>
+<article><span>2022</span><h3>KAI Paper Award</h3><p>First wireless communications paper recognized in the award's history</p></article>
+<article><span>2014–2015</span><h3>National Scholarships</h3><p>KOSAF National Science &amp; Technology Scholarship and KISTI competition award</p></article>
+</div>
 
 ## Academic service
 
