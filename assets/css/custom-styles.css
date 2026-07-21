@@ -117,7 +117,7 @@ footer .theme-by {
 .pilot-annotated strong { font-size: 1.1rem; }
 .pilot-annotated small { margin: .25rem 0 .5rem; }
 .career-timeline article { display: flex !important; align-items: flex-start; gap: 1.5rem; padding: 1.1rem 0; border-top: 1px solid #D8E3F2; }
-.publication-timeline article { display: grid; grid-template-columns: 8rem 1fr; gap: 1.5rem; padding: 1.1rem 0; border-top: 1px solid #D8E3F2; }
+.publication-timeline article { display: block; padding: 1.1rem 0; border-top: 1px solid #D8E3F2; }
 .career-timeline time, .publication-timeline time, .award-cards span { color: #526985; font: 500 .8rem 'IBM Plex Mono', monospace; }
 .career-timeline time { display: block; }
 .career-timeline article > time { flex: 0 0 12rem; white-space: nowrap; }
@@ -208,7 +208,6 @@ footer .theme-by {
 @media (max-width: 600px) {
   .career-timeline article { gap: .75rem; }
   .career-timeline article > time { flex-basis: 11rem; }
-  .publication-timeline article { grid-template-columns: 1fr; gap: .35rem; }
   .publication-main { grid-template-columns: 72px 1fr; gap: .8rem; }
   .publication-main img { width: 72px; height: 58px; }
 }
