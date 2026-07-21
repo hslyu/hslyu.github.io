@@ -129,6 +129,12 @@ footer .theme-by {
 .award-cards p { margin: 0; font-size: .9rem; }
 .publication-main { display: grid; grid-template-columns: 110px 1fr; gap: 1.25rem; }
 .publication-main img { width: 110px; height: 82px; object-fit: cover; border-radius: 4px; background: #DCE9F7; }
+.publication-main h3 a,
+.compact-publications > li > strong > a { color: var(--text-col); }
+.publication-main h3 a:hover,
+.publication-main h3 a:focus,
+.compact-publications > li > strong > a:hover,
+.compact-publications > li > strong > a:focus { color: var(--text-col); text-decoration: underline; }
 .publication-main .venue { color: #286BC5; margin-bottom: .4rem; }
 .numbered-lists ul,
 .numbered-lists ol { list-style: none; padding-left: 0; counter-reset: item; }
