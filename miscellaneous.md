@@ -1,22 +1,14 @@
 ---
 layout: page
 hide-header: true
+numbered-lists: true
 ---
 
 ## Domestic papers
 
-- Hyeonho Noh, Hyeonsu Lyu, and Hyun Jong Yang, “Deep Learning-Based Interference Cancellation for OFDM ISAC,” *36th Joint Conference on Communications and Information (JCCI)*, April 2026.
-- Hyeonsu Lyu, Minwoo Kim, Sehyun Ryu, and Hyun Jong Yang, “Towards Building a Ray-Tracing-Compatible Digital Twin Scene for Wireless-Aware Physical AI Systems,” *36th Joint Conference on Communications and Information (JCCI)*, April 2026.
-- Hyeonsu Lyu, Hyeonho Noh, and Hyun Jong Yang, “Secure Radio Resource and Routing Optimization in Multi-Hop Space-Air-Ground-Sea Integrated Networks,” *KICS Summer Conference*, June 2025.
-- Hyeonsu Lyu and Hyun Jong Yang, “On the Non-Iterative Optimization for Aerial Communications,” *KICS Summer Conference*, June 2024.
-- Hyeonsu Lyu and Hyun Jong Yang, “A Survey on High-Altitude Balloon UAVs for Vertical Heterogeneous Networks,” *JKICS*, 2024.
-- Hyeonsu Lyu and Hyun Jong Yang, “Stratolite: Breakthrough for UAV Communications,” *KICS Summer Conference*, June 2023. **Best Paper Award.**
-- Hyeonsu Lyu and Hyun Jong Yang, “Machine Unlearning: A Survey on Principles and Challenges,” *KICS Winter Conference*, February 2023.
-- Hyeonsu Lyu, Jonggyu Jang, and Hyun Jong Yang, “Generalized Water-Filling Algorithm for Fast User Association and Resource Allocation,” *KICS Fall Conference*, November 2022.
-- Hyeonsu Lyu, Jonggyu Jang, Harim Lee, and Hyun Jong Yang, “Trajectory-Planning and Resource Allocation of UAV Base Station with User QoS Constraints,” *KICS Summer Conference*, June 2022.
-- Sojeong Park, Hyeonsu Lyu, and Hyun Jong Yang, “Designing Scalable Deep Q-Learning Using Fully Convolutional Network,” *KICS Winter Conference*, February 2022.
-- Hyeonsu Lyu, Harim Lee, Yeongjun Kim, and Hyun Jong Yang, “A Study on the Optimal Drone Hardware Component Selection Algorithm Maximizing Flight Time,” *KICS Summer Conference*, June 2021.
-- Hyeonsu Lyu and Hyun Jong Yang, “A Study on Establishing Testbeds for Reinforcement Learning of Unmanned Aerial Vehicles,” *KICS Winter Conference*, February 2021.
+<ol class="compact-publications">
+{% for item in site.data.miscellaneous.domestic_papers %}<li><strong>{{ item.title }}</strong><br><span>{{ item.authors }} · <em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}</span></li>{% endfor %}
+</ol>
 
 ## Intellectual properties
 
