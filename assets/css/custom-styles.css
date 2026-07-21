@@ -123,9 +123,15 @@ footer .theme-by {
 .career-timeline article > time { flex: 0 0 12rem; white-space: nowrap; }
 .career-timeline h3, .publication-main h3, .award-cards h3 { margin: 0 0 .25rem; font-size: 1.1rem; }
 .career-timeline p, .publication-main p { margin: 0; }
+.institution { font-weight: 600; }
+.institution--snu { color: #003D7C; }
+.institution--utexas { color: #BF5700; }
+.institution--postech { color: #A61955; }
+.institution--unist { color: #001B54; }
 .award-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .85rem; }
 .award-cards article { padding: 1rem; border: 1px solid #B6CFEE; border-radius: 6px; background: #F7FAFF; }
 .award-cards span { display: block; margin-bottom: .45rem; }
+.award-cards h3 { font-size: calc(1.1rem - 1pt); }
 .award-cards p { margin: 0; font-size: .9rem; }
 .publication-main { display: grid; grid-template-columns: 110px 1fr; gap: 1.25rem; }
 .publication-main img { width: 110px; height: 82px; object-fit: cover; border-radius: 4px; background: #DCE9F7; }

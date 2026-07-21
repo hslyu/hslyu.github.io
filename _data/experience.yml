@@ -2,27 +2,32 @@ professional:
   - period: "Mar. 2026 – Mar. 2027"
     title: "Postdoctoral Researcher"
     organization: "Seoul National University"
+    brand: "snu"
   - period: "Aug. 2025 – Feb. 2026"
     title: "Visiting Scholar"
     organization: "University of Texas at Austin"
+    brand: "utexas"
 education:
   - period: "Mar. 2021 – Feb. 2026"
     degree: "Ph.D. in Electrical Engineering"
     school: "POSTECH"
+    brand: "postech"
     details: "Advised by Dr. Hyun Jong Yang"
   - period: "Mar. 2018 – Feb. 2021"
     degree: "M.S. in Electrical Engineering"
     school: "UNIST"
+    brand: "unist"
   - period: "Mar. 2014 – Feb. 2018"
     degree: "B.Sc. in Applied Mathematics and Computer Science"
     school: "UNIST"
+    brand: "unist"
 awards:
   - { year: "2026", title: "The 32nd Humantech Paper Awards", organization: "Samsung" }
   - { year: "2025", title: "Best Paper Award", organization: "IEEE International Conference on ICT Convergence" }
   - { year: "2025", title: "International Collaboration Support Program", organization: "IITP–6G·Cloud Research and Education Open Hub" }
   - { year: "2025", title: "Overseas Dispatch Support Program", organization: "POSTECH" }
   - { year: "2025", title: "Pre-Ph.D. Research Support Program", organization: "KICS" }
-  - { year: "2024", title: "Grand Prize in Patent Competition", organization: "POSTECH and Korea Invention Promotion Association" }
+  - { year: "2024", title: "Grand Prize in Patent Competition", organization: "POSTECH and KIPA" }
   - { year: "2023", title: "KICS Best Paper Award", organization: "KICS" }
   - { year: "2022", title: "Korea Aerospace Industries Paper Award", organization: "KAI · First wireless communications paper in the award's history" }
   - { year: "2022", title: "Bae & Jung Scholarship", organization: "Bae & Jung Foundation" }

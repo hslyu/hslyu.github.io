@@ -6,13 +6,13 @@ hide-header: true
 ## Professional experience
 
 <div class="career-timeline">
-{% for item in site.data.experience.professional %}<article><time>{{ item.period }}</time><div><h3>{{ item.title }}</h3><p>{{ item.organization }}</p></div></article>{% endfor %}
+{% for item in site.data.experience.professional %}<article><time>{{ item.period }}</time><div><h3>{{ item.title }}</h3><p class="institution institution--{{ item.brand }}">{{ item.organization }}</p></div></article>{% endfor %}
 </div>
 
 ## Education
 
 <div class="career-timeline">
-{% for item in site.data.experience.education %}<article><time>{{ item.period }}</time><div><h3>{{ item.degree }}</h3><p>{{ item.school }}{% if item.details %} · {{ item.details }}{% endif %}</p></div></article>{% endfor %}
+{% for item in site.data.experience.education %}<article><time>{{ item.period }}</time><div><h3>{{ item.degree }}</h3><p><span class="institution institution--{{ item.brand }}">{{ item.school }}</span>{% if item.details %} · {{ item.details }}{% endif %}</p></div></article>{% endfor %}
 </div>
 
 ## Honors and awards
