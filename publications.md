@@ -15,7 +15,7 @@ numbered-lists: true
 ## Preprints
 
 <ul class="compact-publications">
-{% for item in site.data.publications.preprints %}{% assign record = site.data.bibtex[item.bibtex_key] %}<li><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% include formatted-authors.html authors=item.authors link=item.link %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></li>{% endfor %}
+{% for item in site.data.publications.preprints %}{% assign record = site.data.bibtex[item.bibtex_key] %}<li><div class="publication-list-content"><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% include formatted-authors.html authors=item.authors link=item.link %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></div></li>{% endfor %}
 </ul>
 
 ## Peer-reviewed journal and conference publications
@@ -23,13 +23,13 @@ numbered-lists: true
 ### Journal articles
 
 <ol class="compact-publications">
-{% for item in site.data.publications.journals %}{% assign record = site.data.bibtex[item.bibtex_key] %}<li><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% include formatted-authors.html authors=item.authors link=item.link %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></li>{% endfor %}
+{% for item in site.data.publications.journals %}{% assign record = site.data.bibtex[item.bibtex_key] %}<li><div class="publication-list-content"><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% include formatted-authors.html authors=item.authors link=item.link %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></div></li>{% endfor %}
 </ol>
 
 ### Conference proceedings
 
 <ol class="compact-publications">
-{% for item in site.data.publications.conferences %}{% assign record = site.data.bibtex[item.bibtex_key] %}<li><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% include formatted-authors.html authors=item.authors link=item.link %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></li>{% endfor %}
+{% for item in site.data.publications.conferences %}{% assign record = site.data.bibtex[item.bibtex_key] %}<li><div class="publication-list-content"><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% include formatted-authors.html authors=item.authors link=item.link %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></div></li>{% endfor %}
 </ol>
 
 <script>
