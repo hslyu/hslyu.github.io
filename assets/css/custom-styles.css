@@ -12,3 +12,41 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
+
+.navbar-custom .navbar-nav .nav-item {
+  font-size: 0.875rem;
+  letter-spacing: 0.01875rem;
+  text-transform: none;
+}
+
+.intro-header .page-heading h1 {
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  .navbar-custom {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .navbar-custom .navbar-collapse {
+    border-top: 0;
+    margin: 0;
+  }
+
+  .navbar-custom .navbar-nav {
+    padding: 0;
+  }
+
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding: 0.9375rem;
+  }
+
+  .intro-header {
+    margin-top: 8.125rem;
+  }
+
+  .intro-header .page-heading h1 {
+    font-size: 2.25rem;
+  }
+}
