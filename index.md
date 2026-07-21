@@ -10,10 +10,33 @@ I am **Hyeonsu Lyu, Ph.D.**, a researcher at [AiSLab](https://sites.google.com/v
 
 My goal is to improve society's welfare and safety by developing connected mobile robotic systems. My research bridges robotics, wireless communications, and machine intelligence to advance that vision.
 
-[Email](mailto:hs.lyu@snu.ac.kr) · [Google Scholar](https://scholar.google.com/citations?user=06N525AAAAAJ) · [GitHub](https://github.com/hslyu) · [Curriculum Vitae](https://drive.google.com/file/d/1-H6PntAxvBCCP8vXNWFxk9JjG7QjDsyK/view?usp=sharing)
+<nav class="home-cta-list" aria-label="Research profiles and documents">
+  <a class="home-cta home-cta--primary" href="{{ '/publications/' | relative_url }}">
+    <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+    <span>Publications</span>
+  </a>
+  <a class="home-cta" href="https://scholar.google.com/citations?user=06N525AAAAAJ">
+    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+    <span>Scholar</span>
+  </a>
+  <a class="home-cta" href="https://drive.google.com/file/d/1-H6PntAxvBCCP8vXNWFxk9JjG7QjDsyK/view?usp=sharing">
+    <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+    <span>CV</span>
+  </a>
+  <a class="home-cta" href="https://github.com/hslyu">
+    <i class="fa-brands fa-github" aria-hidden="true"></i>
+    <span>GitHub</span>
+  </a>
+</nav>
 
 ## Research interests
 
 Lightweight mobile robots will soon achieve remarkable capabilities through AI-powered remote control, even without onboard computing. These systems can operate in extreme environments, perform high-risk tasks, and support disaster response, helping to build a safer and more sustainable society.
 
 My work focuses on communication systems for AI and robotics, as well as intelligent agents for next-generation wireless networks. Ultimately, I aim to address societal challenges and promote the public good through the convergence of **wireless communications, artificial intelligence, and robotics**.
+
+---
+
+## Contact
+
+`hl dot lyu at snu dot ac dot kr`
