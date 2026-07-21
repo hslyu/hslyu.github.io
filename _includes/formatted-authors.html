@@ -1,0 +1,6 @@
+{%- if include.link -%}
+  {%- capture emphasized_name -%}<a class="publication-author" href="{{ include.link }}">Hyeonsu Lyu</a>{%- endcapture -%}
+{%- else -%}
+  {%- capture emphasized_name -%}<span class="publication-author">Hyeonsu Lyu</span>{%- endcapture -%}
+{%- endif -%}
+{{- include.authors | replace: "Hyeonsu Lyu", emphasized_name -}}

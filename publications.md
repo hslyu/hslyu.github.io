@@ -7,15 +7,15 @@ numbered-lists: true
 ## Selected publications
 
 <div class="publication-timeline">
-{% for group in site.data.publications %}{% for item in group[1] %}{% if item.featured %}{% assign record = site.data.bibtex[item.bibtex_key] %}{% capture author_link %}<a class="publication-author" href="{{ item.link }}">Hyeonsu Lyu</a>{% endcapture %}{% assign linked_authors = item.authors | replace: "Hyeonsu Lyu", author_link %}
-<article><div class="publication-main">{% if item.link %}<a class="publication-image-link" href="{{ item.link }}"><img src="/assets/img/thumb.png" alt="Publication illustration"></a>{% else %}<img src="/assets/img/thumb.png" alt="Publication illustration">{% endif %}<div><h3>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3><p class="venue"><em>{{ item.venue }}</em> · {{ item.year }}</p><p>{% if item.link %}{{ linked_authors }}{% else %}{{ item.authors }}{% endif %}.</p>{% if item.note or record.verified %}<p class="publication-actions">{% if item.note %}{{ item.note }}{% endif %}{% if record.verified %}{% if item.note %} · {% endif %}<button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</p>{% endif %}</div></div></article>
+{% for group in site.data.publications %}{% for item in group[1] %}{% if item.featured %}{% assign record = site.data.bibtex[item.bibtex_key] %}
+<article><div class="publication-main">{% if item.link %}<a class="publication-image-link" href="{{ item.link }}"><img src="/assets/img/thumb.png" alt="Publication illustration"></a>{% else %}<img src="/assets/img/thumb.png" alt="Publication illustration">{% endif %}<div><h3>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3><p class="venue"><em>{{ item.venue }}</em> · {{ item.year }}</p><p>{% include formatted-authors.html authors=item.authors link=item.link %}.</p>{% if item.note or record.verified %}<p class="publication-actions">{% if item.note %}{{ item.note }}{% endif %}{% if record.verified %}{% if item.note %} · {% endif %}<button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</p>{% endif %}</div></div></article>
 {% endif %}{% endfor %}{% endfor %}
 </div>
 
 ## Preprints
 
 <ul class="compact-publications">
-{% for item in site.data.publications.preprints %}{% assign record = site.data.bibtex[item.bibtex_key] %}{% capture author_link %}<a class="publication-author" href="{{ item.link }}">Hyeonsu Lyu</a>{% endcapture %}{% assign linked_authors = item.authors | replace: "Hyeonsu Lyu", author_link %}<li><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% if item.link %}{{ linked_authors }}{% else %}{{ item.authors }}{% endif %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></li>{% endfor %}
+{% for item in site.data.publications.preprints %}{% assign record = site.data.bibtex[item.bibtex_key] %}<li><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% include formatted-authors.html authors=item.authors link=item.link %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></li>{% endfor %}
 </ul>
 
 ## Peer-reviewed journal and conference publications
@@ -23,13 +23,13 @@ numbered-lists: true
 ### Journal articles
 
 <ol class="compact-publications">
-{% for item in site.data.publications.journals %}{% assign record = site.data.bibtex[item.bibtex_key] %}{% capture author_link %}<a class="publication-author" href="{{ item.link }}">Hyeonsu Lyu</a>{% endcapture %}{% assign linked_authors = item.authors | replace: "Hyeonsu Lyu", author_link %}<li><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% if item.link %}{{ linked_authors }}{% else %}{{ item.authors }}{% endif %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></li>{% endfor %}
+{% for item in site.data.publications.journals %}{% assign record = site.data.bibtex[item.bibtex_key] %}<li><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% include formatted-authors.html authors=item.authors link=item.link %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></li>{% endfor %}
 </ol>
 
 ### Conference proceedings
 
 <ol class="compact-publications">
-{% for item in site.data.publications.conferences %}{% assign record = site.data.bibtex[item.bibtex_key] %}{% capture author_link %}<a class="publication-author" href="{{ item.link }}">Hyeonsu Lyu</a>{% endcapture %}{% assign linked_authors = item.authors | replace: "Hyeonsu Lyu", author_link %}<li><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% if item.link %}{{ linked_authors }}{% else %}{{ item.authors }}{% endif %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></li>{% endfor %}
+{% for item in site.data.publications.conferences %}{% assign record = site.data.bibtex[item.bibtex_key] %}<li><strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong><span class="publication-authors">{% include formatted-authors.html authors=item.authors link=item.link %}</span><span class="publication-citation"><em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if record.verified %} · <button class="bibtex-copy" type="button" data-bibtex="{{ record.value | escape }}">BibTeX</button>{% endif %}</span></li>{% endfor %}
 </ol>
 
 <script>

@@ -11,3 +11,15 @@ domestic_papers:
   - { title: "Designing Scalable Deep Q-Learning Using Fully Convolutional Network", authors: "Sojeong Park, Hyeonsu Lyu, and Hyun Jong Yang", venue: "KICS Winter Conference", year: "2022", bibtex_key: "domestic_deepq" }
   - { title: "A Study on the Optimal Drone Hardware Component Selection Algorithm Maximizing Flight Time", authors: "Hyeonsu Lyu, Harim Lee, Yeongjun Kim, and Hyun Jong Yang", venue: "KICS Summer Conference", year: "2021", bibtex_key: "domestic_hardware" }
   - { title: "A Study on Establishing Testbeds for Reinforcement Learning of Unmanned Aerial Vehicles", authors: "Hyeonsu Lyu and Hyun Jong Yang", venue: "KICS Winter Conference", year: "2021", bibtex_key: "domestic_testbeds" }
+patents:
+  - { title: "Apparatus and Method for Determining Whether There Is a Possibility of Personal Information Leakage by Generating a Restored Image Set Corresponding to the Training Dataset of an Artificial Intelligence Model", authors: "Jonggyu Jang, Hyeonsu Lyu, and Hyun Jong Yang", info: "KR 10-2024-0161882 (filed)" }
+  - { title: "Apparatus and Method for Generating a Key Model for Restoring Encrypted Images to Protect Personal Information in a Cloud-Based Image Recognition Service", authors: "Jonggyu Jang, Hyeonsu Lyu, Seong Jin Hwang, and Hyun Jong Yang", info: "KR 10-2024-0163065 (filed)" }
+  - { title: "Apparatus and Method for Unlearning an Artificial Intelligence Model", authors: "Jungyeon Koh, Hyeonsu Lyu, Jonggyu Jang, and Hyun Jong Yang", info: "KR 10-2024-0134631 (filed)" }
+  - { title: "Electronic Device for Deriving Influence Function", authors: "Hyeonsu Lyu, Jonggyu Jang, Sehyeon Ryu, and Hyun Jong Yang", info: "KR 10-2024-0045157 (filed)" }
+  - { title: "Autonomous Flight UAV and Method Controlling Thereof", authors: "Myoung Hoon Lee, Jun Moon, Hyun Jong Yang, and Hyeonsu Lyu", info: "KR 10-2021-0185112 (filed) · KR 10-026843760000 (registered)" }
+  - { title: "Tree-Search Based Trajectory Planning and Resource Management Method and Apparatus of Unmanned Aerial Vehicle Base Station", authors: "Hyeonsu Lyu, Hyun Jong Yang, and Jonggyu Jang", info: "US 18/319,369 (filed)" }
+  - { title: "무인항공기 기지국의 트리 탐색 기반 경로 계획 및 자원 관리 방법 및 장치", authors: "Hyeonsu Lyu, Hyun Jong Yang, and Jonggyu Jang", info: "KR 10-2022-0186323 (filed) · KR 10-2817343 (registered)" }
+  - { title: "멀티 에이전트 강화학습 기반의 고정익 항공기 기지국의 범위 최대화 기법", authors: "Hyeonsu Lyu, SeongJin Hwang, and Hyun Jong Yang", info: "KR 10-2022-0175220 (filed)" }
+  - { title: "사용자 연계 및 자원 할당을 위한 일반화된 고속 워터필링 알고리즘", authors: "Hyeonsu Lyu, Hyun Jong Yang, and Jonggyu Jang", info: "KR 10-2022-0172711 (filed)" }
+  - { title: "LTE-LAA와 Wi-Fi 공존 상황에서 비대칭 은닉 AP를 고려한 eNB의 하향링크 통신을 위한 방법 및 장치", authors: "Hyun Jong Yang, Harim Lee, and Hyeonsu Lyu", info: "KR 10-2019-0159620 (filed) · KR 10-2240690 (registered)" }
+  - { title: "자율 비행이 가능한 무인기 및 이의 제어 방법", authors: "Myoung Hoon Lee, Jun Moon, Hyeonsu Lyu, and Hyun Jong Yang", info: "KR 10-2021-0185112 (filed) · KR 10-2684376 (registered)" }
