@@ -13,9 +13,19 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-.navbar-custom .navbar-nav .nav-item {
-  font-size: 0.875rem;
-  letter-spacing: 0.01875rem;
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav .nav-link {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 800 !important;
+}
+
+.navbar-custom .navbar-brand {
+  font-size: 18px;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+  font-size: 14px;
+  letter-spacing: 0.3px;
   text-transform: none;
 }
 
