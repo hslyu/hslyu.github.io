@@ -6,7 +6,7 @@ hide-header: true
 ## Professional experience
 
 <div class="career-timeline">
-{% for item in site.data.experience.professional %}<article><time>{{ item.period | replace: "–", "–<br>" }}</time><div><h3>{{ item.title }}</h3><p>{{ item.organization }}</p></div></article>{% endfor %}
+{% for item in site.data.experience.professional %}<article><time>{{ item.period }}</time><div><h3>{{ item.title }}</h3><p>{{ item.organization }}</p></div></article>{% endfor %}
 </div>
 
 ## Education
