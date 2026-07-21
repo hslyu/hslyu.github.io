@@ -128,6 +128,13 @@ footer .theme-by {
 .institution--utexas { color: #BF5700; }
 .institution--postech { color: #A61955; }
 .institution--unist { color: #001B54; }
+.institution--samsung { color: #1428A0; }
+.institution--ieee { color: #00629B; }
+.institution--iitp { color: #007C91; }
+.institution--kics { color: #1D5B99; }
+.institution--kai { color: #06038D; }
+.institution--bae-jung { color: #6B4F3B; }
+.institution--kisti { color: #0068B7; }
 .award-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .85rem; }
 .award-cards article { padding: 1rem; border: 1px solid #B6CFEE; border-radius: 6px; background: #F7FAFF; }
 .award-cards span { display: block; margin-bottom: .45rem; }

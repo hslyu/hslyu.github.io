@@ -22,16 +22,16 @@ education:
     school: "UNIST"
     brand: "unist"
 awards:
-  - { year: "2026", title: "The 32nd Humantech Paper Awards", organization: "Samsung" }
-  - { year: "2025", title: "Best Paper Award", organization: "IEEE International Conference on ICT Convergence" }
-  - { year: "2025", title: "International Collaboration Support Program", organization: "IITP–6G·Cloud Research and Education Open Hub" }
-  - { year: "2025", title: "Overseas Dispatch Support Program", organization: "POSTECH" }
-  - { year: "2025", title: "Pre-Ph.D. Research Support Program", organization: "KICS" }
-  - { year: "2024", title: "Grand Prize in Patent Competition", organization: "POSTECH and KIPA" }
-  - { year: "2023", title: "KICS Best Paper Award", organization: "KICS" }
-  - { year: "2022", title: "Korea Aerospace Industries Paper Award", organization: "KAI · First wireless communications paper in the award's history" }
-  - { year: "2022", title: "Bae & Jung Scholarship", organization: "Bae & Jung Foundation" }
-  - { year: "2015", title: "National Supercomputing Competition, Second Award", organization: "KISTI" }
+  - { year: "2026", title: "The 32nd Humantech Paper Awards", organization: "Samsung", brand: "samsung" }
+  - { year: "2025", title: "Best Paper Award", organization: "IEEE International Conference on ICT Convergence", brand: "ieee" }
+  - { year: "2025", title: "International Collaboration Support Program", organization: "IITP–6G·Cloud Research and Education Open Hub", brand: "iitp" }
+  - { year: "2025", title: "Overseas Dispatch Support Program", organization: "POSTECH", brand: "postech" }
+  - { year: "2025", title: "Pre-Ph.D. Research Support Program", organization: "KICS", brand: "kics" }
+  - { year: "2024", title: "Grand Prize in Patent Competition", organization: "POSTECH and KIPA", brand: "postech" }
+  - { year: "2023", title: "KICS Best Paper Award", organization: "KICS", brand: "kics" }
+  - { year: "2022", title: "Korea Aerospace Industries Paper Award", organization: "KAI · First wireless communications paper in the award's history", brand: "kai" }
+  - { year: "2022", title: "Bae & Jung Scholarship", organization: "Bae & Jung Foundation", brand: "bae-jung" }
+  - { year: "2015", title: "National Supercomputing Competition, Second Award", organization: "KISTI", brand: "kisti" }
 reviewer:
   - "IEEE Transactions on Communications (TCOM), 2026"
   - "IEEE Journal on Selected Areas in Communications (JSAC), 2025"
