@@ -30,8 +30,6 @@ navbar-links:
   Experiences: "experiences"
   Publications: "publications"
   Curriculum Vitae: "https://drive.google.com/file/d/1-H6PntAxvBCCP8vXNWFxk9JjG7QjDsyK/view?usp=sharing"
-  Google Scholar: "https://scholar.google.com/citations?user=06N525AAAAAJ"
-  GitHub: "https://github.com/hslyu"
 
 ################
 # --- Logo --- #
@@ -57,8 +55,6 @@ navbar-links:
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
   email: "hs.lyu@snu.ac.kr"
-  github: hslyu
-  google-scholar: 06N525AAAAAJ
 #  medium: yourname
 #  reddit: yourname or r/yoursubreddit
 #  linkedin: daattali
@@ -76,7 +72,6 @@ social-network-links:
 #  mastodon: instance.url/@username
 #  bluesky: yourname
 #  ORCID: your ORCID ID
-#  google-scholar: your google scholar
 #  discord: "invite_code" or "users/userid" or "invite/invite_code"
 #  kaggle: yourname
 #  hackerrank: yourname
