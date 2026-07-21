@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Hyeonsu Lyu
+share-title: Hyeonsu Lyu | Wireless × AI × Robotics
 subtitle: Wireless × AI × Robotics
 ---
 
