@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Experiences
-subtitle: Education, awards, and academic service
+hide-header: true
 ---
 
 ## Professional experience

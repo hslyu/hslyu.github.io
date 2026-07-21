@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Publications
-subtitle: Selected research publications and preprints
+hide-header: true
 ---
 
 ## Preprints
