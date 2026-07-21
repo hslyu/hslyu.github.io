@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-nav .nav-link {
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
-  font-weight: 800 !important;
+  font-weight: 400 !important;
 }
 
 .navbar-custom .navbar-brand {
