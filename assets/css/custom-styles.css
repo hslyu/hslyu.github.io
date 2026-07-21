@@ -144,6 +144,11 @@ footer .theme-by {
 .numbered-lists ol > li::before { color: #286BC5; content: counter(item, decimal-leading-zero); font: 500 .75rem/1 'IBM Plex Mono', monospace; transform: translateY(-.06em); }
 .compact-publications { margin: 0; }
 .compact-publications span { color: #526985; font-size: .94rem; }
+.compact-publications > li > strong,
+.publication-authors,
+.publication-citation { display: block; }
+.publication-authors { margin-top: .15rem; }
+.publication-citation { margin-top: .1rem; }
 .publication-actions { margin-top: .45rem !important; }
 .publication-author { color: #286BC5; font-weight: 700; }
 .publication-author:hover, .publication-author:focus { color: #1F55A0; }
