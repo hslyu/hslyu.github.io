@@ -11,19 +11,20 @@ hide-header: true
 <article><time>2025</time><div class="publication-main"><img src="/assets/img/thumb.png" alt="Publication illustration"><div><h3>On the Secure Connection Probability of Multi-Hop Relaying in Multi-Layer Networks</h3><p class="venue"><em>IEEE ICT Convergence</em> · 2025</p><p>Hyeonsu Lyu, Yumin Kim, and Hyun Jong Yang.</p><a href="https://arxiv.org/abs/2602.07958">Paper</a></div></div></article>
 </div>
 
+## Preprints
+
+<ul class="compact-publications">
+{% for item in site.data.publications.preprints %}<li><strong>{{ item.title }}</strong><br><span>{{ item.authors }} · <em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if item.link %} · <a href="{{ item.link }}">Paper</a>{% endif %}</span></li>{% endfor %}
+</ul>
+
 ## Other international journals
 
 <ul class="compact-publications">
-<li><strong>DCFNet</strong> — <em>IEEE TWC</em>, 2026. <a href="https://arxiv.org/abs/2506.16191">Paper</a></li>
-<li><strong>Unveiling Hidden Visual Information</strong> — <em>IEEE TNNLS</em>, 2025. <a href="https://ieeexplore.ieee.org/document/10979288">Paper</a></li>
-<li><strong>Privacy-Preserving UAV System</strong> — <em>IEEE Access</em>, 2021.</li>
+{% for item in site.data.publications.journals %}<li><strong>{{ item.title }}</strong><br><span>{{ item.authors }} · <em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if item.link %} · <a href="{{ item.link }}">Paper</a>{% endif %}</span></li>{% endfor %}
 </ul>
 
 ## Domestic conferences, other venues &amp; patents
 
 <ul class="compact-publications">
-<li>Multiple Active STAR-RIS-Assisted Secure ISAC — IEEE IoTJ submission, 2025.</li>
-<li>Fed-ZOE — IEEE JSAC submission, 2025.</li>
-<li>Deep Learning-Based Autonomous Scanning Electron Microscope — IROS, 2020.</li>
-<li>Non-iterative trajectory and radio-resource optimization — US Patent, 2025.</li>
+{% for item in site.data.publications.conferences %}<li><strong>{{ item.title }}</strong><br><span>{{ item.authors }} · <em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}{% if item.link %} · <a href="{{ item.link }}">Paper</a>{% endif %}</span></li>{% endfor %}
 </ul>

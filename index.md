@@ -10,7 +10,7 @@ I am **Hyeonsu Lyu, Ph.D.**, a researcher at [AiSLab](https://sites.google.com/v
 
 My goal is to improve society's welfare and safety by developing connected mobile robotic systems. My research bridges robotics, wireless communications, and machine intelligence to advance that vision.
 
-[Email](mailto:hs.lyu@snu.ac.kr) · [Curriculum Vitae](https://drive.google.com/file/d/1-H6PntAxvBCCP8vXNWFxk9JjG7QjDsyK/view?usp=sharing)
+[Email](mailto:hs.lyu@snu.ac.kr) · [Google Scholar](https://scholar.google.com/citations?user=06N525AAAAAJ) · [GitHub](https://github.com/hslyu) · [Curriculum Vitae](https://drive.google.com/file/d/1-H6PntAxvBCCP8vXNWFxk9JjG7QjDsyK/view?usp=sharing)
 
 ## Research interests
 

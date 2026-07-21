@@ -7,6 +7,16 @@ body {
   font-size: 1rem;
 }
 
+.no-page-header > h2 {
+  margin: 2.75rem 0 1.4rem;
+  font-size: 1.35rem;
+  letter-spacing: 0;
+}
+
+.no-page-header > h2:first-child {
+  margin-top: 0;
+}
+
 /* Pages without a title header still need room below the fixed navbar. */
 .no-page-header {
   padding-top: 7rem;
@@ -114,7 +124,8 @@ footer .theme-by {
 .publication-main img { width: 110px; height: 82px; object-fit: cover; border-radius: 4px; background: #DCE9F7; }
 .publication-main .venue { color: #286BC5; margin-bottom: .4rem; }
 .compact-publications { padding-left: 1.25rem; }
-.compact-publications li { margin: .55rem 0; }
+.compact-publications li { margin: .8rem 0; }
+.compact-publications span { color: #526985; font-size: .94rem; }
 @media (max-width: 600px) {
   .career-timeline article, .publication-timeline article { grid-template-columns: 1fr; gap: .35rem; }
   .publication-main { grid-template-columns: 72px 1fr; gap: .8rem; }
