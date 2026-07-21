@@ -1,0 +1,29 @@
+---
+layout: page
+full-width: true
+hide-header: true
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap');
+  .blue-space { max-width: 980px; margin: 3rem auto 4rem; padding: clamp(1.5rem, 5vw, 4rem); border: 1px solid #d8e3f2; border-radius: 1.25rem; background: #f7faff; color: #24344d; font-family: Inter, system-ui, sans-serif; }
+  .blue-space .hero { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(210px, .6fr); gap: 3rem; align-items: end; }
+  .blue-space .label { margin: 0 0 .75rem; color: #286bc5; font-family: 'Space Grotesk', sans-serif; font-size: .7rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  .blue-space h1 { margin: 0; color: #102b56; font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.4rem, 6vw, 3.75rem); font-weight: 500; letter-spacing: -.055em; line-height: 1; }
+  .blue-space .intro { margin: 1.2rem 0 0; color: #526985; font-size: 1.05rem; line-height: 1.6; }
+  .blue-space .tags { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .45rem; }
+  .blue-space .tags span { padding: .4rem .6rem; border: 1px solid #b6cfee; border-radius: 999px; color: #286bc5; font-size: .75rem; font-weight: 500; }
+  .blue-space .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2.5rem; }
+  .blue-space .card { padding: 1.2rem; border: 1px solid #d8e3f2; border-radius: .7rem; background: #fff; }
+  .blue-space h2 { margin: 0 0 .5rem; color: #102b56; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 500; }
+  .blue-space .card p { margin: 0; color: #526985; font-size: .95rem; line-height: 1.6; }
+  .blue-space .links { display: flex; gap: 1rem; margin-top: 2rem; font-size: .85rem; }
+  .blue-space .links a { color: #286bc5; font-weight: 500; }
+  @media (max-width: 700px) { .blue-space { margin: 2rem 1rem; } .blue-space .hero, .blue-space .cards { grid-template-columns: 1fr; } .blue-space .tags { justify-content: flex-start; } }
+</style>
+
+<div class="blue-space">
+  <div class="hero"><div><p class="label">AiSLab · Seoul National University</p><h1>Hyeonsu Lyu</h1><p class="intro">Building safer, more capable societies through wireless communications, AI, and robotics.</p></div><div class="tags"><span>Wireless</span><span>AI</span><span>Robotics</span></div></div>
+  <div class="cards"><div class="card"><h2>Research mission</h2><p>Connected mobile robotic systems for welfare, safety, and high-risk environments.</p></div><div class="card"><h2>Current focus</h2><p>Communication systems for AI and robotics and intelligent agents for next-generation wireless.</p></div></div>
+  <div class="links"><a href="mailto:hs.lyu@snu.ac.kr">Email</a><a href="https://sites.google.com/view/aislsnu/home">AiSLab</a><a href="https://drive.google.com/file/d/1-H6PntAxvBCCP8vXNWFxk9JjG7QjDsyK/view?usp=sharing">CV</a></div>
+</div>
