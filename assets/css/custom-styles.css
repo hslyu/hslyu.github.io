@@ -158,8 +158,8 @@ footer .theme-by {
 .patent-authors { margin-top: .15rem; color: #526985; }
 .patent-info { margin-top: .1rem; color: #526985; font-size: .94rem; }
 .publication-actions { margin-top: .45rem !important; }
-.publication-author { color: #286BC5; font-weight: 700; }
-.publication-author:hover, .publication-author:focus { color: #1F55A0; }
+.publication-author { color: #4B5563; font-weight: 700; }
+.publication-author:hover, .publication-author:focus { color: #374151; }
 .bibtex-copy { display: inline-block; padding: .15rem .45rem; border: 1px solid #B6CFEE; border-radius: 3px; background: #F7FAFF; color: #286BC5; font: 500 .75rem 'IBM Plex Mono', monospace; line-height: 1.4; cursor: pointer; }
 .bibtex-copy:hover, .bibtex-copy:focus { border-color: #286BC5; background: #EAF2FC; color: #1F55A0; }
 
