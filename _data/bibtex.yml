@@ -87,27 +87,32 @@ replace_perturb:
       url={https://arxiv.org/abs/2411.00898}
     }
 joint_optimization:
-  verified: false
+  verified: true
+  source: "https://arxiv.org/abs/2505.08573"
   value: |
-    @article{jang2026jointoptimization,
-      author = {Jonggyu Jang and Hyeonsu Lyu and David J. Love and Hyun Jong Yang},
-      title = {Joint Optimization of User Association and Resource Allocation for Load Balancing With Heterogeneous Fairness},
-      journal = {IEEE Transactions on Communications},
-      year = {2026},
-      note = {Accepted; temporary record}
+    @misc{jang2025jointoptimizationuserassociation,
+      title={Joint Optimization of User Association and Resource Allocation for Load Balancing With Multi-Level Fairness},
+      author={Jonggyu Jang and Hyeonsu Lyu and David J. Love and Hyun Jong Yang},
+      year={2025},
+      eprint={2505.08573},
+      archivePrefix={arXiv},
+      primaryClass={eess.SP},
+      url={https://arxiv.org/abs/2505.08573}
     }
 dcfnet:
   verified: true
-  source: "https://arxiv.org/abs/2506.16191"
+  source: "https://doi.org/10.1109/TWC.2026.3687605"
   value: |
-    @misc{noh2025dcfnetdopplercorrectionfilter,
-      title={DCFNet: Doppler Correction Filter Network for Integrated Sensing and Communication in Multi-User MIMO-OFDM Systems},
-      author={Hyeonho Noh and Hyeonsu Lyu and Moe Z. Win and Hyun Jong Yang},
-      year={2025},
-      eprint={2506.16191},
-      archivePrefix={arXiv},
-      primaryClass={eess.SP},
-      url={https://arxiv.org/abs/2506.16191}
+    @article{Noh_2026,
+      title={DCFNet: Doppler Correction Filter Network for Integrated Sensing and Communication in Multi-User MIMO--OFDM Systems},
+      volume={25},
+      ISSN={1558-2248},
+      DOI={10.1109/twc.2026.3687605},
+      journal={IEEE Transactions on Wireless Communications},
+      publisher={Institute of Electrical and Electronics Engineers (IEEE)},
+      author={Noh, Hyeonho and Lyu, Hyeonsu and Win, Moe Z. and Yang, Hyun Jong},
+      year={2026},
+      pages={16778--16794}
     }
 unveiling_hidden:
   verified: true
@@ -159,14 +164,18 @@ privacy_uav:
       pages={132652--132662}
     }
 secure_connection:
-  verified: false
+  verified: true
+  source: "https://doi.org/10.1109/ICTC66702.2025.11388285"
   value: |
-    @inproceedings{lyu2025secureconnection,
-      author = {Hyeonsu Lyu and Yumin Kim and Hyun Jong Yang},
-      title = {On the Secure Connection Probability of Multi-Hop Relaying in Multi-Layer Networks},
-      booktitle = {International Conference on ICT Convergence},
-      year = {2025},
-      note = {Temporary record}
+    @inproceedings{Lyu_2025,
+      title={On the Secure Connection Probability of Multi-Hop Relaying in Multi-Layer Networks},
+      DOI={10.1109/ictc66702.2025.11388285},
+      booktitle={2025 16th International Conference on Information and Communication Technology Convergence (ICTC)},
+      publisher={IEEE},
+      author={Lyu, Hyeonsu and Kim, Yumin and Yang, Hyun Jong},
+      year={2025},
+      month=Oct,
+      pages={1942--1946}
     }
 accuracy_delay:
   verified: true
@@ -209,44 +218,63 @@ autonomous_sem:
       pages={2886--2893}
     }
 maneuver_balloon:
-  verified: false
+  verified: true
+  source: "https://doi.org/10.1109/ICTC58733.2023.10393468"
   value: |
-    @inproceedings{lyu2022maneuver,
-      author = {Hyeonsu Lyu and Hyun Jong Yang},
-      title = {Maneuver by Airstreams for Stratospheric Balloon Base Stations},
-      booktitle = {International Conference on ICT Convergence},
-      year = {2022},
-      note = {Temporary record}
+    @inproceedings{Lyu_2023,
+      title={Maneuver by Airstreams for Stratospheric Balloon Base Stations},
+      DOI={10.1109/ictc58733.2023.10393468},
+      booktitle={2023 14th International Conference on Information and Communication Technology Convergence (ICTC)},
+      publisher={IEEE},
+      author={Lyu, Hyeonsu and Yang, Hyun Jong},
+      year={2023},
+      month=Oct,
+      pages={111--113}
     }
 multiagent_coverage:
-  verified: false
+  verified: true
+  source: "https://doi.org/10.1109/ICTC55196.2022.9953023"
   value: |
-    @inproceedings{lyu2022multiagent,
-      author = {Hyeonsu Lyu and SeongJin Hwang and Hyun Jong Yang},
-      title = {Multi-Agent Reinforcement Learning-Based Coverage Maximization for Fixed-Wing Base Stations},
-      booktitle = {International Conference on ICT Convergence},
-      year = {2022},
-      note = {Temporary record}
+    @inproceedings{Lyu_2022,
+      title={Multi-Agent Reinforcement Learning-Based Coverage Maximization for Fixed-Wing Base Stations},
+      DOI={10.1109/ictc55196.2022.9953023},
+      booktitle={2022 13th International Conference on Information and Communication Technology Convergence (ICTC)},
+      publisher={IEEE},
+      author={Lyu, Hyeonsu and Hwang, SeongJin and Yang, Hyun Jong},
+      year={2022},
+      month=Oct,
+      pages={1529--1532}
     }
 robust_autofocus:
-  verified: false
+  verified: true
+  source: "https://doi.org/10.1017/S1431927620015573"
   value: |
-    @article{oh2020robust,
-      author = {Moohyun Oh and Jonggyu Jang and Hyun Jong Yang and Hyeonsu Lyu and Junhee Lee},
-      title = {Robust Deep-Learning Based Autofocus Score Prediction for Scanning Electron Microscope},
-      journal = {Microscopy and Microanalysis},
-      year = {2020},
-      note = {Temporary record}
+    @article{Yang_2020,
+      title={Robust Deep-learning Based Autofocus Score Prediction for Scanning Electron Microscope},
+      volume={26},
+      ISSN={1435-8115},
+      DOI={10.1017/s1431927620015573},
+      number={S2},
+      journal={Microscopy and Microanalysis},
+      publisher={Oxford University Press (OUP)},
+      author={Yang, Hyun Jong and Oh, Moohyun and Jang, Jonggyu and Lyu, Hyeonsu and Lee, Junhee},
+      year={2020},
+      month=July,
+      pages={702--705}
     }
 detect_avoid:
-  verified: false
+  verified: true
+  source: "https://doi.org/10.1109/ICTC.2018.8539587"
   value: |
-    @inproceedings{ki2018detect,
-      author = {Myungseok Ki and Jihun Cha and Hyeonsu Lyu},
-      title = {Detect and Avoid System Based on Multi-Sensor Fusion for UAV},
-      booktitle = {International Conference on ICT Convergence},
-      year = {2018},
-      note = {Temporary record}
+    @inproceedings{ki_2018,
+      title={Detect and avoid system based on multi sensor fusion for UAV},
+      DOI={10.1109/ictc.2018.8539587},
+      booktitle={2018 International Conference on Information and Communication Technology Convergence (ICTC)},
+      publisher={IEEE},
+      author={ki, Myungseok and cha, Jihun and Lyu, Hyeonsu},
+      year={2018},
+      month=Oct,
+      pages={1107--1109}
     }
 domestic_ofdm_isac:
   verified: false
