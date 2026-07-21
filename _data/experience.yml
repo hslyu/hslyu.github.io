@@ -29,7 +29,7 @@ awards:
   - { year: "2025", title: "Pre-Ph.D. Research Support Program", organization: "KICS", brand: "kics" }
   - { year: "2024", title: "Grand Prize in Patent Competition", organization: "POSTECH and KIPA", brand: "postech" }
   - { year: "2023", title: "KICS Best Paper Award", organization: "KICS", brand: "kics" }
-  - { year: "2022", title: "Korea Aerospace Industries Paper Award", organization: "KAI · First wireless communications paper in the award's history", brand: "kai" }
+  - { year: "2022", title: "Korea Aerospace Industries Paper Award", organization: "KAI", brand: "kai" }
   - { year: "2022", title: "Bae & Jung Scholarship", organization: "Bae & Jung Foundation", brand: "bae-jung" }
   - { year: "2015", title: "National Supercomputing Competition, Second Award", organization: "KISTI", brand: "kisti" }
 reviewer:
