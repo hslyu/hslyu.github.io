@@ -167,7 +167,7 @@ footer .theme-by {
 .publication-list-content { min-width: 0; }
 .publication-authors { margin-top: .15rem; }
 .publication-citation { margin-top: .1rem; }
-.patent-list > li > strong,
+.patent-list .publication-list-content > strong,
 .patent-authors,
 .patent-info { display: block; }
 .patent-authors { margin-top: .15rem; color: #526985; }
