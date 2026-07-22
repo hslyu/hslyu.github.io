@@ -18,7 +18,7 @@ hide-header: true
 ## Honors and awards
 
 <div class="award-cards">
-{% for item in site.data.experience.awards %}<article{% if item.card_class %} class="{{ item.card_class }}"{% endif %}><span>{{ item.year }}</span><h3>{{ item.title }}</h3><p class="institution institution--{{ item.brand }}">{{ item.organization }}</p></article>{% endfor %}
+{% for item in site.data.experience.awards %}<article{% if item.card_class %} class="{{ item.card_class }}"{% endif %}><span>{{ item.year }}</span><h3>{{ item.title }}</h3><p class="institution institution--{{ item.brand }}">{% if item.secondary_organization %}{{ item.organization }} <span class="institution-separator">{{ item.organization_separator }}</span> <span class="institution institution--{{ item.secondary_brand }}">{{ item.secondary_organization }}</span>{% else %}{{ item.organization }}{% endif %}</p></article>{% endfor %}
 </div>
 
 ## Academic service

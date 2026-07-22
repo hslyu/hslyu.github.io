@@ -135,6 +135,8 @@ footer .theme-by {
 .institution--kai { color: #06038D; }
 .institution--bae-jung { color: #6B4F3B; }
 .institution--kisti { color: #0068B7; }
+.institution--kipa { color: #003DA5; }
+.institution-separator { color: #111827; font-weight: 400; }
 .award-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .85rem; }
 .award-cards article { padding: 1rem; border: 1px solid #B6CFEE; border-radius: 6px; background: #F7FAFF; }
 .award-cards span { display: block; margin-bottom: .45rem; }
