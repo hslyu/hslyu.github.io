@@ -31,7 +31,7 @@ awards:
   - { year: "2023", title: "KICS Best Paper Award", organization: "KICS", brand: "kics" }
   - { year: "2022", title: "Korea Aerospace Industries Paper Award", organization: "KAI", brand: "kai" }
   - { year: "2022", title: "Bae & Jung Scholarship", organization: "Bae & Jung Foundation", brand: "bae-jung" }
-  - { year: "2015", title: "National Supercomputing Competition, Second Award", organization: "KISTI", brand: "kisti" }
+  - { year: "2015", title: "National Supercomputing Competition, Second Award", organization: "KISTI", brand: "kisti", card_class: "award-card--supercomputing" }
 reviewer:
   - "IEEE Transactions on Communications (TCOM), 2026"
   - "IEEE Journal on Selected Areas in Communications (JSAC), 2025"
