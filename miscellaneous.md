@@ -29,25 +29,22 @@ numbered-lists: true
 <li><div class="publication-list-content">{% include formatted-authors.html authors="Hyeonsu Lyu" %}, “통신과 드론 제어가 통합된 시뮬레이터,” C-2019-034510.</div></li>
 </ol>
 
-## RA & TA
-
-- UNIST CSE201, Digital Logic — Spring 2018, Spring 2019
-- UNIST ITP117, AI Programming II — Spring 2019
-- UNIST EE534, Digital Communications — Fall 2019
-- POSTECH EECE695, Introduction to Artificial Intelligence — Fall 2021, Fall 2022
-- POSTECH EECE490, Reinforcement Learning — Spring 2022
-- POSTECH EECE695, Fundamentals of Neural Networks and Reinforcement Learning — Spring 2023, Spring 2024
-- Yonsei CSE5023, Fundamentals of Neural Networks and Reinforcement Learning — Spring 2023, Spring 2024
-
 ## Projects
 
+<p class="subsection-label"><strong>Ongoing</strong></p>
+
 <ol class="numbered-content-list">
-<li><div class="publication-list-content"><strong>Ongoing:</strong> Research on Ultra-Reliable Aerial Network Framework Supporting High-Density Urban Air Mobility, 2021–2028. Supported by the MSIT, Korea, under the ITRC support program supervised by the IITP (IITP-2021-0-02048).</div></li>
+<li><div class="publication-list-content">Research on Ultra-Reliable Aerial Network Framework Supporting High-Density Urban Air Mobility, 2021–2028. Supported by the MSIT, Korea, under the ITRC support program supervised by the IITP (IITP-2021-0-02048).</div></li>
+</ol>
+
+<p class="subsection-label"><strong>Selected projects</strong></p>
+
+<ol class="numbered-content-list">
 <li><div class="publication-list-content">Development of Joint Electrical/Mechanical Drone Beamforming Based on Target Detection and Precise Attitude Control, 2018–2022. Supported by IITP grant funded by the Korean government (IITP-2018-0-00958). <a href="https://www.youtube.com/playlist?list=PL5q1DIhtyZHvQWb0DogrOd4uKk8lpbK0">Demo</a> · <a href="https://www.m-i.kr/news/articleView.html?idxno=967355">KAI paper award</a></div></li>
 <li><div class="publication-list-content">Development of Artificial Intelligence Scanning Electron Microscope, 2019–2020. Supported by the MOTIE, Korea (20005526). <a href="https://www.youtube.com/watch?v=MvSaoPQvDdo">Demo</a> · <a href="https://www.dongascience.com/news.php?idx=40766">News article</a> · <a href="https://www.cambridge.org/core/journals/microscopy-and-microanalysis/article/robust-deeplearning-based-autofocus-score-prediction-for-scanning-electron-microscope/06DACEF3C48B9CC8C1288475A35C67FA">Paper</a> · <a href="https://ieeexplore.ieee.org/document/9341041">Paper</a></div></li>
 </ol>
 
-## Miscellaneous projects
+### Miscellaneous projects
 
 <ol class="numbered-content-list">
 <li><div class="publication-list-content">Development of the Next-Generation Spectrum Monitoring Platform Based on Big-Data & AI Technology, 2023–2027. Supported by IITP grant funded by MSIP, Korea (No. 00229541).</div></li>
