@@ -23,7 +23,7 @@ education:
     brand: "unist"
 awards:
   - { year: "2026", title: "The 32nd Humantech Paper Awards", organization: "Samsung", brand: "samsung" }
-  - { year: "2025", title: "Best Paper Award", organization: "IEEE Int. Conf. on ICT Convergence", brand: "ieee" }
+  - { year: "2025", title: "Best Paper Award", organization: "IEEE Int. Conf. ICT Converg.", brand: "ieee" }
   - { year: "2025", title: "International Collaboration Support Program", organization: "IITP–6G·Cloud Research and Education Open Hub", brand: "iitp", card_class: "award-card--compact-title" }
   - { year: "2025", title: "Overseas Dispatch Support Program", organization: "POSTECH", brand: "postech" }
   - { year: "2025", title: "Pre-Ph.D. Research Support Program", organization: "KICS", brand: "kics" }
