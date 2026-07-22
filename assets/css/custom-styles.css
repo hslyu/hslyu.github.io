@@ -139,8 +139,8 @@ footer .theme-by {
 .award-cards article { padding: 1rem; border: 1px solid #B6CFEE; border-radius: 6px; background: #F7FAFF; }
 .award-cards span { display: block; margin-bottom: .45rem; }
 .award-cards h3 { min-height: 3.9em; font-size: calc(1.1rem - 1pt); line-height: 1.3; }
-.award-card--supercomputing { padding-inline: .65rem !important; }
-.award-card--supercomputing h3 { min-height: 4rem; font-size: .86rem; }
+.award-card--compact-title { padding-inline: .65rem !important; }
+.award-card--compact-title h3 { min-height: 4rem; font-size: .86rem; }
 .award-cards p { margin: 0; font-size: .9rem; }
 .publication-main { display: grid; grid-template-columns: 110px 1fr; gap: 1.25rem; }
 .publication-main img { width: 110px; height: 82px; object-fit: cover; border-radius: 4px; background: #DCE9F7; }
