@@ -6,7 +6,7 @@ numbered-lists: true
 
 ## Domestic papers
 
-<ol class="compact-publications">
+<ol class="compact-publications numbered-content-list">
 {% for item in site.data.miscellaneous.domestic_papers %}<li><strong>{{ item.title }}</strong><br><span>{% include formatted-authors.html authors=item.authors %} · <em>{{ item.venue }}</em>, {{ item.year }}{% if item.note %} · {{ item.note }}{% endif %}</span></li>{% endfor %}
 </ol>
 
@@ -14,13 +14,13 @@ numbered-lists: true
 
 ### Patents
 
-<ol class="patent-list compact-publications">
+<ol class="patent-list compact-publications numbered-content-list">
 {% for item in site.data.miscellaneous.patents %}<li><div class="publication-list-content"><strong>{{ item.title }}</strong><span class="patent-authors">{% include formatted-authors.html authors=item.authors %}</span><span class="patent-info">{{ item.info }}</span></div></li>{% endfor %}
 </ol>
 
 ### Software
 
-<ol class="compact-publications">
+<ol class="numbered-content-list">
 <li><div class="publication-list-content">{% include formatted-authors.html authors="Hyeonsu Lyu" %}, “고정익 기지국 커버리지 최대화를 위한 다중 에이전트 강화학습 프로그램,” C-2022-052119.</div></li>
 <li><div class="publication-list-content">{% include formatted-authors.html authors="Hyeonsu Lyu" %}, “무인항공기 기지국 트리 탐색 기반 경로 계획 및 자원 관리 기술을 위한 프로그램 코드,” C-2022-036997.</div></li>
 <li><div class="publication-list-content">{% include formatted-authors.html authors="Hyeonsu Lyu" %}, “비례 공정성을 고려 드론 기지국의 최적 경로 설정 기법 시각화 프로그램,” C-2021-046121.</div></li>
@@ -41,7 +41,7 @@ numbered-lists: true
 
 ## Projects
 
-<ol class="compact-publications">
+<ol class="numbered-content-list">
 <li><div class="publication-list-content"><strong>Ongoing:</strong> Research on Ultra-Reliable Aerial Network Framework Supporting High-Density Urban Air Mobility, 2021–2028. Supported by the MSIT, Korea, under the ITRC support program supervised by the IITP (IITP-2021-0-02048).</div></li>
 <li><div class="publication-list-content">Development of Joint Electrical/Mechanical Drone Beamforming Based on Target Detection and Precise Attitude Control, 2018–2022. Supported by IITP grant funded by the Korean government (IITP-2018-0-00958). <a href="https://www.youtube.com/playlist?list=PL5q1DIhtyZHvQWb0DogrOd4uKk8lpbK0">Demo</a> · <a href="https://www.m-i.kr/news/articleView.html?idxno=967355">KAI paper award</a></div></li>
 <li><div class="publication-list-content">Development of Artificial Intelligence Scanning Electron Microscope, 2019–2020. Supported by the MOTIE, Korea (20005526). <a href="https://www.youtube.com/watch?v=MvSaoPQvDdo">Demo</a> · <a href="https://www.dongascience.com/news.php?idx=40766">News article</a> · <a href="https://www.cambridge.org/core/journals/microscopy-and-microanalysis/article/robust-deeplearning-based-autofocus-score-prediction-for-scanning-electron-microscope/06DACEF3C48B9CC8C1288475A35C67FA">Paper</a> · <a href="https://ieeexplore.ieee.org/document/9341041">Paper</a></div></li>
@@ -49,7 +49,7 @@ numbered-lists: true
 
 ## Miscellaneous projects
 
-<ol class="compact-publications">
+<ol class="numbered-content-list">
 <li><div class="publication-list-content">Development of the Next-Generation Spectrum Monitoring Platform Based on Big-Data & AI Technology, 2023–2027. Supported by IITP grant funded by MSIP, Korea (No. 00229541).</div></li>
 <li><div class="publication-list-content">Human Action Recognition System Development, 2022. Supported by the Electronics and Telecommunications Research Institute (ETRI).</div></li>
 <li><div class="publication-list-content">Development of ICT Core Technologies for Safe Unmanned Vehicles, 2017. Supported by IITP grant funded by MSIT, Korea (No. 2017-0-00067).</div></li>
