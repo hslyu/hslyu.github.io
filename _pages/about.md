@@ -6,6 +6,7 @@ subtitle: Postdoctoral Researcher at <a href="https://sites.google.com/view/aisl
 
 profile:
   align: right
+  image: me_profile.png
   more_info: >
     <p>AiSLab, Institute of New Media and Communications</p>
     <p>Seoul National University</p>
