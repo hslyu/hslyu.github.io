@@ -16,6 +16,8 @@ giscus:
   repo_id: R_kgDOExample
   category: Comments
   category_id: DIC_kwDOExample
+disqus_shortname: al-folio
+exclude: []
 YAML
 
 bundle exec jekyll build --config "_config.yml,${tmp_override}" -d "${tmp_site}" >/dev/null
