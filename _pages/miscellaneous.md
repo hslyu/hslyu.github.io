@@ -2,24 +2,91 @@
 layout: page
 permalink: /miscellaneous/
 title: miscellaneous
-description: Selected service, software, and activities.
+description: Academic service, intellectual properties, teaching, and projects.
 nav: true
 nav_order: 3
 ---
 
+{% assign miscellaneous = site.data.portfolio.miscellaneous %}
+
+## Domestic papers
+
+{% for paper in miscellaneous.domestic_papers %}
+
+{{ forloop.index }}. {{ paper.authors }}, “{{ paper.title }},” _{{ paper.venue }}_, {{ paper.date }}.{% if paper.note %} {{ paper.note }}.{% endif %}
+
+{% endfor %}
+
+## Intellectual properties
+
+### Patents
+
+{% for patent in miscellaneous.patents %}
+
+{{ forloop.index }}. {{ patent.inventors }}, “{{ patent.title }},” {{ patent.jurisdiction }} {{ patent.application }} ({{ patent.status | downcase }}){% if patent.registration %}; registered as {{ patent.jurisdiction }} {{ patent.registration }}{% endif %}.
+
+{% endfor %}
+
+### Software registrations
+
+{% for software in miscellaneous.software %}
+
+{{ forloop.index }}. {{ software.author }}, “{{ software.title }},” {{ software.registration }}.
+
+{% endfor %}
+
+## RA & TA
+
+{% for course in miscellaneous.teaching_assistance %}
+
+- **{{ course.institution }}, {{ course.course_id }}** — {{ course.course }} · {{ course.terms }}
+
+{% endfor %}
+
+## Projects
+
+{% for project in miscellaneous.projects %}
+
+### {{ project.title }}
+
+{% if project.period %}{{ project.period }}<br>
+{% endif %}{{ project.funding }}
+
+{% if project.links %}
+{% for link in project.links %}
+[{{ link.label }}]({{ link.url }}){% unless forloop.last %} · {% endunless %}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+
+## Miscellaneous projects
+
+{% for project in miscellaneous.miscellaneous_projects %}
+
+- **{{ project.title }}**{% if project.period %} · {{ project.period }}{% endif %}<br>
+  {{ project.funding }}
+
+{% endfor %}
+
 ## Academic service
 
-I have served as a reviewer for IEEE Transactions on Communications, IEEE Journal on Selected Areas in Communications, IEEE Transactions on Wireless Communications, IEEE/ACM Transactions on Networking, IEEE Internet of Things Journal, IEEE Wireless Communications Letters, IEEE CCNC, Journal of Communications and Networks, and the KICS Journal.
+{% for service in site.data.portfolio.experience.reviewer %}
 
-## Software registrations
+- {{ service }}
 
-- Multi-agent reinforcement learning program (C-2022-052119)
-- Program code for tree-search-based path planning and resource management for unmanned aerial vehicle base stations (C-2022-036997)
-- Visualization program for drone-base-station trajectory optimization with proportional fairness (C-2021-046121)
-- Emergency-landing learning simulator for motor-failure situations (C-2020-043847)
-- Radar-based active-target detection drone communication base-station simulator (C-2018-037076)
-- Simulator integrating communications and drone control (C-2019-034510)
+{% endfor %}
 
 ## Community contribution
 
-I contributed to the Korean localization of QGroundControl and the PX4 User Guide from 2018 to 2021. I also gave the talk _The Role of Aerial Networks in 6G Wireless_ at the KICS Summer Conference in June 2025.
+{% for contribution in site.data.portfolio.experience.other_service.localization %}
+
+- {{ contribution }}
+
+{% endfor %}
+
+{% for talk in site.data.portfolio.experience.other_service.talks %}
+
+- _{{ talk }}_
+
+{% endfor %}

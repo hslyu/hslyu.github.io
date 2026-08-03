@@ -62,8 +62,11 @@ experience:
     - Journal of Communications and Networks (JCN), 2026
     - KICS Journal, 2022–2023
   other_service:
-    localization: [QGroundControl Korean localization — 2nd highest contributor (2018–2021), PX4 User Guide Korean localization (2018–2021)]
-    talks: [The Role of Aerial Networks in 6G Wireless, KICS Summer Conference, June 2025]
+    localization:
+      - QGroundControl Korean localization — 2nd highest contributor (2018–2021)
+      - PX4 User Guide Korean localization (2018–2021)
+    talks:
+      - The Role of Aerial Networks in 6G Wireless, KICS Summer Conference, June 2025
 
 # `bibtex_key` resolves to the full source record in the legacy `_data/bibtex.yml`.
 # It will be converted to al-folio's `_bibliography/papers.bib` during the theme switch.
@@ -247,27 +250,197 @@ publications:
 
 miscellaneous:
   domestic_papers:
-    - [Deep Learning-Based Interference Cancellation for OFDM ISAC, 2026, domestic_ofdm_isac]
-    - [Towards Building a Ray-Tracing-Compatible Digital Twin Scene for Wireless-Aware Physical AI Systems, 2026, domestic_digital_twin]
-    - [Secure Radio Resource and Routing Optimization in Multi-Hop Space-Air-Ground-Sea Integrated Networks, 2025, domestic_secure_routing]
-    - [On the Non-Iterative Optimization for Aerial Communications, 2024, domestic_noniterative]
-    - [A Survey on High-Altitude Balloon UAVs for Vertical Heterogeneous Networks, 2024, domestic_balloon_survey]
-    - ["Stratolite: Breakthrough for UAV Communications", 2023, domestic_stratolite]
-    - ["Machine Unlearning: A Survey on Principles and Challenges", 2023, domestic_unlearning]
-    - [Generalized Water-Filling Algorithm for Fast User Association and Resource Allocation, 2022, domestic_waterfilling]
-    - [Trajectory-Planning and Resource Allocation of UAV Base Station with User QoS Constraints, 2022, domestic_trajectory]
-    - [Designing Scalable Deep Q-Learning Using Fully Convolutional Network, 2022, domestic_deepq]
-    - [A Study on the Optimal Drone Hardware Component Selection Algorithm Maximizing Flight Time, 2021, domestic_hardware]
-    - [A Study on Establishing Testbeds for Reinforcement Learning of Unmanned Aerial Vehicles, 2021, domestic_testbeds]
-  patents: _data/miscellaneous.yml#patents
+    - title: Deep Learning-Based Interference Cancellation for OFDM ISAC
+      authors: Hyeonho Noh; Hyeonsu Lyu; Hyun Jong Yang
+      venue: 36th Joint Conference on Communications and Information (JCCI)
+      date: April 2026
+    - title: Towards Building a Ray-Tracing-Compatible Digital Twin Scene for Wireless-Aware Physical AI Systems
+      authors: Hyeonsu Lyu; Minwoo Kim; Sehyun Ryu; Hyun Jong Yang
+      venue: 36th Joint Conference on Communications and Information (JCCI)
+      date: April 2026
+    - title: Secure Radio Resource and Routing Optimization in Multi-Hop Space-Air-Ground-Sea Integrated Networks
+      authors: Hyeonsu Lyu; Hyeonho Noh; Hyun Jong Yang
+      venue: KICS Summer Conference
+      date: June 2025
+    - title: On the Non-Iterative Optimization for Aerial Communications
+      authors: Hyeonsu Lyu; Hyun Jong Yang
+      venue: KICS Summer Conference
+      date: June 2024
+    - title: A Survey on High-Altitude Balloon UAVs for Vertical Heterogeneous Networks
+      authors: Hyeonsu Lyu; Hyun Jong Yang
+      venue: Journal of KICS
+      date: 2024
+    - title: "Stratolite: Breakthrough for UAV Communications"
+      authors: Hyeonsu Lyu; Hyun Jong Yang
+      venue: KICS Summer Conference
+      date: June 2023
+      note: Best Paper Award
+    - title: "Machine Unlearning: A Survey on Principles and Challenges"
+      authors: Hyeonsu Lyu; Hyun Jong Yang
+      venue: KICS Winter Conference
+      date: February 2023
+    - title: Generalized Water-Filling Algorithm for Fast User Association and Resource Allocation
+      authors: Hyeonsu Lyu; Jonggyu Jang; Hyun Jong Yang
+      venue: KICS Fall Conference
+      date: November 2022
+    - title: Trajectory-Planning and Resource Allocation of UAV Base Station with User QoS Constraints
+      authors: Hyeonsu Lyu; Jonggyu Jang; Harim Lee; Hyun Jong Yang
+      venue: KICS Summer Conference
+      date: June 2022
+    - title: Designing Scalable Deep Q-Learning Using Fully Convolutional Network
+      authors: Sojeong Park; Hyeonsu Lyu; Hyun Jong Yang
+      venue: KICS Winter Conference
+      date: February 2022
+    - title: A Study on the Optimal Drone Hardware Component Selection Algorithm Maximizing Flight Time
+      authors: Hyeonsu Lyu; Harim Lee; Yeongjun Kim; Hyun Jong Yang
+      venue: KICS Summer Conference
+      date: June 2021
+    - title: A Study on Establishing Testbeds for Reinforcement Learning of Unmanned Aerial Vehicles
+      authors: Hyeonsu Lyu; Hyun Jong Yang
+      venue: KICS Winter Conference
+      date: February 2021
+  patents:
+    - title: Apparatus and Method for Determining Whether There Is a Possibility of Personal Information Leakage by Generating a Restored Image Set Corresponding to the Training Dataset of an Artificial Intelligence Model
+      inventors: Jonggyu Jang; Hyeonsu Lyu; Hyun Jong Yang
+      jurisdiction: KR
+      application: 10-2024-0161882
+      status: Filed
+    - title: Apparatus and Method for Generating a Key Model for Restoring Encrypted Images to Protect Personal Information in a Cloud-Based Image Recognition Service
+      inventors: Jonggyu Jang; Hyeonsu Lyu; Seong Jin Hwang; Hyun Jong Yang
+      jurisdiction: KR
+      application: 10-2024-0163065
+      status: Filed
+    - title: Apparatus and Method for Unlearning an Artificial Intelligence Model
+      inventors: Jungyeon Koh; Hyeonsu Lyu; Jonggyu Jang; Hyun Jong Yang
+      jurisdiction: KR
+      application: 10-2024-0134631
+      status: Filed
+    - title: Electronic Device for Deriving Influence Function
+      inventors: Hyeonsu Lyu; Jonggyu Jang; Sehyeon Ryu; Hyun Jong Yang
+      jurisdiction: KR
+      application: 10-2024-0045157
+      status: Filed
+    - title: Autonomous Flight UAV and Method Controlling Thereof
+      inventors: Myoung Hoon Lee; Jun Moon; Hyun Jong Yang; Hyeonsu Lyu
+      jurisdiction: KR
+      application: 10-2021-0185112
+      registration: 10-2684376
+      status: Filed and registered
+    - title: Tree-Search Based Trajectory Planning and Resource Management Method and Apparatus of Unmanned Aerial Vehicle Base Station
+      inventors: Hyeonsu Lyu; Hyun Jong Yang; Jonggyu Jang
+      jurisdiction: US
+      application: 18/319,369
+      status: Filed
+    - title: Tree-Search Based Trajectory Planning and Resource Management Method and Apparatus of Unmanned Aerial Vehicle Base Station
+      inventors: Hyeonsu Lyu; Hyun Jong Yang; Jonggyu Jang
+      jurisdiction: KR
+      application: 10-2022-0186323
+      registration: 10-2817343
+      status: Filed and registered
+    - title: Multi-Agent Reinforcement Learning-Based Coverage Maximization Method for Fixed-Wing Base Stations
+      inventors: Hyeonsu Lyu; SeongJin Hwang; Hyun Jong Yang
+      jurisdiction: KR
+      application: 10-2022-0175220
+      status: Filed
+    - title: Generalized Fast Water-Filling Algorithm for User Association and Resource Allocation
+      inventors: Hyeonsu Lyu; Hyun Jong Yang; Jonggyu Jang
+      jurisdiction: KR
+      application: 10-2022-0172711
+      status: Filed
+    - title: Method and Apparatus for Downlink Communication of an eNB Using an Asymmetric Hidden AP in LTE-LAA and Wi-Fi Coexistence
+      inventors: Hyun Jong Yang; Harim Lee; Hyeonsu Lyu
+      jurisdiction: KR
+      application: 10-2019-0159620
+      registration: 10-2240690
+      status: Filed and registered
   software:
-    - [다중 에이전트 강화학습 프로그램, C-2022-052119]
-    - [무인항공기 기지국 트리 탐색 기반 경로 계획 및 자원 관리 기술을 위한 프로그램 코드, C-2022-036997]
-    - [비례 공정성을 고려 드론 기지국의 최적 경로 설정 기법 시각화 프로그램, C-2021-046121]
-    - [모터 고장 상황에서의 비상 착륙 학습 시뮬레이터, C-2020-043847]
-    - [레이더를 이용한 능동형 타겟 감지 드론 통신 기지국 시뮬레이터, C-2018-037076]
-    - [통신과 드론 제어가 통합된 시뮬레이터, C-2019-034510]
-  projects: _pages/miscellaneous.md#projects
+    - title: 다중 에이전트 강화학습 프로그램
+      author: Hyeonsu Lyu
+      registration: C-2022-052119
+    - title: 무인항공기 기지국 트리 탐색 기반 경로 계획 및 자원 관리 기술을 위한 프로그램 코드
+      author: Hyeonsu Lyu
+      registration: C-2022-036997
+    - title: 비례 공정성을 고려 드론 기지국의 최적 경로 설정 기법 시각화 프로그램
+      author: Hyeonsu Lyu
+      registration: C-2021-046121
+    - title: 모터 고장 상황에서의 비상 착륙 학습 시뮬레이터
+      author: Hyeonsu Lyu
+      registration: C-2020-043847
+    - title: 레이더를 이용한 능동형 타겟 감지 드론 통신 기지국 시뮬레이터
+      author: Hyeonsu Lyu
+      registration: C-2018-037076
+    - title: 통신과 드론 제어가 통합된 시뮬레이터
+      author: Hyeonsu Lyu
+      registration: C-2019-034510
+  teaching_assistance:
+    - institution: UNIST
+      course_id: CSE201
+      course: Digital Logic
+      terms: 2018 Spring; 2019 Spring
+    - institution: UNIST
+      course_id: ITP117
+      course: AI Programming II
+      terms: 2019 Spring
+    - institution: UNIST
+      course_id: EE534
+      course: Digital Communications
+      terms: 2019 Fall
+    - institution: POSTECH
+      course_id: EECE695
+      course: Introduction to Artificial Intelligence
+      terms: 2021 Fall; 2022 Fall
+    - institution: POSTECH
+      course_id: EECE490
+      course: Reinforcement Learning
+      terms: 2022 Spring
+    - institution: POSTECH
+      course_id: EECE695
+      course: Fundamentals of Neural Networks and Reinforcement Learning
+      terms: 2023 Spring; 2024 Spring
+    - institution: Yonsei
+      course_id: CSE5023
+      course: Fundamentals of Neural Networks and Reinforcement Learning
+      terms: 2023 Spring; 2024 Spring
+  projects:
+    - title: Research on Ultra-Reliable Aerial Network Framework Supporting High-Density Urban Air Mobility
+      period: 2021–2028
+      funding: Supported by the MSIT, Korea, under the ITRC support program supervised by the IITP (IITP-2021-0-02048)
+    - title: Development of Joint Electrical/Mechanical Drone Beamforming Based on Target Detection and Precise Attitude Control
+      period: 2018–2022
+      funding: Supported by IITP grant funded by the Korea government (MSIP) (IITP-2018-0-00958)
+      links:
+        - label: Demo
+          url: "https://www.youtube.com/playlist?list=PL5q1DIhtyZHvQWb0DogrOd4uKk8lpbK0J"
+        - label: KAI paper award
+          url: "https://www.m-i.kr/news/articleView.html?idxno=967355"
+    - title: Development of Artificial Intelligence Scanning Electron Microscope
+      period: 2019–2020
+      funding: Supported by the MOTIE, Korea (20005526)
+      links:
+        - label: Demo
+          url: "https://www.youtube.com/watch?v=MvSaoPQvDdo"
+        - label: News article
+          url: "https://www.dongascience.com/news.php?idx=40766"
+        - label: Paper
+          url: "https://www.cambridge.org/core/journals/microscopy-and-microanalysis/article/robust-deeplearning-based-autofocus-score-prediction-for-scanning-electron-microscope/06DACEF3C48B9C1288475A35C67FA"
+        - label: Paper
+          url: "https://ieeexplore.ieee.org/document/9341041"
+  miscellaneous_projects:
+    - title: Development of the Next-Generation Spectrum Monitoring Platform Based on Big-Data and AI Technology
+      period: 2023–2027
+      funding: Supported by IITP grant funded by MSIP, Korea (No. 00229541)
+    - title: Human Action Recognition System Development
+      period: 2022
+      funding: Supported by the Electronics and Telecommunications Research Institute (ETRI)
+    - title: Development of ICT Core Technologies for Safe Unmanned Vehicles
+      period: 2017
+      funding: Supported by IITP grant funded by MSIT, Korea (No. 2017-0-00067)
+    - title: Post-MIMO System Research for Massive Connectivity and New Wireless Spectrum
+      funding: Supported by IITP grant funded by MSIT, Korea (No. 2021-0-00161)
+    - title: Self-Powered Miniature Nationwide Mobile Position Tracker System Technology
+      funding: Supported by the MSIT, Korea, under the ITRC support program supervised by the IITP (IITP-2017-0-01635)
+    - title: Research on Near-Zero Latency Network for 5G Immersive Service
+      funding: Supported by IITP grant funded by MSIP, Korea (No. 2015-0-00278)
 
 personal:
   generals_io: I am a pro-level generals.io player. I achieved the all-time highest FFA win rate of 51%, ranked first in all FFA scores, and have three accounts in the top five ranks.
