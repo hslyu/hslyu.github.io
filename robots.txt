@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://hslyu.github.io/sitemap.xml
