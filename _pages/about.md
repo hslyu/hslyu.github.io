@@ -8,7 +8,7 @@ profile:
   align: right
   image: me_profile.png
   more_info: >
-    <p style="font-size: clamp(0.58rem, 2vw, 0.82rem); white-space: nowrap;">hs<code>dot</code>lyu<code>at</code>snu<code>dot</code>ac<code>dot</code>kr</p>
+    <p style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem; max-width: 100%; font-size: clamp(0.58rem, 2vw, 0.82rem); line-height: 1.7;"><span>hs</span><code>dot</code><span>lyu</span><code>at</code><span>snu</span><code>dot</code><span>ac</span><code>dot</code><span>kr</span></p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
