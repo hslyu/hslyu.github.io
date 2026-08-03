@@ -1,0 +1,276 @@
+# Theme-independent content inventory for the al-folio migration.
+# This file does not change the currently published Beautiful Jekyll site.
+
+site:
+  name: Hyeonsu Lyu
+  credentials: Ph.D.
+  title: Hyeonsu Lyu | Wireless × AI × Robotics
+  url: https://hslyu.github.io
+  description: Hyeonsu Lyu is a researcher working at the intersection of wireless communications, artificial intelligence, and robotics.
+  keywords: [wireless communications, artificial intelligence, robotics, mobile robots]
+  navigation: [Experiences, Publications, Miscellaneous]
+
+profile:
+  image: /figures/me_profile.png
+  affiliation: AiSLab, Institute of New Media and Communications, Seoul National University
+  affiliation_url: https://sites.google.com/view/aislsnu/home
+  email: hs.lyu@snu.ac.kr
+  links:
+    scholar: https://scholar.google.com/citations?user=06N525AAAAAJ
+    cv: https://drive.google.com/file/d/1-H6PntAxvBCCP8vXNWFxk9JjG7QjDsyK/view?usp=sharing
+    github: https://github.com/hslyu
+
+home:
+  introduction: I am Hyeonsu Lyu, Ph.D., a researcher at AiSLab in the Institute of New Media and Communications at Seoul National University.
+  mission: My goal is to improve society's welfare and safety by developing connected mobile robotic systems. My research bridges robotics, wireless communications, and machine intelligence to advance that vision.
+  research_interests: [Wireless Communications, Artificial Intelligence, Robotics, Intelligent Wireless Networks]
+  research_statement: Lightweight mobile robots will soon achieve remarkable capabilities through AI-powered remote control, even without onboard computing. These systems can operate in extreme environments, perform high-risk tasks, and support disaster response, helping to build a safer and more sustainable society.
+  research_focus: My work focuses on communication systems for AI and robotics, as well as intelligent agents for next-generation wireless networks. Ultimately, I aim to address societal challenges and promote the public good through the convergence of wireless communications, artificial intelligence, and robotics.
+
+news:
+  - { date: "2026.03", text: Joined Seoul National University as a Postdoctoral Researcher. }
+  - { date: "2025.12", text: Received the 32nd Samsung Humantech Paper Award. }
+  - { date: "2025.10", text: Received a Best Paper Award at IEEE ICTC 2025. }
+
+experience:
+  professional:
+    - { period: "Mar. 2026 – Mar. 2027", title: Postdoctoral Researcher, organization: Seoul National University }
+    - { period: "Aug. 2025 – Feb. 2026", title: Visiting Scholar, organization: University of Texas at Austin }
+  education:
+    - { period: "Mar. 2021 – Feb. 2026", degree: Ph.D. in Electrical Engineering, school: POSTECH, details: Advised by Dr. Hyun Jong Yang }
+    - { period: "Mar. 2018 – Feb. 2021", degree: M.S. in Electrical Engineering, school: UNIST }
+    - { period: "Mar. 2014 – Feb. 2018", degree: B.Sc. in Applied Mathematics and Computer Science, school: UNIST }
+  awards:
+    - { year: 2026, title: The 32nd Humantech Paper Awards, organization: Samsung }
+    - { year: 2025, title: Best Paper Award, organization: IEEE Int. Conf. ICT Converg. }
+    - { year: 2025, title: International Collaboration Support Program, organization: IITP–6G·Cloud Research and Education Open Hub }
+    - { year: 2025, title: Overseas Dispatch Support Program, organization: POSTECH }
+    - { year: 2025, title: Pre-Ph.D. Research Support Program, organization: KICS }
+    - { year: 2024, title: Grand Prize in Patent Competition, organization: POSTECH and KIPA }
+    - { year: 2023, title: KICS Best Paper Award, organization: KICS }
+    - { year: 2022, title: Korea Aerospace Industries Paper Award, organization: KAI }
+    - { year: 2022, title: Bae & Jung Scholarship, organization: Bae & Jung Foundation }
+    - { year: 2015, title: "National Supercomputing Competition, Second Award", organization: KISTI }
+  reviewer:
+    - IEEE Transactions on Communications (TCOM), 2026
+    - IEEE Journal on Selected Areas in Communications (JSAC), 2025
+    - IEEE Transactions on Wireless Communications (TWC), 2025
+    - IEEE/ACM Transactions on Networking (ToN), 2025
+    - IEEE Internet of Things Journal (IoTJ), 2024–2026
+    - IEEE Wireless Communications Letters (WCL), 2023–2026
+    - IEEE Consumer Communications & Networking Conference (CCNC), 2023–2024
+    - Journal of Communications and Networks (JCN), 2026
+    - KICS Journal, 2022–2023
+  other_service:
+    localization: [QGroundControl Korean localization — 2nd highest contributor (2018–2021), PX4 User Guide Korean localization (2018–2021)]
+    talks: [The Role of Aerial Networks in 6G Wireless, KICS Summer Conference, June 2025]
+
+# `bibtex_key` resolves to the full source record in the legacy `_data/bibtex.yml`.
+# It will be converted to al-folio's `_bibliography/papers.bib` during the theme switch.
+publications:
+  preprints:
+    - {
+        title: Double-blinded submission,
+        authors: Hyeonsu Lyu; Minwoo Kim; Sehyun Ryu; Hyun Jong Yang,
+        venue: ACM MobiCom,
+        year: 2026,
+        status: Submitted,
+        bibtex_key: double_blind_2026,
+      }
+    - {
+        title: Secure Multi-Hop Relaying in Large-Scale Space-Air-Ground-Sea Integrated Networks,
+        authors: Hyeonsu Lyu; Hyeonho Noh; Hyun Jong Yang; Kaushik Chowdhury,
+        venue: arXiv preprint,
+        year: 2025,
+        status: Submitted to IEEE Internet of Things Journal; Best Paper Award,
+        url: "https://arxiv.org/abs/2505.00573",
+        bibtex_key: secure_multihop,
+        featured: true,
+      }
+    - {
+        title: End-to-End Secure Connection Probability in MultiLayer Networks with Heterogeneous Rician Fading,
+        authors: Hyeonsu Lyu; Yumin Kim; Hyun Jong Yang,
+        venue: arXiv preprint,
+        year: 2026,
+        status: Submitted to IEEE Transactions on Vehicular Technology,
+        url: "https://arxiv.org/abs/2602.07959",
+        bibtex_key: end_to_end,
+      }
+    - {
+        title: Deeper Understanding of Black-box Predictions via Generalized Influence Functions,
+        authors: Hyeonsu Lyu; Jonggyu Jang; Sehyun Ryu; Hyun Jong Yang,
+        venue: arXiv preprint,
+        year: 2024,
+        status: Under review; Competition Award,
+        url: "https://arxiv.org/abs/2312.05586",
+        bibtex_key: deeper_understanding,
+      }
+    - {
+        title: Multiple Active STAR-RIS-Assisted Secure Integrated Sensing and Communication via Cooperative Beamforming,
+        authors: Hyeonho Noh; Hyeonsu Lyu; Hyun Jong Yang,
+        venue: arXiv preprint,
+        year: 2025,
+        status: Submitted to IEEE Internet of Things Journal,
+        url: "https://arxiv.org/abs/2507.18035",
+        bibtex_key: active_starris,
+      }
+    - {
+        title: "Fed-ZOE: Communication-Efficient Over-the-Air Federated Learning via Zeroth-Order Estimation",
+        authors: Jonggyu Jang; Hyeonsu Lyu; David J. Love; Hyun Jong Yang,
+        venue: arXiv preprint,
+        year: 2024,
+        status: Submitted to IEEE Journal on Selected Areas in Communications,
+        url: "https://arxiv.org/abs/2412.16779",
+        bibtex_key: fed_zoe,
+      }
+    - {
+        title: "Replace-then-Perturb: Targeted Adversarial Attacks With Visual Reasoning for Vision-Language Models",
+        authors: Jonggyu Jang; Hyeonsu Lyu; Jungyeon Koh; Hyun Jong Yang,
+        venue: arXiv preprint,
+        year: 2024,
+        status: Submitted to IEEE Transactions on Multimedia,
+        url: "https://arxiv.org/abs/2411.00898",
+        bibtex_key: replace_perturb,
+      }
+    - {
+        title: Faithful and Fast Influence Function via Advanced Sampling,
+        authors: Jungyeon Koh; Hyeonsu Lyu; Jonggyu Jang; Hyun Jong Yang,
+        venue: arXiv preprint,
+        year: 2025,
+        url: "https://arxiv.org/abs/2510.26776",
+        bibtex_key: faithful_fast,
+      }
+  journals:
+    - {
+        title: Joint Optimization of User Association and Resource Allocation for Load Balancing With Multi-Level Fairness,
+        authors: Jonggyu Jang; Hyeonsu Lyu; David J. Love; Hyun Jong Yang,
+        venue: IEEE Transactions on Communications,
+        year: 2026,
+        status: Accepted,
+        url: "https://arxiv.org/abs/2505.08573",
+        bibtex_key: joint_optimization,
+      }
+    - {
+        title: "DCFNet: Doppler Correction Filter Network for Integrated Sensing and Communication in Multi-User MIMO-OFDM Systems",
+        authors: Hyeonho Noh; Hyeonsu Lyu; Moe Z. Win; Hyun Jong Yang,
+        venue: IEEE Transactions on Wireless Communications,
+        year: 2026,
+        url: "https://doi.org/10.1109/TWC.2026.3687605",
+        bibtex_key: dcfnet,
+      }
+    - {
+        title: "Unveiling Hidden Visual Information: A Reconstruction Attack Against Adversarial Visual Information Hiding",
+        authors: Jonggyu Jang; Hyeonsu Lyu; Seongjin Hwang; Hyun Jong Yang,
+        venue: IEEE Transactions on Neural Networks and Learning Systems,
+        year: 2025,
+        url: "https://doi.org/10.1109/tnnls.2025.3555248",
+        bibtex_key: unveiling_hidden,
+      }
+    - {
+        title: Non-Iterative Optimization of Trajectory and Radio Resource for Aerial Network,
+        authors: Hyeonsu Lyu; Jonggyu Jang; Harim Lee; Hyun Jong Yang,
+        venue: IEEE Transactions on Wireless Communications,
+        year: 2025,
+        status: Best Paper Award; US Patent,
+        url: "https://doi.org/10.1109/twc.2024.3510043",
+        bibtex_key: noniterative_aerial,
+        featured: true,
+      }
+    - {
+        title: Development of a Privacy-Preserving UAV System With Deep Learning-Based Face Anonymization,
+        authors: Harim Lee; Myeung Un Kim; Yeongjun Kim; Hyeonsu Lyu; Hyun Jong Yang,
+        venue: IEEE Access,
+        year: 2021,
+        url: "https://doi.org/10.1109/access.2021.3113186",
+        bibtex_key: privacy_uav,
+      }
+    - {
+        title: Robust Deep-learning Based Autofocus Score Prediction for Scanning Electron Microscope,
+        authors: Hyun Jong Yang; Moohyun Oh; Jonggyu Jang; Hyeonsu Lyu; Junhee Lee,
+        venue: Microscopy and Microanalysis,
+        year: 2020,
+        url: "https://doi.org/10.1017/S1431927620015573",
+        bibtex_key: robust_autofocus,
+      }
+  conferences:
+    - {
+        title: On the Secure Connection Probability of Multi-Hop Relaying in Multi-Layer Networks,
+        authors: Hyeonsu Lyu; Yumin Kim; Hyun Jong Yang,
+        venue: International Conference on Information and Communication Technology Convergence (ICTC),
+        year: 2025,
+        status: Best Paper Award,
+        url: "https://doi.org/10.1109/ICTC66702.2025.11388285",
+        bibtex_key: secure_connection,
+        featured: true,
+      }
+    - {
+        title: Accuracy-Delay Trade-Off in LLM Offloading via Token-Level Uncertainty,
+        authors: Yumin Kim; Hyeonsu Lyu; Minjae Lee; Hyun Jong Yang,
+        venue: arXiv preprint,
+        year: 2026,
+        url: "https://arxiv.org/abs/2602.07958",
+        bibtex_key: accuracy_delay,
+      }
+    - {
+        title: Deep Learning-Based Autonomous Scanning Electron Microscope,
+        authors: Jonggyu Jang; Hyeonsu Lyu; Hyun Jong Yang; Moohyun Oh; Junhee Lee,
+        venue: IEEE/RSJ International Conference on Intelligent Robots and Systems,
+        year: 2020,
+        status: Demo and press release,
+        url: "https://doi.org/10.1109/iros45743.2020.9341041",
+        bibtex_key: autonomous_sem,
+      }
+    - {
+        title: Maneuver by Airstreams for Stratospheric Balloon Base Stations,
+        authors: Hyeonsu Lyu; Hyun Jong Yang,
+        venue: International Conference on Information and Communication Technology Convergence (ICTC),
+        year: 2023,
+        url: "https://doi.org/10.1109/ICTC58733.2023.10393468",
+        bibtex_key: maneuver_balloon,
+      }
+    - {
+        title: Multi-Agent Reinforcement Learning-Based Coverage Maximization for Fixed-Wing Base Stations,
+        authors: Hyeonsu Lyu; SeongJin Hwang; Hyun Jong Yang,
+        venue: International Conference on Information and Communication Technology Convergence (ICTC),
+        year: 2022,
+        url: "https://doi.org/10.1109/ICTC55196.2022.9953023",
+        bibtex_key: multiagent_coverage,
+      }
+    - {
+        title: Detect and Avoid System Based on Multi-Sensor Fusion for UAV,
+        authors: Myungseok Ki; Jihun Cha; Hyeonsu Lyu,
+        venue: International Conference on Information and Communication Technology Convergence (ICTC),
+        year: 2018,
+        url: "https://doi.org/10.1109/ICTC.2018.8539587",
+        bibtex_key: detect_avoid,
+      }
+
+miscellaneous:
+  domestic_papers:
+    - [Deep Learning-Based Interference Cancellation for OFDM ISAC, 2026, domestic_ofdm_isac]
+    - [Towards Building a Ray-Tracing-Compatible Digital Twin Scene for Wireless-Aware Physical AI Systems, 2026, domestic_digital_twin]
+    - [Secure Radio Resource and Routing Optimization in Multi-Hop Space-Air-Ground-Sea Integrated Networks, 2025, domestic_secure_routing]
+    - [On the Non-Iterative Optimization for Aerial Communications, 2024, domestic_noniterative]
+    - [A Survey on High-Altitude Balloon UAVs for Vertical Heterogeneous Networks, 2024, domestic_balloon_survey]
+    - ["Stratolite: Breakthrough for UAV Communications", 2023, domestic_stratolite]
+    - ["Machine Unlearning: A Survey on Principles and Challenges", 2023, domestic_unlearning]
+    - [Generalized Water-Filling Algorithm for Fast User Association and Resource Allocation, 2022, domestic_waterfilling]
+    - [Trajectory-Planning and Resource Allocation of UAV Base Station with User QoS Constraints, 2022, domestic_trajectory]
+    - [Designing Scalable Deep Q-Learning Using Fully Convolutional Network, 2022, domestic_deepq]
+    - [A Study on the Optimal Drone Hardware Component Selection Algorithm Maximizing Flight Time, 2021, domestic_hardware]
+    - [A Study on Establishing Testbeds for Reinforcement Learning of Unmanned Aerial Vehicles, 2021, domestic_testbeds]
+  patents: _data/miscellaneous.yml#patents
+  software:
+    - [다중 에이전트 강화학습 프로그램, C-2022-052119]
+    - [무인항공기 기지국 트리 탐색 기반 경로 계획 및 자원 관리 기술을 위한 프로그램 코드, C-2022-036997]
+    - [비례 공정성을 고려 드론 기지국의 최적 경로 설정 기법 시각화 프로그램, C-2021-046121]
+    - [모터 고장 상황에서의 비상 착륙 학습 시뮬레이터, C-2020-043847]
+    - [레이더를 이용한 능동형 타겟 감지 드론 통신 기지국 시뮬레이터, C-2018-037076]
+    - [통신과 드론 제어가 통합된 시뮬레이터, C-2019-034510]
+  projects: _pages/miscellaneous.md#projects
+
+personal:
+  generals_io: I am a pro-level generals.io player. I achieved the all-time highest FFA win rate of 51%, ranked first in all FFA scores, and have three accounts in the top five ranks.
+  good_animals_url: https://sites.google.com/view/hslyu/personal_1
+memories: _pages/memories.md
+assets: { profile_image: /figures/me_profile.png, publication_thumbnail: /assets/img/thumb.png, favicon: /assets/img/avatar-icon.png }
