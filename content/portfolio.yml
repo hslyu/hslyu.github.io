@@ -135,14 +135,6 @@ publications:
         url: "https://arxiv.org/abs/2411.00898",
         bibtex_key: replace_perturb,
       }
-    - {
-        title: Faithful and Fast Influence Function via Advanced Sampling,
-        authors: Jungyeon Koh; Hyeonsu Lyu; Jonggyu Jang; Hyun Jong Yang,
-        venue: arXiv preprint,
-        year: 2025,
-        url: "https://arxiv.org/abs/2510.26776",
-        bibtex_key: faithful_fast,
-      }
   journals:
     - {
         title: Joint Optimization of User Association and Resource Allocation for Load Balancing With Multi-Level Fairness,
@@ -209,10 +201,20 @@ publications:
     - {
         title: Accuracy-Delay Trade-Off in LLM Offloading via Token-Level Uncertainty,
         authors: Yumin Kim; Hyeonsu Lyu; Minjae Lee; Hyun Jong Yang,
-        venue: arXiv preprint,
-        year: 2026,
-        url: "https://arxiv.org/abs/2602.07958",
+        venue: 2025 IEEE Globecom Workshops (GC Wkshps),
+        year: 2025,
+        pages: 1652–1657,
+        doi: 10.1109/GCWkshps68340.2025.11591100,
+        url: "https://doi.org/10.1109/GCWkshps68340.2025.11591100",
         bibtex_key: accuracy_delay,
+      }
+    - {
+        title: Faithful and Fast Influence Function via Advanced Sampling,
+        authors: Jungyeon Koh; Hyeonsu Lyu; Jonggyu Jang; Hyun Jong Yang,
+        venue: ICML 2024 Workshop on Mechanistic Interpretability,
+        year: 2024,
+        url: "https://openreview.net/forum?id=TTVPbaxXjR",
+        bibtex_key: faithful_fast,
       }
     - {
         title: Deep Learning-Based Autonomous Scanning Electron Microscope,

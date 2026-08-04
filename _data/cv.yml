@@ -1,10 +1,4 @@
 cv:
-  name: Hyeonsu Lyu
-  label: Postdoctoral Researcher
-  email: hs.lyu@snu.ac.kr
-  location: Seoul, Republic of Korea
-  summary: Researcher working at the intersection of wireless communications, artificial intelligence, and robotics.
-
   social_networks:
     - network: Google Scholar
       username: 06N525AAAAAJ
@@ -78,10 +72,18 @@ cv:
         awarder: KISTI
         date: 2015
 
-    Academic Service:
-      - name: Reviewer
-        summary: IEEE Transactions on Communications (2026); IEEE Journal on Selected Areas in Communications (2025); IEEE Transactions on Wireless Communications (2025); IEEE/ACM Transactions on Networking (2025); IEEE Internet of Things Journal (2024–2026); IEEE Wireless Communications Letters (2023–2026); IEEE CCNC (2023–2024); Journal of Communications and Networks (2026); KICS Journal (2022–2023).
+    Academic Services:
+      - bullet: "**Reviewer:** IEEE Transactions on Communications (TCOM), 2026"
+      - bullet: "**Reviewer:** IEEE Journal on Selected Areas in Communications (JSAC), 2025"
+      - bullet: "**Reviewer:** IEEE Transactions on Wireless Communications (TWC), 2025"
+      - bullet: "**Reviewer:** IEEE/ACM Transactions on Networking (ToN), 2025"
+      - bullet: "**Reviewer:** IEEE Internet of Things Journal (IoTJ), 2024–2026"
+      - bullet: "**Reviewer:** IEEE Wireless Communications Letters (WCL), 2023–2026"
+      - bullet: "**Reviewer:** IEEE Consumer Communications & Networking Conference (CCNC), 2023–2024"
+      - bullet: "**Reviewer:** Journal of Communications and Networks (JCN), 2026"
+      - bullet: "**Reviewer:** KICS Journal, 2022–2023"
+      - bullet: "**Localization project:** QGroundControl Korean localization — one of the first complete Korean translations and the second-highest contributor (2018–2021)"
+      - bullet: "**Localization project:** PX4 User Guide Korean localization (2018–2021)"
 
-    Interests:
-      - name: Research
-        keywords: Wireless Communications, Artificial Intelligence, Robotics, Intelligent Wireless Networks
+    Talks:
+      - bullet: "‘The Role of Aerial Networks in 6G Wireless’ — KICS Summer Conference, June 2025"

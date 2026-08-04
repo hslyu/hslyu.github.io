@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: "Hyeonsu Lyu | Wireless × AI × Robotics"
+title: blank # leave blank to use the full name
 first_name: Hyeonsu
 middle_name:
 last_name: Lyu
@@ -14,7 +14,7 @@ footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
   <br>Unauthorized collection of email addresses posted on this website is prohibited.
-  <style>.publications .author > em { border-bottom: 0; color: var(--global-theme-color); font-style: normal; font-weight: 700; text-decoration: none; }</style>
+  <style>.publications .author > em { border-bottom: 0; color: var(--global-theme-color); font-style: normal; font-weight: 700; text-decoration: none; } #navbar .navbar-brand.title::after { content: " | wireless × AI × Robotics"; }</style>
 keywords: wireless communications, artificial intelligence, robotics, mobile robots
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)

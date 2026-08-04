@@ -5,6 +5,8 @@ title: miscellaneous
 description: Academic service, intellectual properties, teaching, and projects.
 nav: true
 nav_order: 3
+toc:
+  sidebar: left
 ---
 
 {% assign miscellaneous = site.data.portfolio.miscellaneous %}
