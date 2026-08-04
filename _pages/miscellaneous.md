@@ -76,7 +76,13 @@ toc:
 <li class="list-group-item">
   <div class="row">
     <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      {% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ project.period }}</span>{% endif %}
+      <table class="table-cv">
+        <tbody>
+          <tr>
+            <td>{% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ project.period }}</span>{% endif %}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ project.title }}</h6>
@@ -104,7 +110,13 @@ toc:
 <li class="list-group-item">
   <div class="row">
     <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      {% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ project.period }}</span>{% endif %}
+      <table class="table-cv">
+        <tbody>
+          <tr>
+            <td>{% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ project.period }}</span>{% endif %}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ project.title }}</h6>
