@@ -160,6 +160,7 @@ publications:
         year: 2026,
         url: "https://doi.org/10.1109/TWC.2026.3687605",
         bibtex_key: dcfnet,
+        featured: true,
       }
     - {
         title: "Unveiling Hidden Visual Information: A Reconstruction Attack Against Adversarial Visual Information Hiding",
@@ -168,6 +169,7 @@ publications:
         year: 2025,
         url: "https://doi.org/10.1109/tnnls.2025.3555248",
         bibtex_key: unveiling_hidden,
+        featured: true,
       }
     - {
         title: Non-Iterative Optimization of Trajectory and Radio Resource for Aerial Network,
