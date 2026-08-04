@@ -31,7 +31,7 @@ toc:
     list.className = 'toc-list';
 
     years.forEach((year) => {
-      year.id = `publications-${year.textContent.trim()}`;
+      year.id = year.textContent.trim();
 
       const item = document.createElement('li');
       item.className = 'toc-list-item';
@@ -40,11 +40,17 @@ toc:
       link.className = 'toc-link';
       link.href = `#${year.id}`;
       link.textContent = year.textContent.trim();
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.history.replaceState(null, '', link.hash);
+        year.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
 
       item.appendChild(link);
       list.appendChild(item);
     });
 
     toc.replaceChildren(list);
+    toc.addEventListener('dragstart', (event) => event.preventDefault());
   });
 </script>

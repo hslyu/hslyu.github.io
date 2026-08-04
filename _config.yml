@@ -14,7 +14,7 @@ footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
   <br>Unauthorized collection of email addresses posted on this website is prohibited.
-  <style>.publications .author > em { border-bottom: 0; color: var(--global-theme-color); font-style: normal; font-weight: 700; text-decoration: none; } #navbar .navbar-brand.title::after { content: " | wireless × AI × Robotics"; } .post-header:has(+ article .cv), .post-header:has(+ article .publications) { display: none; }</style>
+  <style>.publications .author > em { border-bottom: 0; color: var(--global-theme-color); font-style: normal; font-weight: 700; text-decoration: none; } #navbar .navbar-brand.title::after { content: " | wireless × AI × Robotics"; } .post-header:has(+ article .cv), .post-header:has(+ article .publications) { display: none; } .publications h2.bibliography { scroll-margin-top: 5rem; } @media (min-width: 576px) { .container > .row:has(.publications) > .col-sm-3 { flex: 0 0 12.5%; max-width: 12.5%; } .container > .row:has(.publications) > .col-sm-9 { flex: 0 0 87.5%; max-width: 87.5%; } } .container > .row:has(.publications) #toc-sidebar { -webkit-user-drag: none; user-select: none; }</style>
 keywords: wireless communications, artificial intelligence, robotics, mobile robots
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
