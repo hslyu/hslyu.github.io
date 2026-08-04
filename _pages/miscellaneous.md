@@ -32,7 +32,7 @@ toc:
 
 ## Intellectual properties
 
-<h3 data-toc-skip>Patents</h3>
+<h3 class="misc-subtitle" data-toc-skip>Patents</h3>
 
 <div class="misc-records">
 {% for patent in miscellaneous.patents %}
@@ -50,7 +50,7 @@ toc:
 
 </div>
 
-<h3 data-toc-skip>Software registrations</h3>
+<h3 class="misc-subtitle" data-toc-skip>Software registrations</h3>
 
 <div class="misc-records">
 {% for software in miscellaneous.software %}
