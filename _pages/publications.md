@@ -10,6 +10,8 @@ toc:
 
 <!-- _pages/publications.md -->
 
+<div class="publications-content-marker" hidden></div>
+
 <!-- Bibsearch Feature -->
 
 {% include bib_search.liquid %}

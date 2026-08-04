@@ -34,3 +34,24 @@ My goal is to improve society's welfare and safety by developing connected mobil
 - Artificial intelligence
 - Robotics
 - Intelligent wireless networks
+
+<script>
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.publications .links a[href*="doi.org"], .publications .links a[href*="arxiv.org"]').forEach((publicationLink) => {
+      const entry = publicationLink.closest('.row');
+      const title = entry?.querySelector('.title');
+
+      if (!title) return;
+
+      const titleLink = document.createElement('a');
+      titleLink.href = publicationLink.href;
+      titleLink.target = '_blank';
+      titleLink.rel = 'external nofollow noopener';
+      titleLink.textContent = title.textContent;
+      title.replaceChildren(titleLink);
+      publicationLink.remove();
+
+      if (!entry.querySelector('.links > *')) entry.querySelector('.links')?.remove();
+    });
+  });
+</script>
