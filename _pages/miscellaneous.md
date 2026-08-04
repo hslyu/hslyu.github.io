@@ -14,74 +14,105 @@ toc:
 
 ## Domestic papers
 
+<div class="misc-records">
 {% for paper in miscellaneous.domestic_papers %}
 
-{{ forloop.index }}. {{ paper.authors }}, “{{ paper.title }},” _{{ paper.venue }}_, {{ paper.date }}.{% if paper.note %} {{ paper.note }}.{% endif %}
+<article class="misc-record">
+  <div class="misc-record-index">{{ forloop.index }}</div>
+  <div>
+    <div class="misc-record-title">{{ paper.title }}</div>
+    <div class="misc-record-authors">{{ paper.authors }}</div>
+    <div class="misc-record-meta">{{ paper.venue }} · {{ paper.date }}{% if paper.note %} · {{ paper.note }}{% endif %}</div>
+  </div>
+</article>
 
 {% endfor %}
+
+</div>
 
 ## Intellectual properties
 
 <h3 data-toc-skip>Patents</h3>
 
+<div class="misc-records">
 {% for patent in miscellaneous.patents %}
 
-{{ forloop.index }}. {{ patent.inventors }}, “{{ patent.title }},” {{ patent.jurisdiction }} {{ patent.application }} ({{ patent.status | downcase }}){% if patent.registration %}; registered as {{ patent.jurisdiction }} {{ patent.registration }}{% endif %}.
+<article class="misc-record">
+  <div class="misc-record-index">{{ forloop.index }}</div>
+  <div>
+    <div class="misc-record-title">{{ patent.title }}</div>
+    <div class="misc-record-authors">{{ patent.inventors }}</div>
+    <div class="misc-record-meta">{{ patent.jurisdiction }} {{ patent.application }} · {{ patent.status }}{% if patent.registration %} · {{ patent.jurisdiction }} {{ patent.registration }}{% endif %}</div>
+  </div>
+</article>
 
 {% endfor %}
+
+</div>
 
 <h3 data-toc-skip>Software registrations</h3>
 
+<div class="misc-records">
 {% for software in miscellaneous.software %}
 
-{{ forloop.index }}. {{ software.author }}, “{{ software.title }},” {{ software.registration }}.
+<article class="misc-record">
+  <div class="misc-record-index">{{ forloop.index }}</div>
+  <div>
+    <div class="misc-record-title">{{ software.title }}</div>
+    <div class="misc-record-authors">{{ software.author }}</div>
+    <div class="misc-record-meta">{{ software.registration }}</div>
+  </div>
+</article>
 
 {% endfor %}
+
+</div>
 
 ## Projects
 
+<ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
 {% for project in miscellaneous.projects %}
 
-<h3 data-toc-skip>{{ project.title }}</h3>
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
+      {% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ project.period }}</span>{% endif %}
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
+      <h6 class="title font-weight-bold ml-1 ml-md-4">{{ project.title }}</h6>
+      <div class="misc-project-funding ml-1 ml-md-4">{{ project.funding }}</div>
+      {% if project.links %}
+        <div class="misc-project-links ml-1 ml-md-4">
+          {% for link in project.links %}
+            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</li>
 
-{% if project.period %}{{ project.period }}<br>
-{% endif %}{{ project.funding }}
-
-{% if project.links %}
-{% for link in project.links %}
-[{{ link.label }}]({{ link.url }}){% unless forloop.last %} · {% endunless %}
 {% endfor %}
-{% endif %}
 
-{% endfor %}
+</ul>
 
 ## Miscellaneous projects
 
+<ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
 {% for project in miscellaneous.miscellaneous_projects %}
 
-- **{{ project.title }}**{% if project.period %} · {{ project.period }}{% endif %}<br>
-  {{ project.funding }}
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
+      {% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ project.period }}</span>{% endif %}
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
+      <h6 class="title font-weight-bold ml-1 ml-md-4">{{ project.title }}</h6>
+      <div class="misc-project-funding ml-1 ml-md-4">{{ project.funding }}</div>
+    </div>
+  </div>
+</li>
 
 {% endfor %}
 
-## Academic service
-
-{% for service in site.data.portfolio.experience.reviewer %}
-
-- {{ service }}
-
-{% endfor %}
-
-## Community contribution
-
-{% for contribution in site.data.portfolio.experience.other_service.localization %}
-
-- {{ contribution }}
-
-{% endfor %}
-
-{% for talk in site.data.portfolio.experience.other_service.talks %}
-
-- _{{ talk }}_
-
-{% endfor %}
+</ul>
