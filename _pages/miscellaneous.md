@@ -70,8 +70,10 @@ toc:
 
 ## Projects
 
+<div class="card mt-3 p-3 misc-project-card">
 <ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
 {% for project in miscellaneous.projects %}
+{% assign project_date = project.period | replace: '–', ' - ' %}
 
 <li class="list-group-item">
   <div class="row">
@@ -79,14 +81,14 @@ toc:
       <table class="table-cv">
         <tbody>
           <tr>
-            <td>{% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ project.period }}</span>{% endif %}</td>
+            <td>{% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ project_date }}</span>{% endif %}</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ project.title }}</h6>
-      <div class="misc-project-funding ml-1 ml-md-4">{{ project.funding }}</div>
+      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ project.funding }}</h6>
       {% if project.links %}
         <div class="misc-project-links ml-1 ml-md-4">
           {% for link in project.links %}
@@ -101,11 +103,14 @@ toc:
 {% endfor %}
 
 </ul>
+</div>
 
 ## Miscellaneous projects
 
+<div class="card mt-3 p-3 misc-project-card">
 <ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
 {% for project in miscellaneous.miscellaneous_projects %}
+{% assign project_date = project.period | replace: '–', ' - ' %}
 
 <li class="list-group-item">
   <div class="row">
@@ -113,14 +118,14 @@ toc:
       <table class="table-cv">
         <tbody>
           <tr>
-            <td>{% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ project.period }}</span>{% endif %}</td>
+            <td>{% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ project_date }}</span>{% endif %}</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ project.title }}</h6>
-      <div class="misc-project-funding ml-1 ml-md-4">{{ project.funding }}</div>
+      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ project.funding }}</h6>
     </div>
   </div>
 </li>
@@ -128,3 +133,4 @@ toc:
 {% endfor %}
 
 </ul>
+</div>

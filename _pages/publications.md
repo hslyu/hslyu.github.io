@@ -22,6 +22,23 @@ toc:
 
 <script>
   window.addEventListener('load', () => {
+    document.querySelectorAll('.publications .links a[href*="doi.org"]').forEach((doi) => {
+      const entry = doi.closest('.row');
+      const title = entry?.querySelector('.title');
+
+      if (!title) return;
+
+      const titleLink = document.createElement('a');
+      titleLink.href = doi.href;
+      titleLink.target = '_blank';
+      titleLink.rel = 'external nofollow noopener';
+      titleLink.textContent = title.textContent;
+      title.replaceChildren(titleLink);
+      doi.remove();
+
+      if (!entry.querySelector('.links > *')) entry.querySelector('.links')?.remove();
+    });
+
     const toc = document.querySelector('#toc-sidebar');
     const years = [...document.querySelectorAll('.publications h2.bibliography')];
 
