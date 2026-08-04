@@ -68,9 +68,12 @@ toc:
 
 </div>
 
-## Projects
+<h2 id="projects" hidden>Projects</h2>
 
+<div class="cv">
 <div class="card mt-3 p-3 misc-project-card">
+<h3 class="card-title font-weight-medium" data-toc-skip>Projects</h3>
+<div>
 <ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
 {% for project in miscellaneous.projects %}
 {% assign project_date = project.period | replace: '–', ' - ' %}
@@ -104,10 +107,15 @@ toc:
 
 </ul>
 </div>
+</div>
+</div>
 
-## Miscellaneous projects
+<h2 id="miscellaneous-projects" hidden>Miscellaneous projects</h2>
 
+<div class="cv">
 <div class="card mt-3 p-3 misc-project-card">
+<h3 class="card-title font-weight-medium" data-toc-skip>Miscellaneous projects</h3>
+<div>
 <ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
 {% for project in miscellaneous.miscellaneous_projects %}
 {% assign project_date = project.period | replace: '–', ' - ' %}
@@ -133,4 +141,6 @@ toc:
 {% endfor %}
 
 </ul>
+</div>
+</div>
 </div>
