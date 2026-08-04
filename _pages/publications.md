@@ -22,19 +22,29 @@ toc:
 
 <script>
   window.addEventListener('load', () => {
-    document.querySelectorAll('.publications .links a[href*="doi.org"]').forEach((doi) => {
-      const entry = doi.closest('.row');
+    document.querySelectorAll('.publications .periodical').forEach((note) => {
+      if (note.textContent.trim() !== 'Accepted') return;
+
+      const periodical = note.previousElementSibling;
+      if (!periodical?.classList.contains('periodical')) return;
+
+      periodical.append(' (Accepted)');
+      note.remove();
+    });
+
+    document.querySelectorAll('.publications .links a[href*="doi.org"], .publications .links a[href*="arxiv.org"]').forEach((publicationLink) => {
+      const entry = publicationLink.closest('.row');
       const title = entry?.querySelector('.title');
 
       if (!title) return;
 
       const titleLink = document.createElement('a');
-      titleLink.href = doi.href;
+      titleLink.href = publicationLink.href;
       titleLink.target = '_blank';
       titleLink.rel = 'external nofollow noopener';
       titleLink.textContent = title.textContent;
       title.replaceChildren(titleLink);
-      doi.remove();
+      publicationLink.remove();
 
       if (!entry.querySelector('.links > *')) entry.querySelector('.links')?.remove();
     });
