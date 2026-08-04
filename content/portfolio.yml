@@ -205,7 +205,6 @@ publications:
         status: Best Paper Award,
         url: "https://doi.org/10.1109/ICTC66702.2025.11388285",
         bibtex_key: secure_connection,
-        featured: true,
       }
     - {
         title: Accuracy-Delay Trade-Off in LLM Offloading via Token-Level Uncertainty,
