@@ -374,35 +374,6 @@ miscellaneous:
     - title: 통신과 드론 제어가 통합된 시뮬레이터
       author: Hyeonsu Lyu
       registration: C-2019-034510
-  teaching_assistance:
-    - institution: UNIST
-      course_id: CSE201
-      course: Digital Logic
-      terms: 2018 Spring; 2019 Spring
-    - institution: UNIST
-      course_id: ITP117
-      course: AI Programming II
-      terms: 2019 Spring
-    - institution: UNIST
-      course_id: EE534
-      course: Digital Communications
-      terms: 2019 Fall
-    - institution: POSTECH
-      course_id: EECE695
-      course: Introduction to Artificial Intelligence
-      terms: 2021 Fall; 2022 Fall
-    - institution: POSTECH
-      course_id: EECE490
-      course: Reinforcement Learning
-      terms: 2022 Spring
-    - institution: POSTECH
-      course_id: EECE695
-      course: Fundamentals of Neural Networks and Reinforcement Learning
-      terms: 2023 Spring; 2024 Spring
-    - institution: Yonsei
-      course_id: CSE5023
-      course: Fundamentals of Neural Networks and Reinforcement Learning
-      terms: 2023 Spring; 2024 Spring
   projects:
     - title: Research on Ultra-Reliable Aerial Network Framework Supporting High-Density Urban Air Mobility
       period: 2021–2028

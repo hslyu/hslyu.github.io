@@ -2,7 +2,6 @@
 layout: page
 permalink: /miscellaneous/
 title: miscellaneous
-description: Academic service, intellectual properties, teaching, and projects.
 nav: true
 nav_order: 3
 toc:
@@ -10,6 +9,8 @@ toc:
 ---
 
 {% assign miscellaneous = site.data.portfolio.miscellaneous %}
+
+<div class="miscellaneous-content-marker" hidden></div>
 
 ## Domestic papers
 
@@ -21,7 +22,7 @@ toc:
 
 ## Intellectual properties
 
-### Patents
+<h3 data-toc-skip>Patents</h3>
 
 {% for patent in miscellaneous.patents %}
 
@@ -29,7 +30,7 @@ toc:
 
 {% endfor %}
 
-### Software registrations
+<h3 data-toc-skip>Software registrations</h3>
 
 {% for software in miscellaneous.software %}
 
@@ -37,19 +38,11 @@ toc:
 
 {% endfor %}
 
-## RA & TA
-
-{% for course in miscellaneous.teaching_assistance %}
-
-- **{{ course.institution }}, {{ course.course_id }}** — {{ course.course }} · {{ course.terms }}
-
-{% endfor %}
-
 ## Projects
 
 {% for project in miscellaneous.projects %}
 
-### {{ project.title }}
+<h3 data-toc-skip>{{ project.title }}</h3>
 
 {% if project.period %}{{ project.period }}<br>
 {% endif %}{{ project.funding }}
