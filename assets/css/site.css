@@ -1,0 +1,418 @@
+:root {
+  --global-hover-color: #075985;
+  --global-theme-color: #075985;
+}
+
+html[data-theme="dark"],
+html.dark,
+body[data-theme="dark"],
+body.dark {
+  --global-hover-color: #b45309;
+  --global-theme-color: #b45309;
+}
+
+#navbar .navbar-brand.title::after {
+  color: var(--global-text-color-light);
+  content: " | Wireless × AI × Robotics";
+  font-size: 0.72em;
+  font-weight: 400;
+  vertical-align: baseline;
+}
+
+.post-header:has(+ article .experience-content-marker),
+.post-header:has(+ article .publications-content-marker),
+.post-header:has(+ article .miscellaneous-content-marker) {
+  display: none;
+}
+
+article .cv ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+article .cv table.table-cv td {
+  border-top: 0;
+  padding: 1px;
+}
+
+article .cv table.table-cv th {
+  padding: 1px;
+}
+
+article .cv .date-column {
+  transform: none;
+}
+
+article .cv .card .title {
+  margin-bottom: 0.2rem;
+}
+
+article .cv > #education + .card .title,
+article .cv > #education + .card .items {
+  margin-left: 0.25rem !important;
+  padding-left: 0;
+  text-align: left;
+}
+
+article .cv > #education + .card .items li {
+  list-style: none;
+  padding-left: 0;
+}
+
+article .cv .card-title {
+  font-size: 1.5rem;
+}
+
+article .cv .affiliation-text {
+  font-weight: 700;
+}
+
+article .cv > #experience + .card .affiliation-text {
+  font-weight: 600;
+}
+
+article .cv p.location {
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+article .cv i.iconlocation {
+  color: var(--global-theme-color);
+  font-size: 0.8rem;
+}
+
+.affiliation-brand-snu {
+  color: #0f0f70;
+}
+
+.affiliation-brand-ut-austin {
+  color: #bf5700;
+}
+
+.affiliation-brand-postech {
+  color: #c80150;
+}
+
+.affiliation-brand-unist {
+  color: #001b54;
+}
+
+.affiliation-brand-samsung {
+  color: #1428a0;
+}
+
+.affiliation-brand-ieee-ictc {
+  color: #00629b;
+}
+
+.affiliation-brand-iitp {
+  color: #144da0;
+}
+
+.affiliation-brand-kics {
+  color: #45c2de;
+}
+
+.affiliation-brand-kipa {
+  color: #003da5;
+}
+
+.affiliation-brand-kai {
+  color: #2e2a87;
+}
+
+.affiliation-brand-bae-jung {
+  color: #5b4b4e;
+}
+
+.affiliation-brand-kisti {
+  color: #0075ba;
+}
+
+.publications .author > em {
+  border-bottom: none !important;
+  color: var(--global-theme-color);
+  font-style: normal;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.publications h2.bibliography {
+  scroll-margin-top: 5rem;
+}
+
+.publications ol.bibliography li .title a,
+.publications ol.bibliography li .title a:hover {
+  color: var(--global-text-color);
+}
+
+.publications ol.bibliography li .title a {
+  text-decoration: none;
+}
+
+.publications ol.bibliography li .title a:hover {
+  text-decoration: underline;
+}
+
+.paper-award {
+  color: var(--global-theme-color);
+  font-weight: 700;
+}
+
+#toc-sidebar.toc {
+  overflow: visible !important;
+}
+
+#toc-sidebar .toc-link::before {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+}
+
+#toc-sidebar .misc-year-filter {
+  align-items: center;
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 0.65rem;
+  padding-left: 1.2rem;
+  padding-top: 0.65rem;
+  position: relative;
+}
+
+#toc-sidebar .misc-year-filter::before {
+  border-top: 1px solid var(--global-divider-color);
+  content: "";
+  inset: 0 1.2rem auto;
+  position: absolute;
+}
+
+#toc-sidebar .misc-year-filter input {
+  background: var(--global-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.25rem;
+  color: var(--global-text-color);
+  font-size: 0.8rem;
+  min-width: 0;
+  padding: 0.25rem;
+  text-align: center;
+  width: 3.6rem;
+}
+
+.misc-records {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0.75rem 0 1.5rem;
+}
+
+.misc-record {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.4rem;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: 1.7rem minmax(0, 1fr);
+  padding: 0.65rem 0.75rem;
+}
+
+.misc-record-index {
+  color: var(--global-theme-color);
+  font-weight: 700;
+}
+
+.misc-record-title {
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.misc-record-authors,
+.misc-record-meta,
+.misc-project-links {
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.misc-project-card {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.4rem;
+  scroll-margin-top: 5rem;
+}
+
+.misc-project-card .list-group-item {
+  background: inherit;
+  border-color: var(--global-divider-color);
+}
+
+.misc-project-links {
+  margin-top: 0.35rem;
+}
+
+.misc-subtitle {
+  font-size: 1.2rem;
+}
+
+article:has(.miscellaneous-content-marker) > h2:not([hidden]),
+article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.reviewer-card {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.4rem;
+  cursor: default;
+  display: block;
+  outline: none;
+  padding: 0.5rem 0.65rem;
+}
+
+.reviewer-card:focus {
+  border-color: var(--global-theme-color);
+}
+
+.reviewer-card-details {
+  color: var(--global-text-color-light);
+  display: block;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.25s ease,
+    margin-top 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.color-pilot-intro {
+  color: var(--global-text-color-light);
+  margin-bottom: 1.5rem;
+}
+
+.color-pilot-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.color-pilot-card {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.45rem;
+  overflow: hidden;
+}
+
+.color-pilot-swatch {
+  align-items: flex-end;
+  background: var(--candidate);
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  height: 4.5rem;
+  justify-content: flex-end;
+  padding: 0.55rem 0.65rem;
+  width: 100%;
+}
+
+.color-pilot-swatch:focus-visible {
+  outline: 3px solid var(--global-theme-color);
+  outline-offset: -3px;
+}
+
+.color-pilot-swatch span {
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.color-pilot-card-body {
+  padding: 0.7rem 0.8rem 0.8rem;
+}
+
+.color-pilot-name {
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.color-pilot-card code {
+  color: var(--candidate);
+  font-size: 0.82rem;
+}
+
+.color-pilot-sample {
+  align-items: center;
+  display: flex;
+  font-size: 0.79rem;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+}
+
+.color-pilot-sample a {
+  color: var(--candidate);
+  font-weight: 600;
+}
+
+.color-pilot-sample span {
+  border-left: 1px solid var(--global-divider-color);
+  color: var(--global-text-color-light);
+  padding-left: 0.45rem;
+}
+
+.color-pilot-sample strong {
+  background: var(--candidate);
+  border-radius: 0.2rem;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 0.1rem 0.3rem;
+}
+
+@media (hover: hover) {
+  .reviewer-card:hover .reviewer-card-details,
+  .reviewer-card:focus .reviewer-card-details {
+    margin-top: 0.5rem;
+    max-height: 24rem;
+    opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  .reviewer-card-details {
+    margin-top: 0.5rem;
+    max-height: 24rem;
+    opacity: 1;
+  }
+}
+
+@media (min-width: 576px) {
+  #toc-sidebar {
+    max-height: none;
+    min-height: calc(100vh - 5rem);
+    overflow: visible;
+  }
+
+  .container > .row:has(.publications) > .col-sm-3 {
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+  }
+
+  .container > .row:has(.publications) > .col-sm-9 {
+    flex: 0 0 87.5%;
+    max-width: 87.5%;
+  }
+}
+
+@media (min-width: 768px) {
+  article .cv > #education + .card .title,
+  article .cv > #education + .card .items {
+    margin-left: 1.5rem !important;
+  }
+}
+
+.container > .row:has(.publications) #toc-sidebar {
+  -webkit-user-drag: none;
+  user-select: none;
+}

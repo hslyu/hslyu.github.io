@@ -24,34 +24,13 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Lightweight mobile robots can gain remarkable capabilities through AI-powered remote control without relying on onboard computing. I study communication systems for AI and robotics, together with intelligent agents for next-generation wireless networks, toward reliable systems for high-risk work, extreme environments, and disaster response.
+{{ site.data.portfolio.home.summary }}
 
-My goal is to improve society's welfare and safety by developing connected mobile robotic systems. My research bridges robotics, wireless communications, and machine intelligence.
+{{ site.data.portfolio.home.mission }}
 
 ## Research interests
 
-- Wireless communications
-- Artificial intelligence
-- Robotics
-- Intelligent wireless networks
+{% for interest in site.data.portfolio.home.research_interests %}
 
-<script>
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.publications .links a[href*="doi.org"], .publications .links a[href*="arxiv.org"]').forEach((publicationLink) => {
-      const entry = publicationLink.closest('.row');
-      const title = entry?.querySelector('.title');
-
-      if (!title) return;
-
-      const titleLink = document.createElement('a');
-      titleLink.href = publicationLink.href;
-      titleLink.target = '_blank';
-      titleLink.rel = 'external nofollow noopener';
-      titleLink.textContent = title.textContent;
-      title.replaceChildren(titleLink);
-      publicationLink.remove();
-
-      if (!entry.querySelector('.links > *')) entry.querySelector('.links')?.remove();
-    });
-  });
-</script>
+- {{ interest }}
+  {% endfor %}
