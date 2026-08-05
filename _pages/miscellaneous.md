@@ -208,6 +208,34 @@ toc:
     });
 
     const toc = document.querySelector('#toc-sidebar');
+    const sidebarColumn = toc?.parentElement;
+    const positionSidebar = () => {
+      if (!toc || !sidebarColumn) return;
+
+      if (!window.matchMedia('(min-width: 576px)').matches) {
+        ['position', 'top', 'left', 'width', 'maxHeight'].forEach((property) => toc.style.removeProperty(property));
+        toc.style.removeProperty('overflow-y');
+        return;
+      }
+
+      const columnStyle = window.getComputedStyle(sidebarColumn);
+      const columnBounds = sidebarColumn.getBoundingClientRect();
+      const leftPadding = Number.parseFloat(columnStyle.paddingLeft);
+      const rightPadding = Number.parseFloat(columnStyle.paddingRight);
+      toc.style.position = 'fixed';
+      toc.style.top = '5rem';
+      toc.style.left = `${columnBounds.left + leftPadding}px`;
+      toc.style.width = `${columnBounds.width - leftPadding - rightPadding}px`;
+      toc.style.maxHeight = 'calc(100vh - 5rem)';
+      toc.style.setProperty('overflow-y', 'auto', 'important');
+    };
+
+    if (sidebarColumn) {
+      new ResizeObserver(positionSidebar).observe(sidebarColumn);
+      window.addEventListener('resize', positionSidebar);
+      positionSidebar();
+    }
+
     const recordGroups = [...document.querySelectorAll('.misc-records, .misc-project-list')];
     const records = recordGroups.flatMap((group) => [...group.querySelectorAll(':scope > .misc-record, :scope > .list-group-item')]);
     const yearRangeForRecord = (record) => {
