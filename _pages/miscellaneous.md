@@ -226,14 +226,14 @@ toc:
       fromInput.type = 'number';
       fromInput.min = '0';
       fromInput.max = '9999';
-      fromInput.placeholder = '0000';
+      fromInput.placeholder = 'From';
       fromInput.setAttribute('aria-label', 'Filter from year');
 
       const toInput = document.createElement('input');
       toInput.type = 'number';
       toInput.min = '0';
       toInput.max = '9999';
-      toInput.placeholder = '9999';
+      toInput.placeholder = 'To';
       toInput.setAttribute('aria-label', 'Filter to year');
 
       const setYearFilter = () => {
