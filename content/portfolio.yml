@@ -28,18 +28,18 @@ home:
   research_focus: My work focuses on communication systems for AI and robotics, as well as intelligent agents for next-generation wireless networks. Ultimately, I aim to address societal challenges and promote the public good through the convergence of wireless communications, artificial intelligence, and robotics.
 
 news:
-  - { date: "2026.03", text: Joined Seoul National University as a Postdoctoral Researcher. }
-  - { date: "2025.12", text: Received the 32nd Samsung Humantech Paper Award. }
-  - { date: "2025.10", text: Received a Best Paper Award at IEEE ICTC 2025. }
+  - { date: '2026.03', text: Joined Seoul National University as a Postdoctoral Researcher. }
+  - { date: '2025.12', text: Received the 32nd Samsung Humantech Paper Award. }
+  - { date: '2025.10', text: Received a Best Paper Award at IEEE ICTC 2025. }
 
 experience:
   professional:
-    - { period: "Mar. 2026 – Mar. 2027", title: Postdoctoral Researcher, organization: Seoul National University }
-    - { period: "Aug. 2025 – Feb. 2026", title: Visiting Scholar, organization: University of Texas at Austin }
+    - { period: 'Mar. 2026 – Mar. 2027', title: Postdoctoral Researcher, organization: Seoul National University }
+    - { period: 'Aug. 2025 – Feb. 2026', title: Visiting Scholar, organization: University of Texas at Austin }
   education:
-    - { period: "Mar. 2021 – Feb. 2026", degree: Ph.D. in Electrical Engineering, school: POSTECH, details: Advised by Dr. Hyun Jong Yang }
-    - { period: "Mar. 2018 – Feb. 2021", degree: M.S. in Electrical Engineering, school: UNIST }
-    - { period: "Mar. 2014 – Feb. 2018", degree: B.Sc. in Applied Mathematics and Computer Science, school: UNIST }
+    - { period: 'Mar. 2021 – Feb. 2026', degree: Ph.D. in Electrical Engineering, school: POSTECH, details: Advised by Dr. Hyun Jong Yang }
+    - { period: 'Mar. 2018 – Feb. 2021', degree: M.S. in Electrical Engineering, school: UNIST }
+    - { period: 'Mar. 2014 – Feb. 2018', degree: B.Sc. in Applied Mathematics and Computer Science, school: UNIST }
   awards:
     - { year: 2026, title: The 32nd Humantech Paper Awards, organization: Samsung }
     - { year: 2025, title: Best Paper Award, organization: IEEE Int. Conf. ICT Converg. }
@@ -50,7 +50,7 @@ experience:
     - { year: 2023, title: KICS Best Paper Award, organization: KICS }
     - { year: 2022, title: Korea Aerospace Industries Paper Award, organization: KAI }
     - { year: 2022, title: Bae & Jung Scholarship, organization: Bae & Jung Foundation }
-    - { year: 2015, title: "National Supercomputing Competition, Second Award", organization: KISTI }
+    - { year: 2015, title: 'National Supercomputing Competition, Second Award', organization: KISTI }
   reviewer:
     - IEEE Transactions on Communications (TCOM), 2026
     - IEEE Journal on Selected Areas in Communications (JSAC), 2025
@@ -86,7 +86,7 @@ publications:
         venue: arXiv preprint,
         year: 2025,
         status: Submitted to IEEE Internet of Things Journal; Best Paper Award,
-        url: "https://arxiv.org/abs/2505.00573",
+        url: 'https://arxiv.org/abs/2505.00573',
         bibtex_key: secure_multihop,
         featured: true,
       }
@@ -96,7 +96,7 @@ publications:
         venue: arXiv preprint,
         year: 2026,
         status: Submitted to IEEE Transactions on Vehicular Technology,
-        url: "https://arxiv.org/abs/2602.07959",
+        url: 'https://arxiv.org/abs/2602.07959',
         bibtex_key: end_to_end,
       }
     - {
@@ -105,7 +105,7 @@ publications:
         venue: arXiv preprint,
         year: 2024,
         status: Under review; Competition Award,
-        url: "https://arxiv.org/abs/2312.05586",
+        url: 'https://arxiv.org/abs/2312.05586',
         bibtex_key: deeper_understanding,
       }
     - {
@@ -114,25 +114,25 @@ publications:
         venue: arXiv preprint,
         year: 2025,
         status: Submitted to IEEE Internet of Things Journal,
-        url: "https://arxiv.org/abs/2507.18035",
+        url: 'https://arxiv.org/abs/2507.18035',
         bibtex_key: active_starris,
       }
     - {
-        title: "Fed-ZOE: Communication-Efficient Over-the-Air Federated Learning via Zeroth-Order Estimation",
+        title: 'Fed-ZOE: Communication-Efficient Over-the-Air Federated Learning via Zeroth-Order Estimation',
         authors: Jonggyu Jang; Hyeonsu Lyu; David J. Love; Hyun Jong Yang,
         venue: arXiv preprint,
         year: 2024,
         status: Submitted to IEEE Journal on Selected Areas in Communications,
-        url: "https://arxiv.org/abs/2412.16779",
+        url: 'https://arxiv.org/abs/2412.16779',
         bibtex_key: fed_zoe,
       }
     - {
-        title: "Replace-then-Perturb: Targeted Adversarial Attacks With Visual Reasoning for Vision-Language Models",
+        title: 'Replace-then-Perturb: Targeted Adversarial Attacks With Visual Reasoning for Vision-Language Models',
         authors: Jonggyu Jang; Hyeonsu Lyu; Jungyeon Koh; Hyun Jong Yang,
         venue: arXiv preprint,
         year: 2024,
         status: Submitted to IEEE Transactions on Multimedia,
-        url: "https://arxiv.org/abs/2411.00898",
+        url: 'https://arxiv.org/abs/2411.00898',
         bibtex_key: replace_perturb,
       }
   journals:
@@ -142,23 +142,23 @@ publications:
         venue: IEEE Transactions on Communications,
         year: 2026,
         status: Accepted,
-        url: "https://arxiv.org/abs/2505.08573",
+        url: 'https://arxiv.org/abs/2505.08573',
         bibtex_key: joint_optimization,
       }
     - {
-        title: "DCFNet: Doppler Correction Filter Network for Integrated Sensing and Communication in Multi-User MIMO-OFDM Systems",
+        title: 'DCFNet: Doppler Correction Filter Network for Integrated Sensing and Communication in Multi-User MIMO-OFDM Systems',
         authors: Hyeonho Noh; Hyeonsu Lyu; Moe Z. Win; Hyun Jong Yang,
         venue: IEEE Transactions on Wireless Communications,
         year: 2026,
-        url: "https://doi.org/10.1109/TWC.2026.3687605",
+        url: 'https://doi.org/10.1109/TWC.2026.3687605',
         bibtex_key: dcfnet,
       }
     - {
-        title: "Unveiling Hidden Visual Information: A Reconstruction Attack Against Adversarial Visual Information Hiding",
+        title: 'Unveiling Hidden Visual Information: A Reconstruction Attack Against Adversarial Visual Information Hiding',
         authors: Jonggyu Jang; Hyeonsu Lyu; Seongjin Hwang; Hyun Jong Yang,
         venue: IEEE Transactions on Neural Networks and Learning Systems,
         year: 2025,
-        url: "https://doi.org/10.1109/tnnls.2025.3555248",
+        url: 'https://doi.org/10.1109/tnnls.2025.3555248',
         bibtex_key: unveiling_hidden,
         featured: true,
       }
@@ -168,7 +168,7 @@ publications:
         venue: IEEE Transactions on Wireless Communications,
         year: 2025,
         status: Best Paper Award; US Patent,
-        url: "https://doi.org/10.1109/twc.2024.3510043",
+        url: 'https://doi.org/10.1109/twc.2024.3510043',
         bibtex_key: noniterative_aerial,
         featured: true,
       }
@@ -177,7 +177,7 @@ publications:
         authors: Harim Lee; Myeung Un Kim; Yeongjun Kim; Hyeonsu Lyu; Hyun Jong Yang,
         venue: IEEE Access,
         year: 2021,
-        url: "https://doi.org/10.1109/access.2021.3113186",
+        url: 'https://doi.org/10.1109/access.2021.3113186',
         bibtex_key: privacy_uav,
       }
     - {
@@ -185,7 +185,7 @@ publications:
         authors: Hyun Jong Yang; Moohyun Oh; Jonggyu Jang; Hyeonsu Lyu; Junhee Lee,
         venue: Microscopy and Microanalysis,
         year: 2020,
-        url: "https://doi.org/10.1017/S1431927620015573",
+        url: 'https://doi.org/10.1017/S1431927620015573',
         bibtex_key: robust_autofocus,
       }
   conferences:
@@ -195,7 +195,7 @@ publications:
         venue: International Conference on Information and Communication Technology Convergence (ICTC),
         year: 2025,
         status: Best Paper Award,
-        url: "https://doi.org/10.1109/ICTC66702.2025.11388285",
+        url: 'https://doi.org/10.1109/ICTC66702.2025.11388285',
         bibtex_key: secure_connection,
       }
     - {
@@ -205,7 +205,7 @@ publications:
         year: 2025,
         pages: 1652–1657,
         doi: 10.1109/GCWkshps68340.2025.11591100,
-        url: "https://doi.org/10.1109/GCWkshps68340.2025.11591100",
+        url: 'https://doi.org/10.1109/GCWkshps68340.2025.11591100',
         bibtex_key: accuracy_delay,
       }
     - {
@@ -213,7 +213,7 @@ publications:
         authors: Jungyeon Koh; Hyeonsu Lyu; Jonggyu Jang; Hyun Jong Yang,
         venue: ICML 2024 Workshop on Mechanistic Interpretability,
         year: 2024,
-        url: "https://openreview.net/forum?id=TTVPbaxXjR",
+        url: 'https://openreview.net/forum?id=TTVPbaxXjR',
         bibtex_key: faithful_fast,
       }
     - {
@@ -222,7 +222,7 @@ publications:
         venue: IEEE/RSJ International Conference on Intelligent Robots and Systems,
         year: 2020,
         status: Demo and press release,
-        url: "https://doi.org/10.1109/iros45743.2020.9341041",
+        url: 'https://doi.org/10.1109/iros45743.2020.9341041',
         bibtex_key: autonomous_sem,
       }
     - {
@@ -230,7 +230,7 @@ publications:
         authors: Hyeonsu Lyu; Hyun Jong Yang,
         venue: International Conference on Information and Communication Technology Convergence (ICTC),
         year: 2023,
-        url: "https://doi.org/10.1109/ICTC58733.2023.10393468",
+        url: 'https://doi.org/10.1109/ICTC58733.2023.10393468',
         bibtex_key: maneuver_balloon,
       }
     - {
@@ -238,7 +238,7 @@ publications:
         authors: Hyeonsu Lyu; SeongJin Hwang; Hyun Jong Yang,
         venue: International Conference on Information and Communication Technology Convergence (ICTC),
         year: 2022,
-        url: "https://doi.org/10.1109/ICTC55196.2022.9953023",
+        url: 'https://doi.org/10.1109/ICTC55196.2022.9953023',
         bibtex_key: multiagent_coverage,
       }
     - {
@@ -246,7 +246,7 @@ publications:
         authors: Myungseok Ki; Jihun Cha; Hyeonsu Lyu,
         venue: International Conference on Information and Communication Technology Convergence (ICTC),
         year: 2018,
-        url: "https://doi.org/10.1109/ICTC.2018.8539587",
+        url: 'https://doi.org/10.1109/ICTC.2018.8539587',
         bibtex_key: detect_avoid,
       }
 
@@ -272,12 +272,12 @@ miscellaneous:
       authors: Hyeonsu Lyu; Hyun Jong Yang
       venue: Journal of KICS
       date: 2024
-    - title: "Stratolite: Breakthrough for UAV Communications"
+    - title: 'Stratolite: Breakthrough for UAV Communications'
       authors: Hyeonsu Lyu; Hyun Jong Yang
       venue: KICS Summer Conference
       date: June 2023
       note: Best Paper Award
-    - title: "Machine Unlearning: A Survey on Principles and Challenges"
+    - title: 'Machine Unlearning: A Survey on Principles and Challenges'
       authors: Hyeonsu Lyu; Hyun Jong Yang
       venue: KICS Winter Conference
       date: February 2023
@@ -401,16 +401,16 @@ miscellaneous:
       acknowledge: 2018-0-00958
       links:
         - label: Demo
-          url: "https://www.youtube.com/playlist?list=PL5q1DIhtyZHvQWb0DogrOd4uKk8lpbK0J"
+          url: 'https://www.youtube.com/playlist?list=PL5q1DIhtyZHvQWb0DogrOd4uKk8lpbK0J'
         - label: KAI paper award
-          url: "https://www.m-i.kr/news/articleView.html?idxno=967355"
+          url: 'https://www.m-i.kr/news/articleView.html?idxno=967355'
     - period: 2026–2030
       program: AI-RAN글로벌선도프로젝트
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
       title: AI-RAN Global Flagship Project
       acknowledge: RS-2026-25525793
-    - period: 2026
+    - period: 2026-2028
       program: 차세대네트워크(6G)산업기술개발
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
@@ -433,16 +433,16 @@ miscellaneous:
       ministry: Ministry of Trade, Industry and Energy (MOTIE)
       agency: N/A
       title: Development of Artificial Intelligence Scanning Electron Microscope
-      acknowledge: "20005526"
+      acknowledge: '20005526'
       links:
         - label: Demo
-          url: "https://www.youtube.com/watch?v=MvSaoPQvDdo"
+          url: 'https://www.youtube.com/watch?v=MvSaoPQvDdo'
         - label: News article
-          url: "https://www.dongascience.com/news.php?idx=40766"
+          url: 'https://www.dongascience.com/news.php?idx=40766'
         - label: Paper
-          url: "https://www.cambridge.org/core/journals/microscopy-and-microanalysis/article/robust-deeplearning-based-autofocus-score-prediction-for-scanning-electron-microscope/06DACEF3C48B9C1288475A35C67FA"
+          url: 'https://www.cambridge.org/core/journals/microscopy-and-microanalysis/article/robust-deeplearning-based-autofocus-score-prediction-for-scanning-electron-microscope/06DACEF3C48B9C1288475A35C67FA'
         - label: Paper
-          url: "https://ieeexplore.ieee.org/document/9341041"
+          url: 'https://ieeexplore.ieee.org/document/9341041'
   miscellaneous_projects:
     - period: 2021–2025
       program: 방송통신산업기술개발
