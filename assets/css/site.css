@@ -423,3 +423,7 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
   -webkit-user-drag: none;
   user-select: none;
 }
+
+article:has(.miscellaneous-content-marker) .misc-project-list > .list-group-item > .row {
+  align-items: baseline;
+}
