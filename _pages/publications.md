@@ -79,12 +79,26 @@ toc:
       note.remove();
     });
 
+    const venueAbbreviations = {
+      'IEEE Transactions on Communications': 'IEEE Trans. Commun.',
+      'IEEE Transactions on Wireless Communications': 'IEEE Trans. Wireless Commun.',
+      'IEEE Transactions on Neural Networks and Learning Systems': 'IEEE Trans. Neural Netw. Learn. Syst.',
+      'IEEE Internet of Things Journal': 'IEEE Internet Things J.',
+    };
+
     document.querySelectorAll('.publications .row').forEach((entry) => {
       const venue = entry.querySelector('.periodical em');
-      const abbreviation = entry.querySelector('.abbr')?.textContent.trim();
-      if (!venue || !abbreviation) return;
+      if (!venue) return;
 
       const fullVenue = venue.textContent.trim();
+      if (entry.querySelector('.abbr')?.textContent.trim() === 'arXiv') {
+        venue.closest('.periodical')?.remove();
+        return;
+      }
+
+      const abbreviation = venueAbbreviations[fullVenue] || entry.querySelector('.abbr')?.textContent.trim();
+      if (!abbreviation) return;
+
       const searchableVenue = document.createElement('span');
       searchableVenue.className = 'sr-only';
       searchableVenue.textContent = ` ${fullVenue}`;
