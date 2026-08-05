@@ -391,25 +391,17 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
   }
 
   .container > .row:has(.experience-content-marker) > .col-sm-3,
-  .container > .row:has(.miscellaneous-content-marker) > .col-sm-3 {
+  .container > .row:has(.miscellaneous-content-marker) > .col-sm-3,
+  .container > .row:has(.publications-content-marker) > .col-sm-3 {
     flex: 0 0 25%;
     max-width: 25%;
   }
 
   .container > .row:has(.experience-content-marker) > .col-sm-9,
-  .container > .row:has(.miscellaneous-content-marker) > .col-sm-9 {
+  .container > .row:has(.miscellaneous-content-marker) > .col-sm-9,
+  .container > .row:has(.publications-content-marker) > .col-sm-9 {
     flex: 0 0 75%;
     max-width: 75%;
-  }
-
-  .container > .row:has(.publications-content-marker) > .col-sm-3 {
-    flex: 0 0 12.5%;
-    max-width: 12.5%;
-  }
-
-  .container > .row:has(.publications-content-marker) > .col-sm-9 {
-    flex: 0 0 87.5%;
-    max-width: 87.5%;
   }
 }
 
