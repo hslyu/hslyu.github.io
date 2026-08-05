@@ -78,15 +78,10 @@ article .cv .card .title {
 }
 
 article .cv > #education + .card .title,
-article .cv > #education + .card .items {
+article .cv > #education + .card .education-details {
   margin-left: 0.25rem !important;
   padding-left: 0;
   text-align: left;
-}
-
-article .cv > #education + .card .items li {
-  list-style: none;
-  padding-left: 0;
 }
 
 article .cv .card-title {
@@ -98,6 +93,10 @@ article .cv .affiliation-text {
 }
 
 article .cv > #experience + .card .affiliation-text {
+  font-weight: 600;
+}
+
+article .cv > #education + .card .education-details {
   font-weight: 600;
 }
 
@@ -211,7 +210,8 @@ article .cv i.iconlocation {
   width: 0 !important;
 }
 
-#toc-sidebar .misc-year-filter {
+#toc-sidebar .misc-year-filter,
+#toc-sidebar .publication-year-filter {
   align-items: center;
   display: flex;
   gap: 0.35rem;
@@ -221,14 +221,16 @@ article .cv i.iconlocation {
   position: relative;
 }
 
-#toc-sidebar .misc-year-filter::before {
+#toc-sidebar .misc-year-filter::before,
+#toc-sidebar .publication-year-filter::before {
   border-top: 1px solid var(--global-divider-color);
   content: "";
   inset: 0 1.2rem auto;
   position: absolute;
 }
 
-#toc-sidebar .misc-year-filter input {
+#toc-sidebar .misc-year-filter input,
+#toc-sidebar .publication-year-filter input {
   appearance: textfield;
   background: var(--global-bg-color);
   border: 1px solid var(--global-divider-color);
@@ -242,7 +244,9 @@ article .cv i.iconlocation {
 }
 
 #toc-sidebar .misc-year-filter input::-webkit-inner-spin-button,
-#toc-sidebar .misc-year-filter input::-webkit-outer-spin-button {
+#toc-sidebar .misc-year-filter input::-webkit-outer-spin-button,
+#toc-sidebar .publication-year-filter input::-webkit-inner-spin-button,
+#toc-sidebar .publication-year-filter input::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
@@ -298,7 +302,8 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
 
 .publications ol.bibliography li .title,
 .misc-publication-list .title,
-.misc-project-card .title {
+.misc-project-card .title,
+article:has(.experience-content-marker) .academic-service-list .title {
   font-weight: 600;
 }
 
@@ -422,7 +427,7 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
 
 @media (min-width: 768px) {
   article .cv > #education + .card .title,
-  article .cv > #education + .card .items {
+  article .cv > #education + .card .education-details {
     margin-left: 1.5rem !important;
   }
 }

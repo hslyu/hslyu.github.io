@@ -209,7 +209,7 @@
     const list = document.createElement("ul");
     list.className = "toc-list";
 
-    years.forEach((year) => {
+    const publicationYears = years.map((year) => {
       year.id = year.textContent.trim();
 
       const item = document.createElement("li");
@@ -227,9 +227,46 @@
 
       item.appendChild(link);
       list.appendChild(item);
+
+      return { year: Number.parseInt(year.id, 10), heading: year, list: year.nextElementSibling, item };
     });
 
     toc.replaceChildren(list);
+
+    const yearFilter = document.createElement("div");
+    yearFilter.className = "publication-year-filter";
+
+    const fromInput = document.createElement("input");
+    fromInput.type = "number";
+    fromInput.min = "0";
+    fromInput.max = "9999";
+    fromInput.placeholder = `${Math.min(...publicationYears.map((entry) => entry.year))}`;
+    fromInput.setAttribute("aria-label", "Filter from year");
+
+    const toInput = document.createElement("input");
+    toInput.type = "number";
+    toInput.min = "0";
+    toInput.max = "9999";
+    toInput.placeholder = `${Math.max(...publicationYears.map((entry) => entry.year))}`;
+    toInput.setAttribute("aria-label", "Filter to year");
+
+    const setYearFilter = () => {
+      const fromYear = Number.parseInt(fromInput.value, 10) || 0;
+      const toYear = Number.parseInt(toInput.value, 10) || 9999;
+      const [firstYear, lastYear] = [Math.min(fromYear, toYear), Math.max(fromYear, toYear)];
+
+      publicationYears.forEach((entry) => {
+        const hidden = entry.year < firstYear || entry.year > lastYear;
+        entry.heading.hidden = hidden;
+        entry.list.hidden = hidden;
+        entry.item.hidden = hidden;
+      });
+    };
+
+    fromInput.addEventListener("input", setYearFilter);
+    toInput.addEventListener("input", setYearFilter);
+    yearFilter.append(fromInput, document.createTextNode(" – "), toInput);
+    toc.appendChild(yearFilter);
     toc.addEventListener("dragstart", (event) => event.preventDefault());
   };
 

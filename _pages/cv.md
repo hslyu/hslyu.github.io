@@ -54,12 +54,10 @@ toc:
       </table>
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 cv-entry-copy">
-      <h6 class="title font-weight-bold ml-1 ml-md-4">
-        {{ education.degree }}, {{ education.field }}, <span class="affiliation-text">{{ education.school }}</span>
+      <h6 class="title font-weight-bold ml-1 ml-md-4">{{ education.degree }}</h6>
+      <h6 class="education-details affiliation-text ml-1 ml-md-4" style="font-size: 0.95rem">
+        {{ education.field }}, {{ education.school }}{% if education.adviser %}. Advised by {{ education.adviser }}.{% endif %}
       </h6>
-      {% if education.adviser %}
-        <ul class="items"><li><span class="item">Advised by {{ education.adviser }}.</span></li></ul>
-      {% endif %}
     </div>
   </div>
 </li>
@@ -99,7 +97,7 @@ toc:
       <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ venue.years }}</span></td></tr></tbody></table>
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 cv-entry-copy">
-      <h6 class="title font-weight-bold ml-1 ml-md-4">{{ venue.name }}</h6>
+      <h6 class="title ml-1 ml-md-4">{{ venue.name }}</h6>
     </div>
   </div>
 </li>
@@ -114,7 +112,7 @@ toc:
       <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ item.years }}</span></td></tr></tbody></table>
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 cv-entry-copy">
-      <h6 class="title font-weight-bold ml-1 ml-md-4">{{ item.title }}{% if item.contribution %}, {{ item.contribution }}{% endif %}</h6>
+      <h6 class="title ml-1 ml-md-4">{{ item.title }}{% if item.contribution %}, {{ item.contribution }}{% endif %}</h6>
     </div>
   </div>
 </li>

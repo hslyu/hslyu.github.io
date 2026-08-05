@@ -46,20 +46,20 @@ experience:
   education:
     - period: "Mar. 2021 – Feb. 2026"
       years: "2021 - 2026"
-      degree: Ph.D.
+      degree: Doctor of Philosophy
       field: Electrical Engineering
       school: POSTECH
       location: Pohang, Korea
       adviser: Dr. Hyun Jong Yang
     - period: "Mar. 2018 – Feb. 2021"
       years: "2018 - 2021"
-      degree: M.S.
+      degree: Master of Science
       field: Electrical Engineering
       school: UNIST
       location: Ulsan, Korea
     - period: "Mar. 2014 – Feb. 2018"
       years: "2014 - 2018"
-      degree: B.Sc.
+      degree: Bachelor of Science
       field: Applied Mathematics and Computer Science
       school: UNIST
       location: Ulsan, Korea
