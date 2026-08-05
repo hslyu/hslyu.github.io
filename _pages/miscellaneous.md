@@ -12,62 +12,6 @@ toc:
 
 <div class="miscellaneous-content-marker" hidden></div>
 
-## Domestic papers
-
-<div class="misc-records">
-{% for paper in miscellaneous.domestic_papers %}
-
-<article class="misc-record">
-  <div class="misc-record-index">{{ forloop.index }}</div>
-  <div>
-    <div class="misc-record-title">{{ paper.title }}</div>
-    <div class="misc-record-authors">{{ paper.authors }}</div>
-    <div class="misc-record-meta">{{ paper.venue }} · {{ paper.date }}{% if paper.note %} · {{ paper.note }}{% endif %}</div>
-  </div>
-</article>
-
-{% endfor %}
-
-</div>
-
-## Intellectual properties
-
-<h3 class="misc-subtitle" data-toc-skip>Patents</h3>
-
-<div class="misc-records">
-{% for patent in miscellaneous.patents %}
-
-<article class="misc-record">
-  <div class="misc-record-index">{{ forloop.index }}</div>
-  <div>
-    <div class="misc-record-title misc-patent-title">{{ patent.title }}</div>
-    <div class="misc-record-authors">{{ patent.inventors }}</div>
-    <div class="misc-record-meta">{{ patent.jurisdiction }} {{ patent.application }} · {{ patent.status }}{% if patent.registration %} · {{ patent.jurisdiction }} {{ patent.registration }}{% endif %}</div>
-  </div>
-</article>
-
-{% endfor %}
-
-</div>
-
-<h3 class="misc-subtitle" data-toc-skip>Software registrations</h3>
-
-<div class="misc-records">
-{% for software in miscellaneous.software %}
-
-<article class="misc-record">
-  <div class="misc-record-index">{{ forloop.index }}</div>
-  <div>
-    <div class="misc-record-title">{{ software.title }}</div>
-    <div class="misc-record-authors">{{ software.author }}</div>
-    <div class="misc-record-meta">{{ software.registration }}</div>
-  </div>
-</article>
-
-{% endfor %}
-
-</div>
-
 <h2 id="projects" hidden>Key projects</h2>
 
 <div class="cv">
@@ -148,3 +92,60 @@ toc:
 </div>
 </div>
 </div>
+
+<section class="misc-publications-section">
+<h2 id="domestic-papers" class="misc-section-title font-weight-medium">Domestic papers</h2>
+<div class="publications misc-publications">
+<ol class="bibliography misc-bibliography">
+{% for paper in miscellaneous.domestic_papers %}
+<li>
+  <div class="row">
+    <div class="col col-sm-2 abbr"><abbr class="badge rounded w-100">Domestic</abbr></div>
+    <div class="col-sm-8">
+      <div class="title">{{ paper.title }}</div>
+      <div class="author">{{ paper.authors }}</div>
+      <div class="periodical"><em>{{ paper.venue }}</em>, {{ paper.date }}{% if paper.note %}; {{ paper.note }}{% endif %}</div>
+    </div>
+  </div>
+</li>
+{% endfor %}
+</ol>
+</div>
+</section>
+
+<section class="misc-publications-section">
+<h2 id="intellectual-properties" class="misc-section-title font-weight-medium">Intellectual properties</h2>
+<div class="publications misc-publications">
+<h3 class="misc-subtitle" data-toc-skip>Patents</h3>
+<ol class="bibliography misc-bibliography">
+{% for patent in miscellaneous.patents %}
+<li>
+  <div class="row">
+    <div class="col col-sm-2 abbr"><abbr class="badge rounded w-100">Patent</abbr></div>
+    <div class="col-sm-8">
+      <div class="title">{{ patent.title }}</div>
+      <div class="author">{{ patent.inventors }}</div>
+      <div class="periodical">{{ patent.jurisdiction }} {{ patent.application }} · {{ patent.status }}{% if patent.registration %} · {{ patent.jurisdiction }} {{ patent.registration }}{% endif %}</div>
+    </div>
+  </div>
+</li>
+{% endfor %}
+</ol>
+
+<h3 class="misc-subtitle" data-toc-skip>Software registrations</h3>
+<ol class="bibliography misc-bibliography">
+{% for software in miscellaneous.software %}
+<li>
+  <div class="row">
+    <div class="col col-sm-2 abbr"><abbr class="badge rounded w-100">Software</abbr></div>
+    <div class="col-sm-8">
+      <div class="title">{{ software.title }}</div>
+      <div class="author">{{ software.author }}</div>
+      <div class="periodical">{{ software.registration }}</div>
+    </div>
+  </div>
+</li>
+{% endfor %}
+</ol>
+</div>
+</section>

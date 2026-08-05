@@ -19,6 +19,38 @@ body.dark {
   vertical-align: baseline;
 }
 
+.profile-email {
+  align-items: center;
+  display: flex;
+  font-size: clamp(0.55rem, 1.5vw, 0.78rem);
+  gap: 0.25rem;
+  justify-content: center;
+  line-height: 1.7;
+  margin: 0.5rem auto 1rem;
+  max-width: 100%;
+}
+
+.profile-email-icon {
+  flex: 0 0 auto;
+  height: 1.05em;
+  width: 1.05em;
+}
+
+.profile-email-address {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.16rem;
+  justify-content: center;
+  min-width: 0;
+}
+
+html[data-theme="dark"] .profile-email-icon,
+html.dark .profile-email-icon,
+body[data-theme="dark"] .profile-email-icon,
+body.dark .profile-email-icon {
+  filter: invert(1);
+}
+
 .post-header:has(+ article .experience-content-marker),
 .post-header:has(+ article .publications-content-marker),
 .post-header:has(+ article .miscellaneous-content-marker) {
@@ -205,34 +237,6 @@ article .cv i.iconlocation {
   margin: 0;
 }
 
-.misc-records {
-  display: grid;
-  gap: 0.7rem;
-  margin: 0.75rem 0 1.5rem;
-}
-
-.misc-record {
-  background: var(--global-card-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 0.4rem;
-  display: grid;
-  gap: 0.6rem;
-  grid-template-columns: 1.7rem minmax(0, 1fr);
-  padding: 0.65rem 0.75rem;
-}
-
-.misc-record-index {
-  color: var(--global-theme-color);
-  font-weight: 700;
-}
-
-.misc-record-title {
-  font-weight: 400;
-  line-height: 1.35;
-}
-
-.misc-record-authors,
-.misc-record-meta,
 .misc-project-links {
   color: var(--global-text-color-light);
   font-size: 0.9rem;
@@ -259,10 +263,13 @@ article .cv i.iconlocation {
   font-size: 1.2rem;
 }
 
-article:has(.miscellaneous-content-marker) > h2:not([hidden]),
+article:has(.miscellaneous-content-marker) .misc-section-title,
 article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.misc-publications-section {
+  margin-top: 1rem;
 }
 
 .color-pilot-intro {

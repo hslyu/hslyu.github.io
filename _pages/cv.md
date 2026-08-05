@@ -92,11 +92,29 @@ toc:
 <h3 class="card-title font-weight-medium" data-toc-skip>Academic Services</h3>
 <h4 class="misc-subtitle">Reviewer</h4>
 <ul class="card-text font-weight-light list-group list-group-flush academic-service-list">
-{% for venue in experience.reviewer %}<li class="list-group-item"><span class="badge font-weight-bold danger-color-dark align-middle">{{ venue.years }}</span> {{ venue.name }}</li>{% endfor %}
+{% for venue in experience.reviewer %}
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
+      <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ venue.years }}</span></td></tr></tbody></table>
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 ml-1 ml-md-4">{{ venue.name }}</div>
+  </div>
+</li>
+{% endfor %}
 </ul>
 <h4 class="misc-subtitle mt-3">Open Source & Localization</h4>
 <ul class="card-text font-weight-light list-group list-group-flush academic-service-list">
-{% for item in experience.other_service.localization %}<li class="list-group-item"><span class="badge font-weight-bold danger-color-dark align-middle">{{ item.years }}</span> {{ item.title }}{% if item.contribution %}, {{ item.contribution }}{% endif %}</li>{% endfor %}
+{% for item in experience.other_service.localization %}
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
+      <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ item.years }}</span></td></tr></tbody></table>
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 ml-1 ml-md-4">{{ item.title }}{% if item.contribution %}, {{ item.contribution }}{% endif %}</div>
+  </div>
+</li>
+{% endfor %}
 </ul>
 </div>
 

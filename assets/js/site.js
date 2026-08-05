@@ -207,6 +207,32 @@
     toc.addEventListener("dragstart", (event) => event.preventDefault());
   };
 
+  const initializeExperiences = () => {
+    if (!document.querySelector(".experience-content-marker")) return;
+
+    const sectionTargets = Object.fromEntries(
+      [...document.querySelectorAll("article .cv > h2[id]")]
+        .map((heading) => [`#${heading.id}`, heading.nextElementSibling])
+        .filter(([, target]) => target)
+    );
+
+    document.querySelectorAll("#toc-sidebar a").forEach((link) => {
+      const target = sectionTargets[new URL(link.href).hash];
+      if (!target) return;
+
+      link.addEventListener(
+        "click",
+        (event) => {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          window.history.replaceState(null, "", link.hash);
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        },
+        true
+      );
+    });
+  };
+
   const initializeMiscellaneous = () => {
     if (!document.querySelector(".miscellaneous-content-marker")) return;
 
@@ -264,8 +290,8 @@
       positionSidebar();
     }
 
-    const recordGroups = [...document.querySelectorAll(".misc-records, .misc-project-list")];
-    const records = recordGroups.flatMap((group) => [...group.querySelectorAll(":scope > .misc-record, :scope > .list-group-item")]);
+    const recordGroups = [...document.querySelectorAll(".misc-bibliography, .misc-project-list")];
+    const records = recordGroups.flatMap((group) => [...group.querySelectorAll(":scope > li")]);
     const recordYearRanges = new Map(
       records.map((record) => {
         const years = [...record.textContent.matchAll(/\b(?:19|20)\d{2}\b/g)].map((match) => Number(match[0]));
@@ -305,13 +331,13 @@
         const hasVisibleRecords = [...group.children].some((record) => !record.hidden);
         group.hidden = !hasVisibleRecords;
         group.closest(".misc-project-card")?.toggleAttribute("hidden", !hasVisibleRecords);
-        group.previousElementSibling?.toggleAttribute("hidden", !hasVisibleRecords);
+        group.previousElementSibling?.classList.contains("misc-subtitle") &&
+          group.previousElementSibling.toggleAttribute("hidden", !hasVisibleRecords);
       });
 
-      const intellectualProperties = document.querySelector("#intellectual-properties");
-      if (intellectualProperties) {
-        intellectualProperties.hidden = [...document.querySelectorAll(".misc-records")].slice(1).every((group) => group.hidden);
-      }
+      document.querySelectorAll(".misc-publications-section").forEach((section) => {
+        section.hidden = !section.querySelector(".misc-bibliography:not([hidden])");
+      });
     };
 
     fromInput.addEventListener("input", setYearFilter);
@@ -349,6 +375,7 @@
     if (!document.querySelector(".publications-content-marker")) linkPublicationTitles();
     renderAffiliationBrands();
     initializePublications();
+    initializeExperiences();
     initializeMiscellaneous();
     initializeColorPilot();
   };
