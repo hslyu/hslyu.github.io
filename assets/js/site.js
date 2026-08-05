@@ -266,6 +266,11 @@
     fromInput.addEventListener("input", setYearFilter);
     toInput.addEventListener("input", setYearFilter);
     yearFilter.append(fromInput, document.createTextNode(" – "), toInput);
+    const searchContainer = document.querySelector("#bibsearch")?.closest("p");
+    if (searchContainer) {
+      searchContainer.classList.add("publication-search");
+      toc.appendChild(searchContainer);
+    }
     toc.appendChild(yearFilter);
     toc.addEventListener("dragstart", (event) => event.preventDefault());
   };

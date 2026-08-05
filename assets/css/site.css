@@ -168,12 +168,25 @@ article .cv i.iconlocation {
 }
 
 .publications h2.bibliography {
+  font-size: 1.5rem;
   scroll-margin-top: 5rem;
+}
+
+article:has(.publications-content-marker) .publications {
+  margin-top: 0;
+}
+
+.publications > h2.bibliography:first-child {
+  margin-top: 0;
 }
 
 @media (min-width: 576px) {
   .publications h2.bibliography {
     transform: translateY(3.125rem);
+  }
+
+  .container > .row:has(.publications-content-marker) #toc-sidebar {
+    margin-top: 4.125rem;
   }
 
   .publications ol.bibliography > li > .row > .col-sm-8 {
@@ -219,6 +232,15 @@ article .cv i.iconlocation {
   padding-left: 1.2rem;
   padding-top: 0.65rem;
   position: relative;
+}
+
+#toc-sidebar .publication-search {
+  margin: 0.65rem 1.2rem 0;
+}
+
+#toc-sidebar .publication-search .bibsearch-form-input {
+  min-width: 0;
+  width: 100%;
 }
 
 #toc-sidebar .misc-year-filter::before,
