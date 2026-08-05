@@ -86,8 +86,8 @@ experience:
     - { abbr: KICS, name: KICS Journal, years: 2022–2023 }
   other_service:
     localization:
-      - "QGroundControl: Korean localization — one of the first complete Korean translations and the second-highest contributor (2018–2021)"
-      - "PX4: User Guide Korean localization (2018–2021)"
+      - { years: 2018–2021, title: QGroundControl Localization, contribution: 2nd highest contributor }
+      - { years: 2018–2021, title: PX4 User Guide Localization }
     talks:
       - "‘The Role of Aerial Networks in 6G Wireless’ — KICS Summer Conference, June 2025"
 

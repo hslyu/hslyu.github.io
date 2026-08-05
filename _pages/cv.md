@@ -90,19 +90,14 @@ toc:
 <h2 id="academic-services" hidden>Academic Services</h2>
 <div class="card mt-3 p-3">
 <h3 class="card-title font-weight-medium" data-toc-skip>Academic Services</h3>
-<ul class="card-text font-weight-light list-group list-group-flush"><li class="list-group-item"><span class="reviewer-card" tabindex="0">
-  <strong>Reviewer:</strong>
-  {% for venue in experience.reviewer %}{{ venue.abbr }}{% unless forloop.last %} · {% endunless %}{% endfor %}
-  <span class="reviewer-card-details">
-    {% for venue in experience.reviewer %}<strong>{{ venue.abbr }}</strong> — {{ venue.name }} ({{ venue.years }}){% unless forloop.last %}<br>{% endunless %}{% endfor %}
-  </span>
-</span></li></ul>
-<ul class="card-text font-weight-light list-group list-group-flush"><li class="list-group-item"><span class="reviewer-card" tabindex="0">
-  <strong>Opensource & Localization:</strong> QGroundControl, PX4
-  <span class="reviewer-card-details">
-    {% for item in experience.other_service.localization %}{{ item }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}
-  </span>
-</span></li></ul>
+<h4 class="misc-subtitle">Reviewer</h4>
+<ul class="card-text font-weight-light list-group list-group-flush academic-service-list">
+{% for venue in experience.reviewer %}<li class="list-group-item"><span class="badge font-weight-bold danger-color-dark align-middle">{{ venue.years }}</span> {{ venue.name }}</li>{% endfor %}
+</ul>
+<h4 class="misc-subtitle mt-3">Open Source & Localization</h4>
+<ul class="card-text font-weight-light list-group list-group-flush academic-service-list">
+{% for item in experience.other_service.localization %}<li class="list-group-item"><span class="badge font-weight-bold danger-color-dark align-middle">{{ item.years }}</span> {{ item.title }}{% if item.contribution %}, {{ item.contribution }}{% endif %}</li>{% endfor %}
+</ul>
 </div>
 
 <h2 id="talks" hidden>Talks</h2>
