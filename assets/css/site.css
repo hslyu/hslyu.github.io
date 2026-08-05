@@ -28,6 +28,10 @@ body.dark {
   white-space: nowrap;
 }
 
+.profile .more-info {
+  text-align: center;
+}
+
 .profile-email-address {
   align-items: baseline;
   display: inline-flex;
