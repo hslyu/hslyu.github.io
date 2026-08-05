@@ -39,7 +39,17 @@ body.dark {
 }
 
 .profile-email-address {
+  align-items: baseline;
+  display: inline-flex;
+  flex-wrap: nowrap;
   white-space: nowrap;
+}
+
+.profile-email-address > * {
+  flex: 0 0 auto;
+  overflow-wrap: normal;
+  white-space: nowrap;
+  word-break: normal;
 }
 
 html[data-theme="dark"] .profile-email-icon,
