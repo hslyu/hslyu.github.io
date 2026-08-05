@@ -12,9 +12,7 @@ toc:
 
 <div class="publications-content-marker" hidden></div>
 
-<!-- Bibsearch Feature -->
-
-{% include bib_search.liquid %}
+<script src="/assets/js/bibsearch.js" type="module"></script>
 
 <div class="publications">
 

@@ -266,12 +266,21 @@
     fromInput.addEventListener("input", setYearFilter);
     toInput.addEventListener("input", setYearFilter);
     yearFilter.append(fromInput, document.createTextNode(" – "), toInput);
-    const searchContainer = document.querySelector("#bibsearch")?.closest("p");
-    if (searchContainer) {
-      searchContainer.classList.add("publication-search");
-      toc.appendChild(searchContainer);
-    }
-    toc.appendChild(yearFilter);
+    const filters = document.createElement("div");
+    filters.className = "publication-filters";
+    filters.appendChild(yearFilter);
+    const searchInput = document.querySelector("#bibsearch") || document.createElement("input");
+    searchInput.autocomplete = "off";
+    searchInput.className = "search bibsearch-form-input";
+    searchInput.id = "bibsearch";
+    searchInput.placeholder = "Type to filter";
+    searchInput.spellcheck = false;
+    const searchContainer = document.createElement("div");
+    searchContainer.className = "publication-search";
+    searchContainer.appendChild(searchInput);
+    filters.appendChild(searchContainer);
+    toc.appendChild(filters);
+    document.querySelector(".publications")?.classList.add("is-ready");
     toc.addEventListener("dragstart", (event) => event.preventDefault());
   };
 
@@ -449,6 +458,6 @@
     initializeColorPilot();
   };
 
-  if (document.readyState !== "complete") window.addEventListener("load", initialize, { once: true });
+  if (document.readyState === "loading") window.addEventListener("DOMContentLoaded", initialize, { once: true });
   else initialize();
 })();

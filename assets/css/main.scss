@@ -21,3 +21,7 @@
 @use "tabs";
 @use "teachings";
 @use "typograms";
+
+.publications:not(.is-ready) {
+  visibility: hidden;
+}

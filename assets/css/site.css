@@ -168,6 +168,8 @@ article .cv i.iconlocation {
 }
 
 .publications h2.bibliography {
+  border-top-color: color-mix(in srgb, var(--global-text-color) 35%, var(--global-bg-color));
+  color: color-mix(in srgb, var(--global-text-color) 45%, var(--global-bg-color));
   font-size: 1.5rem;
   scroll-margin-top: 5rem;
 }
@@ -190,8 +192,8 @@ article:has(.publications-content-marker) .publications {
   }
 
   .publications ol.bibliography > li > .row > .col-sm-8 {
-    flex: 0 0 83.333333%;
-    max-width: 83.333333%;
+    flex: 0 0 75%;
+    max-width: 75%;
   }
 }
 
@@ -234,12 +236,32 @@ article:has(.publications-content-marker) .publications {
   position: relative;
 }
 
+#toc-sidebar .publication-filters {
+  margin-left: 1.2rem;
+  width: max-content;
+}
+
+#toc-sidebar .publication-filters .publication-year-filter {
+  padding-left: 0;
+}
+
 #toc-sidebar .publication-search {
-  margin: 0.65rem 1.2rem 0;
+  margin: 0.65rem 0 0;
+  width: 100%;
 }
 
 #toc-sidebar .publication-search .bibsearch-form-input {
+  appearance: textfield;
+  background: var(--global-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.25rem;
+  box-shadow: none;
+  color: var(--global-text-color);
+  font-size: 0.8rem;
+  margin: 0;
+  max-width: none;
   min-width: 0;
+  padding: 0.25rem;
   width: 100%;
 }
 
@@ -249,6 +271,10 @@ article:has(.publications-content-marker) .publications {
   content: "";
   inset: 0 1.2rem auto;
   position: absolute;
+}
+
+#toc-sidebar .publication-filters .publication-year-filter::before {
+  inset-inline: 0;
 }
 
 #toc-sidebar .misc-year-filter input,
