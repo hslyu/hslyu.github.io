@@ -28,16 +28,6 @@ body.dark {
   white-space: nowrap;
 }
 
-.profile-email-icon {
-  display: inline-block;
-  height: 1em;
-  margin-right: 0.2rem;
-  max-width: none;
-  object-fit: contain;
-  vertical-align: text-bottom;
-  width: auto;
-}
-
 .profile-email-address {
   align-items: baseline;
   display: inline-flex;
@@ -50,13 +40,6 @@ body.dark {
   overflow-wrap: normal;
   white-space: nowrap;
   word-break: normal;
-}
-
-html[data-theme="dark"] .profile-email-icon,
-html.dark .profile-email-icon,
-body[data-theme="dark"] .profile-email-icon,
-body.dark .profile-email-icon {
-  filter: invert(1);
 }
 
 .post-header:has(+ article .experience-content-marker),

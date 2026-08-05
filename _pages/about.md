@@ -8,7 +8,7 @@ profile:
   align: right
   image: me_profile.png
   more_info: >
-    <p class="profile-email"><img class="profile-email-icon" src="/assets/img/email.png" alt=""><span class="profile-email-address"><span>hs</span><code>dot</code><span>lyu</span><code>at</code><span>snu</span><code>dot</code><span>ac</span><code>dot</code><span>kr</span></span></p>
+    <p class="profile-email">email: <span class="profile-email-address"><span>hs</span><code>dot</code><span>lyu</span><code>at</code><span>snu</span><code>dot</code><span>ac</span><code>dot</code><span>kr</span></span></p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
