@@ -89,14 +89,6 @@ article .cv .card-title {
 }
 
 article .cv .affiliation-text {
-  font-weight: 700;
-}
-
-article .cv > #experience + .card .affiliation-text {
-  font-weight: 600;
-}
-
-article .cv > #education + .card .education-details {
   font-weight: 600;
 }
 
@@ -345,21 +337,24 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
 }
 
 .publications ol.bibliography li .title,
-.misc-publication-list .title,
+.misc-publication-list .title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 0.2rem;
+}
+
 .misc-project-card .title,
 article:has(.experience-content-marker) .academic-service-list .title {
   font-weight: 600;
-}
-
-.publications ol.bibliography li .title,
-.misc-publication-list .title {
-  margin-bottom: 0.2rem;
 }
 
 .publications ol.bibliography li .author,
 .misc-publication-list .author,
 .publications ol.bibliography li .periodical,
 .misc-publication-list .periodical {
+  font-size: 1rem;
+  font-weight: 300;
   line-height: 1.5;
 }
 
