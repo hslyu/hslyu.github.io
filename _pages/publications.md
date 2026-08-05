@@ -24,6 +24,51 @@ toc:
 
 <script>
   window.addEventListener('load', () => {
+    const titleLineLength = 65;
+    const prepositions = new Set(
+      'aboard about above across after against along amid among around as at before behind below beneath beside besides between beyond by concerning considering despite down during except following for from in inside into like near of off on onto opposite outside over past regarding round since through throughout till to toward towards under underneath unlike until up upon versus via with within without'.split(
+        ' '
+      )
+    );
+
+    const wrapTitle = (title) => {
+      const segment = title.trim();
+      if (segment.length <= titleLineLength) return [segment];
+
+      const words = [...segment.matchAll(/\S+/g)];
+      let breakAt = -1;
+
+      for (let index = words.length - 1; index > 0; index -= 1) {
+        const prefixLength = words[index].index - 1;
+        if (prefixLength > titleLineLength) continue;
+
+        const word = words[index][0].toLowerCase().replace(/[^a-z]/g, '');
+        if (prepositions.has(word)) {
+          breakAt = words[index].index;
+          break;
+        }
+      }
+
+      if (breakAt < 0) {
+        breakAt = segment.lastIndexOf(' ', titleLineLength);
+        if (breakAt < 1) breakAt = titleLineLength;
+      }
+
+      return [...wrapTitle(segment.slice(0, breakAt)), ...wrapTitle(segment.slice(breakAt))];
+    };
+
+    const renderWrappedTitle = (titleElement) => {
+      const lines = wrapTitle(titleElement.textContent);
+      if (lines.length === 1) return;
+
+      const titleNodes = lines.flatMap((line, index) => {
+        if (index === 0) return [document.createTextNode(line)];
+
+        return [document.createElement('br'), document.createTextNode(` ${line}`)];
+      });
+      titleElement.replaceChildren(...titleNodes);
+    };
+
     document.querySelectorAll('.publications .periodical').forEach((note) => {
       if (note.textContent.trim() !== 'Accepted') return;
 
@@ -45,6 +90,7 @@ toc:
       titleLink.target = '_blank';
       titleLink.rel = 'external nofollow noopener';
       titleLink.textContent = title.textContent;
+      renderWrappedTitle(titleLink);
       title.replaceChildren(titleLink);
       publicationLink.remove();
 

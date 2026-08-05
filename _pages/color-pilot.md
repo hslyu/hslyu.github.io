@@ -6,15 +6,15 @@ nav: false
 ---
 
 <div class="color-pilot">
-  <p class="color-pilot-intro">Choose a number to test it as the site’s main accent color. #01 is the current violet.</p>
+  <p class="color-pilot-intro">Choose a number to test it as the site’s main accent color. #06 Azure is used in light mode; #15 Amber is used in dark mode.</p>
 
-{% assign candidates = "Current Violet|#B509AC,Amethyst|#7C3AED,Indigo|#4F46E5,Cobalt|#1D4ED8,Royal Blue|#2563EB,Azure|#0369A1,Cerulean|#0077B6,Petrol|#155E75,Teal|#0F766E,Emerald|#047857,Forest|#15803D,Moss|#4D7C0F,Olive|#3F6212,Gold|#A16207,Amber|#B45309,Burnt Orange|#C2410C,Red|#B91C1C,Crimson|#BE123C,Burgundy|#881337,Berry|#A21CAF,Plum|#7E22CE,Deep Purple|#5B21B6,Midnight Blue|#172554,Slate|#334155,Graphite|#3F3F46,Coffee|#78350F,Walnut|#6F3B20,Wine|#9D174D,Ocean|#075985,Evergreen|#166534" | split: "," %}
+{% assign candidates = "Violet|#B509AC,Amethyst|#7C3AED,Indigo|#4F46E5,Cobalt|#1D4ED8,Royal Blue|#2563EB,Current Azure|#0369A1,Cerulean|#0077B6,Petrol|#155E75,Teal|#0F766E,Emerald|#047857,Forest|#15803D,Moss|#4D7C0F,Olive|#3F6212,Gold|#A16207,Amber|#B45309,Burnt Orange|#C2410C,Red|#B91C1C,Crimson|#BE123C,Burgundy|#881337,Berry|#A21CAF,Plum|#7E22CE,Deep Purple|#5B21B6,Midnight Blue|#172554,Slate|#334155,Graphite|#3F3F46,Coffee|#78350F,Walnut|#6F3B20,Wine|#9D174D,Ocean|#075985,Evergreen|#166534" | split: "," %}
 
   <div class="color-pilot-grid">
     {% for candidate in candidates %}
       {% assign candidate_parts = candidate | split: "|" %}
       <article class="color-pilot-card" style="--candidate: {{ candidate_parts[1] }}">
-        <div class="color-pilot-swatch"><span>#{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span></div>
+        <button class="color-pilot-swatch" type="button" data-color="{{ candidate_parts[1] }}" aria-label="Copy {{ candidate_parts[1] }} to clipboard"><span>#{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span></button>
         <div class="color-pilot-card-body">
           <div class="color-pilot-name">{{ candidate_parts[0] }}</div>
           <code>{{ candidate_parts[1] }}</code>
@@ -24,6 +24,30 @@ nav: false
     {% endfor %}
   </div>
 </div>
+
+<script>
+  document.querySelectorAll('.color-pilot-swatch').forEach((swatch) => {
+    swatch.addEventListener('click', async () => {
+      const color = swatch.dataset.color;
+
+      try {
+        await navigator.clipboard.writeText(color);
+      } catch {
+        const input = document.createElement('textarea');
+        input.value = color;
+        document.body.append(input);
+        input.select();
+        document.execCommand('copy');
+        input.remove();
+      }
+
+      const label = swatch.querySelector('span');
+      const originalLabel = label.textContent;
+      label.textContent = 'Copied';
+      setTimeout(() => (label.textContent = originalLabel), 1200);
+    });
+  });
+</script>
 
 <style>
   .color-pilot-intro {
@@ -47,10 +71,19 @@ nav: false
   .color-pilot-swatch {
     align-items: flex-end;
     background: var(--candidate);
+    border: 0;
+    color: inherit;
+    cursor: pointer;
     display: flex;
     height: 4.5rem;
     justify-content: flex-end;
     padding: 0.55rem 0.65rem;
+    width: 100%;
+  }
+
+  .color-pilot-swatch:focus-visible {
+    outline: 3px solid var(--global-theme-color);
+    outline-offset: -3px;
   }
 
   .color-pilot-swatch span {
