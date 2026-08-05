@@ -380,5 +380,11 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
 }
 
 article:has(.miscellaneous-content-marker) .misc-project-list > .list-group-item > .row {
-  align-items: baseline;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  article:has(.miscellaneous-content-marker) .misc-project-list .date-column {
+    padding-top: 0.15rem;
+  }
 }
