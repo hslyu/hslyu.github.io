@@ -21,6 +21,7 @@ footer_text: >
   <style>article .cv table.table-cv td { border-top: 0; }</style>
   <style>article .cv .date-column { transform: none; }</style>
   <style>article .cv span[style*="color"] { font-weight: 700; }</style>
+  <style>article .cv > #experience + .card span[style*="color"] { font-weight: 600; }</style>
   <style>article .cv > #education + .card .title, article .cv > #education + .card .items { margin-left: 0.25rem !important; padding-left: 0; text-align: left; } article .cv > #education + .card .items li { list-style: none; padding-left: 0; }</style>
   <style>@media (min-width: 768px) { article .cv > #education + .card .title, article .cv > #education + .card .items { margin-left: 1.5rem !important; } }</style>
   <style>article .cv .card .title { margin-bottom: 0.2rem; }</style>
@@ -557,7 +558,7 @@ third_party_libraries:
     version: "5.5.0"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
+      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
   highlightjs:
     integrity:
       css:
