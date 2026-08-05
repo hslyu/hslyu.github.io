@@ -95,52 +95,64 @@ miscellaneous:
   domestic_papers:
     - title: Deep Learning-Based Interference Cancellation for OFDM ISAC
       authors: Hyeonho Noh; Hyeonsu Lyu; Hyun Jong Yang
-      venue: 36th Joint Conference on Communications and Information (JCCI)
+      abbr: JCCI
+      venue: Proc. 36th Joint Conf. Commun. Inf.
       date: April 2026
     - title: Towards Building a Ray-Tracing-Compatible Digital Twin Scene for Wireless-Aware Physical AI Systems
       authors: Hyeonsu Lyu; Minwoo Kim; Sehyun Ryu; Hyun Jong Yang
-      venue: 36th Joint Conference on Communications and Information (JCCI)
+      abbr: JCCI
+      venue: Proc. 36th Joint Conf. Commun. Inf.
       date: April 2026
     - title: Secure Radio Resource and Routing Optimization in Multi-Hop Space-Air-Ground-Sea Integrated Networks
       authors: Hyeonsu Lyu; Hyeonho Noh; Hyun Jong Yang
-      venue: KICS Summer Conference
+      abbr: KICS SC
+      venue: Proc. KICS Summer Conf.
       date: June 2025
     - title: On the Non-Iterative Optimization for Aerial Communications
       authors: Hyeonsu Lyu; Hyun Jong Yang
-      venue: KICS Summer Conference
+      abbr: KICS SC
+      venue: Proc. KICS Summer Conf.
       date: June 2024
     - title: A Survey on High-Altitude Balloon UAVs for Vertical Heterogeneous Networks
       authors: Hyeonsu Lyu; Hyun Jong Yang
-      venue: Journal of KICS
+      abbr: J. KICS
+      venue: J. Korean Inst. Commun. Inf. Sci.
       date: 2024
     - title: "Stratolite: Breakthrough for UAV Communications"
       authors: Hyeonsu Lyu; Hyun Jong Yang
-      venue: KICS Summer Conference
+      abbr: KICS SC
+      venue: Proc. KICS Summer Conf.
       date: June 2023
       note: Best Paper Award
     - title: "Machine Unlearning: A Survey on Principles and Challenges"
       authors: Hyeonsu Lyu; Hyun Jong Yang
-      venue: KICS Winter Conference
+      abbr: KICS WC
+      venue: Proc. KICS Winter Conf.
       date: February 2023
     - title: Generalized Water-Filling Algorithm for Fast User Association and Resource Allocation
       authors: Hyeonsu Lyu; Jonggyu Jang; Hyun Jong Yang
-      venue: KICS Fall Conference
+      abbr: KICS FC
+      venue: Proc. KICS Fall Conf.
       date: November 2022
     - title: Trajectory-Planning and Resource Allocation of UAV Base Station with User QoS Constraints
       authors: Hyeonsu Lyu; Jonggyu Jang; Harim Lee; Hyun Jong Yang
-      venue: KICS Summer Conference
+      abbr: KICS SC
+      venue: Proc. KICS Summer Conf.
       date: June 2022
     - title: Designing Scalable Deep Q-Learning Using Fully Convolutional Network
       authors: Sojeong Park; Hyeonsu Lyu; Hyun Jong Yang
-      venue: KICS Winter Conference
+      abbr: KICS WC
+      venue: Proc. KICS Winter Conf.
       date: February 2022
     - title: A Study on the Optimal Drone Hardware Component Selection Algorithm Maximizing Flight Time
       authors: Hyeonsu Lyu; Harim Lee; Yeongjun Kim; Hyun Jong Yang
-      venue: KICS Summer Conference
+      abbr: KICS SC
+      venue: Proc. KICS Summer Conf.
       date: June 2021
     - title: A Study on Establishing Testbeds for Reinforcement Learning of Unmanned Aerial Vehicles
       authors: Hyeonsu Lyu; Hyun Jong Yang
-      venue: KICS Winter Conference
+      abbr: KICS WC
+      venue: Proc. KICS Winter Conf.
       date: February 2021
   patents:
     - title: Apparatus and Method for Determining Whether There Is a Possibility of Personal Information Leakage by Generating a Restored Image Set Corresponding to the Training Dataset of an Artificial Intelligence Model

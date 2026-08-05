@@ -68,6 +68,32 @@
     });
   };
 
+  const highlightOwnName = (element) => {
+    const textNodes = [];
+    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+    let textNode;
+
+    while ((textNode = walker.nextNode())) {
+      if (textNode.textContent.includes("Hyeonsu Lyu")) textNodes.push(textNode);
+    }
+
+    textNodes.forEach((node) => {
+      const parts = node.textContent.split("Hyeonsu Lyu");
+      const replacement = document.createDocumentFragment();
+
+      parts.forEach((part, index) => {
+        replacement.append(part);
+        if (index < parts.length - 1) {
+          const name = document.createElement("span");
+          name.className = "misc-author-highlight";
+          name.textContent = "Hyeonsu Lyu";
+          replacement.append(name);
+        }
+      });
+      node.replaceWith(replacement);
+    });
+  };
+
   const linkPublicationTitles = (wrapTitles = false) => {
     document.querySelectorAll('.publications .links a[href*="doi.org"], .publications .links a[href*="arxiv.org"]').forEach((publicationLink) => {
       const entry = publicationLink.closest(".row");
@@ -239,6 +265,7 @@
     document.querySelectorAll(".misc-record-title:not(.misc-patent-title)").forEach((title) => renderWrappedTitle(title, 65));
     document.querySelectorAll(".misc-patent-title").forEach((title) => renderWrappedTitle(title, 80));
     document.querySelectorAll(".misc-record-meta").forEach(highlightPaperAwards);
+    document.querySelectorAll(".misc-publication-authors").forEach(highlightOwnName);
 
     const projectTargets = {
       "#projects": document.querySelector("#projects + .cv .misc-project-card"),
@@ -290,7 +317,7 @@
       positionSidebar();
     }
 
-    const recordGroups = [...document.querySelectorAll(".misc-bibliography, .misc-project-list")];
+    const recordGroups = [...document.querySelectorAll(".misc-publication-list, .misc-project-list")];
     const records = recordGroups.flatMap((group) => [...group.querySelectorAll(":scope > li")]);
     const recordYearRanges = new Map(
       records.map((record) => {
@@ -336,7 +363,7 @@
       });
 
       document.querySelectorAll(".misc-publications-section").forEach((section) => {
-        section.hidden = !section.querySelector(".misc-bibliography:not([hidden])");
+        section.hidden = !section.querySelector(".misc-publication-list:not([hidden])");
       });
     };
 

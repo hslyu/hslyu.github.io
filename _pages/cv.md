@@ -98,7 +98,9 @@ toc:
     <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
       <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ venue.years }}</span></td></tr></tbody></table>
     </div>
-    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 ml-1 ml-md-4">{{ venue.name }}</div>
+    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 cv-entry-copy">
+      <h6 class="title font-weight-bold ml-1 ml-md-4">{{ venue.name }}</h6>
+    </div>
   </div>
 </li>
 {% endfor %}
@@ -111,7 +113,9 @@ toc:
     <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
       <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ item.years }}</span></td></tr></tbody></table>
     </div>
-    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 ml-1 ml-md-4">{{ item.title }}{% if item.contribution %}, {{ item.contribution }}{% endif %}</div>
+    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 cv-entry-copy">
+      <h6 class="title font-weight-bold ml-1 ml-md-4">{{ item.title }}{% if item.contribution %}, {{ item.contribution }}{% endif %}</h6>
+    </div>
   </div>
 </li>
 {% endfor %}

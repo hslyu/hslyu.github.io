@@ -95,57 +95,65 @@ toc:
 
 <section class="misc-publications-section">
 <h2 id="domestic-papers" class="misc-section-title font-weight-medium">Domestic papers</h2>
-<div class="publications misc-publications">
-<ol class="bibliography misc-bibliography">
+<div class="misc-publications">
+<ul class="card-text font-weight-light list-group list-group-flush misc-publication-list">
 {% for paper in miscellaneous.domestic_papers %}
-<li>
+<li class="list-group-item">
   <div class="row">
-    <div class="col col-sm-2 abbr"><abbr class="badge rounded w-100">Domestic</abbr></div>
-    <div class="col-sm-8">
-      <div class="title">{{ paper.title }}</div>
-      <div class="author">{{ paper.authors }}</div>
-      <div class="periodical"><em>{{ paper.venue }}</em>, {{ paper.date }}{% if paper.note %}; {{ paper.note }}{% endif %}</div>
+    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
+      <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ paper.abbr }}</span></td></tr></tbody></table>
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
+      <h6 class="title ml-1 ml-md-4">{{ paper.title }}</h6>
+      <div class="misc-publication-authors ml-1 ml-md-4">{{ paper.authors }}</div>
+      <div class="misc-publication-meta ml-1 ml-md-4"><em>{{ paper.venue }}</em>, {{ paper.date }}{% if paper.note %}; {{ paper.note }}{% endif %}</div>
     </div>
   </div>
 </li>
 {% endfor %}
-</ol>
+</ul>
 </div>
 </section>
 
 <section class="misc-publications-section">
 <h2 id="intellectual-properties" class="misc-section-title font-weight-medium">Intellectual properties</h2>
-<div class="publications misc-publications">
+<div class="misc-publications">
 <h3 class="misc-subtitle" data-toc-skip>Patents</h3>
-<ol class="bibliography misc-bibliography">
+<ul class="card-text font-weight-light list-group list-group-flush misc-publication-list">
 {% for patent in miscellaneous.patents %}
-<li>
+{% assign patent_status = 'Filed' %}
+{% if patent.status contains 'registered' %}{% assign patent_status = 'Granted' %}{% endif %}
+<li class="list-group-item">
   <div class="row">
-    <div class="col col-sm-2 abbr"><abbr class="badge rounded w-100">Patent</abbr></div>
-    <div class="col-sm-8">
-      <div class="title">{{ patent.title }}</div>
-      <div class="author">{{ patent.inventors }}</div>
-      <div class="periodical">{{ patent.jurisdiction }} {{ patent.application }} · {{ patent.status }}{% if patent.registration %} · {{ patent.jurisdiction }} {{ patent.registration }}{% endif %}</div>
+    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
+      <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ patent_status }}</span></td></tr></tbody></table>
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
+      <h6 class="title ml-1 ml-md-4">{{ patent.title }}</h6>
+      <div class="misc-publication-authors ml-1 ml-md-4">{{ patent.inventors }}</div>
+      <div class="misc-publication-meta ml-1 ml-md-4">{{ patent.jurisdiction }} {{ patent.application }}{% if patent.registration %} · {{ patent.jurisdiction }} {{ patent.registration }}{% endif %}</div>
     </div>
   </div>
 </li>
 {% endfor %}
-</ol>
+</ul>
 
 <h3 class="misc-subtitle" data-toc-skip>Software registrations</h3>
-<ol class="bibliography misc-bibliography">
+<ul class="card-text font-weight-light list-group list-group-flush misc-publication-list">
 {% for software in miscellaneous.software %}
-<li>
+<li class="list-group-item">
   <div class="row">
-    <div class="col col-sm-2 abbr"><abbr class="badge rounded w-100">Software</abbr></div>
-    <div class="col-sm-8">
-      <div class="title">{{ software.title }}</div>
-      <div class="author">{{ software.author }}</div>
-      <div class="periodical">{{ software.registration }}</div>
+    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
+      <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">Software</span></td></tr></tbody></table>
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
+      <h6 class="title ml-1 ml-md-4">{{ software.title }}</h6>
+      <div class="misc-publication-authors ml-1 ml-md-4">{{ software.author }}</div>
+      <div class="misc-publication-meta ml-1 ml-md-4">{{ software.registration }}</div>
     </div>
   </div>
 </li>
 {% endfor %}
-</ol>
+</ul>
 </div>
 </section>
