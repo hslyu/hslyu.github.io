@@ -172,6 +172,17 @@ article .cv i.iconlocation {
   scroll-margin-top: 5rem;
 }
 
+@media (min-width: 576px) {
+  .publications h2.bibliography {
+    transform: translateY(3.125rem);
+  }
+
+  .publications ol.bibliography > li > .row > .col-sm-8 {
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+}
+
 .publications ol.bibliography li .title a,
 .publications ol.bibliography li .title a:hover {
   color: var(--global-text-color);
@@ -285,18 +296,22 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
   color: var(--global-card-bg-color) !important;
 }
 
+.publications ol.bibliography li .title,
+.misc-publication-list .title,
+.misc-project-card .title {
+  font-weight: 600;
+}
+
+.publications ol.bibliography li .title,
 .misc-publication-list .title {
   margin-bottom: 0.2rem;
 }
 
-.misc-publication-authors,
-.misc-publication-meta {
+.publications ol.bibliography li .author,
+.misc-publication-list .author,
+.publications ol.bibliography li .periodical,
+.misc-publication-list .periodical {
   line-height: 1.5;
-}
-
-.misc-publication-meta {
-  color: var(--global-text-color-light);
-  font-size: 0.9rem;
 }
 
 .color-pilot-intro {

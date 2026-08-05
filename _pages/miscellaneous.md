@@ -105,8 +105,8 @@ toc:
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title ml-1 ml-md-4">{{ paper.title }}</h6>
-      <div class="misc-publication-authors ml-1 ml-md-4">{{ paper.authors }}</div>
-      <div class="misc-publication-meta ml-1 ml-md-4"><em>{{ paper.venue }}</em>, {{ paper.date }}{% if paper.note %}; {{ paper.note }}{% endif %}</div>
+      <div class="author ml-1 ml-md-4">{{ paper.authors }}</div>
+      <div class="periodical ml-1 ml-md-4"><em>{{ paper.venue }}</em>, {{ paper.date }}{% if paper.note %}; {{ paper.note }}{% endif %}</div>
     </div>
   </div>
 </li>
@@ -130,8 +130,8 @@ toc:
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title ml-1 ml-md-4">{{ patent.title }}</h6>
-      <div class="misc-publication-authors ml-1 ml-md-4">{{ patent.inventors }}</div>
-      <div class="misc-publication-meta ml-1 ml-md-4">{{ patent.jurisdiction }} {{ patent.application }}{% if patent.registration %} · {{ patent.jurisdiction }} {{ patent.registration }}{% endif %}</div>
+      <div class="author ml-1 ml-md-4">{{ patent.inventors }}</div>
+      <div class="periodical ml-1 ml-md-4">{{ patent.jurisdiction }} {{ patent.application }}{% if patent.registration %} · {{ patent.jurisdiction }} {{ patent.registration }}{% endif %}</div>
     </div>
   </div>
 </li>
@@ -148,8 +148,8 @@ toc:
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title ml-1 ml-md-4">{{ software.title }}</h6>
-      <div class="misc-publication-authors ml-1 ml-md-4">{{ software.author }}</div>
-      <div class="misc-publication-meta ml-1 ml-md-4">{{ software.registration }}</div>
+      <div class="author ml-1 ml-md-4">{{ software.author }}</div>
+      <div class="periodical ml-1 ml-md-4">{{ software.registration }}</div>
     </div>
   </div>
 </li>

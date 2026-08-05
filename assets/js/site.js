@@ -265,7 +265,7 @@
     document.querySelectorAll(".misc-record-title:not(.misc-patent-title)").forEach((title) => renderWrappedTitle(title, 65));
     document.querySelectorAll(".misc-patent-title").forEach((title) => renderWrappedTitle(title, 80));
     document.querySelectorAll(".misc-record-meta").forEach(highlightPaperAwards);
-    document.querySelectorAll(".misc-publication-authors").forEach(highlightOwnName);
+    document.querySelectorAll(".misc-publication-list .author").forEach(highlightOwnName);
 
     const projectTargets = {
       "#projects": document.querySelector("#projects + .cv .misc-project-card"),
