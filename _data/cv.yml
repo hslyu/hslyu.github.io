@@ -34,7 +34,7 @@ cv:
         start_date: 2025-08
         end_date: 2026-02
 
-    "Awards & Honors":
+    Awards:
       - title: The 32nd Humantech Paper Awards
         awarder: '<span style="color: #1428A0">Samsung</span>'
         date: 2026

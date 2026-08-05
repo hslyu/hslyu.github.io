@@ -69,6 +69,32 @@ toc:
       titleElement.replaceChildren(...titleNodes);
     };
 
+    const highlightPaperAwards = (element) => {
+      const textNodes = [];
+      const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+      let textNode;
+
+      while ((textNode = walker.nextNode())) {
+        if (textNode.textContent.includes('Best Paper Award')) textNodes.push(textNode);
+      }
+
+      textNodes.forEach((node) => {
+        const parts = node.textContent.split('Best Paper Award');
+        const replacement = document.createDocumentFragment();
+
+        parts.forEach((part, index) => {
+          replacement.append(part);
+          if (index < parts.length - 1) {
+            const award = document.createElement('span');
+            award.className = 'paper-award';
+            award.textContent = 'Best Paper Award';
+            replacement.append(award);
+          }
+        });
+        node.replaceWith(replacement);
+      });
+    };
+
     document.querySelectorAll('.publications .periodical').forEach((note) => {
       if (note.textContent.trim() !== 'Accepted') return;
 
@@ -78,6 +104,8 @@ toc:
       periodical.append(' (Accepted)');
       note.remove();
     });
+
+    document.querySelectorAll('.publications .periodical').forEach(highlightPaperAwards);
 
     const venueAbbreviations = {
       'IEEE Transactions on Communications': 'IEEE Trans. Commun.',

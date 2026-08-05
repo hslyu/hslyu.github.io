@@ -156,8 +156,35 @@ toc:
       );
     };
 
+    const highlightPaperAwards = (element) => {
+      const textNodes = [];
+      const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+      let textNode;
+
+      while ((textNode = walker.nextNode())) {
+        if (textNode.textContent.includes('Best Paper Award')) textNodes.push(textNode);
+      }
+
+      textNodes.forEach((node) => {
+        const parts = node.textContent.split('Best Paper Award');
+        const replacement = document.createDocumentFragment();
+
+        parts.forEach((part, index) => {
+          replacement.append(part);
+          if (index < parts.length - 1) {
+            const award = document.createElement('span');
+            award.className = 'paper-award';
+            award.textContent = 'Best Paper Award';
+            replacement.append(award);
+          }
+        });
+        node.replaceWith(replacement);
+      });
+    };
+
     document.querySelectorAll('.misc-record-title:not(.misc-patent-title)').forEach((titleElement) => renderWrappedTitle(titleElement, titleLineLength));
     document.querySelectorAll('.misc-patent-title').forEach((titleElement) => renderWrappedTitle(titleElement, 90));
+    document.querySelectorAll('.misc-record-meta').forEach(highlightPaperAwards);
 
     const projectTargets = {
       '#projects': document.querySelector('#projects + .cv .misc-project-card'),
@@ -183,23 +210,39 @@ toc:
     const toc = document.querySelector('#toc-sidebar');
     const recordGroups = [...document.querySelectorAll('.misc-records, .misc-project-list')];
     const records = recordGroups.flatMap((group) => [...group.querySelectorAll(':scope > .misc-record, :scope > .list-group-item')]);
-    const yearsForRecord = (record) => {
+    const yearRangeForRecord = (record) => {
       const years = [...record.textContent.matchAll(/\b(?:19|20)\d{2}\b/g)].map((match) => Number(match[0]));
-      if (years.length < 2) return years;
+      if (!years.length) return null;
 
-      const [firstYear, lastYear] = [Math.min(...years), Math.max(...years)];
-      return Array.from({ length: lastYear - firstYear + 1 }, (_, index) => firstYear + index);
+      return [Math.min(...years), Math.max(...years)];
     };
-    const recordYears = new Map(records.map((record) => [record, yearsForRecord(record)]));
-    const years = [...new Set([...recordYears.values()].flat())].sort((firstYear, secondYear) => secondYear - firstYear);
+    const recordYearRanges = new Map(records.map((record) => [record, yearRangeForRecord(record)]));
 
-    if (toc && years.length) {
-      const yearList = document.createElement('ul');
-      yearList.className = 'toc-list misc-year-filter';
+    if (toc && records.length) {
+      const yearFilter = document.createElement('div');
+      yearFilter.className = 'misc-year-filter';
 
-      const setYearFilter = (year) => {
-        recordYears.forEach((recordYearList, record) => {
-          record.hidden = year !== null && !recordYearList.includes(year);
+      const fromInput = document.createElement('input');
+      fromInput.type = 'number';
+      fromInput.min = '0';
+      fromInput.max = '9999';
+      fromInput.placeholder = '0000';
+      fromInput.setAttribute('aria-label', 'Filter from year');
+
+      const toInput = document.createElement('input');
+      toInput.type = 'number';
+      toInput.min = '0';
+      toInput.max = '9999';
+      toInput.placeholder = '9999';
+      toInput.setAttribute('aria-label', 'Filter to year');
+
+      const setYearFilter = () => {
+        const fromYear = Number.parseInt(fromInput.value, 10) || 0;
+        const toYear = Number.parseInt(toInput.value, 10) || 9999;
+        const [firstYear, lastYear] = [Math.min(fromYear, toYear), Math.max(fromYear, toYear)];
+
+        recordYearRanges.forEach((recordYearRange, record) => {
+          record.hidden = !recordYearRange || recordYearRange[1] < firstYear || recordYearRange[0] > lastYear;
         });
 
         recordGroups.forEach((group) => {
@@ -214,29 +257,14 @@ toc:
           intellectualProperties.hidden = [...document.querySelectorAll('.misc-records')].slice(1).every((group) => group.hidden);
         }
 
-        yearList.querySelectorAll('.toc-link').forEach((link) => link.classList.toggle('is-active-link', link.dataset.year === String(year)));
       };
 
-      [null, ...years].forEach((year) => {
-        const item = document.createElement('li');
-        item.className = 'toc-list-item';
+      fromInput.addEventListener('input', setYearFilter);
+      toInput.addEventListener('input', setYearFilter);
+      yearFilter.append(fromInput, document.createTextNode(' – '), toInput);
 
-        const link = document.createElement('a');
-        link.className = 'toc-link';
-        link.href = '#';
-        link.dataset.year = String(year);
-        link.textContent = year ?? 'All';
-        link.addEventListener('click', (event) => {
-          event.preventDefault();
-          setYearFilter(year);
-        });
-
-        item.appendChild(link);
-        yearList.appendChild(item);
-      });
-
-      toc.appendChild(yearList);
-      setYearFilter(null);
+      toc.appendChild(yearFilter);
+      setYearFilter();
     }
   });
 </script>
