@@ -26,7 +26,7 @@ toc:
   window.addEventListener('load', () => {
     const titleLineLength = 65;
     const prepositions = new Set(
-      'aboard about above across after against along amid among around as at before behind below beneath beside besides between beyond by concerning considering despite down during except following for from in inside into like near of off on onto opposite outside over past regarding round since through throughout till to toward towards under underneath unlike until up upon versus via with within without'.split(
+      'aboard about above across after against along amid among and around as at before behind below beneath beside besides between beyond by concerning considering despite down during except following for from in inside into like near of off on onto opposite outside over past regarding round since through throughout till to toward towards under underneath unlike until up upon versus via with within without'.split(
         ' '
       )
     );

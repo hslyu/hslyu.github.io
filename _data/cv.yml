@@ -8,20 +8,17 @@ cv:
   sections:
     Education:
       - location: Pohang, Korea
-        area: 'Electrical Engineering, <span style="color: #C80150">POSTECH</span>'
-        studyType: Ph.D.
+        studyType: 'Ph.D., Electrical Engineering, <span style="color: #C80150">POSTECH</span>'
         start_date: 2021-03
         end_date: 2026-02
         highlights:
           - Advised by Dr. Hyun Jong Yang.
       - location: Ulsan, Korea
-        area: 'Electrical Engineering, <span style="color: #001B54">UNIST</span>'
-        studyType: M.S.
+        studyType: 'M.S., Electrical Engineering, <span style="color: #001B54">UNIST</span>'
         start_date: 2018-03
         end_date: 2021-02
       - location: Ulsan, Korea
-        area: 'Applied Mathematics and Computer Science, <span style="color: #001B54">UNIST</span>'
-        studyType: B.Sc.
+        studyType: 'B.Sc., Applied Mathematics and Computer Science, <span style="color: #001B54">UNIST</span>'
         start_date: 2014-03
         end_date: 2018-02
 
