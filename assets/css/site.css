@@ -187,6 +187,7 @@ article .cv i.iconlocation {
 }
 
 #toc-sidebar .misc-year-filter input {
+  appearance: textfield;
   background: var(--global-bg-color);
   border: 1px solid var(--global-divider-color);
   border-radius: 0.25rem;
@@ -196,6 +197,12 @@ article .cv i.iconlocation {
   padding: 0.25rem;
   text-align: center;
   width: 3.6rem;
+}
+
+#toc-sidebar .misc-year-filter input::-webkit-inner-spin-button,
+#toc-sidebar .misc-year-filter input::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
 }
 
 .misc-records {
