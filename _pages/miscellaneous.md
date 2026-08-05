@@ -153,6 +153,27 @@ toc:
         ...lines.flatMap((line, index) => (index === 0 ? [document.createTextNode(line)] : [document.createElement('br'), document.createTextNode(` ${line}`)]))
       );
     });
+
+    const projectTargets = {
+      '#projects': document.querySelector('#projects + .cv .misc-project-card'),
+      '#miscellaneous-projects': document.querySelector('#miscellaneous-projects + .cv .misc-project-card'),
+    };
+
+    document.querySelectorAll('#toc-sidebar a').forEach((link) => {
+      const target = projectTargets[new URL(link.href).hash];
+      if (!target) return;
+
+      link.addEventListener(
+        'click',
+        (event) => {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          window.history.replaceState(null, '', link.hash);
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        },
+        true
+      );
+    });
   });
 </script>
 

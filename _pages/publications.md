@@ -79,6 +79,18 @@ toc:
       note.remove();
     });
 
+    document.querySelectorAll('.publications .row').forEach((entry) => {
+      const venue = entry.querySelector('.periodical em');
+      const abbreviation = entry.querySelector('.abbr')?.textContent.trim();
+      if (!venue || !abbreviation) return;
+
+      const fullVenue = venue.textContent.trim();
+      const searchableVenue = document.createElement('span');
+      searchableVenue.className = 'sr-only';
+      searchableVenue.textContent = ` ${fullVenue}`;
+      venue.replaceChildren(abbreviation, searchableVenue);
+    });
+
     document.querySelectorAll('.publications .links a[href*="doi.org"], .publications .links a[href*="arxiv.org"]').forEach((publicationLink) => {
       const entry = publicationLink.closest('.row');
       const title = entry?.querySelector('.title');
