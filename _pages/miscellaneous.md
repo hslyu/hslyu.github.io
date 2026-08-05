@@ -40,7 +40,7 @@ toc:
 <article class="misc-record">
   <div class="misc-record-index">{{ forloop.index }}</div>
   <div>
-    <div class="misc-record-title">{{ patent.title }}</div>
+    <div class="misc-record-title misc-patent-title">{{ patent.title }}</div>
     <div class="misc-record-authors">{{ patent.inventors }}</div>
     <div class="misc-record-meta">{{ patent.jurisdiction }} {{ patent.application }} · {{ patent.status }}{% if patent.registration %} · {{ patent.jurisdiction }} {{ patent.registration }}{% endif %}</div>
   </div>
@@ -68,11 +68,11 @@ toc:
 
 </div>
 
-<h2 id="projects" hidden>Projects</h2>
+<h2 id="projects" hidden>Key projects</h2>
 
 <div class="cv">
 <div class="card mt-3 p-3 misc-project-card">
-<h3 class="card-title font-weight-medium" data-toc-skip>Projects</h3>
+<h3 class="card-title font-weight-medium" data-toc-skip>Key projects</h3>
 <div>
 <ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
 {% for project in miscellaneous.projects %}
@@ -91,7 +91,7 @@ toc:
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ project.title }}</h6>
-      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ project.funding }}</h6>
+      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ project.ministry }}, {{ project.agency }}, {{ project.acknowledge }}</h6>
       {% if project.links %}
         <div class="misc-project-links ml-1 ml-md-4">
           {% for link in project.links %}
@@ -119,16 +119,16 @@ toc:
       )
     );
 
-    const wrapTitle = (title) => {
+    const wrapTitle = (title, lineLength) => {
       const segment = title.trim();
-      if (segment.length <= titleLineLength) return [segment];
+      if (segment.length <= lineLength) return [segment];
 
       const words = [...segment.matchAll(/\S+/g)];
       let breakAt = -1;
 
       for (let index = words.length - 1; index > 0; index -= 1) {
         const prefixLength = words[index].index - 1;
-        if (prefixLength > titleLineLength) continue;
+        if (prefixLength > lineLength) continue;
 
         const word = words[index][0].toLowerCase().replace(/[^a-z]/g, '');
         if (prepositions.has(word)) {
@@ -138,21 +138,24 @@ toc:
       }
 
       if (breakAt < 0) {
-        breakAt = segment.lastIndexOf(' ', titleLineLength);
-        if (breakAt < 1) breakAt = titleLineLength;
+        breakAt = segment.lastIndexOf(' ', lineLength);
+        if (breakAt < 1) breakAt = lineLength;
       }
 
-      return [...wrapTitle(segment.slice(0, breakAt)), ...wrapTitle(segment.slice(breakAt))];
+      return [...wrapTitle(segment.slice(0, breakAt), lineLength), ...wrapTitle(segment.slice(breakAt), lineLength)];
     };
 
-    document.querySelectorAll('.misc-record-title').forEach((titleElement) => {
-      const lines = wrapTitle(titleElement.textContent);
+    const renderWrappedTitle = (titleElement, lineLength) => {
+      const lines = wrapTitle(titleElement.textContent, lineLength);
       if (lines.length === 1) return;
 
       titleElement.replaceChildren(
         ...lines.flatMap((line, index) => (index === 0 ? [document.createTextNode(line)] : [document.createElement('br'), document.createTextNode(` ${line}`)]))
       );
-    });
+    };
+
+    document.querySelectorAll('.misc-record-title:not(.misc-patent-title)').forEach((titleElement) => renderWrappedTitle(titleElement, titleLineLength));
+    document.querySelectorAll('.misc-patent-title').forEach((titleElement) => renderWrappedTitle(titleElement, 110));
 
     const projectTargets = {
       '#projects': document.querySelector('#projects + .cv .misc-project-card'),
@@ -200,7 +203,7 @@ toc:
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ project.title }}</h6>
-      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ project.funding }}</h6>
+      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ project.ministry }}, {{ project.agency }}, {{ project.acknowledge }}</h6>
     </div>
   </div>
 </li>

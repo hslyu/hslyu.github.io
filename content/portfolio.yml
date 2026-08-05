@@ -375,20 +375,65 @@ miscellaneous:
       author: Hyeonsu Lyu
       registration: C-2019-034510
   projects:
-    - title: Research on Ultra-Reliable Aerial Network Framework Supporting High-Density Urban Air Mobility
-      period: 2021–2028
-      funding: Supported by the MSIT, Korea, under the ITRC support program supervised by the IITP (IITP-2021-0-02048)
-    - title: Development of Joint Electrical/Mechanical Drone Beamforming Based on Target Detection and Precise Attitude Control
-      period: 2018–2022
-      funding: Supported by IITP grant funded by the Korea government (MSIP) (IITP-2018-0-00958)
+    - period: 2024–2028
+      program: 차세대네트워크(6G)산업기술개발
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: Development of AI-Native 6G Systems Orchestrating AI-Native Services
+      acknowledge: RS-2024-00398157
+    - period: 2023–2026
+      program: 개인기초연구(과기정통부)
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: National Research Foundation of Korea (NRF)
+      title: Research on scalable learning-based multi-UAV BS communication technologies for practical multi-UAV BS systems
+      acknowledge: RS-2023-00250191
+    - period: 2021–2028
+      program: 정보통신방송혁신인재양성
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: Research on Ultra Reliable Aerial Network framework Supporting High-density Urban Air Mobility
+      acknowledge: 2021-0-02048
+    - period: 2018–2022
+      program: 방송통신산업기술개발
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: Development of Joint Electrical/Mechanical Drone Beamforming based on Target Detection and Precise Attitude Control
+      acknowledge: 2018-0-00958
       links:
         - label: Demo
           url: "https://www.youtube.com/playlist?list=PL5q1DIhtyZHvQWb0DogrOd4uKk8lpbK0J"
         - label: KAI paper award
           url: "https://www.m-i.kr/news/articleView.html?idxno=967355"
-    - title: Development of Artificial Intelligence Scanning Electron Microscope
-      period: 2019–2020
-      funding: Supported by the MOTIE, Korea (20005526)
+    - period: 2026–2030
+      program: AI-RAN글로벌선도프로젝트
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: AI-RAN Global Flagship Project
+      acknowledge: RS-2026-25525793
+    - period: 2026
+      program: 차세대네트워크(6G)산업기술개발
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: Development of Adaptive RAN/RIC Application Performance Guarantee
+      acknowledge: RS-2026-25523626
+    - period: 2024–2028
+      program: 정보통신방송혁신인재양성
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: 6G Cloud Research and Education Open Hub
+      acknowledge: RS-2024-00428780
+    - period: 2024–2028
+      program: 방송통신산업기술개발
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: Development of 5G-A vRAN Research Platform
+      acknowledge: RS-2024-00404972
+    - period: 2019–2020
+      program: MOTIE R&D Program
+      ministry: Ministry of Trade, Industry and Energy (MOTIE)
+      agency: N/A
+      title: Development of Artificial Intelligence Scanning Electron Microscope
+      acknowledge: "20005526"
       links:
         - label: Demo
           url: "https://www.youtube.com/watch?v=MvSaoPQvDdo"
@@ -399,21 +444,36 @@ miscellaneous:
         - label: Paper
           url: "https://ieeexplore.ieee.org/document/9341041"
   miscellaneous_projects:
-    - title: Development of the Next-Generation Spectrum Monitoring Platform Based on Big-Data and AI Technology
-      period: 2023–2027
-      funding: Supported by IITP grant funded by MSIP, Korea (No. 00229541)
-    - title: Human Action Recognition System Development
-      period: 2022
-      funding: Supported by the Electronics and Telecommunications Research Institute (ETRI)
-    - title: Development of ICT Core Technologies for Safe Unmanned Vehicles
-      period: 2017
-      funding: Supported by IITP grant funded by MSIT, Korea (No. 2017-0-00067)
-    - title: Post-MIMO System Research for Massive Connectivity and New Wireless Spectrum
-      funding: Supported by IITP grant funded by MSIT, Korea (No. 2021-0-00161)
-    - title: Self-Powered Miniature Nationwide Mobile Position Tracker System Technology
-      funding: Supported by the MSIT, Korea, under the ITRC support program supervised by the IITP (IITP-2017-0-01635)
-    - title: Research on Near-Zero Latency Network for 5G Immersive Service
-      funding: Supported by IITP grant funded by MSIP, Korea (No. 2015-0-00278)
+    - period: 2021–2025
+      program: 방송통신산업기술개발
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: Post MIMO system research for massive connectivity and new wireless spectrum
+      acknowledge: 2021-0-00161
+    - period: 2015–2020
+      program: 방송통신산업기술개발
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: Research on Near-Zero Latency Network for 5G Immersive Service
+      acknowledge: 2015-0-00278
+    - period: 2017–2020
+      program: 정보통신방송혁신인재양성
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: Self-powered Miniature Nationwide Mobile Position Tracker System Technology
+      acknowledge: 2017-0-01635
+    - period: 2023–2027
+      program: ICT R&D Program
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: Development of the Next-Generation Spectrum Monitoring Platform Based on Big-Data & AI Technology
+      acknowledge: RS-2023-00229541
+    - period: 2017
+      program: ICT R&D Program
+      ministry: Ministry of Science and ICT (MSIT)
+      agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
+      title: Development of ICT Core Technologies for Safe Unmanned Vehicles
+      acknowledge: 2017-0-00067
 
 personal:
   generals_io: I am a pro-level generals.io player. I achieved the all-time highest FFA win rate of 51%, ranked first in all FFA scores, and have three accounts in the top five ranks.
