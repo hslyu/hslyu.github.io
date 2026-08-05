@@ -265,34 +265,6 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
   font-weight: 700;
 }
 
-.reviewer-card {
-  background: var(--global-card-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 0.4rem;
-  cursor: default;
-  display: block;
-  outline: none;
-  padding: 0.5rem 0.65rem;
-}
-
-.reviewer-card:focus {
-  border-color: var(--global-theme-color);
-}
-
-.reviewer-card-details {
-  color: var(--global-text-color-light);
-  display: block;
-  font-size: 0.86rem;
-  line-height: 1.55;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition:
-    max-height 0.25s ease,
-    margin-top 0.25s ease,
-    opacity 0.2s ease;
-}
-
 .color-pilot-intro {
   color: var(--global-text-color-light);
   margin-bottom: 1.5rem;
@@ -375,23 +347,6 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
   color: #fff;
   font-size: 0.7rem;
   padding: 0.1rem 0.3rem;
-}
-
-@media (hover: hover) {
-  .reviewer-card:hover .reviewer-card-details,
-  .reviewer-card:focus .reviewer-card-details {
-    margin-top: 0.5rem;
-    max-height: 24rem;
-    opacity: 1;
-  }
-}
-
-@media (hover: none) {
-  .reviewer-card-details {
-    margin-top: 0.5rem;
-    max-height: 24rem;
-    opacity: 1;
-  }
 }
 
 @media (min-width: 576px) {
