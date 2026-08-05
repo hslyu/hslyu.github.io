@@ -304,10 +304,10 @@
       const leftPadding = Number.parseFloat(columnStyle.paddingLeft);
       const rightPadding = Number.parseFloat(columnStyle.paddingRight);
       toc.style.position = "fixed";
-      toc.style.top = "5rem";
+      toc.style.top = "6.5rem";
       toc.style.left = `${columnBounds.left + leftPadding}px`;
       toc.style.width = `${columnBounds.width - leftPadding - rightPadding}px`;
-      toc.style.maxHeight = "calc(100vh - 5rem)";
+      toc.style.maxHeight = "calc(100vh - 6.5rem)";
       toc.style.setProperty("overflow-y", "auto", "important");
     };
 

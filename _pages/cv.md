@@ -14,7 +14,7 @@ toc:
 
 <div class="cv">
 <h2 id="experience" hidden>Experience</h2>
-<div class="card mt-3 p-3">
+<div class="card p-3">
 <h3 class="card-title font-weight-medium" data-toc-skip>Experience</h3>
 <ul class="card-text font-weight-light list-group list-group-flush">
 {% for job in experience.professional %}

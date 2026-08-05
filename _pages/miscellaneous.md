@@ -15,7 +15,7 @@ toc:
 <h2 id="projects" hidden>Key projects</h2>
 
 <div class="cv">
-<div class="card mt-3 p-3 misc-project-card">
+<div class="card p-3 misc-project-card">
 <h3 class="card-title font-weight-medium" data-toc-skip>Key projects</h3>
 <div>
 <ul class="card-text font-weight-light list-group list-group-flush misc-project-list">

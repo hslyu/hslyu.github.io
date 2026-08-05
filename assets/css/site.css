@@ -93,11 +93,6 @@ article .cv .card-title {
   font-size: 1.5rem;
 }
 
-article:has(.experience-content-marker) .cv > #experience + .card,
-article:has(.miscellaneous-content-marker) #projects + .cv > .misc-project-card {
-  margin-top: 0 !important;
-}
-
 article .cv .affiliation-text {
   font-weight: 700;
 }
@@ -428,6 +423,11 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
 .container > .row:has(.publications-content-marker) #toc-sidebar {
   -webkit-user-drag: none;
   user-select: none;
+}
+
+.container > .row:has(.experience-content-marker) #toc-sidebar,
+.container > .row:has(.miscellaneous-content-marker) #toc-sidebar {
+  top: 6.5rem;
 }
 
 article:has(.miscellaneous-content-marker) .misc-project-list > .list-group-item > .row {
