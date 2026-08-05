@@ -1,0 +1,3 @@
+[submodule "vendor/awesome-phd-cv"]
+	path = vendor/awesome-phd-cv
+	url = https://github.com/hslyu/Awesome-PhD-CV.git

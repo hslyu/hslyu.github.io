@@ -1,48 +1,47 @@
-name: Prettier code formatter
+name: Verify portfolio
 
 on:
   pull_request:
-    branches:
-      - master
-      - main
+    branches: [main]
   push:
-    branches:
-      - master
-      - main
+    branches: [main]
 
 jobs:
-  check:
-    # available images: https://github.com/actions/runner-images#available-images
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v4
-      - name: Setup Node.js ⚙️
-        uses: actions/setup-node@v4
-      - name: Install Prettier 💾
-        run: npm install --save-dev --save-exact prettier @shopify/prettier-plugin-liquid
-      - name: Prettier Check 🔎
-        id: prettier
-        run: npx prettier . --check
-      - name: Create diff 📝
-        # https://docs.github.com/en/actions/learn-github-actions/expressions#failure
-        if: ${{ failure() }}
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3.5"
+          bundler-cache: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install dependencies
         run: |
-          npx prettier . --write
-          git diff -- . ':(exclude)package-lock.json' ':(exclude)package.json' > diff.txt
-          npm install -g diff2html-cli
-          diff2html -i file -s side -F diff.html -- diff.txt
-      - name: Upload html diff ⬆️
-        id: artifact-upload
-        if: ${{ failure() && steps.prettier.conclusion == 'failure' }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: HTML Diff
-          path: diff.html
-          retention-days: 7
-      - name: Dispatch information to repository 🗣️
-        if: ${{ failure() && steps.prettier.conclusion == 'failure' && github.event_name == 'pull_request' }}
-        uses: peter-evans/repository-dispatch@v2
-        with:
-          event-type: prettier-failed-on-pr
-          client-payload: '{"pr_number": "${{ github.event.number }}", "artifact_url": "${{ steps.artifact-upload.outputs.artifact-url }}", "run_id": "${{ github.run_id }}"}'
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          npm ci
+          pip3 install -r vendor/awesome-phd-cv/research-cv/requirements.txt
+      - name: Check formatting and sources
+        run: |
+          npm run lint:prettier
+          npm run lint:style-contract
+          git diff --check
+      - name: Render CV source
+        run: |
+          python3 vendor/awesome-phd-cv/research-cv/scripts/render_cv.py \
+            --portfolio content/portfolio.yml \
+            --bibliography _bibliography/papers.bib \
+            --extra vendor/awesome-phd-cv/research-cv/cv-extra.yml \
+            --output vendor/awesome-phd-cv/research-cv/generated
+      - name: Build site
+        run: bundle exec jekyll build

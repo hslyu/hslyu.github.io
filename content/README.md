@@ -1,20 +1,9 @@
-# Portfolio content export
+# Portfolio data
 
-`portfolio.yml` is the theme-independent portfolio source for the site. It
-collects visitor-facing settings, profile, homepage copy, news, career,
-academic service, publications, intellectual properties, teaching, projects,
-personal page, memories, and asset paths.
+[`portfolio.yml`](portfolio.yml) is the single source for all visitor-facing information except international publications.
 
-The Miscellaneous page reads this file through `_data/portfolio.yml` (a
-symlink), so its detailed content is rendered from the same source that a
-future CV generator can consume. Keep structured records here instead of
-adding duplicated page-only text.
+It drives the homepage, experience page, miscellaneous page, and generated CV. Keep values structured and presentation-neutral: dates, titles, organizations, locations, links, and acknowledgement identifiers belong here; layout and line-breaking rules belong in the renderer.
 
-The following legacy files remain the authoritative detailed sources until the
-theme switch, because they contain machine-readable records that should be
-converted rather than copied into page markup:
+International publications remain in [`../_bibliography/papers.bib`](../_bibliography/papers.bib), which is read by both the website and CV renderer.
 
-- `_data/bibtex.yml` → al-folio `_bibliography/papers.bib`
-- `memories.md` → the full memory timeline
-
-The remaining legacy files are retained while the future CV build is designed.
+For the update and validation procedure, see [`../docs/HOMEPAGE_CV_PLAN.md`](../docs/HOMEPAGE_CV_PLAN.md).

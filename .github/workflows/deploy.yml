@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -30,17 +32,31 @@ jobs:
         with:
           python-version: "3.13"
           cache: pip
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y imagemagick
-          pip3 install --upgrade nbconvert
-          npm ci
+          sudo apt-get install -y imagemagick poppler-utils
+          pip3 install -r vendor/awesome-phd-cv/research-cv/requirements.txt
+      - name: Generate CV source
+        run: |
+          python3 vendor/awesome-phd-cv/research-cv/scripts/render_cv.py \
+            --portfolio content/portfolio.yml \
+            --bibliography _bibliography/papers.bib \
+            --extra vendor/awesome-phd-cv/research-cv/cv-extra.yml \
+            --output vendor/awesome-phd-cv/research-cv/generated
+      - name: Build CV PDF
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: cv.tex
+          working_directory: vendor/awesome-phd-cv/research-cv
+          latexmk_use_xelatex: true
+      - name: Stage and verify CV PDF
+        run: |
+          mkdir -p assets/pdf
+          cp vendor/awesome-phd-cv/research-cv/cv.pdf assets/pdf/hyeonsu-lyu-cv.pdf
+          test -s assets/pdf/hyeonsu-lyu-cv.pdf
+          pdfinfo assets/pdf/hyeonsu-lyu-cv.pdf | grep -q '^Pages:'
+          pdftotext assets/pdf/hyeonsu-lyu-cv.pdf - | grep -q 'Hyeonsu Lyu'
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -48,10 +64,6 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-      - name: Purge unused CSS
-        run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
