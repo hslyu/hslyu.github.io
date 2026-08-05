@@ -157,7 +157,7 @@ toc:
     };
 
     document.querySelectorAll('.misc-record-title:not(.misc-patent-title)').forEach((titleElement) => renderWrappedTitle(titleElement, titleLineLength));
-    document.querySelectorAll('.misc-patent-title').forEach((titleElement) => renderWrappedTitle(titleElement, 110));
+    document.querySelectorAll('.misc-patent-title').forEach((titleElement) => renderWrappedTitle(titleElement, 90));
 
     const projectTargets = {
       '#projects': document.querySelector('#projects + .cv .misc-project-card'),
@@ -179,6 +179,65 @@ toc:
         true
       );
     });
+
+    const toc = document.querySelector('#toc-sidebar');
+    const recordGroups = [...document.querySelectorAll('.misc-records, .misc-project-list')];
+    const records = recordGroups.flatMap((group) => [...group.querySelectorAll(':scope > .misc-record, :scope > .list-group-item')]);
+    const yearsForRecord = (record) => {
+      const years = [...record.textContent.matchAll(/\b(?:19|20)\d{2}\b/g)].map((match) => Number(match[0]));
+      if (years.length < 2) return years;
+
+      const [firstYear, lastYear] = [Math.min(...years), Math.max(...years)];
+      return Array.from({ length: lastYear - firstYear + 1 }, (_, index) => firstYear + index);
+    };
+    const recordYears = new Map(records.map((record) => [record, yearsForRecord(record)]));
+    const years = [...new Set([...recordYears.values()].flat())].sort((firstYear, secondYear) => secondYear - firstYear);
+
+    if (toc && years.length) {
+      const yearList = document.createElement('ul');
+      yearList.className = 'toc-list misc-year-filter';
+
+      const setYearFilter = (year) => {
+        recordYears.forEach((recordYearList, record) => {
+          record.hidden = year !== null && !recordYearList.includes(year);
+        });
+
+        recordGroups.forEach((group) => {
+          const hasVisibleRecords = [...group.children].some((record) => !record.hidden);
+          group.hidden = !hasVisibleRecords;
+          group.closest('.misc-project-card')?.toggleAttribute('hidden', !hasVisibleRecords);
+          group.previousElementSibling?.toggleAttribute('hidden', !hasVisibleRecords);
+        });
+
+        const intellectualProperties = document.querySelector('#intellectual-properties');
+        if (intellectualProperties) {
+          intellectualProperties.hidden = [...document.querySelectorAll('.misc-records')].slice(1).every((group) => group.hidden);
+        }
+
+        yearList.querySelectorAll('.toc-link').forEach((link) => link.classList.toggle('is-active-link', link.dataset.year === String(year)));
+      };
+
+      [null, ...years].forEach((year) => {
+        const item = document.createElement('li');
+        item.className = 'toc-list-item';
+
+        const link = document.createElement('a');
+        link.className = 'toc-link';
+        link.href = '#';
+        link.dataset.year = String(year);
+        link.textContent = year ?? 'All';
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          setYearFilter(year);
+        });
+
+        item.appendChild(link);
+        yearList.appendChild(item);
+      });
+
+      toc.appendChild(yearList);
+      setYearFilter(null);
+    }
   });
 </script>
 
