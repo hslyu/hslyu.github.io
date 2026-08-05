@@ -183,7 +183,7 @@ toc:
     };
 
     document.querySelectorAll('.misc-record-title:not(.misc-patent-title)').forEach((titleElement) => renderWrappedTitle(titleElement, titleLineLength));
-    document.querySelectorAll('.misc-patent-title').forEach((titleElement) => renderWrappedTitle(titleElement, 90));
+    document.querySelectorAll('.misc-patent-title').forEach((titleElement) => renderWrappedTitle(titleElement, 80));
     document.querySelectorAll('.misc-record-meta').forEach(highlightPaperAwards);
 
     const projectTargets = {
