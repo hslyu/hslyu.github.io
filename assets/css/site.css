@@ -304,10 +304,6 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
   font-size: 1.5rem;
 }
 
-.misc-publications-section {
-  margin-top: 1rem;
-}
-
 .misc-publication-list {
   list-style: none;
   padding-left: 0;

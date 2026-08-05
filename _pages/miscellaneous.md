@@ -94,7 +94,10 @@ toc:
 </div>
 
 <section class="misc-publications-section">
-<h2 id="domestic-papers" class="misc-section-title font-weight-medium">Domestic papers</h2>
+<h2 id="domestic-papers" hidden>Domestic papers</h2>
+<div class="cv">
+<div class="card mt-3 p-3 misc-project-card">
+<h3 class="card-title font-weight-medium" data-toc-skip>Domestic papers</h3>
 <div class="misc-publications">
 <ul class="card-text font-weight-light list-group list-group-flush misc-publication-list">
 {% for paper in miscellaneous.domestic_papers %}
@@ -113,10 +116,15 @@ toc:
 {% endfor %}
 </ul>
 </div>
+</div>
+</div>
 </section>
 
 <section class="misc-publications-section">
-<h2 id="intellectual-properties" class="misc-section-title font-weight-medium">Intellectual properties</h2>
+<h2 id="intellectual-properties" hidden>Intellectual properties</h2>
+<div class="cv">
+<div class="card mt-3 p-3 misc-project-card">
+<h3 class="card-title font-weight-medium" data-toc-skip>Intellectual properties</h3>
 <div class="misc-publications">
 <h3 class="misc-subtitle" data-toc-skip>Patents</h3>
 <ul class="card-text font-weight-light list-group list-group-flush misc-publication-list">
@@ -155,5 +163,7 @@ toc:
 </li>
 {% endfor %}
 </ul>
+</div>
+</div>
 </div>
 </section>
