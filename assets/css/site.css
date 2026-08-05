@@ -280,6 +280,11 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
   border-color: var(--global-divider-color);
 }
 
+.misc-publication-list .badge {
+  background-color: var(--global-theme-color);
+  color: var(--global-card-bg-color) !important;
+}
+
 .misc-publication-list .title {
   margin-bottom: 0.2rem;
 }
