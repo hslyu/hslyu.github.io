@@ -77,6 +77,8 @@ toc:
 <ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
 {% for project in miscellaneous.projects %}
 {% assign project_date = project.period | replace: '–', ' - ' %}
+{% assign ministry_abbr = project.ministry | split: '(' | last | remove: ')' %}
+{% assign agency_abbr = project.agency | split: '(' | last | remove: ')' %}
 
 <li class="list-group-item">
   <div class="row">
@@ -91,7 +93,7 @@ toc:
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ project.title }}</h6>
-      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ project.ministry }}, {{ project.agency }}, {{ project.acknowledge }}</h6>
+      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ ministry_abbr }}, {{ agency_abbr }}, {{ project.acknowledge }}</h6>
       {% if project.links %}
         <div class="misc-project-links ml-1 ml-md-4">
           {% for link in project.links %}
@@ -189,6 +191,8 @@ toc:
 <ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
 {% for project in miscellaneous.miscellaneous_projects %}
 {% assign project_date = project.period | replace: '–', ' - ' %}
+{% assign ministry_abbr = project.ministry | split: '(' | last | remove: ')' %}
+{% assign agency_abbr = project.agency | split: '(' | last | remove: ')' %}
 
 <li class="list-group-item">
   <div class="row">
@@ -203,7 +207,7 @@ toc:
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ project.title }}</h6>
-      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ project.ministry }}, {{ project.agency }}, {{ project.acknowledge }}</h6>
+      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ ministry_abbr }}, {{ agency_abbr }}, {{ project.acknowledge }}</h6>
     </div>
   </div>
 </li>
