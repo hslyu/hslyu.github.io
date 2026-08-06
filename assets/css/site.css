@@ -11,6 +11,30 @@ body.dark {
   --global-theme-color: #b45309;
 }
 
+@keyframes page-scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+html::after {
+  animation: page-scroll-progress linear;
+  animation-timeline: scroll(root);
+  background: var(--global-theme-color);
+  content: "";
+  height: 1px;
+  left: 0;
+  position: fixed;
+  top: 57px;
+  transform-origin: left;
+  width: 100%;
+  z-index: 10;
+}
+
 #navbar .navbar-brand.title::after {
   color: var(--global-text-color-light);
   content: " | Wireless × AI × Robotics";
@@ -179,6 +203,7 @@ article:has(.publications-content-marker) .publications {
     transform: translateY(3.125rem);
   }
 
+  .publications-layout #toc-sidebar,
   .container > .row:has(.publications-content-marker) #toc-sidebar {
     margin-top: 4.125rem;
   }
@@ -449,6 +474,9 @@ article:has(.experience-content-marker) .academic-service-list .title {
     overflow: visible;
   }
 
+  .experience-layout > .col-sm-3,
+  .miscellaneous-layout > .col-sm-3,
+  .publications-layout > .col-sm-3,
   .container > .row:has(.experience-content-marker) > .col-sm-3,
   .container > .row:has(.miscellaneous-content-marker) > .col-sm-3,
   .container > .row:has(.publications-content-marker) > .col-sm-3 {
@@ -456,11 +484,19 @@ article:has(.experience-content-marker) .academic-service-list .title {
     max-width: 25%;
   }
 
+  .experience-layout > .col-sm-9,
+  .miscellaneous-layout > .col-sm-9,
+  .publications-layout > .col-sm-9,
   .container > .row:has(.experience-content-marker) > .col-sm-9,
   .container > .row:has(.miscellaneous-content-marker) > .col-sm-9,
   .container > .row:has(.publications-content-marker) > .col-sm-9 {
     flex: 0 0 75%;
     max-width: 75%;
+  }
+
+  .miscellaneous-layout #toc-sidebar {
+    max-height: calc(100vh - 6.5rem);
+    overflow-y: auto !important;
   }
 }
 
@@ -471,14 +507,44 @@ article:has(.experience-content-marker) .academic-service-list .title {
   }
 }
 
+.publications-layout #toc-sidebar,
 .container > .row:has(.publications-content-marker) #toc-sidebar {
   -webkit-user-drag: none;
   user-select: none;
 }
 
 .container > .row:has(.experience-content-marker) #toc-sidebar,
+.experience-layout #toc-sidebar,
+.miscellaneous-layout #toc-sidebar,
 .container > .row:has(.miscellaneous-content-marker) #toc-sidebar {
   top: 6.5rem;
+}
+
+.miscellaneous-layout:has(h2:target) #toc-sidebar .is-active-link {
+  color: var(--global-text-color);
+  font-weight: 400;
+}
+
+.miscellaneous-layout:has(#projects:target) #toc-sidebar a[href="#projects"],
+.miscellaneous-layout:has(#miscellaneous-projects:target) #toc-sidebar a[href="#miscellaneous-projects"],
+.miscellaneous-layout:has(#domestic-papers:target) #toc-sidebar a[href="#domestic-papers"],
+.miscellaneous-layout:has(#intellectual-properties:target) #toc-sidebar a[href="#intellectual-properties"] {
+  color: var(--global-theme-color);
+  font-weight: 600;
+}
+
+.experience-layout:has(.cv > h2:target) #toc-sidebar .is-active-link {
+  color: var(--global-text-color);
+  font-weight: 400;
+}
+
+.experience-layout:has(#experience:target) #toc-sidebar a[href="#experience"],
+.experience-layout:has(#education:target) #toc-sidebar a[href="#education"],
+.experience-layout:has(#awards-honors:target) #toc-sidebar a[href="#awards-honors"],
+.experience-layout:has(#academic-services:target) #toc-sidebar a[href="#academic-services"],
+.experience-layout:has(#talks:target) #toc-sidebar a[href="#talks"] {
+  color: var(--global-theme-color);
+  font-weight: 600;
 }
 
 article:has(.miscellaneous-content-marker) .misc-project-list > .list-group-item > .row {

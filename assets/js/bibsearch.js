@@ -1,15 +1,8 @@
 import { highlightSearchTerm } from "./highlight-search-term.js";
 
 const initializeBibsearch = () => {
-  const input = document.getElementById("bibsearch") || document.createElement("input");
-  if (!input.id) {
-    input.autocomplete = "off";
-    input.className = "search bibsearch-form-input";
-    input.id = "bibsearch";
-    input.placeholder = "Type to filter";
-    input.spellcheck = false;
-    document.querySelector("#toc-sidebar")?.appendChild(input);
-  }
+  const input = document.getElementById("bibsearch");
+  if (!input) return;
 
   // actual bibsearch logic
   const filterItems = (searchTerm) => {
@@ -63,7 +56,7 @@ const initializeBibsearch = () => {
   const updateInputField = () => {
     const hashValue = decodeURIComponent(window.location.hash.substring(1)); // Remove the '#' character
     input.value = hashValue;
-    filterItems(hashValue);
+    if (hashValue) filterItems(hashValue);
   };
 
   // Sensitive search. Only start searching if there's been no input for 300 ms
@@ -71,7 +64,7 @@ const initializeBibsearch = () => {
   input.addEventListener("input", function () {
     clearTimeout(timeoutId); // Clear the previous timeout
     const searchTerm = this.value.toLowerCase();
-    timeoutId = setTimeout(filterItems(searchTerm), 300);
+    timeoutId = setTimeout(() => filterItems(searchTerm), 300);
   });
 
   window.addEventListener("hashchange", updateInputField); // Update the filter when the hash changes

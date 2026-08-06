@@ -31,6 +31,19 @@ news:
   - { date: "2025.10", text: Received a Best Paper Award at IEEE ICTC 2025. }
 
 experience:
+  affiliation_brands:
+    - { name: IEEE International Conference on ICT Convergence, slug: ieee-ictc }
+    - { name: University of Texas at Austin, slug: ut-austin }
+    - { name: Seoul National University, slug: snu }
+    - { name: Bae & Jung Foundation, slug: bae-jung }
+    - { name: Samsung, slug: samsung }
+    - { name: POSTECH, slug: postech }
+    - { name: UNIST, slug: unist }
+    - { name: IITP, slug: iitp }
+    - { name: KICS, slug: kics }
+    - { name: KIPA, slug: kipa }
+    - { name: KAI, slug: kai }
+    - { name: KISTI, slug: kisti }
   professional:
     - period: "Mar. 2026 – Mar. 2027"
       years: "2026 - 2027"
