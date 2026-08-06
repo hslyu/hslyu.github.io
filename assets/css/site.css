@@ -278,6 +278,7 @@ article:has(.publications-content-marker) .publications {
 }
 
 #toc-sidebar .publication-filters {
+  display: grid;
   margin-left: 1.2rem;
   width: max-content;
 }
@@ -288,7 +289,6 @@ article:has(.publications-content-marker) .publications {
 
 #toc-sidebar .publication-search {
   margin: 0.65rem 0 0;
-  width: 8.4rem;
 }
 
 #toc-sidebar .publication-search .bibsearch-form-input {
