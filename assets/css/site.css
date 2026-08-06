@@ -288,7 +288,7 @@ article:has(.publications-content-marker) .publications {
 
 #toc-sidebar .publication-search {
   margin: 0.65rem 0 0;
-  width: 100%;
+  width: 8.4rem;
 }
 
 #toc-sidebar .publication-search .bibsearch-form-input {
