@@ -1,22 +1,4 @@
 (() => {
-  const linkPublicationTitles = () => {
-    document.querySelectorAll('.publications .links a[href*="doi.org"], .publications .links a[href*="arxiv.org"]').forEach((publicationLink) => {
-      const entry = publicationLink.closest(".row");
-      const title = entry?.querySelector(".title");
-      if (!title) return;
-
-      const titleLink = document.createElement("a");
-      titleLink.href = publicationLink.href;
-      titleLink.target = "_blank";
-      titleLink.rel = "external nofollow noopener";
-      titleLink.textContent = title.textContent;
-      title.replaceChildren(titleLink);
-      publicationLink.remove();
-
-      if (!entry.querySelector(".links > *")) entry.querySelector(".links")?.remove();
-    });
-  };
-
   const initializePublications = () => {
     if (!document.querySelector(".publications-content-marker")) return;
 
@@ -52,7 +34,6 @@
 
     fromInput.addEventListener("input", setYearFilter);
     toInput.addEventListener("input", setYearFilter);
-    toc.addEventListener("dragstart", (event) => event.preventDefault());
   };
 
   const initializeExperiences = () => {
@@ -146,36 +127,10 @@
     toInput.addEventListener("input", setYearFilter);
   };
 
-  const initializeColorPilot = () => {
-    document.querySelectorAll(".color-pilot-swatch").forEach((swatch) => {
-      swatch.addEventListener("click", async () => {
-        const color = swatch.dataset.color;
-
-        try {
-          await navigator.clipboard.writeText(color);
-        } catch {
-          const input = document.createElement("textarea");
-          input.value = color;
-          document.body.append(input);
-          input.select();
-          document.execCommand("copy");
-          input.remove();
-        }
-
-        const label = swatch.querySelector("span");
-        const originalLabel = label.textContent;
-        label.textContent = "Copied";
-        setTimeout(() => (label.textContent = originalLabel), 1200);
-      });
-    });
-  };
-
   const initialize = () => {
-    if (!document.querySelector(".publications-content-marker")) linkPublicationTitles();
     initializePublications();
     initializeExperiences();
     initializeMiscellaneous();
-    initializeColorPilot();
   };
 
   if (document.readyState === "loading") window.addEventListener("DOMContentLoaded", initialize, { once: true });
