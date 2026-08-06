@@ -113,52 +113,6 @@
     });
   };
 
-  const renderAffiliationBrands = () => {
-    const brands = [
-      ["IEEE International Conference on ICT Convergence", "ieee-ictc"],
-      ["IEEE Int. Conf. ICT Converg.", "ieee-ictc"],
-      ["University of Texas at Austin", "ut-austin"],
-      ["Seoul National University", "snu"],
-      ["Bae & Jung Foundation", "bae-jung"],
-      ["Samsung", "samsung"],
-      ["POSTECH", "postech"],
-      ["UNIST", "unist"],
-      ["IITP", "iitp"],
-      ["KICS", "kics"],
-      ["KIPA", "kipa"],
-      ["KAI", "kai"],
-      ["KISTI", "kisti"],
-    ];
-
-    document.querySelectorAll(".affiliation-text").forEach((element) => {
-      const textNodes = [];
-      const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
-      let textNode;
-      while ((textNode = walker.nextNode())) textNodes.push(textNode);
-
-      textNodes.forEach((node) => {
-        let fragments = [node.textContent];
-
-        brands.forEach(([name, slug]) => {
-          fragments = fragments.flatMap((fragment) => {
-            if (typeof fragment !== "string" || !fragment.includes(name)) return [fragment];
-
-            return fragment.split(name).flatMap((part, index, parts) => {
-              if (index === parts.length - 1) return [part];
-
-              const brand = document.createElement("span");
-              brand.className = `affiliation-brand-${slug}`;
-              brand.textContent = name;
-              return [part, brand];
-            });
-          });
-        });
-
-        if (fragments.some((fragment) => typeof fragment !== "string")) node.replaceWith(...fragments);
-      });
-    });
-  };
-
   const initializePublications = () => {
     if (!document.querySelector(".publications-content-marker")) return;
 
@@ -451,7 +405,6 @@
 
   const initialize = () => {
     if (!document.querySelector(".publications-content-marker")) linkPublicationTitles();
-    renderAffiliationBrands();
     initializePublications();
     initializeExperiences();
     initializeMiscellaneous();

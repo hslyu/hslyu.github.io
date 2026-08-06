@@ -11,6 +11,30 @@ body.dark {
   --global-theme-color: #b45309;
 }
 
+@keyframes page-scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+html::after {
+  animation: page-scroll-progress linear;
+  animation-timeline: scroll(root);
+  background: var(--global-theme-color);
+  content: "";
+  height: 1px;
+  left: 0;
+  position: fixed;
+  top: 57px;
+  transform-origin: left;
+  width: 100%;
+  z-index: 10;
+}
+
 #navbar .navbar-brand.title::after {
   color: var(--global-text-color-light);
   content: " | Wireless × AI × Robotics";
@@ -449,6 +473,7 @@ article:has(.experience-content-marker) .academic-service-list .title {
     overflow: visible;
   }
 
+  .experience-layout > .col-sm-3,
   .container > .row:has(.experience-content-marker) > .col-sm-3,
   .container > .row:has(.miscellaneous-content-marker) > .col-sm-3,
   .container > .row:has(.publications-content-marker) > .col-sm-3 {
@@ -456,6 +481,7 @@ article:has(.experience-content-marker) .academic-service-list .title {
     max-width: 25%;
   }
 
+  .experience-layout > .col-sm-9,
   .container > .row:has(.experience-content-marker) > .col-sm-9,
   .container > .row:has(.miscellaneous-content-marker) > .col-sm-9,
   .container > .row:has(.publications-content-marker) > .col-sm-9 {
@@ -477,8 +503,23 @@ article:has(.experience-content-marker) .academic-service-list .title {
 }
 
 .container > .row:has(.experience-content-marker) #toc-sidebar,
+.experience-layout #toc-sidebar,
 .container > .row:has(.miscellaneous-content-marker) #toc-sidebar {
   top: 6.5rem;
+}
+
+.experience-layout:has(.cv > h2:target) #toc-sidebar .is-active-link {
+  color: var(--global-text-color);
+  font-weight: 400;
+}
+
+.experience-layout:has(#experience:target) #toc-sidebar a[href="#experience"],
+.experience-layout:has(#education:target) #toc-sidebar a[href="#education"],
+.experience-layout:has(#awards-honors:target) #toc-sidebar a[href="#awards-honors"],
+.experience-layout:has(#academic-services:target) #toc-sidebar a[href="#academic-services"],
+.experience-layout:has(#talks:target) #toc-sidebar a[href="#talks"] {
+  color: var(--global-theme-color);
+  font-weight: 600;
 }
 
 article:has(.miscellaneous-content-marker) .misc-project-list > .list-group-item > .row {

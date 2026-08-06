@@ -169,7 +169,7 @@ imagemagick:
 lazy_loading_images: true
 
 enable_darkmode: true
-enable_progressbar: true
+enable_progressbar: false
 enable_tooltips: false
 enable_video_embedding: false
 enable_medium_zoom: false
