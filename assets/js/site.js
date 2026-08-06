@@ -68,32 +68,6 @@
     });
   };
 
-  const highlightOwnName = (element) => {
-    const textNodes = [];
-    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
-    let textNode;
-
-    while ((textNode = walker.nextNode())) {
-      if (textNode.textContent.includes("Hyeonsu Lyu")) textNodes.push(textNode);
-    }
-
-    textNodes.forEach((node) => {
-      const parts = node.textContent.split("Hyeonsu Lyu");
-      const replacement = document.createDocumentFragment();
-
-      parts.forEach((part, index) => {
-        replacement.append(part);
-        if (index < parts.length - 1) {
-          const name = document.createElement("span");
-          name.className = "misc-author-highlight";
-          name.textContent = "Hyeonsu Lyu";
-          replacement.append(name);
-        }
-      });
-      node.replaceWith(replacement);
-    });
-  };
-
   const linkPublicationTitles = (wrapTitles = false) => {
     document.querySelectorAll('.publications .links a[href*="doi.org"], .publications .links a[href*="arxiv.org"]').forEach((publicationLink) => {
       const entry = publicationLink.closest(".row");
@@ -267,18 +241,14 @@
   const initializeMiscellaneous = () => {
     if (!document.querySelector(".miscellaneous-content-marker")) return;
 
-    document.querySelectorAll(".misc-record-title:not(.misc-patent-title)").forEach((title) => renderWrappedTitle(title, 65));
-    document.querySelectorAll(".misc-patent-title").forEach((title) => renderWrappedTitle(title, 80));
-    document.querySelectorAll(".misc-record-meta").forEach(highlightPaperAwards);
-    document.querySelectorAll(".misc-publication-list .author").forEach(highlightOwnName);
-
-    const projectTargets = {
-      "#projects": document.querySelector("#projects + .cv .misc-project-card"),
-      "#miscellaneous-projects": document.querySelector("#miscellaneous-projects + .cv .misc-project-card"),
-    };
+    const sectionTargets = Object.fromEntries(
+      [...document.querySelectorAll("article h2[id]")]
+        .map((heading) => [`#${heading.id}`, heading.nextElementSibling?.querySelector(".misc-project-card")])
+        .filter(([, target]) => target)
+    );
 
     document.querySelectorAll("#toc-sidebar a").forEach((link) => {
-      const target = projectTargets[new URL(link.href).hash];
+      const target = sectionTargets[new URL(link.href).hash];
       if (!target) return;
 
       link.addEventListener(
@@ -294,61 +264,18 @@
     });
 
     const toc = document.querySelector("#toc-sidebar");
-    const sidebarColumn = toc?.parentElement;
-    const positionSidebar = () => {
-      if (!toc || !sidebarColumn) return;
-
-      if (!window.matchMedia("(min-width: 576px)").matches) {
-        ["position", "top", "left", "width", "maxHeight"].forEach((property) => toc.style.removeProperty(property));
-        toc.style.removeProperty("overflow-y");
-        return;
-      }
-
-      const columnStyle = window.getComputedStyle(sidebarColumn);
-      const columnBounds = sidebarColumn.getBoundingClientRect();
-      const leftPadding = Number.parseFloat(columnStyle.paddingLeft);
-      const rightPadding = Number.parseFloat(columnStyle.paddingRight);
-      toc.style.position = "fixed";
-      toc.style.top = "6.5rem";
-      toc.style.left = `${columnBounds.left + leftPadding}px`;
-      toc.style.width = `${columnBounds.width - leftPadding - rightPadding}px`;
-      toc.style.maxHeight = "calc(100vh - 6.5rem)";
-      toc.style.setProperty("overflow-y", "auto", "important");
-    };
-
-    if (sidebarColumn) {
-      new ResizeObserver(positionSidebar).observe(sidebarColumn);
-      window.addEventListener("resize", positionSidebar);
-      positionSidebar();
-    }
-
     const recordGroups = [...document.querySelectorAll(".misc-publication-list, .misc-project-list")];
     const records = recordGroups.flatMap((group) => [...group.querySelectorAll(":scope > li")]);
     const recordYearRanges = new Map(
-      records.map((record) => {
-        const years = [...record.textContent.matchAll(/\b(?:19|20)\d{2}\b/g)].map((match) => Number(match[0]));
-        return [record, years.length ? [Math.min(...years), Math.max(...years)] : null];
-      })
+      records.map((record) => [
+        record,
+        record.dataset.yearFrom && record.dataset.yearTo ? [Number(record.dataset.yearFrom), Number(record.dataset.yearTo)] : null,
+      ])
     );
+    const fromInput = toc?.querySelector('.misc-year-filter input[aria-label="Filter from year"]');
+    const toInput = toc?.querySelector('.misc-year-filter input[aria-label="Filter to year"]');
 
-    if (!toc || !records.length) return;
-
-    const yearFilter = document.createElement("div");
-    yearFilter.className = "misc-year-filter";
-
-    const fromInput = document.createElement("input");
-    fromInput.type = "number";
-    fromInput.min = "0";
-    fromInput.max = "9999";
-    fromInput.placeholder = "2017";
-    fromInput.setAttribute("aria-label", "Filter from year");
-
-    const toInput = document.createElement("input");
-    toInput.type = "number";
-    toInput.min = "0";
-    toInput.max = "9999";
-    toInput.placeholder = "2026";
-    toInput.setAttribute("aria-label", "Filter to year");
+    if (!fromInput || !toInput || !records.length) return;
 
     const setYearFilter = () => {
       const fromYear = Number.parseInt(fromInput.value, 10) || 0;
@@ -374,9 +301,6 @@
 
     fromInput.addEventListener("input", setYearFilter);
     toInput.addEventListener("input", setYearFilter);
-    yearFilter.append(fromInput, document.createTextNode(" – "), toInput);
-    toc.appendChild(yearFilter);
-    setYearFilter();
   };
 
   const initializeColorPilot = () => {

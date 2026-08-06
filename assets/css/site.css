@@ -474,6 +474,7 @@ article:has(.experience-content-marker) .academic-service-list .title {
   }
 
   .experience-layout > .col-sm-3,
+  .miscellaneous-layout > .col-sm-3,
   .container > .row:has(.experience-content-marker) > .col-sm-3,
   .container > .row:has(.miscellaneous-content-marker) > .col-sm-3,
   .container > .row:has(.publications-content-marker) > .col-sm-3 {
@@ -482,11 +483,17 @@ article:has(.experience-content-marker) .academic-service-list .title {
   }
 
   .experience-layout > .col-sm-9,
+  .miscellaneous-layout > .col-sm-9,
   .container > .row:has(.experience-content-marker) > .col-sm-9,
   .container > .row:has(.miscellaneous-content-marker) > .col-sm-9,
   .container > .row:has(.publications-content-marker) > .col-sm-9 {
     flex: 0 0 75%;
     max-width: 75%;
+  }
+
+  .miscellaneous-layout #toc-sidebar {
+    max-height: calc(100vh - 6.5rem);
+    overflow-y: auto !important;
   }
 }
 
@@ -504,8 +511,22 @@ article:has(.experience-content-marker) .academic-service-list .title {
 
 .container > .row:has(.experience-content-marker) #toc-sidebar,
 .experience-layout #toc-sidebar,
+.miscellaneous-layout #toc-sidebar,
 .container > .row:has(.miscellaneous-content-marker) #toc-sidebar {
   top: 6.5rem;
+}
+
+.miscellaneous-layout:has(h2:target) #toc-sidebar .is-active-link {
+  color: var(--global-text-color);
+  font-weight: 400;
+}
+
+.miscellaneous-layout:has(#projects:target) #toc-sidebar a[href="#projects"],
+.miscellaneous-layout:has(#miscellaneous-projects:target) #toc-sidebar a[href="#miscellaneous-projects"],
+.miscellaneous-layout:has(#domestic-papers:target) #toc-sidebar a[href="#domestic-papers"],
+.miscellaneous-layout:has(#intellectual-properties:target) #toc-sidebar a[href="#intellectual-properties"] {
+  color: var(--global-theme-color);
+  font-weight: 600;
 }
 
 .experience-layout:has(.cv > h2:target) #toc-sidebar .is-active-link {
