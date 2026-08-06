@@ -1,74 +1,5 @@
 (() => {
-  const prepositions = new Set(
-    "aboard about above across after against along amid among and around as at before behind below beneath beside besides between beyond by concerning considering despite down during except following for from in inside into like near of off on onto opposite outside over past regarding round since through throughout till to toward towards under underneath unlike until up upon versus via with within without".split(
-      " "
-    )
-  );
-
-  const wrapTitle = (title, lineLength) => {
-    const segment = title.trim();
-    if (segment.length <= lineLength) return [segment];
-
-    const words = [...segment.matchAll(/\S+/g)];
-    let breakAt = -1;
-
-    for (let index = words.length - 1; index > 0; index -= 1) {
-      const prefixLength = words[index].index - 1;
-      if (prefixLength > lineLength) continue;
-
-      const word = words[index][0].toLowerCase().replace(/[^a-z]/g, "");
-      if (prepositions.has(word)) {
-        breakAt = words[index].index;
-        break;
-      }
-    }
-
-    if (breakAt < 0) {
-      breakAt = segment.lastIndexOf(" ", lineLength);
-      if (breakAt < 1) breakAt = lineLength;
-    }
-
-    return [...wrapTitle(segment.slice(0, breakAt), lineLength), ...wrapTitle(segment.slice(breakAt), lineLength)];
-  };
-
-  const renderWrappedTitle = (titleElement, lineLength) => {
-    const lines = wrapTitle(titleElement.textContent, lineLength);
-    if (lines.length === 1) return;
-
-    titleElement.replaceChildren(
-      ...lines.flatMap((line, index) =>
-        index === 0 ? [document.createTextNode(line)] : [document.createElement("br"), document.createTextNode(` ${line}`)]
-      )
-    );
-  };
-
-  const highlightPaperAwards = (element) => {
-    const textNodes = [];
-    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
-    let textNode;
-
-    while ((textNode = walker.nextNode())) {
-      if (textNode.textContent.includes("Best Paper Award")) textNodes.push(textNode);
-    }
-
-    textNodes.forEach((node) => {
-      const parts = node.textContent.split("Best Paper Award");
-      const replacement = document.createDocumentFragment();
-
-      parts.forEach((part, index) => {
-        replacement.append(part);
-        if (index < parts.length - 1) {
-          const award = document.createElement("span");
-          award.className = "paper-award";
-          award.textContent = "Best Paper Award";
-          replacement.append(award);
-        }
-      });
-      node.replaceWith(replacement);
-    });
-  };
-
-  const linkPublicationTitles = (wrapTitles = false) => {
+  const linkPublicationTitles = () => {
     document.querySelectorAll('.publications .links a[href*="doi.org"], .publications .links a[href*="arxiv.org"]').forEach((publicationLink) => {
       const entry = publicationLink.closest(".row");
       const title = entry?.querySelector(".title");
@@ -79,7 +10,6 @@
       titleLink.target = "_blank";
       titleLink.rel = "external nofollow noopener";
       titleLink.textContent = title.textContent;
-      if (wrapTitles) renderWrappedTitle(titleLink, 65);
       title.replaceChildren(titleLink);
       publicationLink.remove();
 
@@ -90,93 +20,22 @@
   const initializePublications = () => {
     if (!document.querySelector(".publications-content-marker")) return;
 
-    document.querySelectorAll(".publications .periodical").forEach((note) => {
-      if (note.textContent.trim() !== "Accepted") return;
-
-      const periodical = note.previousElementSibling;
-      if (!periodical?.classList.contains("periodical")) return;
-
-      periodical.append(" (Accepted)");
-      note.remove();
-    });
-
-    document.querySelectorAll(".publications .periodical").forEach(highlightPaperAwards);
-
-    const venueAbbreviations = {
-      "IEEE Transactions on Communications": "IEEE Trans. Commun.",
-      "IEEE Transactions on Wireless Communications": "IEEE Trans. Wireless Commun.",
-      "IEEE Transactions on Neural Networks and Learning Systems": "IEEE Trans. Neural Netw. Learn. Syst.",
-      "IEEE Internet of Things Journal": "IEEE Internet Things J.",
-    };
-
-    document.querySelectorAll(".publications .row").forEach((entry) => {
-      const venue = entry.querySelector(".periodical em");
-      if (!venue) return;
-
-      const fullVenue = venue.textContent.trim();
-      if (entry.querySelector(".abbr")?.textContent.trim() === "arXiv") {
-        venue.closest(".periodical")?.remove();
-        return;
-      }
-
-      const abbreviation = venueAbbreviations[fullVenue] || entry.querySelector(".abbr")?.textContent.trim();
-      if (!abbreviation) return;
-
-      const searchableVenue = document.createElement("span");
-      searchableVenue.className = "sr-only";
-      searchableVenue.textContent = ` ${fullVenue}`;
-      venue.replaceChildren(abbreviation, searchableVenue);
-    });
-
-    linkPublicationTitles(true);
-
     const toc = document.querySelector("#toc-sidebar");
     const years = [...document.querySelectorAll(".publications h2.bibliography")];
     if (!toc || !years.length) return;
 
-    const list = document.createElement("ul");
-    list.className = "toc-list";
-
     const publicationYears = years.map((year) => {
-      year.id = year.textContent.trim();
-
-      const item = document.createElement("li");
-      item.className = "toc-list-item";
-
-      const link = document.createElement("a");
-      link.className = "toc-link";
-      link.href = `#${year.id}`;
-      link.textContent = year.textContent.trim();
+      const link = toc.querySelector(`a[href="#${year.id}"]`);
       link.addEventListener("click", (event) => {
         event.preventDefault();
         window.history.replaceState(null, "", link.hash);
         year.scrollIntoView({ behavior: "smooth", block: "start" });
       });
 
-      item.appendChild(link);
-      list.appendChild(item);
-
-      return { year: Number.parseInt(year.id, 10), heading: year, list: year.nextElementSibling, item };
+      return { year: Number.parseInt(year.id, 10), heading: year, list: year.nextElementSibling, item: link.parentElement };
     });
-
-    toc.replaceChildren(list);
-
-    const yearFilter = document.createElement("div");
-    yearFilter.className = "publication-year-filter";
-
-    const fromInput = document.createElement("input");
-    fromInput.type = "number";
-    fromInput.min = "0";
-    fromInput.max = "9999";
-    fromInput.placeholder = `${Math.min(...publicationYears.map((entry) => entry.year))}`;
-    fromInput.setAttribute("aria-label", "Filter from year");
-
-    const toInput = document.createElement("input");
-    toInput.type = "number";
-    toInput.min = "0";
-    toInput.max = "9999";
-    toInput.placeholder = `${Math.max(...publicationYears.map((entry) => entry.year))}`;
-    toInput.setAttribute("aria-label", "Filter to year");
+    const fromInput = toc.querySelector('.publication-year-filter input[aria-label="Filter from year"]');
+    const toInput = toc.querySelector('.publication-year-filter input[aria-label="Filter to year"]');
 
     const setYearFilter = () => {
       const fromYear = Number.parseInt(fromInput.value, 10) || 0;
@@ -193,22 +52,6 @@
 
     fromInput.addEventListener("input", setYearFilter);
     toInput.addEventListener("input", setYearFilter);
-    yearFilter.append(fromInput, document.createTextNode(" – "), toInput);
-    const filters = document.createElement("div");
-    filters.className = "publication-filters";
-    filters.appendChild(yearFilter);
-    const searchInput = document.querySelector("#bibsearch") || document.createElement("input");
-    searchInput.autocomplete = "off";
-    searchInput.className = "search bibsearch-form-input";
-    searchInput.id = "bibsearch";
-    searchInput.placeholder = "Type to filter";
-    searchInput.spellcheck = false;
-    const searchContainer = document.createElement("div");
-    searchContainer.className = "publication-search";
-    searchContainer.appendChild(searchInput);
-    filters.appendChild(searchContainer);
-    toc.appendChild(filters);
-    document.querySelector(".publications")?.classList.add("is-ready");
     toc.addEventListener("dragstart", (event) => event.preventDefault());
   };
 

@@ -203,6 +203,7 @@ article:has(.publications-content-marker) .publications {
     transform: translateY(3.125rem);
   }
 
+  .publications-layout #toc-sidebar,
   .container > .row:has(.publications-content-marker) #toc-sidebar {
     margin-top: 4.125rem;
   }
@@ -475,6 +476,7 @@ article:has(.experience-content-marker) .academic-service-list .title {
 
   .experience-layout > .col-sm-3,
   .miscellaneous-layout > .col-sm-3,
+  .publications-layout > .col-sm-3,
   .container > .row:has(.experience-content-marker) > .col-sm-3,
   .container > .row:has(.miscellaneous-content-marker) > .col-sm-3,
   .container > .row:has(.publications-content-marker) > .col-sm-3 {
@@ -484,6 +486,7 @@ article:has(.experience-content-marker) .academic-service-list .title {
 
   .experience-layout > .col-sm-9,
   .miscellaneous-layout > .col-sm-9,
+  .publications-layout > .col-sm-9,
   .container > .row:has(.experience-content-marker) > .col-sm-9,
   .container > .row:has(.miscellaneous-content-marker) > .col-sm-9,
   .container > .row:has(.publications-content-marker) > .col-sm-9 {
@@ -504,6 +507,7 @@ article:has(.experience-content-marker) .academic-service-list .title {
   }
 }
 
+.publications-layout #toc-sidebar,
 .container > .row:has(.publications-content-marker) #toc-sidebar {
   -webkit-user-drag: none;
   user-select: none;
