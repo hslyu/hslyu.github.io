@@ -12,11 +12,11 @@ nav_order: 1
 <div class="col-sm-3">
 <nav id="toc-sidebar" class="sticky-top toc toc-sidebar" aria-label="Table of contents">
 <ul class="toc-list">
-  <li class="toc-list-item"><a class="toc-link node-name--H2" href="#experience">Experience</a></li>
+  <li class="toc-list-item is-active-li"><a class="toc-link node-name--H2 is-active-link" href="#experience">Experience</a></li>
   <li class="toc-list-item"><a class="toc-link node-name--H2" href="#education">Education</a></li>
   <li class="toc-list-item"><a class="toc-link node-name--H2" href="#awards-honors">Awards & Honors</a></li>
   <li class="toc-list-item"><a class="toc-link node-name--H2" href="#academic-services">Academic Services</a></li>
-  <li class="toc-list-item is-active-li"><a class="toc-link node-name--H2 is-active-link" href="#talks">Talks</a></li>
+  <li class="toc-list-item"><a class="toc-link node-name--H2" href="#talks">Talks</a></li>
 </ul>
 </nav>
 </div>
@@ -48,7 +48,7 @@ nav_order: 1
         {% capture brand_markup %}<span class="affiliation-brand-{{ brand.slug }}">{{ brand_name }}</span>{% endcapture %}
         {% assign organization_markup = organization_markup | replace: brand_name, brand_markup %}
       {% endfor %}
-      <h6 class="affiliation-text ml-1 ml-md-4" style="font-size: 0.95rem">{{ organization_markup }}{% if job.unit %}, {{ job.unit }}{% endif %}</h6>
+      <h6 class="affiliation-text ml-1 ml-md-4" style="font-size: 0.95rem"><span class="experience-institution">{{ organization_markup }}{% if job.unit %}, {{ job.unit }}{% endif %}</span></h6>
     </div>
   </div>
 </li>
@@ -80,7 +80,7 @@ nav_order: 1
         {% assign school_markup = school_markup | replace: brand_name, brand_markup %}
       {% endfor %}
       <h6 class="education-details affiliation-text ml-1 ml-md-4" style="font-size: 0.95rem">
-        {{ education.field }}, {{ school_markup }}{% if education.adviser %}. Advised by {{ education.adviser }}.{% endif %}
+        {{ education.field }}, <span class="education-institution">{{ school_markup }}</span>{% if education.adviser %}. Advised by {{ education.adviser }}.{% endif %}
       </h6>
     </div>
   </div>

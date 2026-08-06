@@ -84,7 +84,7 @@ nav_order: 2
 {% if forloop.first %}{% assign publication_max_year = publication_year %}{% endif %}
 {% assign publication_min_year = publication_year %}
 
-<li class="toc-list-item"><a class="toc-link" href="#{{ publication_year }}">{{ publication_year }}</a></li>
+<li class="toc-list-item{% if forloop.first %} is-active-li{% endif %}"><a class="toc-link{% if forloop.first %} is-active-link{% endif %}" href="#{{ publication_year }}">{{ publication_year }}</a></li>
 {% endfor %}
 {% endcapture %}
 
@@ -117,8 +117,10 @@ nav_order: 2
 {% assign publication_year = publication_section_parts | first | strip %}
 {% assign publication_entries = publication_section_parts | slice: 1, 999 | join: '</h2>' %}
 
+<section class="publication-year-group" aria-labelledby="{{ publication_year }}">
   <h2 class="bibliography" id="{{ publication_year }}" data-toc-skip>{{ publication_year }}</h2>
   {{ publication_entries }}
+</section>
 {% endfor %}
 
 </div>

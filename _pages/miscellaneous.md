@@ -14,10 +14,10 @@ nav_order: 3
 <div class="col-sm-3">
 <nav id="toc-sidebar" class="sticky-top toc toc-sidebar" aria-label="Table of contents">
 <ul class="toc-list">
-  <li class="toc-list-item"><a class="toc-link node-name--H2" href="#projects">Key projects</a></li>
+  <li class="toc-list-item is-active-li"><a class="toc-link node-name--H2 is-active-link" href="#projects">Key projects</a></li>
   <li class="toc-list-item"><a class="toc-link node-name--H2" href="#miscellaneous-projects">Miscellaneous projects</a></li>
   <li class="toc-list-item"><a class="toc-link node-name--H2" href="#domestic-papers">Domestic papers</a></li>
-  <li class="toc-list-item is-active-li"><a class="toc-link node-name--H2 is-active-link" href="#intellectual-properties">Intellectual properties</a></li>
+  <li class="toc-list-item"><a class="toc-link node-name--H2" href="#intellectual-properties">Intellectual properties</a></li>
 </ul>
 <div class="misc-year-filter">
   <input type="number" min="0" max="9999" placeholder="2017" aria-label="Filter from year">

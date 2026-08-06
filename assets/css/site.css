@@ -116,6 +116,15 @@ article .cv .affiliation-text {
   font-weight: 600;
 }
 
+article .cv .education-details {
+  font-weight: 400;
+}
+
+.experience-institution,
+.education-institution {
+  font-weight: 600;
+}
+
 article .cv p.location {
   font-size: 0.7rem;
   white-space: nowrap;
@@ -185,7 +194,7 @@ article .cv i.iconlocation {
 
 .publications h2.bibliography {
   border-top-color: color-mix(in srgb, var(--global-text-color) 35%, var(--global-bg-color));
-  color: color-mix(in srgb, var(--global-text-color) 45%, var(--global-bg-color));
+  color: color-mix(in srgb, var(--global-text-color) 42%, var(--global-bg-color));
   font-size: 1.5rem;
   scroll-margin-top: 5rem;
 }
@@ -199,19 +208,34 @@ article:has(.publications-content-marker) .publications {
 }
 
 @media (min-width: 576px) {
-  .publications h2.bibliography {
-    transform: translateY(3.125rem);
+  .publication-year-group {
+    position: relative;
   }
 
-  .publications-layout #toc-sidebar,
-  .container > .row:has(.publications-content-marker) #toc-sidebar {
-    margin-top: 4.125rem;
+  .publication-year-group + .publication-year-group {
+    margin-top: 2rem;
+  }
+
+  .publication-year-group > h2.bibliography {
+    inset: 0 0 auto;
+    margin: 0;
+    padding-top: 0.5rem;
+    position: absolute;
+  }
+
+  .publication-year-group > ol.bibliography {
+    padding-top: 0.5625rem;
   }
 
   .publications ol.bibliography > li > .row > .col-sm-8 {
     flex: 0 0 75%;
     max-width: 75%;
   }
+}
+
+.publication-year-group:has(> h2.unloaded),
+.publication-year-group:has(> h2[hidden]) {
+  display: none;
 }
 
 .publications ol.bibliography li .title a,
@@ -369,9 +393,12 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
   margin-bottom: 0.2rem;
 }
 
-.misc-project-card .title,
-article:has(.experience-content-marker) .academic-service-list .title {
+.misc-project-card .title {
   font-weight: 600;
+}
+
+article:has(.experience-content-marker) .academic-service-list .title {
+  font-weight: 400;
 }
 
 .publications ol.bibliography li .author,
@@ -518,33 +545,6 @@ article:has(.experience-content-marker) .academic-service-list .title {
 .miscellaneous-layout #toc-sidebar,
 .container > .row:has(.miscellaneous-content-marker) #toc-sidebar {
   top: 6.5rem;
-}
-
-.miscellaneous-layout:has(h2:target) #toc-sidebar .is-active-link {
-  color: var(--global-text-color);
-  font-weight: 400;
-}
-
-.miscellaneous-layout:has(#projects:target) #toc-sidebar a[href="#projects"],
-.miscellaneous-layout:has(#miscellaneous-projects:target) #toc-sidebar a[href="#miscellaneous-projects"],
-.miscellaneous-layout:has(#domestic-papers:target) #toc-sidebar a[href="#domestic-papers"],
-.miscellaneous-layout:has(#intellectual-properties:target) #toc-sidebar a[href="#intellectual-properties"] {
-  color: var(--global-theme-color);
-  font-weight: 600;
-}
-
-.experience-layout:has(.cv > h2:target) #toc-sidebar .is-active-link {
-  color: var(--global-text-color);
-  font-weight: 400;
-}
-
-.experience-layout:has(#experience:target) #toc-sidebar a[href="#experience"],
-.experience-layout:has(#education:target) #toc-sidebar a[href="#education"],
-.experience-layout:has(#awards-honors:target) #toc-sidebar a[href="#awards-honors"],
-.experience-layout:has(#academic-services:target) #toc-sidebar a[href="#academic-services"],
-.experience-layout:has(#talks:target) #toc-sidebar a[href="#talks"] {
-  color: var(--global-theme-color);
-  font-weight: 600;
 }
 
 article:has(.miscellaneous-content-marker) .misc-project-list > .list-group-item > .row {
