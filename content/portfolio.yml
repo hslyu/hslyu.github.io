@@ -90,7 +90,9 @@ experience:
   reviewer:
     - { abbr: JSAC, name: IEEE Journal on Selected Areas in Communications, years: 2025 }
     - { abbr: TWC, name: IEEE Transactions on Wireless Communications, years: 2025 }
+    - { abbr: TNSE, name: IEEE Transactions on Network Science and Engineering, years: 2026 }
     - { abbr: TCOM, name: IEEE Transactions on Communications, years: 2026 }
+    - { abbr: TVT, name: IEEE Transactions on Vehicular Technology, years: 2026 }
     - { abbr: IoTJ, name: IEEE Internet of Things Journal, years: 2024–2026 }
     - { abbr: ToN, name: IEEE/ACM Transactions on Networking, years: 2025 }
     - { abbr: WCL, name: IEEE Wireless Communications Letters, years: 2023–2026 }
@@ -168,6 +170,11 @@ miscellaneous:
       venue: Proc. KICS Winter Conf.
       date: February 2021
   patents:
+    - title: 3차원 장면 변환 장치 및 방법 (Method and Device for Converting 3D Scenes)
+      inventors: Hyeonsu Lyu; Hyun Jong Yang
+      jurisdiction: KR
+      application: 10-2026-0156534
+      status: Filed
     - title: Apparatus and Method for Determining Whether There Is a Possibility of Personal Information Leakage by Generating a Restored Image Set Corresponding to the Training Dataset of an Artificial Intelligence Model
       inventors: Jonggyu Jang; Hyeonsu Lyu; Hyun Jong Yang
       jurisdiction: KR
