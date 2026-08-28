@@ -35,14 +35,6 @@ html::after {
   z-index: 10;
 }
 
-#navbar .navbar-brand.title::after {
-  color: var(--global-text-color-light);
-  content: " | Wireless × AI × Robotics";
-  font-size: 0.72em;
-  font-weight: 400;
-  vertical-align: baseline;
-}
-
 .profile-email {
   font-size: clamp(0.55rem, 1.5vw, 0.78rem);
   line-height: 1.7;
@@ -70,12 +62,6 @@ html::after {
   word-break: normal;
 }
 
-.post-header:has(+ article .experience-content-marker),
-.post-header:has(+ article .publications-content-marker),
-.post-header:has(+ article .miscellaneous-content-marker) {
-  display: none;
-}
-
 article .cv ul {
   list-style: none;
   padding-left: 0;
@@ -92,11 +78,6 @@ article .misc-publications table.table-cv th {
   padding: 1px;
 }
 
-article .cv .date-column,
-article .misc-publications .date-column {
-  transform: none;
-}
-
 article .cv .card .title {
   margin-bottom: 0.2rem;
 }
@@ -108,31 +89,8 @@ article .cv > #education + .card .education-details {
   text-align: left;
 }
 
-article .cv .card-title {
-  font-size: 1.5rem;
-}
-
-article .cv .affiliation-text {
-  font-weight: 600;
-}
-
-article .cv .education-details {
-  font-weight: 400;
-}
-
-.experience-institution,
-.education-institution {
-  font-weight: 600;
-}
-
-article .cv p.location {
-  font-size: 0.7rem;
-  white-space: nowrap;
-}
-
-article .cv i.iconlocation {
-  color: var(--global-theme-color);
-  font-size: 0.8rem;
+article .cv > #education + .card .date-column .table-cv {
+  width: 100%;
 }
 
 .affiliation-brand-snu {
@@ -192,50 +150,8 @@ article .cv i.iconlocation {
   text-decoration: none;
 }
 
-.publications h2.bibliography {
-  border-top-color: color-mix(in srgb, var(--global-text-color) 35%, var(--global-bg-color));
-  color: color-mix(in srgb, var(--global-text-color) 42%, var(--global-bg-color));
-  font-size: 1.5rem;
-  scroll-margin-top: 5rem;
-}
-
-article:has(.publications-content-marker) .publications {
-  margin-top: 0;
-}
-
-.publications > h2.bibliography:first-child {
-  margin-top: 0;
-}
-
-@media (min-width: 576px) {
-  .publication-year-group {
-    position: relative;
-  }
-
-  .publication-year-group + .publication-year-group {
-    margin-top: 2rem;
-  }
-
-  .publication-year-group > h2.bibliography {
-    inset: 0 0 auto;
-    margin: 0;
-    padding-top: 0.5rem;
-    position: absolute;
-  }
-
-  .publication-year-group > ol.bibliography {
-    padding-top: 0.5625rem;
-  }
-
-  .publications ol.bibliography > li > .row > .col-sm-8 {
-    flex: 0 0 75%;
-    max-width: 75%;
-  }
-}
-
-.publication-year-group:has(> h2.unloaded),
-.publication-year-group:has(> h2[hidden]) {
-  display: none;
+article:has(.publications-content-marker) .publications .preview {
+  box-shadow: none !important;
 }
 
 .publications ol.bibliography li .title a,
@@ -260,90 +176,11 @@ article:has(.publications-content-marker) .publications {
   overflow: visible !important;
 }
 
-#toc-sidebar .toc-link::before {
-  content: none !important;
-  display: none !important;
-  width: 0 !important;
-}
-
-#toc-sidebar .misc-year-filter,
-#toc-sidebar .publication-year-filter {
-  align-items: center;
-  display: flex;
-  gap: 0.35rem;
-  margin-top: 0.65rem;
-  padding-left: 1.2rem;
-  padding-top: 0.65rem;
-  position: relative;
-}
-
-#toc-sidebar .publication-filters {
-  display: grid;
-  margin-left: 1.2rem;
-  width: max-content;
-}
-
-#toc-sidebar .publication-filters .publication-year-filter {
-  padding-left: 0;
-}
-
-#toc-sidebar .publication-search {
-  margin: 0.65rem 0 0;
-}
-
-#toc-sidebar .publication-search .bibsearch-form-input {
-  appearance: textfield;
-  background: var(--global-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 0.25rem;
-  box-shadow: none;
-  color: var(--global-text-color);
-  font-size: 0.8rem;
-  margin: 0;
-  max-width: none;
-  min-width: 0;
-  padding: 0.25rem;
-  width: 100%;
-}
-
-#toc-sidebar .misc-year-filter::before,
-#toc-sidebar .publication-year-filter::before {
-  border-top: 1px solid var(--global-divider-color);
-  content: "";
-  inset: 0 1.2rem auto;
-  position: absolute;
-}
-
-#toc-sidebar .publication-filters .publication-year-filter::before {
-  inset-inline: 0;
-}
-
-#toc-sidebar .misc-year-filter input,
-#toc-sidebar .publication-year-filter input {
-  appearance: textfield;
-  background: var(--global-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 0.25rem;
-  color: var(--global-text-color);
-  font-size: 0.8rem;
-  min-width: 0;
-  padding: 0.25rem;
-  text-align: center;
-  width: 3.6rem;
-}
-
-#toc-sidebar .misc-year-filter input::-webkit-inner-spin-button,
-#toc-sidebar .misc-year-filter input::-webkit-outer-spin-button,
-#toc-sidebar .publication-year-filter input::-webkit-inner-spin-button,
-#toc-sidebar .publication-year-filter input::-webkit-outer-spin-button {
-  appearance: none;
-  margin: 0;
-}
-
 .misc-project-links {
   color: var(--global-text-color-light);
   font-size: 0.9rem;
   line-height: 1.5;
+  margin-top: 0.35rem;
 }
 
 .misc-project-card {
@@ -353,22 +190,483 @@ article:has(.publications-content-marker) .publications {
   scroll-margin-top: 5rem;
 }
 
+.misc-demo-card {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.4rem;
+  scroll-margin-top: 5rem;
+}
+
+.misc-demo-item {
+  min-width: 0;
+}
+
+.misc-demo-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.75rem;
+}
+
+.misc-demo-title a {
+  color: inherit;
+}
+
+.misc-demo-click-hint {
+  color: var(--global-text-color-light);
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-left: 0.35rem;
+}
+
+.misc-demo-group-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 1rem;
+}
+
+.misc-demo-group-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.misc-demo-video {
+  aspect-ratio: 16 / 9;
+  background: transparent;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.misc-demo-video iframe {
+  border: 0;
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.misc-demo-thumbnail {
+  align-items: center;
+  background: #111;
+  display: flex;
+  height: 100%;
+  inset: 0;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+.misc-demo-thumbnail img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.misc-demo-local-video {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.misc-demo-local-player {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.misc-demo-local-play {
+  align-items: center;
+  background: var(--global-theme-color);
+  border: 0;
+  border-radius: 50%;
+  color: var(--global-card-bg-color);
+  cursor: pointer;
+  display: flex;
+  font-size: 1.35rem;
+  height: 3.75rem;
+  justify-content: center;
+  left: 50%;
+  padding: 0 0 0 0.2rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+  width: 3.75rem;
+}
+
+.misc-demo-local-play:hover,
+.misc-demo-local-play:focus-visible {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.misc-demo-local-player.is-playing .misc-demo-local-play {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.misc-demo-play {
+  align-items: center;
+  background: #ff0000;
+  border-radius: 0.7rem;
+  color: #fff;
+  display: flex;
+  font-size: 1.25rem;
+  height: 3rem;
+  justify-content: center;
+  padding-left: 0.15rem;
+  position: absolute;
+  transition: transform 0.15s ease;
+  width: 4.25rem;
+}
+
+.misc-demo-thumbnail:hover .misc-demo-play,
+.misc-demo-thumbnail:focus-visible .misc-demo-play {
+  transform: scale(1.08);
+}
+
+.misc-demo-playlist {
+  background: linear-gradient(135deg, #263238, #111);
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.misc-demo-playlist-label {
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: 4.25rem;
+}
+
+.demo-detail-page {
+  margin: 0 auto;
+  max-width: 880px;
+}
+
+.demo-detail-back {
+  align-items: center;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.35rem;
+  display: inline-flex;
+  font-weight: 600;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+  padding: 0.45rem 0.75rem;
+}
+
+.demo-detail-back:hover {
+  background: var(--global-theme-color);
+  color: var(--global-hover-text-color);
+  text-decoration: none;
+}
+
+.demo-detail-lead {
+  color: var(--global-text-color-light);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.demo-detail-section {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.45rem;
+  margin-bottom: 1rem;
+  padding: 1.25rem;
+}
+
+.demo-detail-section h2 {
+  font-size: 1.35rem;
+  margin: 0 0 1rem;
+}
+
+.demo-detail-section h3 {
+  font-size: 1.05rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.demo-detail-section > :last-child {
+  margin-bottom: 0;
+}
+
+.demo-detail-section figure {
+  margin: 1rem 0;
+}
+
+.demo-detail-section figure img {
+  border-radius: 0.35rem;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.demo-detail-section figure img.demo-detail-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.demo-detail-section figcaption {
+  color: var(--global-text-color-light);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.demo-detail-comparison {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.usrp-network-diagram {
+  align-items: center;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr 0.8fr 1fr 0.8fr 1.15fr;
+  margin: 1.25rem 0;
+}
+
+.usrp-testbed-photos figure {
+  display: flex;
+  flex-direction: column;
+}
+
+.usrp-testbed-photos figure img {
+  background: color-mix(in srgb, var(--global-theme-color) 4%, var(--global-card-bg-color));
+  height: 18rem;
+  object-fit: contain;
+}
+
+.usrp-network-node {
+  background: color-mix(in srgb, var(--global-theme-color) 8%, var(--global-card-bg-color));
+  border: 1px solid color-mix(in srgb, var(--global-theme-color) 35%, var(--global-divider-color));
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  justify-content: center;
+  min-height: 4.5rem;
+  padding: 0.65rem;
+  text-align: center;
+}
+
+.usrp-network-node span {
+  color: var(--global-text-color-light);
+  font-size: 0.75rem;
+}
+
+.usrp-network-switch {
+  background: color-mix(in srgb, var(--global-theme-color) 15%, var(--global-card-bg-color));
+}
+
+.usrp-network-radios {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.usrp-network-paths {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.usrp-network-paths span {
+  border-top: 3px solid;
+  font-size: 0.68rem;
+  padding-top: 0.2rem;
+  text-align: center;
+}
+
+.usrp-network-control {
+  border-color: var(--global-theme-color) !important;
+  color: var(--global-theme-color);
+}
+
+.usrp-network-data {
+  border-color: #e38b2c !important;
+  color: #b56712;
+}
+
+.usrp-processing-flow {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 1.25rem 0;
+}
+
+.usrp-processing-flow span {
+  background: color-mix(in srgb, var(--global-theme-color) 7%, var(--global-card-bg-color));
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.35rem;
+  font-size: 0.78rem;
+  padding: 0.5rem 0.6rem;
+  text-align: center;
+}
+
+.usrp-processing-flow b {
+  color: var(--global-theme-color);
+}
+
+.usrp-capture-timeline {
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.4rem;
+  margin: 1.25rem 0;
+  padding: 1rem;
+}
+
+.usrp-capture-track {
+  align-items: center;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 8rem 1fr;
+  margin: 0.65rem 0;
+}
+
+.usrp-capture-track strong {
+  font-size: 0.78rem;
+}
+
+.usrp-capture-bar {
+  border-radius: 1rem;
+  color: #fff;
+  font-size: 0.72rem;
+  padding: 0.35rem 0.6rem;
+  text-align: center;
+}
+
+.usrp-capture-network {
+  background: var(--global-theme-color);
+}
+
+.usrp-capture-radio {
+  background: #e38b2c;
+  margin-inline: 18%;
+}
+
+.usrp-capture-axis {
+  color: var(--global-text-color-light);
+  display: grid;
+  font-size: 0.66rem;
+  grid-template-columns: repeat(4, 1fr);
+  margin-left: 9rem;
+  text-align: center;
+}
+
+.usrp-rate-comparison {
+  background: color-mix(in srgb, var(--global-theme-color) 4%, var(--global-card-bg-color));
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.4rem;
+  margin: 1.25rem 0;
+  padding: 1rem;
+}
+
+.usrp-rate-row {
+  align-items: center;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 7.5rem 1fr 9.5rem;
+}
+
+.usrp-rate-row strong,
+.usrp-rate-row b {
+  font-size: 0.75rem;
+}
+
+.usrp-rate-row b {
+  color: var(--global-text-color-light);
+  font-weight: 500;
+  text-align: right;
+}
+
+.usrp-rate-track {
+  background-color: color-mix(in srgb, var(--global-theme-color) 12%, var(--global-card-bg-color));
+  border-block: 1px solid var(--global-divider-color);
+  display: block;
+  height: 1.75rem;
+}
+
+.usrp-rate-packets {
+  background-image: repeating-linear-gradient(90deg, var(--global-theme-color) 0 3px, transparent 3px 14%);
+}
+
+.usrp-rate-samples {
+  background-image: repeating-linear-gradient(90deg, #e38b2c 0 1px, transparent 1px 4px);
+}
+
+.usrp-rate-match {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0.65rem 9.5rem 0.65rem 8.25rem;
+}
+
+.usrp-rate-match span {
+  border: 1px solid var(--global-divider-color);
+  border-radius: 1rem;
+  color: var(--global-text-color-light);
+  font-size: 0.68rem;
+  padding: 0.25rem 0.55rem;
+}
+
+.demo-detail-notes {
+  background: color-mix(in srgb, var(--global-theme-color) 4%, var(--global-card-bg-color));
+}
+
+@media (max-width: 767px) {
+  .demo-detail-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .usrp-testbed-photos figure img {
+    height: auto;
+  }
+
+  .usrp-network-diagram {
+    grid-template-columns: 1fr;
+  }
+
+  .usrp-network-paths {
+    margin-inline: auto;
+    width: 70%;
+  }
+
+  .usrp-processing-flow {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .usrp-processing-flow b {
+    text-align: center;
+    transform: rotate(90deg);
+  }
+
+  .usrp-capture-track,
+  .usrp-rate-row {
+    grid-template-columns: 1fr;
+  }
+
+  .usrp-capture-axis {
+    margin-left: 0;
+  }
+
+  .usrp-rate-row b {
+    text-align: left;
+  }
+
+  .usrp-rate-match {
+    margin-inline: 0;
+  }
+}
+
 .misc-project-card .list-group-item {
   background: inherit;
   border-color: var(--global-divider-color);
 }
 
-.misc-project-links {
-  margin-top: 0.35rem;
-}
-
 .misc-subtitle {
   font-size: 1.2rem;
-}
-
-article:has(.miscellaneous-content-marker) .misc-section-title,
-article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
-  font-size: 1.5rem;
 }
 
 .misc-publication-list {
@@ -387,9 +685,6 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
 
 .publications ol.bibliography li .title,
 .misc-publication-list .title {
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.5;
   margin-bottom: 0.2rem;
 }
 
@@ -399,15 +694,6 @@ article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
 
 article:has(.experience-content-marker) .academic-service-list .title {
   font-weight: 400;
-}
-
-.publications ol.bibliography li .author,
-.misc-publication-list .author,
-.publications ol.bibliography li .periodical,
-.misc-publication-list .periodical {
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.5;
 }
 
 .color-pilot-intro {
@@ -501,29 +787,15 @@ article:has(.experience-content-marker) .academic-service-list .title {
     overflow: visible;
   }
 
-  .experience-layout > .col-sm-3,
-  .miscellaneous-layout > .col-sm-3,
-  .publications-layout > .col-sm-3,
-  .container > .row:has(.experience-content-marker) > .col-sm-3,
-  .container > .row:has(.miscellaneous-content-marker) > .col-sm-3,
-  .container > .row:has(.publications-content-marker) > .col-sm-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
-
-  .experience-layout > .col-sm-9,
-  .miscellaneous-layout > .col-sm-9,
-  .publications-layout > .col-sm-9,
-  .container > .row:has(.experience-content-marker) > .col-sm-9,
-  .container > .row:has(.miscellaneous-content-marker) > .col-sm-9,
-  .container > .row:has(.publications-content-marker) > .col-sm-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
-  }
-
   .miscellaneous-layout #toc-sidebar {
     max-height: calc(100vh - 6.5rem);
     overflow-y: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .misc-demo-group-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -534,30 +806,372 @@ article:has(.experience-content-marker) .academic-service-list .title {
   }
 }
 
-.publications-layout #toc-sidebar,
-.container > .row:has(.publications-content-marker) #toc-sidebar {
+.publications-layout #toc-sidebar {
   -webkit-user-drag: none;
   user-select: none;
 }
 
-.container > .row:has(.experience-content-marker) #toc-sidebar,
 .experience-layout #toc-sidebar,
-.miscellaneous-layout #toc-sidebar,
-.container > .row:has(.miscellaneous-content-marker) #toc-sidebar {
+.miscellaneous-layout #toc-sidebar {
   top: 6.5rem;
 }
 
-article:has(.miscellaneous-content-marker) .misc-project-list > .list-group-item > .row {
-  align-items: flex-start;
-}
-
+article:has(.miscellaneous-content-marker) .misc-project-list > .list-group-item > .row,
 article:has(.miscellaneous-content-marker) .misc-publication-list > .list-group-item > .row {
   align-items: flex-start;
 }
 
 @media (min-width: 768px) {
-  article:has(.miscellaneous-content-marker) .misc-project-list .date-column,
   article:has(.miscellaneous-content-marker) .misc-publication-list .date-column {
     padding-top: 0.15rem;
+  }
+}
+.post-header:has(+ article .experience-content-marker),
+.post-header:has(+ article .publications-content-marker),
+.post-header:has(+ article .miscellaneous-content-marker),
+.post-header:has(+ article .demos-content-marker) {
+  display: none;
+}
+
+#navbar .navbar-brand.title::after {
+  color: var(--global-text-color-light);
+  content: " | Wireless × AI × Robotics";
+  font-size: 0.72em;
+  font-weight: 400;
+  vertical-align: baseline;
+}
+
+article .cv .card-title,
+article:has(.miscellaneous-content-marker) .misc-section-title,
+article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
+  font-size: 1.5rem;
+}
+
+article:has(.miscellaneous-content-marker) .misc-project-card > .card-title {
+  line-height: 1.2;
+  min-height: 1.8rem;
+}
+
+article .cv .affiliation-text,
+.experience-institution,
+.education-institution {
+  font-weight: 600;
+}
+
+article .cv .education-details {
+  font-weight: 400;
+}
+
+article .cv p.location {
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+article .cv .date-column,
+article .misc-publications .date-column {
+  transform: none;
+}
+
+article:has(.miscellaneous-content-marker) .misc-project-date {
+  min-width: 75px;
+  white-space: nowrap;
+}
+
+article:has(.miscellaneous-content-marker) .misc-project-list {
+  font-family: Roboto, "Roboto Metric Fallback", sans-serif;
+}
+
+article .cv i.iconlocation {
+  color: var(--global-theme-color);
+  display: inline-block;
+  font-size: 0.8rem;
+  width: 0.8rem;
+}
+
+/* Reserve the profile photo's intrinsic space before the image is available.
+ * The source image is 1086 x 1448 (3:4), so the page outline remains stable
+ * while the eager/responsive image finishes loading. */
+article > .profile figure {
+  aspect-ratio: 1086 / 1448;
+  background-color: color-mix(in srgb, var(--global-divider-color) 35%, var(--global-bg-color));
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+article > .profile figure picture {
+  display: block;
+  height: 100%;
+}
+
+article > .profile figure img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.social .contact-icons {
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  min-height: 4rem;
+}
+
+.social .contact-icons > a {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 4rem;
+  height: 4rem;
+  justify-content: center;
+  line-height: 1;
+  width: 4rem;
+}
+
+.social .contact-icons > a > i {
+  display: block;
+  line-height: 1;
+}
+
+/* Keep the card proportions stable from the first paint. These variables are
+ * overridden by the mobile media query below when the layout stacks. */
+:root {
+  --layout-sidebar-width: 20%;
+  --layout-content-width: 80%;
+  --publication-preview-width: 30%;
+  --publication-details-width: 70%;
+}
+
+.experience-layout > .col-sm-3,
+.miscellaneous-layout > .col-sm-3,
+.publications-layout > .col-sm-3 {
+  flex: 0 0 var(--layout-sidebar-width);
+  max-width: var(--layout-sidebar-width);
+}
+
+.experience-layout > .col-sm-9,
+.miscellaneous-layout > .col-sm-9,
+.publications-layout > .col-sm-9 {
+  flex: 0 0 var(--layout-content-width);
+  max-width: var(--layout-content-width);
+}
+
+.publications ol.bibliography > li > .row > .col-sm-8 {
+  flex: 0 0 var(--publication-details-width);
+  max-width: var(--publication-details-width);
+}
+
+.publications ol.bibliography > li > .row > .abbr {
+  flex: 0 0 var(--publication-preview-width);
+  max-width: var(--publication-preview-width);
+}
+
+article:has(.publications-content-marker) .publications .abbr figure {
+  --publication-preview-aspect: 4 / 3;
+  --publication-preview-scale: 100%;
+
+  align-items: flex-start;
+  aspect-ratio: var(--publication-preview-aspect);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  max-height: 450px;
+  overflow: hidden;
+  width: var(--publication-preview-scale);
+}
+
+article:has(.publications-content-marker) .publications .abbr figure picture {
+  align-items: flex-start;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure .preview {
+  display: block;
+  height: 100% !important;
+  max-height: 450px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: top center;
+  width: 100% !important;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2020_IROS.gif"]) {
+  --publication-preview-aspect: 400 / 225;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2021_ACCESS.png"]) {
+  --publication-preview-aspect: 1000 / 355;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2023_ICTC.jpg"]) {
+  --publication-preview-aspect: 800 / 309;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2024_ICMLW.svg"]) {
+  --publication-preview-aspect: 398.54 / 209.19;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2024_arxiv_GIF.jpg"]) {
+  --publication-preview-aspect: 800 / 205;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2024_arxiv_JSAC.jpg"]) {
+  --publication-preview-aspect: 800 / 174;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2024_arxiv_patchmi.jpg"]) {
+  --publication-preview-aspect: 1400 / 288;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2024_arxiv_rtp.jpg"]) {
+  --publication-preview-aspect: 800 / 500;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2025_GLOBECOMW.jpg"]) {
+  --publication-preview-aspect: 800 / 315;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2025_ICTC.jpg"]) {
+  --publication-preview-aspect: 800 / 405;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2025_TNNLS.jpg"]) {
+  --publication-preview-aspect: 800 / 314;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2025_TWC.jpg"]) {
+  --publication-preview-aspect: 800 / 391;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2025_arXiv_TWC.jpg"]) {
+  --publication-preview-aspect: 800 / 355;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_IoTJ.jpg"]) {
+  --publication-preview-aspect: 800 / 500;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_TCOM.jpg"]) {
+  --publication-preview-aspect: 800 / 500;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_TWC.jpg"]) {
+  --publication-preview-aspect: 800 / 419;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_arxiv_TVT.jpg"]) {
+  --publication-preview-aspect: 800 / 500;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2024_arxiv_rtp.jpg"]) .preview,
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_TCOM.jpg"]) .preview,
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_arxiv_TVT.jpg"]) .preview {
+  object-fit: cover;
+  object-position: top center;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_arxiv_globecomw.jpg"]) {
+  --publication-preview-aspect: 800 / 338;
+}
+
+@media (max-width: 575px) {
+  :root {
+    --layout-sidebar-width: 100%;
+    --layout-content-width: 100%;
+    --publication-preview-width: 100%;
+    --publication-details-width: 100%;
+  }
+}
+
+.publications h2.bibliography {
+  border-top-color: color-mix(in srgb, var(--global-text-color) 35%, var(--global-bg-color));
+  color: color-mix(in srgb, var(--global-text-color) 42%, var(--global-bg-color));
+  font-size: 1.5rem;
+  scroll-margin-top: 5rem;
+}
+
+.publication-year-group > h2.bibliography {
+  border-top: 0;
+  font-size: 20px;
+}
+
+article:has(.publications-content-marker) .publications {
+  margin-top: 0;
+}
+
+.publications > h2.bibliography:first-child {
+  margin-top: 0;
+}
+
+#toc-sidebar .toc-link::before {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+}
+
+#toc-sidebar .toc-list,
+#toc-sidebar .toc-list-item,
+.publications ol.bibliography,
+.publications ol.bibliography li {
+  list-style: none;
+}
+
+.publications ol.bibliography li::marker {
+  content: "";
+}
+
+.publications ol.bibliography li .title,
+.misc-publication-list .title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.publications ol.bibliography li .author,
+.misc-publication-list .author,
+.publications ol.bibliography li .periodical,
+.misc-publication-list .periodical {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+@media (min-width: 576px) {
+  .publication-year-group {
+    position: relative;
+  }
+
+  .publication-year-group + .publication-year-group {
+    margin-top: 0.8rem;
+  }
+
+  .publication-year-group > h2.bibliography {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    inset: 0 0 auto;
+    margin: 0;
+    padding-top: 0;
+    position: absolute;
+    text-align: right !important;
+    width: 100%;
+  }
+
+  .publication-year-group > h2.bibliography::before {
+    border-top: 1px solid color-mix(in srgb, var(--global-text-color) 35%, var(--global-bg-color));
+    content: "";
+    flex: 1;
+  }
+
+  .publication-year-group > ol.bibliography {
+    padding-top: 2rem;
+  }
+
+  .publication-year-group[aria-labelledby="before-2023"] > ol.bibliography + ol.bibliography {
+    padding-top: 0;
   }
 }

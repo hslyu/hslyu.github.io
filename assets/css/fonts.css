@@ -1,0 +1,16 @@
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+  font-display: block;
+  src: url("/assets/fonts/roboto-variable-latin.woff2") format("woff2-variations");
+}
+
+@font-face {
+  font-family: "Roboto Metric Fallback";
+  font-style: normal;
+  font-weight: 100 900;
+  size-adjust: 94.4%;
+  src: local("Arial"), local("Liberation Sans");
+}

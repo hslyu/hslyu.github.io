@@ -60,37 +60,18 @@
     const years = [...document.querySelectorAll(".publications h2.bibliography")];
     if (!toc || !years.length) return;
 
-    const publicationYears = years.map((year) => {
+    years.forEach((year) => {
       const link = toc.querySelector(`a[href="#${year.id}"]`);
       link.addEventListener("click", (event) => {
         event.preventDefault();
         window.history.replaceState(null, "", link.hash);
         year.scrollIntoView({ behavior: "smooth", block: "start" });
       });
-
-      return { year: Number.parseInt(year.id, 10), heading: year, list: year.nextElementSibling, item: link.parentElement };
     });
     initializeSidebarHighlight(
       toc,
       years.map((year) => ({ hash: `#${year.id}`, target: year }))
     );
-    const fromInput = toc.querySelector('.publication-year-filter input[aria-label="Filter from year"]');
-    const toInput = toc.querySelector('.publication-year-filter input[aria-label="Filter to year"]');
-
-    const setYearFilter = () => {
-      const fromYear = Number.parseInt(fromInput.value, 10) || 0;
-      const toYear = Number.parseInt(toInput.value, 10) || 9999;
-      const [firstYear, lastYear] = [Math.min(fromYear, toYear), Math.max(fromYear, toYear)];
-
-      publicationYears.forEach((entry) => {
-        const hidden = entry.year < firstYear || entry.year > lastYear;
-        entry.heading.parentElement.hidden = hidden;
-        entry.item.hidden = hidden;
-      });
-    };
-
-    fromInput.addEventListener("input", setYearFilter);
-    toInput.addEventListener("input", setYearFilter);
   };
 
   const initializeExperiences = () => {
@@ -122,7 +103,7 @@
 
     const headings = [...document.querySelectorAll("article h2[id]")];
     const sections = headings
-      .map((heading) => ({ hash: `#${heading.id}`, target: heading.nextElementSibling?.querySelector(".misc-project-card") }))
+      .map((heading) => ({ hash: `#${heading.id}`, target: heading.nextElementSibling?.querySelector(".misc-project-card, .misc-demo-card") }))
       .filter(({ target }) => target);
     const sectionTargets = Object.fromEntries(sections.map(({ hash, target }) => [hash, target]));
 
@@ -141,51 +122,73 @@
       );
     });
     initializeSidebarHighlight(document.querySelector("#toc-sidebar"), sections);
+  };
 
-    const toc = document.querySelector("#toc-sidebar");
-    const recordGroups = [...document.querySelectorAll(".misc-publication-list, .misc-project-list")];
-    const records = recordGroups.flatMap((group) => [...group.querySelectorAll(":scope > li")]);
-    const recordYearRanges = new Map(
-      records.map((record) => [
-        record,
-        record.dataset.yearFrom && record.dataset.yearTo ? [Number(record.dataset.yearFrom), Number(record.dataset.yearTo)] : null,
-      ])
-    );
-    const fromInput = toc?.querySelector('.misc-year-filter input[aria-label="Filter from year"]');
-    const toInput = toc?.querySelector('.misc-year-filter input[aria-label="Filter to year"]');
+  const prepareDemoVideo = (video) => {
+    if (video.dataset.poster) {
+      video.poster = video.dataset.poster;
+      delete video.dataset.poster;
+    }
+    if (video.dataset.src) {
+      video.src = video.dataset.src;
+      delete video.dataset.src;
+      video.preload = "metadata";
+      video.load();
+    }
+  };
 
-    if (!fromInput || !toInput || !records.length) return;
+  const waitForDemoMetadata = (video) => {
+    if (video.readyState >= HTMLMediaElement.HAVE_METADATA) return Promise.resolve();
 
-    const setYearFilter = () => {
-      const fromYear = Number.parseInt(fromInput.value, 10) || 0;
-      const toYear = Number.parseInt(toInput.value, 10) || 9999;
-      const [firstYear, lastYear] = [Math.min(fromYear, toYear), Math.max(fromYear, toYear)];
+    return new Promise((resolve) => {
+      let timeout;
+      const finish = () => {
+        window.clearTimeout(timeout);
+        video.removeEventListener("loadedmetadata", finish);
+        video.removeEventListener("error", finish);
+        resolve();
+      };
 
-      recordYearRanges.forEach((range, record) => {
-        record.hidden = !range || range[1] < firstYear || range[0] > lastYear;
+      video.addEventListener("loadedmetadata", finish, { once: true });
+      video.addEventListener("error", finish, { once: true });
+      timeout = window.setTimeout(finish, 5000);
+    });
+  };
+
+  const initializeDemoLoading = async () => {
+    const groups = [...document.querySelectorAll(".misc-demo-group")];
+
+    for (const group of groups) {
+      const videos = [...group.querySelectorAll("video")];
+      videos.forEach(prepareDemoVideo);
+      await Promise.all(videos.map(waitForDemoMetadata));
+
+      if ("requestIdleCallback" in window) await new Promise((resolve) => window.requestIdleCallback(resolve, { timeout: 500 }));
+    }
+  };
+
+  const initializeLocalDemoPlayers = () => {
+    document.querySelectorAll(".misc-demo-local-player").forEach((player) => {
+      const video = player.querySelector("video");
+      const playButton = player.querySelector(".misc-demo-local-play");
+      if (!video || !playButton) return;
+
+      playButton.addEventListener("click", () => {
+        prepareDemoVideo(video);
+        video.play();
       });
-
-      recordGroups.forEach((group) => {
-        const hasVisibleRecords = [...group.children].some((record) => !record.hidden);
-        group.hidden = !hasVisibleRecords;
-        group.closest(".misc-project-card")?.toggleAttribute("hidden", !hasVisibleRecords);
-        group.previousElementSibling?.classList.contains("misc-subtitle") &&
-          group.previousElementSibling.toggleAttribute("hidden", !hasVisibleRecords);
-      });
-
-      document.querySelectorAll(".misc-publications-section").forEach((section) => {
-        section.hidden = !section.querySelector(".misc-publication-list:not([hidden])");
-      });
-    };
-
-    fromInput.addEventListener("input", setYearFilter);
-    toInput.addEventListener("input", setYearFilter);
+      video.addEventListener("play", () => player.classList.add("is-playing"));
+      video.addEventListener("pause", () => player.classList.remove("is-playing"));
+      video.addEventListener("ended", () => player.classList.remove("is-playing"));
+    });
   };
 
   const initialize = () => {
     initializePublications();
     initializeExperiences();
     initializeMiscellaneous();
+    initializeDemoLoading();
+    initializeLocalDemoPlayers();
   };
 
   if (document.readyState === "loading") window.addEventListener("DOMContentLoaded", initialize, { once: true });

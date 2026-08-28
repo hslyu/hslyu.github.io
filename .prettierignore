@@ -2,3 +2,4 @@
 **/*.min.css
 **/*.min.js
 vendor/**
+_site-local/**

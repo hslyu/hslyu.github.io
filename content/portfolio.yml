@@ -107,6 +107,47 @@ experience:
       - "‘The Role of Aerial Networks in 6G Wireless’ — KICS Summer Conference, June 2025"
 
 miscellaneous:
+  demo_groups:
+    - title: Digital Twin Demos
+      videos:
+        - title: Pinching Antenna RF Simulation in Digital Twin
+          page: "/demos/pinching-warehouse-twin/"
+          thumbnail: "/assets/img/demo_preview/pinching-warehouse-twin.jpg"
+        - title: Isaac Sim Asset Classification
+          embed: "https://www.youtube-nocookie.com/embed/jlsDYYthJ3c"
+        - title: QoS Path Planning in DT
+          embed: "https://www.youtube-nocookie.com/embed/Ujejat7-jqY"
+        - title: Isaac Sim to Sionna
+          embed: "https://www.youtube-nocookie.com/embed/fiiPhmkcFIc"
+    - title: Drone SITL and Real-World RF Testing
+      videos:
+        - title: Multi-hop USRP RF Testbed
+          page: "/demos/multihop-usrp/"
+          thumbnail: "/assets/img/demo_preview/multihop-usrp.jpg"
+        - title: Drone Reinforcement Learning Simulation Platform
+          embed: "https://www.youtube-nocookie.com/embed/UG6amcLl9cY"
+        - title: Gazebo–MATLAB Integration Demo
+          embed: "https://www.youtube-nocookie.com/embed/ohKhSpapq0g"
+        - title: Drone Base Station Flight
+          embed: "https://www.youtube-nocookie.com/embed/h6TcWZSk89E"
+    - title: Drone and Hardware Demos
+      videos:
+        - title: ROS + NVIDIA TX2 Drone Remote Control 1
+          embed: "https://www.youtube-nocookie.com/embed/GE5RMmIEwR0"
+        - title: ROS + NVIDIA TX2 Drone Remote Control 2
+          embed: "https://www.youtube-nocookie.com/embed/92rfIsJ7l_I"
+        - title: Tilted Motor Drone Hovering Test
+          embed: "https://www.youtube-nocookie.com/embed/K-5oV36Lw1w"
+        - title: IROS Reinforcement Learning Microscope
+          embed: "https://www.youtube-nocookie.com/embed/MvSaoPQvDdo"
+    - title: Other Demos
+      videos:
+        - title: Ubuntu Server Setup
+          embed: "https://www.youtube-nocookie.com/embed/videoseries?list=PL5q1DIhtyZHsHNzm8zBPEqmlv1LTN7JfO"
+        - title: Project Loon Visualization
+          embed: "https://www.youtube-nocookie.com/embed/DgTcp4-QEfA"
+        - title: Additional Demo
+          embed: "https://www.youtube-nocookie.com/embed/WWtqdQ6k_rY"
   domestic_papers:
     - title: Deep Learning-Based Interference Cancellation for OFDM ISAC
       authors: Hyeonho Noh; Hyeonsu Lyu; Hyun Jong Yang

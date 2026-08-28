@@ -11,13 +11,13 @@ nav_order: 1
 <div class="row experience-layout">
 <div class="col-sm-3">
 <nav id="toc-sidebar" class="sticky-top toc toc-sidebar" aria-label="Table of contents">
-<ul class="toc-list">
-  <li class="toc-list-item is-active-li"><a class="toc-link node-name--H2 is-active-link" href="#experience">Experience</a></li>
-  <li class="toc-list-item"><a class="toc-link node-name--H2" href="#education">Education</a></li>
-  <li class="toc-list-item"><a class="toc-link node-name--H2" href="#awards-honors">Awards & Honors</a></li>
-  <li class="toc-list-item"><a class="toc-link node-name--H2" href="#academic-services">Academic Services</a></li>
-  <li class="toc-list-item"><a class="toc-link node-name--H2" href="#talks">Talks</a></li>
-</ul>
+<div class="toc-list">
+  <div class="toc-list-item is-active-li"><a class="toc-link node-name--H2 is-active-link" href="#experience">Experience</a></div>
+  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#education">Education</a></div>
+  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#awards-honors">Awards & Honors</a></div>
+  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#academic-services">Academic Services</a></div>
+  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#talks">Talks</a></div>
+</div>
 </nav>
 </div>
 
