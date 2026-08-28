@@ -62,6 +62,8 @@
 
     years.forEach((year) => {
       const link = toc.querySelector(`a[href="#${year.id}"]`);
+      if (!link) return;
+
       link.addEventListener("click", (event) => {
         event.preventDefault();
         window.history.replaceState(null, "", link.hash);
@@ -74,40 +76,18 @@
     );
   };
 
-  const initializeExperiences = () => {
-    if (!document.querySelector(".experience-content-marker")) return;
+  const initializeSectionNavigation = (markerSelector, headingSelector, resolveTarget) => {
+    if (!document.querySelector(markerSelector)) return;
 
-    const headings = [...document.querySelectorAll("article .cv > h2[id]")];
-    const sections = headings.map((heading) => ({ hash: `#${heading.id}`, target: heading.nextElementSibling })).filter(({ target }) => target);
-    const sectionTargets = Object.fromEntries(sections.map(({ hash, target }) => [hash, target]));
+    const toc = document.querySelector("#toc-sidebar");
+    if (!toc) return;
 
-    document.querySelectorAll("#toc-sidebar a").forEach((link) => {
-      const target = sectionTargets[new URL(link.href).hash];
-      if (!target) return;
-
-      link.addEventListener(
-        "click",
-        (event) => {
-          event.preventDefault();
-          window.history.replaceState(null, "", link.hash);
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        },
-        true
-      );
-    });
-    initializeSidebarHighlight(document.querySelector("#toc-sidebar"), sections);
-  };
-
-  const initializeMiscellaneous = () => {
-    if (!document.querySelector(".miscellaneous-content-marker")) return;
-
-    const headings = [...document.querySelectorAll("article h2[id]")];
-    const sections = headings
-      .map((heading) => ({ hash: `#${heading.id}`, target: heading.nextElementSibling?.querySelector(".misc-project-card, .misc-demo-card") }))
+    const sections = [...document.querySelectorAll(headingSelector)]
+      .map((heading) => ({ hash: `#${heading.id}`, target: resolveTarget(heading) }))
       .filter(({ target }) => target);
     const sectionTargets = Object.fromEntries(sections.map(({ hash, target }) => [hash, target]));
 
-    document.querySelectorAll("#toc-sidebar a").forEach((link) => {
+    toc.querySelectorAll("a").forEach((link) => {
       const target = sectionTargets[new URL(link.href).hash];
       if (!target) return;
 
@@ -121,7 +101,7 @@
         true
       );
     });
-    initializeSidebarHighlight(document.querySelector("#toc-sidebar"), sections);
+    initializeSidebarHighlight(toc, sections);
   };
 
   const prepareDemoVideo = (video) => {
@@ -185,8 +165,10 @@
 
   const initialize = () => {
     initializePublications();
-    initializeExperiences();
-    initializeMiscellaneous();
+    initializeSectionNavigation(".experience-content-marker", "article .cv > h2[id]", (heading) => heading.nextElementSibling);
+    initializeSectionNavigation(".miscellaneous-content-marker", "article h2[id]", (heading) =>
+      heading.nextElementSibling?.querySelector(".misc-project-card, .misc-demo-card")
+    );
     initializeDemoLoading();
     initializeLocalDemoPlayers();
   };

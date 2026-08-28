@@ -1,5 +1,6 @@
 _site/
 _site-local/
+tmp/
 .bundle/
 .jekyll-cache/
 .jekyll-metadata

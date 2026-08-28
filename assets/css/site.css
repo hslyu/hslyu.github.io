@@ -683,11 +683,6 @@ article:has(.publications-content-marker) .publications .preview {
   color: var(--global-card-bg-color) !important;
 }
 
-.publications ol.bibliography li .title,
-.misc-publication-list .title {
-  margin-bottom: 0.2rem;
-}
-
 .misc-project-card .title {
   font-weight: 600;
 }
@@ -842,7 +837,6 @@ article:has(.miscellaneous-content-marker) .misc-publication-list > .list-group-
 }
 
 article .cv .card-title,
-article:has(.miscellaneous-content-marker) .misc-section-title,
 article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
   font-size: 1.5rem;
 }
@@ -1129,6 +1123,7 @@ article:has(.publications-content-marker) .publications {
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.5;
+  margin-bottom: 0.2rem;
 }
 
 .publications ol.bibliography li .author,
