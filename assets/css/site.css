@@ -836,6 +836,24 @@ article:has(.miscellaneous-content-marker) .misc-publication-list > .list-group-
   vertical-align: baseline;
 }
 
+.home-research-interests {
+  font-size: 1rem;
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+.home-research-interests li {
+  margin-bottom: 0.2rem;
+}
+
+.home-research-interests li:last-child {
+  margin-bottom: 0;
+}
+
+.home-current-focus {
+  margin-top: 1rem;
+}
+
 article .cv .card-title,
 article:has(.miscellaneous-content-marker) .misc-project-card .card-title {
   font-size: 1.5rem;
@@ -997,8 +1015,8 @@ article:has(.publications-content-marker) .publications .abbr figure:has(.previe
   --publication-preview-aspect: 400 / 225;
 }
 
-article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2021_ACCESS.png"]) {
-  --publication-preview-aspect: 1000 / 355;
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2021_ACCESS.gif"]) {
+  --publication-preview-aspect: 800 / 450;
 }
 
 article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2023_ICTC.jpg"]) {

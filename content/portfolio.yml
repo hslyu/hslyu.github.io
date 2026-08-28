@@ -21,9 +21,15 @@ profile:
     github: https://github.com/hslyu
 
 home:
-  summary: Lightweight mobile robots can gain remarkable capabilities through AI-powered remote control without relying on onboard computing. I study communication systems for AI and robotics, together with intelligent agents for next-generation wireless networks, toward reliable systems for high-risk work, extreme environments, and disaster response.
-  mission: My goal is to improve society's welfare and safety by developing connected mobile robotic systems. My research bridges robotics, wireless communications, and machine intelligence.
-  research_interests: [Wireless Communications, Artificial Intelligence, Robotics, Intelligent Wireless Networks]
+  summary: Intelligent robotics is emerging as a world-changing paradigm. From assisting people in everyday life to performing hazardous and repetitive physical tasks, robots have the potential to augment human capabilities and contribute to a safer, more inclusive, and more productive society.
+  mission: My vision is to connect robots with people, infrastructure, and other robots. By interacting with their surrounding environment and leveraging powerful computing resources in the cloud and at the network edge, robots can better understand the world and make intelligent decisions even with limited resources. I pursue this vision by integrating wireless communication, artificial intelligence, and robotic hardware into unified systems.
+  research_interests:
+    - Optimizing robotic decision variables while accounting for network connectivity and communication constraints
+    - Integrating cross-domain technologies, including AI, wireless networks, and robotics, into unified systems
+    - Building real-world UNIX-based embedded systems for robotic applications
+    - Developing digital-twin platforms for training, testing, and deploying robots
+  current_focus: Right now, I am focusing on wireless cloud robotics and wireless digital twins for the era of Physical AI.
+  additional_note: I also enjoy creating high-quality research figures as a co-lead of FigureWorks Std. and automating Linux systems as a system administrator at AISLab for more than eight years.
 
 news:
   - { date: "2026.03", text: Joined Seoul National University as a Postdoctoral Researcher. }
@@ -146,7 +152,7 @@ miscellaneous:
           embed: "https://www.youtube-nocookie.com/embed/videoseries?list=PL5q1DIhtyZHsHNzm8zBPEqmlv1LTN7JfO"
         - title: Project Loon Visualization
           embed: "https://www.youtube-nocookie.com/embed/DgTcp4-QEfA"
-        - title: Additional Demo
+        - title: Scratching Demo by Novel the Cat
           embed: "https://www.youtube-nocookie.com/embed/WWtqdQ6k_rY"
   domestic_papers:
     - title: Deep Learning-Based Interference Cancellation for OFDM ISAC

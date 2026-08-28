@@ -28,9 +28,14 @@ latest_posts:
 
 {{ site.data.portfolio.home.mission }}
 
-## Research interests
+### Research interests
 
+<ul class="home-research-interests">
 {% for interest in site.data.portfolio.home.research_interests %}
 
-- {{ interest }}
-  {% endfor %}
+  <li>{{ interest }}</li>
+{% endfor %}
+</ul>
+<div class="home-current-focus">{{ site.data.portfolio.home.current_focus }}</div>
+
+{{ site.data.portfolio.home.additional_note }}
