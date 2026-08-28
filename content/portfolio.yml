@@ -57,11 +57,19 @@ experience:
       organization: Seoul National University
       unit: AiSLab
       location: Seoul, Korea
+      contributions:
+        - Advised by Prof. Hyun Jong Yang.
+        - Developing AI-native RAN systems for humanoid and robotic applications using wireless digital-twin platforms.
+        - Mentoring Ph.D. and M.S. students and advising research projects and paper preparation.
     - period: "Aug. 2025 – Feb. 2026"
       years: "2025 - 2026"
       title: Visiting Scholar
       organization: University of Texas at Austin
       location: Austin, Texas
+      contributions:
+        - Advised by Prof. Kaushik Chowdhury.
+        - Designed and configured a multi-host, multi-USRP N320 RF testbed with Cisco Layer-3 switching, isolated management and 10-Gb/s SFP+ radio-data paths, IEEE 1588v2 PTP synchronization, and correlation-based latency measurement.
+        - Developed radio-ready digital-twin workflows that transfer aligned camera, object, and robot geometry from Isaac Sim to Sionna RT for ray-traced propagation and OFDM channel evaluation.
   education:
     - period: "Mar. 2021 – Feb. 2026"
       years: "2021 - 2026"
@@ -304,24 +312,40 @@ miscellaneous:
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
       title: Development of AI-Native 6G Systems Orchestrating AI-Native Services
       acknowledge: RS-2024-00398157
+      contributions:
+        - Studied AI-native architectures that jointly orchestrate network connectivity, computing resources, and intelligent services.
+        - Connected communication-aware decision making with edge–cloud execution for future Physical AI systems.
+      keywords: AI-native 6G, service orchestration, edge–cloud continuum, network intelligence
     - period: 2023–2026
       program: 개인기초연구(과기정통부)
       ministry: Ministry of Science and ICT (MSIT)
       agency: National Research Foundation of Korea (NRF)
       title: Research on scalable learning-based multi-UAV BS communication technologies for practical multi-UAV BS systems
       acknowledge: RS-2023-00240191
+      contributions:
+        - Developed learning-based coordination and trajectory–resource optimization methods for practical multi-UAV base-station systems.
+        - Studied coverage maximization and reliable connectivity under mobility and inter-UAV coordination constraints.
+      keywords: multi-UAV base stations, multi-agent reinforcement learning, trajectory optimization, coverage, wireless resource allocation
     - period: 2021–2028
       program: 정보통신방송혁신인재양성
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
       title: Research on Ultra Reliable Aerial Network framework Supporting High-density Urban Air Mobility
       acknowledge: 2021-0-02048
+      contributions:
+        - Investigated reliable aerial-network operation for high-density urban air mobility and heterogeneous aerial platforms.
+        - Analyzed coverage, blockage, and radio-resource trade-offs for robust low-latency connectivity.
+      keywords: urban air mobility, aerial networks, reliability, coverage analysis, radio-resource optimization
     - period: 2018–2022
       program: 방송통신산업기술개발
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
       title: Development of Joint Electrical/Mechanical Drone Beamforming based on Target Detection and Precise Attitude Control
       acknowledge: 2018-0-00958
+      contributions:
+        - Integrated target detection, precise attitude control, and electrical/mechanical beam steering for a drone base station.
+        - Built and demonstrated a hardware–software platform for adaptive aerial wireless links.
+      keywords: UAV base station, beamforming, target detection, attitude control, robotics hardware
       links:
         - label: Demo
           url: "https://www.youtube.com/playlist?list=PL5q1DIhtyZHvQWb0DogrOd4uKk8lpbK0J"
@@ -333,30 +357,46 @@ miscellaneous:
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
       title: AI-RAN Global Flagship Project
       acknowledge: RS-2026-25525793
+      contributions:
+        - Contributed to research directions for AI-native RAN operation and intelligent network control.
+      keywords: AI-RAN, RAN intelligence, network automation, wireless systems
     - period: 2026-2028
       program: 차세대네트워크(6G)산업기술개발
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
       title: Development of Adaptive RAN/RIC Application Performance Guarantee
       acknowledge: RS-2026-25523626
+      contributions:
+        - Studied adaptive RAN/RIC control strategies for application-level performance and QoS guarantees.
+      keywords: RAN/RIC, closed-loop control, QoS, network optimization
     - period: 2024–2028
       program: 정보통신방송혁신인재양성
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
       title: 6G Cloud Research and Education Open Hub
       acknowledge: RS-2024-00428780
+      contributions:
+        - Helped develop an open cloud–edge research environment for reproducible 6G, AI, and networked-robotics experiments.
+      keywords: 6G cloud, edge computing, wireless testbed, reproducible research, networked robotics
     - period: 2024–2028
       program: 방송통신산업기술개발
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
       title: Development of 5G-A vRAN Research Platform
       acknowledge: RS-2024-00404972
+      contributions:
+        - Worked on a virtualized RAN research platform for programmable wireless-network experiments and evaluation.
+      keywords: 5G-Advanced, vRAN, Open RAN, network platform, wireless experimentation
     - period: 2019–2020
       program: MOTIE R&D Program
       ministry: Ministry of Trade, Industry and Energy (MOTIE)
       agency: N/A
       title: Development of Artificial Intelligence Scanning Electron Microscope
       acknowledge: "20005526"
+      contributions:
+        - Developed deep-learning methods for autofocus scoring and autonomous scanning in a scanning electron microscope.
+        - Integrated machine learning, robotics control, and instrument operation into an end-to-end experimental system.
+      keywords: deep learning, scanning electron microscope, autofocus, autonomous robotics, computer vision
       links:
         - label: Demo
           url: "https://www.youtube.com/watch?v=MvSaoPQvDdo"
