@@ -1,4 +1,69 @@
 (() => {
+  const palettePath = "/assets/data/color-palette.json";
+
+  const isValidAccent = (accent) => accent && typeof accent.name === "string" && /^#[0-9a-f]{6}$/i.test(accent.hex);
+
+  const applyAccent = (accent) => {
+    [document.documentElement, document.body].forEach((element) => {
+      element.style.setProperty("--global-hover-color", accent.hex);
+      element.style.setProperty("--global-theme-color", accent.hex);
+    });
+  };
+
+  const initializeRandomAccent = () => {
+    const themeToggle = document.querySelector("#light-toggle");
+    const container = themeToggle?.closest(".toggle-container");
+    if (!container || container.querySelector("#random-color-toggle")) return;
+
+    const button = document.createElement("button");
+    const wheel = document.createElement("span");
+    button.id = "random-color-toggle";
+    button.type = "button";
+    button.title = "Choose a random accent color";
+    button.setAttribute("aria-label", button.title);
+    wheel.className = "random-color-wheel";
+    wheel.setAttribute("aria-hidden", "true");
+    button.append(wheel);
+    container.insertBefore(button, themeToggle);
+
+    const updateButtonLabel = (accent) => {
+      const label = `Accent color: ${accent.name} (${accent.hex}). Choose another random accent color`;
+      button.title = label;
+      button.setAttribute("aria-label", label);
+      button.style.setProperty("--selected-accent", accent.hex);
+    };
+
+    let currentAccent = null;
+
+    const paletteRequest = window
+      .fetch(palettePath)
+      .then((response) => {
+        if (!response.ok) throw new Error(`Palette request failed: ${response.status}`);
+        return response.json();
+      })
+      .then((palette) => palette.filter(isValidAccent));
+
+    button.addEventListener("click", async () => {
+      try {
+        const palette = await paletteRequest;
+        if (!palette.length) return;
+
+        const currentHex = currentAccent?.hex;
+        const choices = palette.length > 1 ? palette.filter(({ hex }) => hex.toLowerCase() !== currentHex?.toLowerCase()) : palette;
+        const accent = choices[Math.floor(Math.random() * choices.length)];
+        applyAccent(accent);
+        currentAccent = accent;
+        updateButtonLabel(accent);
+        button.classList.remove("is-spinning");
+        window.requestAnimationFrame(() => button.classList.add("is-spinning"));
+      } catch {
+        button.title = "Accent colors are temporarily unavailable";
+      }
+    });
+
+    button.addEventListener("animationend", () => button.classList.remove("is-spinning"));
+  };
+
   const initializeSidebarHighlight = (toc, sections) => {
     if (!toc) return;
 
@@ -164,6 +229,7 @@
   };
 
   const initialize = () => {
+    initializeRandomAccent();
     initializePublications();
     initializeSectionNavigation(".experience-content-marker", "article .cv > h2[id]", (heading) => heading.nextElementSibling);
     initializeSectionNavigation(".miscellaneous-content-marker", "article h2[id]", (heading) =>

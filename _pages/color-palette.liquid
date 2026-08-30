@@ -1,0 +1,10 @@
+---
+layout: null
+permalink: /assets/data/color-palette.json
+sitemap: false
+---
+[
+{% for candidate in site.data.color_palette %}
+  { "name": {{ candidate.name | jsonify }}, "hex": {{ candidate.hex | jsonify }} }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

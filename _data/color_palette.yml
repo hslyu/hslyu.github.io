@@ -1,0 +1,60 @@
+- name: Violet
+  hex: "#B509AC"
+- name: Amethyst
+  hex: "#7C3AED"
+- name: Indigo
+  hex: "#4F46E5"
+- name: Cobalt
+  hex: "#1D4ED8"
+- name: Royal Blue
+  hex: "#2563EB"
+- name: Current Azure
+  hex: "#0369A1"
+- name: Cerulean
+  hex: "#0077B6"
+- name: Petrol
+  hex: "#155E75"
+- name: Teal
+  hex: "#0F766E"
+- name: Emerald
+  hex: "#047857"
+- name: Forest
+  hex: "#15803D"
+- name: Moss
+  hex: "#4D7C0F"
+- name: Olive
+  hex: "#3F6212"
+- name: Gold
+  hex: "#A16207"
+- name: Amber
+  hex: "#B45309"
+- name: Burnt Orange
+  hex: "#C2410C"
+- name: Red
+  hex: "#B91C1C"
+- name: Crimson
+  hex: "#BE123C"
+- name: Burgundy
+  hex: "#881337"
+- name: Berry
+  hex: "#A21CAF"
+- name: Plum
+  hex: "#7E22CE"
+- name: Deep Purple
+  hex: "#5B21B6"
+- name: Midnight Blue
+  hex: "#172554"
+- name: Slate
+  hex: "#334155"
+- name: Graphite
+  hex: "#3F3F46"
+- name: Coffee
+  hex: "#78350F"
+- name: Walnut
+  hex: "#6F3B20"
+- name: Wine
+  hex: "#9D174D"
+- name: Ocean
+  hex: "#075985"
+- name: Evergreen
+  hex: "#166534"
