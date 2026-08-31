@@ -8,6 +8,7 @@
       element.style.setProperty("--global-hover-color", accent.hex);
       element.style.setProperty("--global-theme-color", accent.hex);
     });
+    document.documentElement.classList.add("random-accent-active");
   };
 
   const initializeRandomAccent = () => {

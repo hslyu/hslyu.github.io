@@ -11,6 +11,11 @@ body.dark {
   --global-theme-color: #b45309;
 }
 
+html.random-accent-active .navbar-brand .font-weight-bold,
+html.random-accent-active .post-title .font-weight-bold {
+  color: var(--global-theme-color);
+}
+
 .toggle-container {
   display: inline-flex;
   position: relative;
