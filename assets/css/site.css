@@ -1161,6 +1161,10 @@ article:has(.publications-content-marker) .publications .abbr figure:has(.previe
   --publication-preview-aspect: 800 / 500;
 }
 
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_arxiv_LUCID.jpg"]) {
+  --publication-preview-aspect: 1270 / 445;
+}
+
 article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2024_arxiv_rtp.jpg"]) .preview,
 article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_TCOM.jpg"]) .preview,
 article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_arxiv_TVT.jpg"]) .preview {

@@ -33,7 +33,7 @@ nav_order: 2
 {% assign publications_markup = publications_markup | replace_first: original_venue, abbreviated_venue %}
 {% endfor %}
 
-{% assign arxiv_entry_keys = 'scenebaker,end_to_end,secure_multihop,deeper_understanding,fed_zoe,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
+{% assign arxiv_entry_keys = 'lucid,scenebaker,end_to_end,secure_multihop,deeper_understanding,fed_zoe,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 {% for entry_key in arxiv_entry_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
 {% assign entry_head = publications_markup | split: entry_marker | first %}
