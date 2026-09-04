@@ -17,7 +17,7 @@ nav_order: 2
 {% assign secure_entry_tail = publications_markup | split: secure_entry_marker | last %}
 {% assign secure_entry_tail = secure_entry_tail | replace_first: '; <span class="paper-award">Best Paper Award</span>', '</div><div class="periodical"><span class="paper-award">Best Paper Award</span>' %}
 {% capture publications_markup %}{{ secure_entry_head }}{{ secure_entry_marker }}{{ secure_entry_tail }}{% endcapture %}
-{% assign venue_specs = 'joint_optimization|IEEE Trans. Commun.,dcfnet|IEEE Trans. Wireless Commun.,active_starris|IEEE Internet Things J.,unveiling_hidden|IEEE Trans. Neural Netw. Learn. Syst.,noniterative_aerial|IEEE Trans. Wireless Commun.,secure_connection|IEEE ICTC,accuracy_delay|GLOBECOMW,faithful_fast|ICMLW,maneuver_balloon|IEEE ICTC,privacy_uav|IEEE Access,autonomous_sem|IEEE IROS' | split: ',' %}
+{% assign venue_specs = 'joint_optimization|IEEE Trans. Commun.,dcfnet|IEEE Trans. Wireless Commun.,active_starris|IEEE Internet Things J.,noniterative_aerial|IEEE Trans. Wireless Commun.,end_to_end|IEEE Trans. Veh. Technol.,secure_connection|IEEE ICTC,accuracy_delay|GLOBECOMW,faithful_fast|ICMLW,maneuver_balloon|IEEE ICTC,privacy_uav|IEEE Access,autonomous_sem|IEEE IROS' | split: ',' %}
 {% for venue_spec in venue_specs %}
 {% assign venue_parts = venue_spec | split: '|' %}
 {% assign entry_key = venue_parts[0] %}
@@ -33,7 +33,7 @@ nav_order: 2
 {% assign publications_markup = publications_markup | replace_first: original_venue, abbreviated_venue %}
 {% endfor %}
 
-{% assign arxiv_entry_keys = 'lucid,scenebaker,end_to_end,secure_multihop,deeper_understanding,fed_zoe,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
+{% assign arxiv_entry_keys = 'lucid,scenebaker,secure_multihop,deeper_understanding,fed_zoe,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 {% for entry_key in arxiv_entry_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
 {% assign entry_head = publications_markup | split: entry_marker | first %}
@@ -45,16 +45,25 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign accepted_entry_tail = publications_markup | split: 'id="joint_optimization"' | last %}
+{% assign accepted_entry_specs = 'joint_optimization|Accepted,end_to_end|Accepted as a Correspondence' | split: ',' %}
+{% for accepted_entry_spec in accepted_entry_specs %}
+{% assign accepted_entry_parts = accepted_entry_spec | split: '|' %}
+{% assign accepted_entry_key = accepted_entry_parts[0] %}
+{% assign accepted_label = accepted_entry_parts[1] %}
+{% capture accepted_entry_marker %}id="{{ accepted_entry_key }}"{% endcapture %}
+{% assign accepted_entry_head = publications_markup | split: accepted_entry_marker | first %}
+{% assign accepted_entry_tail = publications_markup | split: accepted_entry_marker | last %}
 {% assign accepted_periodical_parts = accepted_entry_tail | split: '<div class="periodical">' %}
 {% assign accepted_venue_markup = accepted_periodical_parts[1] | split: '</div>' | first %}
 {% assign accepted_note_markup = accepted_periodical_parts[2] | split: '</div>' | first %}
 {% capture original_accepted_venue %}<div class="periodical">{{ accepted_venue_markup }}</div>{% endcapture %}
-{% capture accepted_venue %}<div class="periodical">{{ accepted_venue_markup }} (Accepted)</div>{% endcapture %}
+{% capture accepted_venue %}<div class="periodical">{{ accepted_venue_markup }} ({{ accepted_label }})</div>{% endcapture %}
 {% capture original_accepted_note %}<div class="periodical">{{ accepted_note_markup }}</div>{% endcapture %}
-{% assign publications_markup = publications_markup | replace_first: original_accepted_venue, accepted_venue | replace_first: original_accepted_note, '' %}
+{% assign accepted_entry_tail = accepted_entry_tail | replace_first: original_accepted_venue, accepted_venue | replace_first: original_accepted_note, '' %}
+{% capture publications_markup %}{{ accepted_entry_head }}{{ accepted_entry_marker }}{{ accepted_entry_tail }}{% endcapture %}
+{% endfor %}
 
-{% assign title_break_specs = 'joint_optimization:62,dcfnet:64,end_to_end:63,active_starris:59,secure_multihop:39,unveiling_hidden:60,noniterative_aerial:59,secure_connection:58,accuracy_delay:42,fed_zoe:64,replace_perturb:50,privacy_uav:46' | split: ',' %}
+{% assign title_break_specs = 'joint_optimization:62,dcfnet:64,end_to_end:64,active_starris:59,secure_multihop:39,unveiling_hidden:60,noniterative_aerial:59,secure_connection:58,accuracy_delay:42,fed_zoe:64,replace_perturb:50,privacy_uav:46' | split: ',' %}
 {% for title_break_spec in title_break_specs %}
 {% assign title_break_parts = title_break_spec | split: ':' %}
 {% assign entry_key = title_break_parts[0] %}
@@ -71,7 +80,7 @@ nav_order: 2
 {% assign publications_markup = publications_markup | replace_first: original_title, wrapped_title %}
 {% endfor %}
 
-{% assign title_link_keys = 'joint_optimization,dcfnet,active_starris,unveiling_hidden,noniterative_aerial,secure_connection,accuracy_delay,maneuver_balloon,privacy_uav,autonomous_sem' | split: ',' %}
+{% assign title_link_keys = 'joint_optimization,dcfnet,active_starris,unveiling_hidden,noniterative_aerial,end_to_end,secure_connection,accuracy_delay,maneuver_balloon,privacy_uav,autonomous_sem' | split: ',' %}
 {% assign title_link_keys = title_link_keys | concat: arxiv_entry_keys %}
 {% for entry_key in title_link_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
