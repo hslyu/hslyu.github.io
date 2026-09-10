@@ -233,7 +233,7 @@ article .cv > #education + .card .date-column .table-cv {
   border-bottom: none !important;
   color: var(--global-theme-color);
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -256,7 +256,13 @@ article:has(.publications-content-marker) .publications .preview {
 
 .paper-award {
   color: var(--global-theme-color);
-  font-weight: 700;
+  font-weight: 600;
+}
+
+.publications ol.bibliography li .venue-initials {
+  color: var(--global-theme-color);
+  font-style: normal;
+  font-weight: 600;
 }
 
 #toc-sidebar.toc {
@@ -1168,6 +1174,14 @@ article:has(.publications-content-marker) .publications .abbr figure:has(.previe
 
 article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_arxiv_LUCID.jpg"]) {
   --publication-preview-aspect: 1270 / 445;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_preprint_AF_ISAC.jpg"]) {
+  --publication-preview-aspect: 800 / 289;
+}
+
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_preprint_TAP.jpg"]) {
+  --publication-preview-aspect: 800 / 293;
 }
 
 article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2024_arxiv_rtp.jpg"]) .preview,
