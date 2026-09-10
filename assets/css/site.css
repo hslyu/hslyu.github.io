@@ -262,6 +262,12 @@ article:has(.publications-content-marker) .publications .preview {
   font-weight: 600;
 }
 
+.publications .arxiv-link {
+  font-size: 0.9em;
+  margin-left: 0.25rem;
+  white-space: nowrap;
+}
+
 #toc-sidebar.toc {
   overflow: visible !important;
 }

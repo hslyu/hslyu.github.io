@@ -70,6 +70,21 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
+{% assign published_arxiv_link_specs = 'joint_optimization|2505.08573,dcfnet|2506.16191,active_starris|2507.18035,unveiling_hidden|2408.04261,noniterative_aerial|2405.01314' | split: ',' %}
+{% for published_arxiv_link_spec in published_arxiv_link_specs %}
+{% assign published_arxiv_link_parts = published_arxiv_link_spec | split: '|' %}
+{% assign entry_key = published_arxiv_link_parts[0] %}
+{% assign arxiv_id = published_arxiv_link_parts[1] %}
+{% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
+{% assign entry_head = publications_markup | split: entry_marker | first %}
+{% assign entry_tail = publications_markup | split: entry_marker | last %}
+{% capture arxiv_link %}<a class="arxiv-link" href="https://arxiv.org/abs/{{ arxiv_id }}" target="_blank" rel="external nofollow noopener">arXiv</a>{% endcapture %}
+{% capture venue_accessibility_marker %}</span>)<span class="sr-only">{% endcapture %}
+{% capture venue_with_arxiv %}</span>) {{ arxiv_link }}<span class="sr-only">{% endcapture %}
+{% assign entry_tail = entry_tail | replace_first: venue_accessibility_marker, venue_with_arxiv %}
+{% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
+{% endfor %}
+
 {% assign accepted_entry_specs = 'joint_optimization|Accepted,end_to_end|Accepted as a Correspondence' | split: ',' %}
 {% for accepted_entry_spec in accepted_entry_specs %}
 {% assign accepted_entry_parts = accepted_entry_spec | split: '|' %}
