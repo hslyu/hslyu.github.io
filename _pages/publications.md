@@ -79,28 +79,24 @@ nav_order: 2
 {% assign entry_head = publications_markup | split: entry_marker | first %}
 {% assign entry_tail = publications_markup | split: entry_marker | last %}
 {% capture arxiv_link %}<a class="arxiv-link" href="https://arxiv.org/abs/{{ arxiv_id }}" target="_blank" rel="external nofollow noopener">arXiv</a>{% endcapture %}
-{% capture venue_accessibility_marker %}</span>)<span class="sr-only">{% endcapture %}
-{% capture venue_with_arxiv %}</span>) {{ arxiv_link }}<span class="sr-only">{% endcapture %}
-{% assign entry_tail = entry_tail | replace_first: venue_accessibility_marker, venue_with_arxiv %}
+{% assign entry_periodical_parts = entry_tail | split: '<div class="periodical">' %}
+{% assign venue_markup = entry_periodical_parts[1] | split: '</div>' | first %}
+{% capture original_venue %}<div class="periodical">{{ venue_markup }}</div>{% endcapture %}
+{% capture venue_with_arxiv %}<div class="periodical">{{ venue_markup }} {{ arxiv_link }}</div>{% endcapture %}
+{% assign entry_tail = entry_tail | replace_first: original_venue, venue_with_arxiv %}
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign accepted_entry_specs = 'joint_optimization|Accepted,end_to_end|Accepted as a Correspondence' | split: ',' %}
-{% for accepted_entry_spec in accepted_entry_specs %}
-{% assign accepted_entry_parts = accepted_entry_spec | split: '|' %}
-{% assign accepted_entry_key = accepted_entry_parts[0] %}
-{% assign accepted_label = accepted_entry_parts[1] %}
-{% capture accepted_entry_marker %}id="{{ accepted_entry_key }}"{% endcapture %}
-{% assign accepted_entry_head = publications_markup | split: accepted_entry_marker | first %}
-{% assign accepted_entry_tail = publications_markup | split: accepted_entry_marker | last %}
-{% assign accepted_periodical_parts = accepted_entry_tail | split: '<div class="periodical">' %}
-{% assign accepted_venue_markup = accepted_periodical_parts[1] | split: '</div>' | first %}
-{% assign accepted_note_markup = accepted_periodical_parts[2] | split: '</div>' | first %}
-{% capture original_accepted_venue %}<div class="periodical">{{ accepted_venue_markup }}</div>{% endcapture %}
-{% capture accepted_venue %}<div class="periodical">{{ accepted_venue_markup }} ({{ accepted_label }})</div>{% endcapture %}
-{% capture original_accepted_note %}<div class="periodical">{{ accepted_note_markup }}</div>{% endcapture %}
-{% assign accepted_entry_tail = accepted_entry_tail | replace_first: original_accepted_venue, accepted_venue | replace_first: original_accepted_note, '' %}
-{% capture publications_markup %}{{ accepted_entry_head }}{{ accepted_entry_marker }}{{ accepted_entry_tail }}{% endcapture %}
+{% assign hidden_acceptance_entry_keys = 'joint_optimization,end_to_end' | split: ',' %}
+{% for entry_key in hidden_acceptance_entry_keys %}
+{% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
+{% assign entry_head = publications_markup | split: entry_marker | first %}
+{% assign entry_tail = publications_markup | split: entry_marker | last %}
+{% assign entry_periodical_parts = entry_tail | split: '<div class="periodical">' %}
+{% assign note_markup = entry_periodical_parts[2] | split: '</div>' | first %}
+{% capture original_note %}<div class="periodical">{{ note_markup }}</div>{% endcapture %}
+{% assign entry_tail = entry_tail | replace_first: original_note, '' %}
+{% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
 {% assign title_break_specs = 'joint_optimization:62,dcfnet:64,end_to_end:64,active_starris:59,secure_multihop:39,unveiling_hidden:60,noniterative_aerial:59,secure_connection:58,accuracy_delay:42,fed_zoe:64,replace_perturb:50,privacy_uav:46' | split: ',' %}
