@@ -9,7 +9,6 @@ nav_order: 2
 <!-- _pages/publications.md -->
 
 {% capture publications_markup %}{% bibliography --query @*[website_hidden != true] %}{% endcapture %}
-{% assign publications_markup = publications_markup | replace: '<ol class="bibliography">', '<ol class="bibliography" style="list-style: none;">' %}
 {% assign publications_markup = publications_markup | replace: 'loading="eager"', 'loading="lazy"' %}
 {% assign publications_markup = publications_markup | replace: 'Best Paper Award', '<span class="paper-award">Best Paper Award</span>' %}
 {% assign publications_markup = publications_markup | replace: '(TWC); <span class="paper-award">Best Paper Award</span>', '(<span class="venue-initials">TWC</span>); <span class="paper-award">Best Paper Award</span>' %}

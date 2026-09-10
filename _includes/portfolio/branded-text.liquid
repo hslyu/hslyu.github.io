@@ -1,0 +1,7 @@
+{%- assign branded_text = include.text | escape -%}
+{%- for brand in include.brands -%}
+  {%- assign brand_name = brand.name | escape -%}
+  {%- capture brand_markup -%}<span class="affiliation-brand-{{ brand.slug }}">{{ brand_name }}</span>{%- endcapture -%}
+  {%- assign branded_text = branded_text | replace: brand_name, brand_markup -%}
+{%- endfor -%}
+{{- branded_text -}}

@@ -13,8 +13,6 @@ group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jekyll-socials'
   gem 'jekyll-terser', git: 'https://github.com/RobertoJBeltran/jekyll-terser.git'
-  gem 'jekyll-toc'
-  gem 'jemoji'
 
   gem 'al_folio_core', '= 1.0.15'
   gem 'al_citations', '= 1.0.1'

@@ -1,7 +1,9 @@
 {
   "scripts": {
+    "build:local": "./bin/portfolio build",
     "lint:prettier": "prettier . --check",
-    "lint:style-contract": "node test/style_contract.js"
+    "lint:style-contract": "node test/style_contract.js",
+    "serve:local": "./bin/portfolio serve"
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.10.0",

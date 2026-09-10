@@ -1,0 +1,174 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cv_root="${repo_root}/vendor/awesome-phd-cv/research-cv"
+venv_root="${repo_root}/.venv"
+
+cd "${repo_root}"
+
+usage() {
+  cat <<'EOF'
+Usage: bin/portfolio <command> [options]
+
+Commands:
+  setup [--system]  Install project dependencies. --system also installs the
+                    small Ubuntu image/PDF utilities used by the site build.
+  build             Generate and verify the CV PDF, then build the production site.
+  serve             Generate the CV PDF and serve the site at http://localhost:4000.
+  publish           Run the release build and push committed main to GitHub Pages.
+EOF
+}
+
+configure_ruby() {
+  if command -v bundle >/dev/null 2>&1; then
+    return
+  fi
+
+  local user_dir
+  user_dir="$(cd && pwd -P)"
+  if [[ -x "${user_dir}/.rbenv/bin/rbenv" ]]; then
+    export PATH="${user_dir}/.rbenv/bin:${user_dir}/.rbenv/shims:${PATH}"
+    eval "$(rbenv init - bash)"
+  fi
+}
+
+require_command() {
+  local command_name="$1"
+  local install_hint="$2"
+  if ! command -v "${command_name}" >/dev/null 2>&1; then
+    printf 'Missing command: %s\n%s\n' "${command_name}" "${install_hint}" >&2
+    exit 1
+  fi
+}
+
+python_command() {
+  if [[ -x "${venv_root}/bin/python" ]]; then
+    printf '%s\n' "${venv_root}/bin/python"
+  else
+    printf '%s\n' "python3"
+  fi
+}
+
+check_build_tools() {
+  configure_ruby
+  require_command npm "Install Node.js 20 or newer."
+  require_command bundle "Install Ruby 3.3.5 and Bundler."
+  require_command python3 "Install Python 3.10 or newer."
+  require_command latexmk "Install a TeX Live distribution containing latexmk and XeLaTeX."
+  require_command xelatex "Install a TeX Live distribution containing latexmk and XeLaTeX."
+  require_command pdfinfo "On Ubuntu: sudo apt-get install poppler-utils"
+  require_command pdftotext "On Ubuntu: sudo apt-get install poppler-utils"
+  require_command convert "On Ubuntu: sudo apt-get install imagemagick"
+}
+
+render_cv() {
+  local python_bin
+  python_bin="$(python_command)"
+  "${python_bin}" "${cv_root}/scripts/render_cv.py" \
+    --portfolio "${repo_root}/content/portfolio.yml" \
+    --bibliography "${repo_root}/_bibliography/papers.bib" \
+    --extra "${cv_root}/cv-extra.yml" \
+    --output "${cv_root}/generated"
+
+  latexmk -cd -xelatex -interaction=nonstopmode -halt-on-error "${cv_root}/cv.tex"
+  mkdir -p "${repo_root}/assets/pdf"
+  cp "${cv_root}/cv.pdf" "${repo_root}/assets/pdf/hyeonsu-lyu-cv.pdf"
+  test -s "${repo_root}/assets/pdf/hyeonsu-lyu-cv.pdf"
+  pdfinfo "${repo_root}/assets/pdf/hyeonsu-lyu-cv.pdf" | grep '^Pages:' >/dev/null
+  pdftotext "${repo_root}/assets/pdf/hyeonsu-lyu-cv.pdf" - | grep 'Hyeonsu Lyu' >/dev/null
+}
+
+setup() {
+  if [[ "${1:-}" == "--system" ]]; then
+    require_command sudo "Run without --system and install dependencies manually."
+    require_command apt-get "The --system option currently supports Ubuntu/Debian only."
+    sudo apt-get update
+    sudo apt-get install -y imagemagick poppler-utils
+  elif [[ -n "${1:-}" ]]; then
+    usage
+    exit 2
+  fi
+
+  configure_ruby
+  require_command git "Install Git."
+  require_command npm "Install Node.js 20 or newer."
+  require_command bundle "Install Ruby 3.3.5 and Bundler."
+  require_command python3 "Install Python 3.10 or newer."
+
+  git submodule update --init --recursive
+  npm ci
+  bundle config set --local path vendor/bundle
+  bundle install
+  python3 -m venv "${venv_root}"
+  "${venv_root}/bin/python" -m pip install --upgrade pip
+  "${venv_root}/bin/python" -m pip install -r "${cv_root}/requirements.txt"
+
+  check_build_tools
+  printf '\nSetup complete. Run ./bin/portfolio build or ./bin/portfolio serve.\n'
+}
+
+build() {
+  check_build_tools
+  render_cv
+  npm run lint:prettier
+  npm run lint:style-contract
+  git diff --check
+  bundle exec jekyll clean
+  JEKYLL_ENV=production bundle exec jekyll build
+  printf '\nBuilt CV:  %s\nBuilt site: %s\n' \
+    "${repo_root}/assets/pdf/hyeonsu-lyu-cv.pdf" \
+    "${repo_root}/_site"
+}
+
+serve() {
+  check_build_tools
+  render_cv
+  bundle exec jekyll clean
+  exec bundle exec jekyll serve --livereload
+}
+
+publish() {
+  local current_branch
+  current_branch="$(git branch --show-current)"
+  if [[ "${current_branch}" != "main" ]]; then
+    printf 'Publish must run from main (current branch: %s).\n' "${current_branch}" >&2
+    exit 1
+  fi
+  if [[ -n "$(git status --porcelain --untracked-files=no)" ]]; then
+    printf 'Commit tracked changes before publishing.\n' >&2
+    git status --short >&2
+    exit 1
+  fi
+
+  build
+  git push origin main
+  printf '\nPushed main. GitHub Actions is building the Pages deployment.\n'
+}
+
+case "${1:-}" in
+  setup)
+    shift
+    setup "$@"
+    ;;
+  build)
+    shift
+    [[ "$#" -eq 0 ]] || { usage; exit 2; }
+    build
+    ;;
+  serve)
+    shift
+    [[ "$#" -eq 0 ]] || { usage; exit 2; }
+    serve
+    ;;
+  publish)
+    shift
+    [[ "$#" -eq 0 ]] || { usage; exit 2; }
+    publish
+    ;;
+  *)
+    usage
+    exit 2
+    ;;
+esac

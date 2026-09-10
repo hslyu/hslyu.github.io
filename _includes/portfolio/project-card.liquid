@@ -1,0 +1,34 @@
+<h2 id="{{ include.id }}" data-toc-skip hidden>{{ include.title }}</h2>
+
+<div class="cv">
+  <div class="card{% unless include.first %} mt-3{% endunless %} p-3 misc-project-card">
+    <h3 class="card-title font-weight-medium" data-toc-skip>{{ include.title }}</h3>
+    <div>
+      <ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
+        {% for project in include.projects %}
+          {% assign project_date = project.period | replace: '–', ' - ' %}
+          {% assign ministry_abbr = project.ministry | split: '(' | last | remove: ')' %}
+          {% assign agency_abbr = project.agency | split: '(' | last | remove: ')' %}
+
+          <li class="list-group-item">
+            <div class="row">
+              {% include portfolio/date-column.liquid label=project_date badge_class="misc-project-date" %}
+              <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
+                <h6 class="title ml-1 ml-md-4">{{ project.title }}</h6>
+                <h6 class="project-affiliation ml-1 ml-md-4">{{ ministry_abbr }}, {{ agency_abbr }}, {{ project.acknowledge }}</h6>
+                {% if project.links %}
+                  <div class="misc-project-links ml-1 ml-md-4">
+                    {% for link in project.links %}
+                      <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+                      {%- unless forloop.last %} · {% endunless %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

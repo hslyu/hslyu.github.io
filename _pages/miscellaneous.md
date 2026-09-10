@@ -12,99 +12,15 @@ nav_order: 4
 
 <div class="row miscellaneous-layout">
 <div class="col-sm-3">
-<nav id="toc-sidebar" class="sticky-top toc toc-sidebar" aria-label="Table of contents">
-<div class="toc-list">
-  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#projects">Key projects</a></div>
-  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#miscellaneous-projects">Miscellaneous projects</a></div>
-  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#domestic-papers">Domestic papers</a></div>
-  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#intellectual-properties">Intellectual properties</a></div>
-</div>
-</nav>
+{% include portfolio/sidebar.liquid items="projects|Key projects,miscellaneous-projects|Miscellaneous projects,domestic-papers|Domestic papers,intellectual-properties|Intellectual properties" link_class="node-name--H2" %}
 </div>
 
 <div class="col-sm-9">
 <div class="miscellaneous-content-marker" hidden></div>
 
-<h2 id="projects" data-toc-skip hidden>Key projects</h2>
+{% include portfolio/project-card.liquid id="projects" title="Key projects" projects=miscellaneous.projects first=true %}
 
-<div class="cv">
-<div class="card p-3 misc-project-card">
-<h3 class="card-title font-weight-medium" data-toc-skip>Key projects</h3>
-<div>
-<ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
-{% for project in miscellaneous.projects %}
-{% assign project_date = project.period | replace: '–', ' - ' %}
-{% assign ministry_abbr = project.ministry | split: '(' | last | remove: ')' %}
-{% assign agency_abbr = project.agency | split: '(' | last | remove: ')' %}
-
-<li class="list-group-item">
-  <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      <table class="table-cv">
-        <tbody>
-          <tr>
-            <td>{% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle misc-project-date">{{ project_date }}</span>{% endif %}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
-      <h6 class="title ml-1 ml-md-4">{{ project.title }}</h6>
-      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ ministry_abbr }}, {{ agency_abbr }}, {{ project.acknowledge }}</h6>
-      {% if project.links %}
-        <div class="misc-project-links ml-1 ml-md-4">
-          {% for link in project.links %}
-            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}
-          {% endfor %}
-        </div>
-      {% endif %}
-    </div>
-  </div>
-</li>
-
-{% endfor %}
-
-</ul>
-</div>
-</div>
-</div>
-
-<h2 id="miscellaneous-projects" data-toc-skip hidden>Miscellaneous projects</h2>
-
-<div class="cv">
-<div class="card mt-3 p-3 misc-project-card">
-<h3 class="card-title font-weight-medium" data-toc-skip>Miscellaneous projects</h3>
-<div>
-<ul class="card-text font-weight-light list-group list-group-flush misc-project-list">
-{% for project in miscellaneous.miscellaneous_projects %}
-{% assign project_date = project.period | replace: '–', ' - ' %}
-{% assign ministry_abbr = project.ministry | split: '(' | last | remove: ')' %}
-{% assign agency_abbr = project.agency | split: '(' | last | remove: ')' %}
-
-<li class="list-group-item">
-  <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      <table class="table-cv">
-        <tbody>
-          <tr>
-            <td>{% if project.period %}<span class="badge font-weight-bold danger-color-dark text-uppercase align-middle misc-project-date">{{ project_date }}</span>{% endif %}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
-      <h6 class="title ml-1 ml-md-4">{{ project.title }}</h6>
-      <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ ministry_abbr }}, {{ agency_abbr }}, {{ project.acknowledge }}</h6>
-    </div>
-  </div>
-</li>
-
-{% endfor %}
-
-</ul>
-</div>
-</div>
-</div>
+{% include portfolio/project-card.liquid id="miscellaneous-projects" title="Miscellaneous projects" projects=miscellaneous.miscellaneous_projects %}
 
 <section class="misc-publications-section">
 <h2 id="domestic-papers" data-toc-skip hidden>Domestic papers</h2>
@@ -117,9 +33,7 @@ nav_order: 4
 {% assign authors_markup = paper.authors | escape | replace: own_name, own_name_markup %}
 <li class="list-group-item">
   <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ paper.abbr }}</span></td></tr></tbody></table>
-    </div>
+    {% include portfolio/date-column.liquid label=paper.abbr %}
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title ml-1 ml-md-4">{{ paper.title }}</h6>
       <div class="author ml-1 ml-md-4">{{ authors_markup }}</div>
@@ -150,9 +64,7 @@ nav_order: 4
 {% assign inventors_markup = patent.inventors | escape | replace: own_name, own_name_markup %}
 <li class="list-group-item"{% if patent_year == empty %} hidden{% endif %}>
   <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ patent_status }}</span></td></tr></tbody></table>
-    </div>
+    {% include portfolio/date-column.liquid label=patent_status %}
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title ml-1 ml-md-4">{{ patent.title }}</h6>
       <div class="author ml-1 ml-md-4">{{ inventors_markup }}</div>
@@ -169,9 +81,7 @@ nav_order: 4
 {% assign author_markup = software.author | escape | replace: own_name, own_name_markup %}
 <li class="list-group-item">
   <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">Software</span></td></tr></tbody></table>
-    </div>
+    {% include portfolio/date-column.liquid label="Software" %}
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title ml-1 ml-md-4">{{ software.title }}</h6>
       <div class="author ml-1 ml-md-4">{{ author_markup }}</div>

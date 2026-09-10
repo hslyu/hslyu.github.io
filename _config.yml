@@ -50,8 +50,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-socials
   - jekyll-terser
-  - jekyll-toc
-  - jemoji
   - al_folio_core
   - al_citations
   - al_icons
@@ -62,6 +60,8 @@ plugins:
 include: ["_pages"]
 exclude:
   - AGENTS.md
+  - .ruby-version
+  - bin/
   - content/
   - docs/
   - Gemfile
@@ -72,7 +72,11 @@ exclude:
   - package.json
   - package-lock.json
   - test/
+  - tmp/
   - vendor/
+  - assets/css/site.css
+  - system_model_AF_ISAC.pdf
+  - system_model_TAP.pdf
 keep_files: [CNAME, .nojekyll]
 
 markdown: kramdown
@@ -88,6 +92,7 @@ defaults:
 
 sass:
   style: compressed
+  sourcemap: never
 
 jekyll-minifier:
   compress_css: false

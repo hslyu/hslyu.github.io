@@ -1,0 +1,20 @@
+{% assign sidebar_items = include.items | split: ',' %}
+<nav id="toc-sidebar" class="sticky-top toc toc-sidebar" aria-label="Table of contents">
+  <div class="toc-list">
+    {% for sidebar_item in sidebar_items %}
+      {% assign sidebar_parts = sidebar_item | split: '|' %}
+      {% assign sidebar_id = sidebar_parts[0] %}
+      {% assign sidebar_label = sidebar_parts[1] %}
+      {% assign is_active = false %}
+      {% if sidebar_id == include.active %}{% assign is_active = true %}{% endif %}
+      <div class="toc-list-item{% if is_active %} is-active-li{% endif %}">
+        <a
+          class="toc-link{% if include.link_class %} {{ include.link_class }}{% endif %}{% if is_active %} is-active-link{% endif %}"
+          href="#{{ sidebar_id }}"
+        >
+          {{- sidebar_label -}}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</nav>

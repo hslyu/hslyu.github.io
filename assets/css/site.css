@@ -21,11 +21,6 @@ html.random-accent-active .post-title .font-weight-bold {
   position: relative;
 }
 
-#random-color-toggle {
-  height: 2rem;
-  width: 2rem;
-}
-
 .toggle-container::before {
   content: "";
   flex: 0 0 1.05rem;
@@ -47,6 +42,8 @@ html.random-accent-active .post-title .font-weight-bold {
   padding: 0;
   position: absolute;
   top: 0;
+  height: 2rem;
+  width: 2rem;
 }
 
 .random-color-wheel {
@@ -276,13 +273,7 @@ article:has(.publications-content-marker) .publications .preview {
   margin-top: 0.35rem;
 }
 
-.misc-project-card {
-  background: var(--global-card-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 0.4rem;
-  scroll-margin-top: 5rem;
-}
-
+.misc-project-card,
 .misc-demo-card {
   background: var(--global-card-bg-color);
   border: 1px solid var(--global-divider-color);
@@ -751,6 +742,10 @@ article:has(.publications-content-marker) .publications .preview {
   .usrp-rate-match {
     margin-inline: 0;
   }
+
+  .misc-demo-group-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .misc-project-card .list-group-item {
@@ -881,12 +876,6 @@ article:has(.experience-content-marker) .academic-service-list .title {
   }
 }
 
-@media (max-width: 767px) {
-  .misc-demo-group-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (min-width: 768px) {
   article .cv > #education + .card .title,
   article .cv > #education + .card .education-details {
@@ -963,6 +952,15 @@ article .cv .affiliation-text,
   font-weight: 600;
 }
 
+article .cv .affiliation-text,
+.project-affiliation {
+  font-size: 0.95rem;
+}
+
+.project-affiliation {
+  font-style: italic;
+}
+
 article .cv .education-details {
   font-weight: 400;
 }
@@ -978,8 +976,11 @@ article .misc-publications .date-column {
 }
 
 article:has(.miscellaneous-content-marker) .misc-project-date {
-  min-width: 75px;
   white-space: nowrap;
+}
+
+.portfolio-date-badge {
+  min-width: 75px;
 }
 
 article:has(.miscellaneous-content-marker) .misc-project-list {

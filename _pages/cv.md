@@ -10,15 +10,7 @@ nav_order: 1
 
 <div class="row experience-layout">
 <div class="col-sm-3">
-<nav id="toc-sidebar" class="sticky-top toc toc-sidebar" aria-label="Table of contents">
-<div class="toc-list">
-  <div class="toc-list-item is-active-li"><a class="toc-link node-name--H2 is-active-link" href="#experience">Experience</a></div>
-  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#education">Education</a></div>
-  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#awards-honors">Awards & Honors</a></div>
-  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#academic-services">Academic Services</a></div>
-  <div class="toc-list-item"><a class="toc-link node-name--H2" href="#talks">Talks</a></div>
-</div>
-</nav>
+{% include portfolio/sidebar.liquid items="experience|Experience,education|Education,awards-honors|Awards & Honors,academic-services|Academic Services,talks|Talks" active="experience" link_class="node-name--H2" %}
 </div>
 
 <div class="col-sm-9">
@@ -32,23 +24,10 @@ nav_order: 1
 {% for job in experience.professional %}
 <li class="list-group-item">
   <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      <table class="table-cv">
-        <tbody>
-          <tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ job.years }}</span></td></tr>
-          <tr><td><p class="location"><i class="fa-solid fa-location-dot iconlocation"></i> {{ job.location }}</p></td></tr>
-        </tbody>
-      </table>
-    </div>
+    {% include portfolio/date-column.liquid label=job.years location=job.location %}
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 cv-entry-copy">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ job.title }}</h6>
-      {% assign organization_markup = job.organization | escape %}
-      {% for brand in experience.affiliation_brands %}
-        {% assign brand_name = brand.name | escape %}
-        {% capture brand_markup %}<span class="affiliation-brand-{{ brand.slug }}">{{ brand_name }}</span>{% endcapture %}
-        {% assign organization_markup = organization_markup | replace: brand_name, brand_markup %}
-      {% endfor %}
-      <h6 class="affiliation-text ml-1 ml-md-4" style="font-size: 0.95rem"><span class="experience-institution">{{ organization_markup }}{% if job.unit %}, {{ job.unit }}{% endif %}</span></h6>
+      <h6 class="affiliation-text ml-1 ml-md-4"><span class="experience-institution">{% include portfolio/branded-text.liquid text=job.organization brands=experience.affiliation_brands %}{% if job.unit %}, {{ job.unit }}{% endif %}</span></h6>
     </div>
   </div>
 </li>
@@ -63,24 +42,11 @@ nav_order: 1
 {% for education in experience.education %}
 <li class="list-group-item">
   <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      <table class="table-cv">
-        <tbody>
-          <tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ education.years }}</span></td></tr>
-          <tr><td><p class="location"><i class="fa-solid fa-location-dot iconlocation"></i> {{ education.location }}</p></td></tr>
-        </tbody>
-      </table>
-    </div>
+    {% include portfolio/date-column.liquid label=education.years location=education.location %}
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 cv-entry-copy">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ education.degree }}</h6>
-      {% assign school_markup = education.school | escape %}
-      {% for brand in experience.affiliation_brands %}
-        {% assign brand_name = brand.name | escape %}
-        {% capture brand_markup %}<span class="affiliation-brand-{{ brand.slug }}">{{ brand_name }}</span>{% endcapture %}
-        {% assign school_markup = school_markup | replace: brand_name, brand_markup %}
-      {% endfor %}
-      <h6 class="education-details affiliation-text ml-1 ml-md-4" style="font-size: 0.95rem">
-        {{ education.field }}, <span class="education-institution">{{ school_markup }}</span>{% if education.adviser %}. Advised by {{ education.adviser }}.{% endif %}
+      <h6 class="education-details affiliation-text ml-1 ml-md-4">
+        {{ education.field }}, <span class="education-institution">{% include portfolio/branded-text.liquid text=education.school brands=experience.affiliation_brands %}</span>{% if education.adviser %}. Advised by {{ education.adviser }}.{% endif %}
       </h6>
     </div>
   </div>
@@ -96,18 +62,10 @@ nav_order: 1
 {% for award in experience.awards %}
 <li class="list-group-item">
   <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ award.year }}</span></td></tr></tbody></table>
-    </div>
+    {% include portfolio/date-column.liquid label=award.year %}
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 cv-entry-copy">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ award.title }}</h6>
-      {% assign organization_markup = award.organization | escape %}
-      {% for brand in experience.affiliation_brands %}
-        {% assign brand_name = brand.name | escape %}
-        {% capture brand_markup %}<span class="affiliation-brand-{{ brand.slug }}">{{ brand_name }}</span>{% endcapture %}
-        {% assign organization_markup = organization_markup | replace: brand_name, brand_markup %}
-      {% endfor %}
-      <h6 class="affiliation-text ml-1 ml-md-4" style="font-size: 0.95rem">{{ organization_markup }}</h6>
+      <h6 class="affiliation-text ml-1 ml-md-4">{% include portfolio/branded-text.liquid text=award.organization brands=experience.affiliation_brands %}</h6>
     </div>
   </div>
 </li>
@@ -123,9 +81,7 @@ nav_order: 1
 {% for venue in experience.reviewer %}
 <li class="list-group-item">
   <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ venue.years }}</span></td></tr></tbody></table>
-    </div>
+    {% include portfolio/date-column.liquid label=venue.years %}
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 cv-entry-copy">
       <h6 class="title ml-1 ml-md-4">{{ venue.name }}</h6>
     </div>
@@ -138,9 +94,7 @@ nav_order: 1
 {% for item in experience.other_service.localization %}
 <li class="list-group-item">
   <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-      <table class="table-cv"><tbody><tr><td><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ item.years }}</span></td></tr></tbody></table>
-    </div>
+    {% include portfolio/date-column.liquid label=item.years %}
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 cv-entry-copy">
       <h6 class="title ml-1 ml-md-4">{{ item.title }}{% if item.contribution %}, {{ item.contribution }}{% endif %}</h6>
     </div>
