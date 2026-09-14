@@ -70,7 +70,7 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign published_arxiv_link_specs = 'joint_optimization|2505.08573,dcfnet|2506.16191,active_starris|2507.18035,unveiling_hidden|2408.04261,noniterative_aerial|2405.01314' | split: ',' %}
+{% assign published_arxiv_link_specs = 'joint_optimization|2505.08573,dcfnet|2506.16191,active_starris|2507.18035,end_to_end|2602.07959,unveiling_hidden|2408.04261,noniterative_aerial|2405.01314' | split: ',' %}
 {% for published_arxiv_link_spec in published_arxiv_link_specs %}
 {% assign published_arxiv_link_parts = published_arxiv_link_spec | split: '|' %}
 {% assign entry_key = published_arxiv_link_parts[0] %}
