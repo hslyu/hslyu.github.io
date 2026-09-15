@@ -12,8 +12,10 @@ nav_order: 2
 {% assign publications_markup = publications_markup | replace: 'loading="eager"', 'loading="lazy"' %}
 {% assign publications_markup = publications_markup | replace: 'Best Paper Award', '<span class="paper-award">Best Paper Award</span>' %}
 {% assign publications_markup = publications_markup | replace: '(TWC); <span class="paper-award">Best Paper Award</span>', '(<span class="venue-initials">TWC</span>); <span class="paper-award">Best Paper Award</span>' %}
+{% assign publications_markup = publications_markup | replace: '(TWC)', '(<span class="venue-initials">TWC</span>)' %}
+{% assign publications_markup = publications_markup | replace: '(TCOM)', '(<span class="venue-initials">TCOM</span>)' %}
 {% assign publications_markup = publications_markup | replace: '(JSAC)', '(<span class="venue-initials">JSAC</span>)' %}
-{% assign note_venue_specs = 'IEEE Trans. Wirel. Commun.|TWC,IEEE J. Sel. Areas Commun.|JSAC' | split: ',' %}
+{% assign note_venue_specs = 'IEEE Trans. Wirel. Commun.|TWC,IEEE Trans. Commun.|TCOM,IEEE J. Sel. Areas Commun.|JSAC' | split: ',' %}
 {% for note_venue_spec in note_venue_specs %}
 {% assign note_venue_parts = note_venue_spec | split: '|' %}
 {% assign note_venue_name = note_venue_parts[0] %}
@@ -58,7 +60,7 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign arxiv_entry_keys = 'lucid,scenebaker,secure_multihop,deeper_understanding,fed_zoe,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
+{% assign arxiv_entry_keys = 'temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,deeper_understanding,fed_zoe,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 {% for entry_key in arxiv_entry_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
 {% assign entry_head = publications_markup | split: entry_marker | first %}
