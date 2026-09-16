@@ -36,7 +36,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick poppler-utils
-          pip3 install -r vendor/awesome-phd-cv/research-cv/requirements.txt
+          pip3 install -r vendor/awesome-phd-cv/research-cv/requirements.txt pypdf
       - name: Generate CV source
         run: |
           python3 vendor/awesome-phd-cv/research-cv/scripts/render_cv.py \
@@ -54,6 +54,7 @@ jobs:
         run: |
           mkdir -p assets/pdf
           cp vendor/awesome-phd-cv/research-cv/cv.pdf assets/pdf/hyeonsu-lyu-cv.pdf
+          python3 scripts/normalize_pdf_hyphens.py assets/pdf/hyeonsu-lyu-cv.pdf
           test -s assets/pdf/hyeonsu-lyu-cv.pdf
           pdfinfo assets/pdf/hyeonsu-lyu-cv.pdf | grep -q '^Pages:'
           pdftotext assets/pdf/hyeonsu-lyu-cv.pdf - | grep -q 'Hyeonsu Lyu'
