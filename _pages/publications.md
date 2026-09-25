@@ -30,7 +30,7 @@ nav_order: 2
 {% assign secure_entry_tail = publications_markup | split: secure_entry_marker | last %}
 {% assign secure_entry_tail = secure_entry_tail | replace_first: '; <span class="paper-award">Best Paper Award</span>', '</div><div class="periodical"><span class="paper-award">Best Paper Award</span>' %}
 {% capture publications_markup %}{{ secure_entry_head }}{{ secure_entry_marker }}{{ secure_entry_tail }}{% endcapture %}
-{% assign venue_specs = 'joint_optimization|IEEE Trans. Commun.|TCOM,dcfnet|IEEE Trans. Wirel. Commun.|TWC,active_starris|IEEE Internet Things J.|IoTJ,noniterative_aerial|IEEE Trans. Wirel. Commun.|TWC,end_to_end|IEEE Trans. Veh. Technol.|TVT,unveiling_hidden|IEEE Trans. Neural Netw. Learn. Syst.|TNNLS,secure_connection|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,accuracy_delay|IEEE Global Commun. Conf. Workshops|GLOBECOMW,faithful_fast|ICML Workshop Mech. Interpret.|ICMLW,maneuver_balloon|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,autonomous_sem|IEEE/RSJ Int. Conf. Intell. Robots Syst.|IROS' | split: ',' %}
+{% assign venue_specs = 'joint_optimization|IEEE Trans. Commun.|TCOM,dcfnet|IEEE Trans. Wirel. Commun.|TWC,active_starris|IEEE Internet Things J.|IoTJ,noniterative_aerial|IEEE Trans. Wirel. Commun.|TWC,end_to_end|IEEE Trans. Veh. Technol.|TVT,unveiling_hidden|IEEE Trans. Neural Netw. Learn. Syst.|TNNLS,deeper_understanding|Adv. Neural Inf. Process. Syst.|NeurIPS,secure_connection|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,accuracy_delay|IEEE Global Commun. Conf. Workshops|GLOBECOMW,faithful_fast|ICML Workshop Mech. Interpret.|ICMLW,maneuver_balloon|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,autonomous_sem|IEEE/RSJ Int. Conf. Intell. Robots Syst.|IROS' | split: ',' %}
 {% for venue_spec in venue_specs %}
 {% assign venue_parts = venue_spec | split: '|' %}
 {% assign entry_key = venue_parts[0] %}
@@ -61,7 +61,7 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign hidden_preprint_venue_entry_keys = 'prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,deeper_understanding,fed_zoe,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
+{% assign hidden_preprint_venue_entry_keys = 'prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,fed_zoe,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 {% for entry_key in hidden_preprint_venue_entry_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
 {% assign entry_head = publications_markup | split: entry_marker | first %}
@@ -92,7 +92,7 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign hidden_acceptance_entry_keys = 'joint_optimization,end_to_end' | split: ',' %}
+{% assign hidden_acceptance_entry_keys = 'joint_optimization,end_to_end,deeper_understanding' | split: ',' %}
 {% for entry_key in hidden_acceptance_entry_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
 {% assign entry_head = publications_markup | split: entry_marker | first %}

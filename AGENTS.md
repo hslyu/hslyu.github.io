@@ -23,6 +23,16 @@ This repository is Hyeonsu Lyu's portfolio website. Keep it small, data-driven, 
 - Keep `Gemfile` and `_config.yml` aligned when adding or removing a Jekyll plugin.
 - Do not edit generated directories such as `_site/`, `.jekyll-cache/`, or `vendor/awesome-phd-cv/research-cv/generated/`.
 
+## Local build
+
+Ruby 3.3.5 and Bundler 4.0.6 are already in `~/.rbenv` on this machine. A fresh shell may not find `bundle`; `./bin/portfolio` finds rbenv automatically.
+
+```bash
+./bin/portfolio setup  # initial setup or dependency changes
+./bin/portfolio serve  # http://localhost:4000
+./bin/portfolio build  # CV PDF and _site/
+```
+
 ## Required verification
 
 Run the narrowest relevant checks first. For a content or CV change:
@@ -38,6 +48,7 @@ python3 vendor/awesome-phd-cv/research-cv/scripts/render_cv.py \
 For a site change:
 
 ```bash
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 npm run lint:prettier
 npm run lint:style-contract
 bundle exec jekyll build
