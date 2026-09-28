@@ -106,7 +106,7 @@ experience:
     - { year: 2015, title: "National Supercomputing Competition, Second Award", organization: KISTI }
   reviewer:
     - { abbr: JSAC, name: IEEE Journal on Selected Areas in Communications, years: 2025 }
-    - { abbr: TWC, name: IEEE Transactions on Wireless Communications, years: 2025 }
+    - { abbr: TWC, name: IEEE Transactions on Wireless Communications, years: 2025–2026 }
     - { abbr: TNSE, name: IEEE Transactions on Network Science and Engineering, years: 2026 }
     - { abbr: TCOM, name: IEEE Transactions on Communications, years: 2026 }
     - { abbr: TVT, name: IEEE Transactions on Vehicular Technology, years: 2026 }

@@ -62,7 +62,7 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign hidden_preprint_venue_entry_keys = 'airgc_cd,prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
+{% assign hidden_preprint_venue_entry_keys = 'airgc_cd,llm_assisted_ldpc,prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 {% for entry_key in hidden_preprint_venue_entry_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
 {% assign entry_head = publications_markup | split: entry_marker | first %}
@@ -74,7 +74,7 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign arxiv_entry_keys = 'airgc_cd,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,deeper_understanding,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
+{% assign arxiv_entry_keys = 'airgc_cd,llm_assisted_ldpc,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,deeper_understanding,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 
 {% assign published_arxiv_link_specs = 'joint_optimization|2505.08573,dcfnet|2506.16191,active_starris|2507.18035,end_to_end|2602.07959,unveiling_hidden|2408.04261,noniterative_aerial|2405.01314,fed_zoe|2412.16779' | split: ',' %}
 {% for published_arxiv_link_spec in published_arxiv_link_specs %}

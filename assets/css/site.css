@@ -1183,6 +1183,10 @@ article:has(.publications-content-marker) .publications .abbr figure:has(.previe
   --publication-preview-aspect: 1270 / 445;
 }
 
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_arxiv_LLM-LDPC.jpg"]) {
+  --publication-preview-aspect: 800 / 400;
+}
+
 article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_arxiv_AirGC-CD.jpg"]) {
   --publication-preview-aspect: 800 / 219;
 }
