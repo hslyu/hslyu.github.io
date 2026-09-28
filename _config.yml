@@ -117,6 +117,8 @@ scholar:
   details_dir: bibliography
   details_link: Details
   query: "@*"
+  sort_by: website_preprint, display_order
+  order: descending, descending
   group_by: year
   group_order: descending
 
@@ -142,6 +144,7 @@ filtered_bibtex_keywords:
     blog,
     code,
     dimensions,
+    display_order,
     eprint,
     google_scholar_id,
     hal,
@@ -156,6 +159,7 @@ filtered_bibtex_keywords:
     supp,
     video,
     website,
+    website_preprint,
   ]
 
 external_links:

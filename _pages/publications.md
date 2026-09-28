@@ -16,7 +16,8 @@ nav_order: 2
 {% assign publications_markup = publications_markup | replace: '(TCOM)', '(<span class="venue-initials">TCOM</span>)' %}
 {% assign publications_markup = publications_markup | replace: '(JSAC)', '(<span class="venue-initials">JSAC</span>)' %}
 {% assign publications_markup = publications_markup | replace: '(T-ITS)', '(<span class="venue-initials">T-ITS</span>)' %}
-{% assign note_venue_specs = 'IEEE Trans. Wirel. Commun.|TWC,IEEE Trans. Commun.|TCOM,IEEE J. Sel. Areas Commun.|JSAC,IEEE Trans. Intell. Transp. Syst.|T-ITS' | split: ',' %}
+{% assign publications_markup = publications_markup | replace: '(OJ-CS)', '(<span class="venue-initials">OJ-CS</span>)' %}
+{% assign note_venue_specs = 'IEEE Trans. Wirel. Commun.|TWC,IEEE Trans. Commun.|TCOM,IEEE J. Sel. Areas Commun.|JSAC,IEEE Trans. Intell. Transp. Syst.|T-ITS,IEEE Open J. Comput. Soc.|OJ-CS' | split: ',' %}
 {% for note_venue_spec in note_venue_specs %}
 {% assign note_venue_parts = note_venue_spec | split: '|' %}
 {% assign note_venue_name = note_venue_parts[0] %}
@@ -61,7 +62,7 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign hidden_preprint_venue_entry_keys = 'prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
+{% assign hidden_preprint_venue_entry_keys = 'airgc_cd,prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 {% for entry_key in hidden_preprint_venue_entry_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
 {% assign entry_head = publications_markup | split: entry_marker | first %}
@@ -73,7 +74,7 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign arxiv_entry_keys = 'temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,deeper_understanding,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
+{% assign arxiv_entry_keys = 'airgc_cd,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,deeper_understanding,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 
 {% assign published_arxiv_link_specs = 'joint_optimization|2505.08573,dcfnet|2506.16191,active_starris|2507.18035,end_to_end|2602.07959,unveiling_hidden|2408.04261,noniterative_aerial|2405.01314,fed_zoe|2412.16779' | split: ',' %}
 {% for published_arxiv_link_spec in published_arxiv_link_specs %}
@@ -104,7 +105,7 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign title_break_specs = 'joint_optimization:62,dcfnet:64,end_to_end:64,active_starris:59,secure_multihop:39,unveiling_hidden:60,noniterative_aerial:59,secure_connection:58,accuracy_delay:42,fed_zoe:64,replace_perturb:50,privacy_uav:46' | split: ',' %}
+{% assign title_break_specs = 'airgc_cd:62,joint_optimization:62,dcfnet:64,end_to_end:64,active_starris:59,secure_multihop:39,unveiling_hidden:60,noniterative_aerial:59,secure_connection:58,accuracy_delay:42,fed_zoe:64,replace_perturb:50,privacy_uav:46' | split: ',' %}
 {% for title_break_spec in title_break_specs %}
 {% assign title_break_parts = title_break_spec | split: ':' %}
 {% assign entry_key = title_break_parts[0] %}
@@ -177,34 +178,11 @@ nav_order: 2
 
 <div class="publications">
 
-{% assign preprint_entry_keys = 'prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 {% assign before_2023_entries = '' %}
 {% for publication_section in publication_sections offset: 1 %}
 {% assign publication_section_parts = publication_section | split: '</h2>' %}
 {% assign publication_year = publication_section_parts | first | strip %}
 {% assign publication_entries = publication_section_parts | slice: 1, 999 | join: '</h2>' %}
-{% assign publication_entry_parts = publication_entries | split: '</ol>' %}
-{% assign publication_entries_body = publication_entry_parts | first %}
-{% assign publication_entries_end = publication_entry_parts | slice: 1, 999 | join: '</ol>' %}
-{% assign publication_entry_chunks = publication_entries_body | split: '<li>' %}
-{% assign publication_entries_start = publication_entry_chunks | first %}
-{% capture preprint_entries %}{% endcapture %}
-{% capture published_entries %}{% endcapture %}
-{% for publication_entry in publication_entry_chunks offset: 1 %}
-{% assign is_preprint = false %}
-{% for entry_key in preprint_entry_keys %}
-{% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
-{% if publication_entry contains entry_marker %}
-{% assign is_preprint = true %}
-{% endif %}
-{% endfor %}
-{% if is_preprint %}
-{% capture preprint_entries %}{{ preprint_entries }}<li>{{ publication_entry }}{% endcapture %}
-{% else %}
-{% capture published_entries %}{{ published_entries }}<li>{{ publication_entry }}{% endcapture %}
-{% endif %}
-{% endfor %}
-{% capture publication_entries %}{{ publication_entries_start }}{{ preprint_entries }}{{ published_entries }}</ol>{{ publication_entries_end }}{% endcapture %}
 
 {% assign publication_year_number = publication_year | plus: 0 %}
 {% if publication_year_number > 2023 %}
