@@ -31,7 +31,7 @@ nav_order: 2
 {% assign secure_entry_tail = publications_markup | split: secure_entry_marker | last %}
 {% assign secure_entry_tail = secure_entry_tail | replace_first: '; <span class="paper-award">Best Paper Award</span>', '</div><div class="periodical"><span class="paper-award">Best Paper Award</span>' %}
 {% capture publications_markup %}{{ secure_entry_head }}{{ secure_entry_marker }}{{ secure_entry_tail }}{% endcapture %}
-{% assign venue_specs = 'joint_optimization|IEEE Trans. Commun.|TCOM,dcfnet|IEEE Trans. Wirel. Commun.|TWC,active_starris|IEEE Internet Things J.|IoTJ,noniterative_aerial|IEEE Trans. Wirel. Commun.|TWC,end_to_end|IEEE Trans. Veh. Technol.|TVT,unveiling_hidden|IEEE Trans. Neural Netw. Learn. Syst.|TNNLS,deeper_understanding|Adv. Neural Inf. Process. Syst.|NeurIPS,secure_connection|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,accuracy_delay|IEEE Global Commun. Conf. Workshops|GLOBECOMW,faithful_fast|ICML Workshop Mech. Interpret.|ICMLW,maneuver_balloon|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,autonomous_sem|IEEE/RSJ Int. Conf. Intell. Robots Syst.|IROS,fed_zoe|IEEE J. Sel. Areas Commun.|JSAC' | split: ',' %}
+{% assign venue_specs = 'joint_optimization|IEEE Trans. Commun.|TCOM,dcfnet|IEEE Trans. Wirel. Commun.|TWC,active_starris|IEEE Internet Things J.|IoTJ,noniterative_aerial|IEEE Trans. Wirel. Commun.|TWC,end_to_end|IEEE Trans. Veh. Technol.|TVT,unveiling_hidden|IEEE Trans. Neural Netw. Learn. Syst.|TNNLS,deeper_understanding|Adv. Neural Inf. Process. Syst.|NeurIPS,secure_connection|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,accuracy_delay|IEEE Global Commun. Conf. Workshops|GLOBECOMW,scenebaker|IEEE Global Commun. Conf. Workshops|GLOBECOMW,faithful_fast|ICML Workshop Mech. Interpret.|ICMLW,maneuver_balloon|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,autonomous_sem|IEEE/RSJ Int. Conf. Intell. Robots Syst.|IROS,fed_zoe|IEEE J. Sel. Areas Commun.|JSAC' | split: ',' %}
 {% for venue_spec in venue_specs %}
 {% assign venue_parts = venue_spec | split: '|' %}
 {% assign entry_key = venue_parts[0] %}
@@ -62,7 +62,7 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign hidden_preprint_venue_entry_keys = 'airgc_cd,llm_assisted_ldpc,prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
+{% assign hidden_preprint_venue_entry_keys = 'airgc_cd,llm_assisted_ldpc,prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,secure_multihop,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 {% for entry_key in hidden_preprint_venue_entry_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
 {% assign entry_head = publications_markup | split: entry_marker | first %}
@@ -76,7 +76,7 @@ nav_order: 2
 
 {% assign arxiv_entry_keys = 'airgc_cd,llm_assisted_ldpc,temporal_channel_estimation,ambiguity_aware_isac,lucid,scenebaker,secure_multihop,deeper_understanding,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 
-{% assign published_arxiv_link_specs = 'joint_optimization|2505.08573,dcfnet|2506.16191,active_starris|2507.18035,end_to_end|2602.07959,unveiling_hidden|2408.04261,noniterative_aerial|2405.01314,fed_zoe|2412.16779' | split: ',' %}
+{% assign published_arxiv_link_specs = 'joint_optimization|2505.08573,dcfnet|2506.16191,active_starris|2507.18035,end_to_end|2602.07959,unveiling_hidden|2408.04261,noniterative_aerial|2405.01314,scenebaker|2608.04546,fed_zoe|2412.16779' | split: ',' %}
 {% for published_arxiv_link_spec in published_arxiv_link_specs %}
 {% assign published_arxiv_link_parts = published_arxiv_link_spec | split: '|' %}
 {% assign entry_key = published_arxiv_link_parts[0] %}
