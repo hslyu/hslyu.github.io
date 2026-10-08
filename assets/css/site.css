@@ -1586,7 +1586,7 @@ article:has(.publications-content-marker) .publications {
     cursor: pointer;
     display: flex;
     font-family: inherit;
-    font-size: 1.125rem;
+    font-size: 0;
     height: 44px;
     line-height: 1;
     padding: 0 0.25rem;
@@ -1600,21 +1600,40 @@ article:has(.publications-content-marker) .publications {
     display: none;
   }
 
+  html #navbar .mobile-nav-scroll-button::after {
+    border-right: 1.5px solid currentColor;
+    border-top: 1.5px solid currentColor;
+    content: "";
+    display: block;
+    height: 8px;
+    width: 8px;
+  }
+
   html #navbar .mobile-nav-scroll-button:focus-visible {
     outline: 2px solid var(--global-theme-color);
     outline-offset: -2px;
   }
 
   html #navbar .mobile-nav-scroll-button--right {
-    background: linear-gradient(to right, transparent, var(--global-bg-color) 42%);
+    background: linear-gradient(to right, transparent, var(--global-bg-color) 20%);
     justify-content: flex-end;
-    right: 15px;
+    right: 0;
+  }
+
+  html #navbar .mobile-nav-scroll-button--right::after {
+    margin-right: 7px;
+    transform: rotate(45deg);
   }
 
   html #navbar .mobile-nav-scroll-button--left {
-    background: linear-gradient(to left, transparent, var(--global-bg-color) 42%);
+    background: linear-gradient(to left, transparent, var(--global-bg-color) 20%);
     justify-content: flex-start;
-    left: 15px;
+    left: 0;
+  }
+
+  html #navbar .mobile-nav-scroll-button--left::after {
+    margin-left: 7px;
+    transform: rotate(-135deg);
   }
 
   html #navbar .nav-item:has(> #search-toggle) {

@@ -111,12 +111,11 @@
 
     const navScroller = navbar.querySelector(".navbar-collapse-main");
     const navContainer = navbar.querySelector(".container");
-    const createScrollButton = (direction, label, symbol) => {
+    const createScrollButton = (direction, label) => {
       const button = document.createElement("button");
       button.type = "button";
       button.className = `mobile-nav-scroll-button mobile-nav-scroll-button--${direction}`;
       button.setAttribute("aria-label", label);
-      button.textContent = symbol;
       button.hidden = true;
       button.addEventListener("click", () =>
         navScroller.scrollBy({
@@ -127,8 +126,8 @@
       navContainer.append(button);
       return button;
     };
-    const previousButton = createScrollButton("left", "Show previous tabs", "‹");
-    const nextButton = createScrollButton("right", "Show next tabs", "›");
+    const previousButton = createScrollButton("left", "Show previous tabs");
+    const nextButton = createScrollButton("right", "Show next tabs");
     const mobileViewport = window.matchMedia("(max-width: 575px)");
     const updateScrollHints = () => {
       const canScroll = mobileViewport.matches && navScroller.scrollWidth > navScroller.clientWidth + 1;
