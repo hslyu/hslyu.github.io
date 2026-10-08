@@ -1319,185 +1319,29 @@ article:has(.publications-content-marker) .publications {
   }
 }
 
-/* Mobile design and its temporary comparison page. */
-.mobile-preview-home-brand {
+/* Responsive site layout. */
+.navbar-home-brand {
   display: none;
 }
 
-.mobile-review {
-  align-items: start;
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 430px);
-}
-
-.mobile-review-controls > label,
-.mobile-review-versions legend {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-}
-
-.mobile-review-pages {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1rem 0;
-}
-
-.mobile-review-pages button {
-  background: var(--global-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 0.35rem;
-  color: var(--global-text-color);
-  cursor: pointer;
-  flex: 1 1 125px;
-  font: inherit;
-  min-height: 44px;
-  padding: 0.5rem;
-}
-
-.mobile-review-pages button[aria-pressed="true"] {
-  background: color-mix(in srgb, var(--global-theme-color) 8%, var(--global-bg-color));
-  border-color: var(--global-theme-color);
-}
-
-.mobile-review-controls select {
-  background: var(--global-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 0.35rem;
-  color: var(--global-text-color);
-  font: inherit;
-  min-height: 44px;
-  padding: 0.5rem 0.65rem;
-  width: 100%;
-}
-
-.mobile-review-versions {
-  border: 0;
-  display: flex;
-  gap: 0.75rem;
-  margin: 1rem 0;
-  padding: 0;
-}
-
-.mobile-review-versions label {
-  align-items: center;
-  border: 1px solid var(--global-divider-color);
-  border-radius: 0.35rem;
-  cursor: pointer;
-  display: flex;
-  flex: 1;
-  gap: 0.5rem;
-  justify-content: center;
-  margin: 0;
-  min-height: 44px;
-}
-
-.mobile-review-versions label:has(:checked) {
-  background: color-mix(in srgb, var(--global-theme-color) 8%, var(--global-bg-color));
-  border-color: var(--global-theme-color);
-}
-
-.mobile-review-versions input {
-  accent-color: var(--global-theme-color);
-}
-
-.mobile-review-hint,
-.mobile-review-status {
-  font-size: 0.8rem;
-  margin: 0.5rem 0;
-}
-
-.mobile-review-open {
-  align-items: center;
-  display: inline-flex;
-  min-height: 44px;
-}
-
-.mobile-review-notes {
-  border-top: 1px solid var(--global-divider-color);
-  margin-top: 1rem;
-  padding-top: 1rem;
-}
-
-.mobile-review-notes h2 {
-  font-size: 1.125rem;
-  font-weight: 500;
-}
-
-.mobile-review-notes ul {
-  font-size: 0.9375rem;
-  padding-left: 1.25rem;
-}
-
-.mobile-review-notes li + li {
-  margin-top: 0.65rem;
-}
-
-.mobile-review-method {
-  font-size: 0.875rem;
-}
-
-.mobile-review-method summary {
-  cursor: pointer;
-  min-height: 44px;
-  padding-block: 0.65rem;
-}
-
-.mobile-review-stage {
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
-  justify-self: center;
-  max-width: 100%;
-  outline: 1px solid var(--global-divider-color);
-  overflow: hidden;
-  width: var(--preview-width, 390px);
-}
-
-@media (min-width: 768px) {
-  .mobile-review-stage {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-  }
-}
-
-#mobile-review-frame {
-  border: 0;
-  display: block;
-  height: 844px;
-  width: 100%;
-}
-
-@media (max-width: 767px) {
-  .mobile-review {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  #mobile-review-frame {
-    height: 75svh;
-    min-height: 540px;
-  }
-}
-
 @media (max-width: 575px) {
-  html.mobile-preview-adjusted {
+  :root {
+    --site-header-height: 97px;
     --global-text-color-light: #666;
   }
 
-  html.mobile-preview-adjusted[data-theme="dark"] {
+  :root[data-theme="dark"] {
     --global-text-color-light: #b5b5b5;
     --global-theme-color: #e5a04b;
     --global-hover-color: #e5a04b;
   }
 
   html body.fixed-top-nav {
-    padding-top: var(--mobile-preview-header-height, 145px);
+    padding-top: var(--site-header-height);
   }
 
   html::after {
-    top: var(--mobile-preview-header-height, 145px);
+    top: var(--site-header-height);
   }
 
   html #navbar {
@@ -1681,48 +1525,48 @@ article:has(.publications-content-marker) .publications {
 
   html article .cv .card,
   html .publications h2.bibliography {
-    scroll-margin-top: calc(var(--mobile-preview-header-height, 145px) + 1rem);
+    scroll-margin-top: calc(var(--site-header-height) + 1rem);
   }
 
-  .mobile-preview-adjusted .post > .post-header {
+  :root .post > .post-header {
     display: block;
     margin-bottom: 1rem;
   }
 
-  .mobile-preview-adjusted .post-header .post-description:empty {
+  :root .post-header .post-description:empty {
     display: none;
   }
 
-  .mobile-preview-adjusted .post-header .post-title {
+  :root .post-header .post-title {
     font-size: 1.5rem;
     line-height: 1.25;
     margin-bottom: 0.5rem;
   }
 
-  .mobile-preview-adjusted .post-header:has(+ article > .profile) .post-title {
+  :root .post-header:has(+ article > .profile) .post-title {
     font-size: 2rem;
   }
 
-  .mobile-preview-adjusted article > .profile {
+  :root article > .profile {
     float: none;
     margin: 0 0 1.25rem;
   }
 
-  .mobile-preview-adjusted .profile-email,
-  .mobile-preview-adjusted .profile-email code {
+  :root .profile-email,
+  :root .profile-email code {
     font-size: 0.75rem;
   }
 
-  .mobile-preview-adjusted .profile-email code {
+  :root .profile-email code {
     padding: 0 0.15rem;
   }
 
-  .mobile-preview-adjusted .home-research-interests {
+  :root .home-research-interests {
     line-height: 1.5;
     padding-left: 1.25rem;
   }
 
-  .mobile-preview-adjusted .home-research-interests li + li {
+  :root .home-research-interests li + li {
     margin-top: 0.5rem;
   }
 
@@ -1739,25 +1583,25 @@ article:has(.publications-content-marker) .publications {
     width: 44px;
   }
 
-  .mobile-preview-adjusted #toc-sidebar {
+  :root #toc-sidebar {
     height: auto;
     margin-bottom: 1rem;
     position: static;
     visibility: visible;
   }
 
-  .mobile-preview-adjusted #toc-sidebar .toc-list {
+  :root #toc-sidebar .toc-list {
     display: flex;
     gap: 0.25rem;
     overflow-x: auto !important;
     padding: 0 0 0.25rem;
   }
 
-  .mobile-preview-adjusted #toc-sidebar .toc-list-item {
+  :root #toc-sidebar .toc-list-item {
     flex-shrink: 0;
   }
 
-  .mobile-preview-adjusted #toc-sidebar .toc-link {
+  :root #toc-sidebar .toc-link {
     align-items: center;
     border-bottom: 2px solid transparent;
     display: flex;
@@ -1767,156 +1611,154 @@ article:has(.publications-content-marker) .publications {
     white-space: nowrap;
   }
 
-  .mobile-preview-adjusted #toc-sidebar .is-active-link {
+  :root #toc-sidebar .is-active-link {
     border-bottom-color: var(--global-theme-color);
   }
 
-  .mobile-preview-adjusted article .cv .card {
+  :root article .cv .card {
     box-shadow: 0 1px 3px rgb(0 0 0 / 6%);
-    scroll-margin-top: calc(var(--mobile-preview-header-height, 145px) + 1rem);
   }
 
-  .mobile-preview-adjusted article .cv .card-title {
+  :root article .cv .card-title {
     font-size: 1.25rem;
     margin-bottom: 1rem;
   }
 
-  .mobile-preview-adjusted article .cv .list-group-item {
+  :root article .cv .list-group-item {
     padding: 1rem 0;
   }
 
-  .mobile-preview-adjusted article .cv .list-group-item:first-child {
+  :root article .cv .list-group-item:first-child {
     padding-top: 0;
   }
 
-  .mobile-preview-adjusted article .cv .list-group-item:last-child {
+  :root article .cv .list-group-item:last-child {
     padding-bottom: 0;
   }
 
-  .mobile-preview-adjusted article .cv .list-group-item + .list-group-item {
+  :root article .cv .list-group-item + .list-group-item {
     border-top: 1px solid var(--global-divider-color);
   }
 
-  .mobile-preview-adjusted article .cv .date-column {
+  :root article .cv .date-column {
     flex: 0 0 100%;
     margin-bottom: 0.375rem;
     max-width: 100%;
     width: 100%;
   }
 
-  .mobile-preview-adjusted article .cv .table-cv,
-  .mobile-preview-adjusted article .cv .table-cv tr,
-  .mobile-preview-adjusted article .cv .table-cv td {
+  :root article .cv .table-cv,
+  :root article .cv .table-cv tr,
+  :root article .cv .table-cv td {
     display: block;
     padding: 0;
   }
 
-  .mobile-preview-adjusted article .cv .table-cv {
+  :root article .cv .table-cv {
     margin: 0;
     width: auto;
   }
 
-  .mobile-preview-adjusted article .cv .table-cv tbody {
+  :root article .cv .table-cv tbody {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
 
-  .mobile-preview-adjusted article .cv p.location {
+  :root article .cv p.location {
     font-size: 0.75rem;
     margin: 0;
   }
 
-  .mobile-preview-adjusted article .cv .title,
-  .mobile-preview-adjusted article .cv .affiliation-text,
-  .mobile-preview-adjusted .project-affiliation,
-  .mobile-preview-adjusted .misc-demo-title {
+  :root article .cv .title,
+  :root article .cv .affiliation-text,
+  :root .project-affiliation,
+  :root .misc-demo-title {
     line-height: 1.45;
     overflow-wrap: anywhere;
   }
 
-  .mobile-preview-adjusted .misc-project-links a {
+  :root .misc-project-links a {
     align-items: center;
     display: inline-flex;
     min-height: 44px;
     padding-inline: 0.2rem;
   }
 
-  .mobile-preview-adjusted .publications h2.bibliography {
+  :root .publications h2.bibliography {
     color: var(--global-text-color-light);
     font-size: 1.125rem;
     font-weight: 500;
     margin: 0 0 1rem;
     padding-top: 0;
-    scroll-margin-top: calc(var(--mobile-preview-header-height, 145px) + 1rem);
     text-align: left;
   }
 
-  .mobile-preview-adjusted .publications ol.bibliography > li {
+  :root .publications ol.bibliography > li {
     border-bottom: 1px solid var(--global-divider-color);
     margin-bottom: 1.25rem;
     padding-bottom: 1.25rem;
   }
 
-  .mobile-preview-adjusted .publications .abbr abbr.badge {
+  :root .publications .abbr abbr.badge {
     padding: 0.3rem 0.5rem;
   }
 
-  .mobile-preview-adjusted article .publications .abbr figure {
+  :root article .publications .abbr figure {
     aspect-ratio: auto;
     height: 8rem;
   }
 
-  .mobile-preview-adjusted .mobile-preview-figure-link {
+  :root .publication-figure-link {
     display: block;
     height: 100%;
   }
 
-  .mobile-preview-adjusted .mobile-preview-figure-link:focus-visible {
+  :root .publication-figure-link:focus-visible {
     outline: 2px solid var(--global-theme-color);
     outline-offset: -2px;
   }
 
-  .mobile-preview-adjusted article .publications .abbr figure .preview {
+  :root article .publications .abbr figure .preview {
     object-fit: contain !important;
     object-position: center;
   }
 
-  .mobile-preview-adjusted .publications .title br {
+  :root .publications .title br {
     display: none;
   }
 
-  .mobile-preview-adjusted .publications .author,
-  .mobile-preview-adjusted .publications .periodical,
-  .mobile-preview-adjusted .misc-publication-list .author,
-  .mobile-preview-adjusted .misc-publication-list .periodical {
+  :root .publications .author,
+  :root .publications .periodical,
+  :root .misc-publication-list .author,
+  :root .misc-publication-list .periodical {
     font-weight: 400;
   }
 
-  .mobile-preview-adjusted .misc-demo-local-play {
+  :root .misc-demo-local-play {
     font-size: 1rem;
     height: 44px;
     width: 44px;
   }
 
-  .mobile-preview-adjusted .affiliation-brand-kics {
+  :root .affiliation-brand-kics {
     color: #19788f;
   }
 
-  html.mobile-preview-adjusted[data-theme="dark"] [class*="affiliation-brand-"] {
+  :root[data-theme="dark"] [class*="affiliation-brand-"] {
     color: #a6c2f5;
   }
 
-  html.mobile-preview-adjusted[data-theme="dark"] .affiliation-brand-ut-austin {
+  :root[data-theme="dark"] .affiliation-brand-ut-austin {
     color: #f4a767;
   }
 
-  html.mobile-preview-adjusted[data-theme="dark"] .affiliation-brand-postech {
+  :root[data-theme="dark"] .affiliation-brand-postech {
     color: #ff8baa;
   }
 
-  html.mobile-preview-adjusted[data-theme="dark"] .affiliation-brand-kics {
+  :root[data-theme="dark"] .affiliation-brand-kics {
     color: #7ed4e8;
   }
 }
@@ -1928,23 +1770,23 @@ article:has(.publications-content-marker) .publications {
       display: block !important;
     }
 
-    .mobile-preview-adjusted body > .container.mt-5 {
+    :root body > .container.mt-5 {
       margin-top: 1.25rem !important;
     }
 
-    .mobile-preview-adjusted article .cv .date-column {
+    :root article .cv .date-column {
       text-align: left !important;
     }
 
-    .mobile-preview-adjusted article .cv .date-column + div {
+    :root article .cv .date-column + div {
       margin-top: 0 !important;
     }
 
-    .mobile-preview-adjusted article .cv .ml-1 {
+    :root article .cv .ml-1 {
       margin-left: 0 !important;
     }
 
-    .mobile-preview-adjusted .publications .abbr abbr.badge {
+    :root .publications .abbr abbr.badge {
       width: auto !important;
     }
   }

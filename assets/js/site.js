@@ -1,24 +1,23 @@
 (() => {
   const palettePath = "/assets/data/color-palette.json";
-  const mobilePreviewMode = new URLSearchParams(window.location.search).get("mobile-preview");
-  const useAdjustedMobileDesign = mobilePreviewMode !== "current";
+  const mobileViewport = window.matchMedia("(max-width: 575px)");
 
-  if (useAdjustedMobileDesign) document.documentElement.classList.add("mobile-preview-adjusted");
+  const initializePublicationFigures = () => {
+    const pictures = [...document.querySelectorAll(".publications .abbr figure picture")];
+    if (!pictures.length) return;
 
-  const initializeMobilePreview = () => {
-    if (useAdjustedMobileDesign && window.matchMedia("(max-width: 575px)").matches && !document.querySelector("#toc-sidebar .is-active-link")) {
-      const firstLink = document.querySelector("#toc-sidebar .toc-link");
-      firstLink?.classList.add("is-active-link");
-      firstLink?.parentElement.classList.add("is-active-li");
-    }
+    const updateLinks = () => {
+      pictures.forEach((picture) => {
+        if (!mobileViewport.matches) {
+          picture.closest(".publication-figure-link")?.replaceWith(picture);
+          return;
+        }
 
-    if (useAdjustedMobileDesign && window.matchMedia("(max-width: 575px)").matches) {
-      document.querySelectorAll(".publications .abbr figure picture").forEach((picture) => {
         const figureImage = picture.querySelector("img");
         if (!figureImage || picture.closest("a")) return;
         const link = document.createElement("a");
         const title = picture.closest(".row")?.querySelector(".title")?.textContent.trim();
-        link.className = "mobile-preview-figure-link";
+        link.className = "publication-figure-link";
         link.href = figureImage.src;
         link.target = "_blank";
         link.rel = "noopener";
@@ -27,85 +26,26 @@
         picture.before(link);
         link.append(picture);
       });
-    }
+    };
 
-    if (!["current", "adjusted"].includes(mobilePreviewMode)) return;
-
-    document.querySelectorAll("a[href]").forEach((link) => {
-      const url = new URL(link.href);
-      if (url.origin !== window.location.origin || link.getAttribute("href").startsWith("#")) return;
-      if (!/^\/(?:$|experiences\/|publications\/|demos\/|miscellaneous\/)/.test(url.pathname)) return;
-      url.searchParams.set("mobile-preview", mobilePreviewMode);
-      link.href = url.href;
-    });
+    updateLinks();
+    mobileViewport.addEventListener("change", updateLinks);
   };
 
-  const initializeMobileReview = () => {
-    const review = document.querySelector("[data-mobile-review]");
-    if (!review) return;
-
-    document.documentElement.classList.add("mobile-preview-adjusted");
-
-    const frame = review.querySelector("iframe");
-    const stage = review.querySelector(".mobile-review-stage");
-    const pageButtons = [...review.querySelectorAll("[data-review-page]")];
-    const widthSelect = review.querySelector("#mobile-review-width");
-    const openLink = review.querySelector(".mobile-review-open");
-    const status = review.querySelector(".mobile-review-status");
-    let currentPath = pageButtons.find((button) => button.getAttribute("aria-pressed") === "true").dataset.reviewPage;
-
-    const selectedMode = () => review.querySelector('input[name="mobile-review-version"]:checked').value;
-    const updateNotes = () => {
-      review.querySelectorAll("[data-review-path]").forEach((section) => (section.hidden = section.dataset.reviewPath !== currentPath));
-      pageButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.reviewPage === currentPath)));
-    };
-    const updateStatus = () => {
-      status.textContent = `${selectedMode() === "adjusted" ? "적용안" : "이전"} · ${Math.round(frame.getBoundingClientRect().width)}px`;
-    };
-    const loadPreview = () => {
-      const url = new URL(currentPath, window.location.origin);
-      url.searchParams.set("mobile-preview", selectedMode());
-      url.searchParams.set("preview-rev", "5");
-      openLink.href = url.href;
-      frame.src = url.href;
-      status.textContent = "화면을 불러오는 중…";
-      updateNotes();
-    };
-
-    pageButtons.forEach((button) =>
-      button.addEventListener("click", () => {
-        currentPath = button.dataset.reviewPage;
-        loadPreview();
-      })
-    );
-    review.querySelectorAll('input[name="mobile-review-version"]').forEach((input) => input.addEventListener("change", loadPreview));
-    widthSelect.addEventListener("change", () => stage.style.setProperty("--preview-width", `${widthSelect.value}px`));
-    frame.addEventListener("load", () => {
-      const url = new URL(frame.contentWindow.location.href);
-      currentPath = url.pathname;
-      openLink.href = url.href;
-      updateNotes();
-      updateStatus();
-    });
-    new ResizeObserver(updateStatus).observe(frame);
-    updateNotes();
-  };
-
-  const initializeMobilePreviewHeader = () => {
+  const initializeHeader = () => {
     const navbar = document.querySelector("#navbar");
     if (!navbar) return;
 
     const profileTitle = document.querySelector(".post-header:has(+ article > .profile) .post-title");
     if (profileTitle && !navbar.querySelector(".navbar-brand")) {
       const brand = document.createElement("a");
-      brand.className = "navbar-brand title font-weight-lighter mobile-preview-home-brand";
-      brand.href = mobilePreviewMode === "adjusted" ? "/?mobile-preview=adjusted" : "/";
+      brand.className = "navbar-brand title font-weight-lighter navbar-home-brand";
+      brand.href = "/";
       brand.append(...[...profileTitle.childNodes].map((node) => node.cloneNode(true)));
       navbar.querySelector(".container").prepend(brand);
     }
 
-    const updateHeight = () =>
-      document.documentElement.style.setProperty("--mobile-preview-header-height", `${navbar.getBoundingClientRect().height}px`);
+    const updateHeight = () => document.documentElement.style.setProperty("--site-header-height", `${navbar.getBoundingClientRect().height}px`);
     new ResizeObserver(updateHeight).observe(navbar);
     updateHeight();
 
@@ -128,7 +68,6 @@
     };
     const previousButton = createScrollButton("left", "Show previous tabs");
     const nextButton = createScrollButton("right", "Show next tabs");
-    const mobileViewport = window.matchMedia("(max-width: 575px)");
     const updateScrollHints = () => {
       const canScroll = mobileViewport.matches && navScroller.scrollWidth > navScroller.clientWidth + 1;
       previousButton.hidden = !canScroll || navScroller.scrollLeft <= 4;
@@ -223,6 +162,12 @@
   const initializeSidebarHighlight = (toc, sections) => {
     if (!toc) return;
 
+    if (mobileViewport.matches && !toc.querySelector(".is-active-link")) {
+      const firstLink = toc.querySelector(".toc-link");
+      firstLink?.classList.add("is-active-link");
+      firstLink?.parentElement.classList.add("is-active-li");
+    }
+
     const linksByHash = new Map([...toc.querySelectorAll(".toc-link")].map((link) => [new URL(link.href).hash, link]));
     const entries = sections.map(({ hash, target }) => ({ target, link: linksByHash.get(hash) })).filter((entry) => entry.link);
     if (!entries.length) return;
@@ -267,11 +212,9 @@
           return;
         }
 
-        const previewHeaderHeight = window.matchMedia("(max-width: 575px)").matches
-          ? document.querySelector("#navbar").getBoundingClientRect().height
-          : 96;
+        const headerHeight = mobileViewport.matches ? document.querySelector("#navbar").getBoundingClientRect().height : 96;
         const nextEntry = entries.reduce(
-          (current, entry) => (entry.target.getBoundingClientRect().top <= previewHeaderHeight + 24 ? entry : current),
+          (current, entry) => (entry.target.getBoundingClientRect().top <= headerHeight + 24 ? entry : current),
           entries[0]
         );
         activate(nextEntry);
@@ -391,10 +334,9 @@
   };
 
   const initialize = () => {
-    initializeMobilePreview();
-    initializeMobileReview();
+    initializePublicationFigures();
     initializeRandomAccent();
-    initializeMobilePreviewHeader();
+    initializeHeader();
     initializePublications();
     initializeSectionNavigation(".experience-content-marker", "article .cv > h2[id]", (heading) => heading.nextElementSibling);
     initializeSectionNavigation(".miscellaneous-content-marker", "article h2[id]", (heading) =>
