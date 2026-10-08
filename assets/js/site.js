@@ -1,5 +1,114 @@
 (() => {
   const palettePath = "/assets/data/color-palette.json";
+  const mobilePreviewMode = new URLSearchParams(window.location.search).get("mobile-preview");
+  const useAdjustedMobileDesign = mobilePreviewMode !== "current";
+
+  if (useAdjustedMobileDesign) document.documentElement.classList.add("mobile-preview-adjusted");
+
+  const initializeMobilePreview = () => {
+    if (useAdjustedMobileDesign && window.matchMedia("(max-width: 575px)").matches && !document.querySelector("#toc-sidebar .is-active-link")) {
+      const firstLink = document.querySelector("#toc-sidebar .toc-link");
+      firstLink?.classList.add("is-active-link");
+      firstLink?.parentElement.classList.add("is-active-li");
+    }
+
+    if (useAdjustedMobileDesign && window.matchMedia("(max-width: 575px)").matches) {
+      document.querySelectorAll(".publications .abbr figure picture").forEach((picture) => {
+        const figureImage = picture.querySelector("img");
+        if (!figureImage || picture.closest("a")) return;
+        const link = document.createElement("a");
+        const title = picture.closest(".row")?.querySelector(".title")?.textContent.trim();
+        link.className = "mobile-preview-figure-link";
+        link.href = figureImage.src;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.title = "Open full-size figure";
+        link.setAttribute("aria-label", `Open full-size figure${title ? `: ${title}` : ""}`);
+        picture.before(link);
+        link.append(picture);
+      });
+    }
+
+    if (!["current", "adjusted"].includes(mobilePreviewMode)) return;
+
+    document.querySelectorAll("a[href]").forEach((link) => {
+      const url = new URL(link.href);
+      if (url.origin !== window.location.origin || link.getAttribute("href").startsWith("#")) return;
+      if (!/^\/(?:$|experiences\/|publications\/|demos\/|miscellaneous\/)/.test(url.pathname)) return;
+      url.searchParams.set("mobile-preview", mobilePreviewMode);
+      link.href = url.href;
+    });
+  };
+
+  const initializeMobileReview = () => {
+    const review = document.querySelector("[data-mobile-review]");
+    if (!review) return;
+
+    document.documentElement.classList.add("mobile-preview-adjusted");
+
+    const frame = review.querySelector("iframe");
+    const stage = review.querySelector(".mobile-review-stage");
+    const pageButtons = [...review.querySelectorAll("[data-review-page]")];
+    const widthSelect = review.querySelector("#mobile-review-width");
+    const openLink = review.querySelector(".mobile-review-open");
+    const status = review.querySelector(".mobile-review-status");
+    let currentPath = pageButtons.find((button) => button.getAttribute("aria-pressed") === "true").dataset.reviewPage;
+
+    const selectedMode = () => review.querySelector('input[name="mobile-review-version"]:checked').value;
+    const updateNotes = () => {
+      review.querySelectorAll("[data-review-path]").forEach((section) => (section.hidden = section.dataset.reviewPath !== currentPath));
+      pageButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.reviewPage === currentPath)));
+    };
+    const updateStatus = () => {
+      status.textContent = `${selectedMode() === "adjusted" ? "적용안" : "이전"} · ${Math.round(frame.getBoundingClientRect().width)}px`;
+    };
+    const loadPreview = () => {
+      const url = new URL(currentPath, window.location.origin);
+      url.searchParams.set("mobile-preview", selectedMode());
+      url.searchParams.set("preview-rev", "4");
+      openLink.href = url.href;
+      frame.src = url.href;
+      status.textContent = "화면을 불러오는 중…";
+      updateNotes();
+    };
+
+    pageButtons.forEach((button) =>
+      button.addEventListener("click", () => {
+        currentPath = button.dataset.reviewPage;
+        loadPreview();
+      })
+    );
+    review.querySelectorAll('input[name="mobile-review-version"]').forEach((input) => input.addEventListener("change", loadPreview));
+    widthSelect.addEventListener("change", () => stage.style.setProperty("--preview-width", `${widthSelect.value}px`));
+    frame.addEventListener("load", () => {
+      const url = new URL(frame.contentWindow.location.href);
+      currentPath = url.pathname;
+      openLink.href = url.href;
+      updateNotes();
+      updateStatus();
+    });
+    new ResizeObserver(updateStatus).observe(frame);
+    updateNotes();
+  };
+
+  const initializeMobilePreviewHeader = () => {
+    const navbar = document.querySelector("#navbar");
+    if (!navbar) return;
+
+    const profileTitle = document.querySelector(".post-header:has(+ article > .profile) .post-title");
+    if (profileTitle && !navbar.querySelector(".navbar-brand")) {
+      const brand = document.createElement("a");
+      brand.className = "navbar-brand title font-weight-lighter mobile-preview-home-brand";
+      brand.href = mobilePreviewMode === "adjusted" ? "/?mobile-preview=adjusted" : "/";
+      brand.append(...[...profileTitle.childNodes].map((node) => node.cloneNode(true)));
+      navbar.querySelector(".container").prepend(brand);
+    }
+
+    const updateHeight = () =>
+      document.documentElement.style.setProperty("--mobile-preview-header-height", `${navbar.getBoundingClientRect().height}px`);
+    new ResizeObserver(updateHeight).observe(navbar);
+    updateHeight();
+  };
 
   const isValidAccent = (accent) => accent && typeof accent.name === "string" && /^#[0-9a-f]{6}$/i.test(accent.hex);
 
@@ -112,7 +221,13 @@
           return;
         }
 
-        const nextEntry = entries.reduce((current, entry) => (entry.target.getBoundingClientRect().top <= 120 ? entry : current), entries[0]);
+        const previewHeaderHeight = window.matchMedia("(max-width: 575px)").matches
+          ? document.querySelector("#navbar").getBoundingClientRect().height
+          : 96;
+        const nextEntry = entries.reduce(
+          (current, entry) => (entry.target.getBoundingClientRect().top <= previewHeaderHeight + 24 ? entry : current),
+          entries[0]
+        );
         activate(nextEntry);
       },
       { passive: true }
@@ -132,7 +247,7 @@
 
       link.addEventListener("click", (event) => {
         event.preventDefault();
-        window.history.replaceState(null, "", link.hash);
+        window.history.replaceState(null, "", window.location.pathname + window.location.search + link.hash);
         year.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
@@ -161,7 +276,7 @@
         "click",
         (event) => {
           event.preventDefault();
-          window.history.replaceState(null, "", link.hash);
+          window.history.replaceState(null, "", window.location.pathname + window.location.search + link.hash);
           target.scrollIntoView({ behavior: "smooth", block: "start" });
         },
         true
@@ -230,7 +345,10 @@
   };
 
   const initialize = () => {
+    initializeMobilePreview();
+    initializeMobileReview();
     initializeRandomAccent();
+    initializeMobilePreviewHeader();
     initializePublications();
     initializeSectionNavigation(".experience-content-marker", "article .cv > h2[id]", (heading) => heading.nextElementSibling);
     initializeSectionNavigation(".miscellaneous-content-marker", "article h2[id]", (heading) =>

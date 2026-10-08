@@ -1022,6 +1022,12 @@ article > .profile figure img {
   width: 100%;
 }
 
+@media (max-width: 575px) {
+  article > .profile figure {
+    width: min(55vw, 210px);
+  }
+}
+
 .social .contact-icons {
   align-items: center;
   display: flex;
@@ -1310,5 +1316,570 @@ article:has(.publications-content-marker) .publications {
 
   .publication-year-group[aria-labelledby="before-2023"] > ol.bibliography + ol.bibliography {
     padding-top: 0;
+  }
+}
+
+/* Mobile design and its temporary comparison page. */
+.mobile-preview-home-brand {
+  display: none;
+}
+
+.mobile-review {
+  align-items: start;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 430px);
+}
+
+.mobile-review-controls > label,
+.mobile-review-versions legend {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.mobile-review-pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.mobile-review-pages button {
+  background: var(--global-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.35rem;
+  color: var(--global-text-color);
+  cursor: pointer;
+  flex: 1 1 125px;
+  font: inherit;
+  min-height: 44px;
+  padding: 0.5rem;
+}
+
+.mobile-review-pages button[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--global-theme-color) 8%, var(--global-bg-color));
+  border-color: var(--global-theme-color);
+}
+
+.mobile-review-controls select {
+  background: var(--global-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.35rem;
+  color: var(--global-text-color);
+  font: inherit;
+  min-height: 44px;
+  padding: 0.5rem 0.65rem;
+  width: 100%;
+}
+
+.mobile-review-versions {
+  border: 0;
+  display: flex;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.mobile-review-versions label {
+  align-items: center;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.35rem;
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0;
+  min-height: 44px;
+}
+
+.mobile-review-versions label:has(:checked) {
+  background: color-mix(in srgb, var(--global-theme-color) 8%, var(--global-bg-color));
+  border-color: var(--global-theme-color);
+}
+
+.mobile-review-versions input {
+  accent-color: var(--global-theme-color);
+}
+
+.mobile-review-hint,
+.mobile-review-status {
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+
+.mobile-review-open {
+  align-items: center;
+  display: inline-flex;
+  min-height: 44px;
+}
+
+.mobile-review-notes {
+  border-top: 1px solid var(--global-divider-color);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.mobile-review-notes h2 {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.mobile-review-notes ul {
+  font-size: 0.9375rem;
+  padding-left: 1.25rem;
+}
+
+.mobile-review-notes li + li {
+  margin-top: 0.65rem;
+}
+
+.mobile-review-method {
+  font-size: 0.875rem;
+}
+
+.mobile-review-method summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding-block: 0.65rem;
+}
+
+.mobile-review-stage {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
+  justify-self: center;
+  max-width: 100%;
+  outline: 1px solid var(--global-divider-color);
+  overflow: hidden;
+  width: var(--preview-width, 390px);
+}
+
+@media (min-width: 768px) {
+  .mobile-review-stage {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
+
+#mobile-review-frame {
+  border: 0;
+  display: block;
+  height: 844px;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .mobile-review {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #mobile-review-frame {
+    height: 75svh;
+    min-height: 540px;
+  }
+}
+
+@media (max-width: 575px) {
+  html.mobile-preview-adjusted {
+    --global-text-color-light: #666;
+  }
+
+  html.mobile-preview-adjusted[data-theme="dark"] {
+    --global-text-color-light: #b5b5b5;
+    --global-theme-color: #e5a04b;
+    --global-hover-color: #e5a04b;
+  }
+
+  html body.fixed-top-nav {
+    padding-top: var(--mobile-preview-header-height, 145px);
+  }
+
+  html::after {
+    top: var(--mobile-preview-header-height, 145px);
+  }
+
+  html #navbar {
+    opacity: 1;
+    padding-block: 0;
+  }
+
+  html #navbar > .container {
+    padding-top: 48px;
+    padding-bottom: 4px;
+    position: relative;
+  }
+
+  html #navbar .navbar-brand {
+    display: block;
+    font-size: 1.125rem;
+    left: 15px;
+    line-height: 1.2;
+    margin-right: 0;
+    max-width: calc(100% - 165px);
+    position: absolute;
+    top: 3px;
+  }
+
+  html #navbar .navbar-brand.title::after {
+    content: "Wireless × AI × Robotics";
+    display: block;
+    font-size: 0.6875rem;
+    line-height: 1.5;
+  }
+
+  html #navbar #light-toggle,
+  html #navbar #random-color-toggle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  html #navbar .navbar-toggler {
+    display: none;
+  }
+
+  html #navbar .navbar-collapse-main {
+    visibility: visible;
+    width: 100%;
+  }
+
+  html #navbar .navbar-menu-list {
+    align-items: stretch;
+    display: grid;
+    gap: 4px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  html #navbar .nav-item {
+    grid-column: span 2;
+    width: auto;
+  }
+
+  html #navbar .nav-item:nth-child(4),
+  html #navbar .nav-item:nth-child(5) {
+    grid-column: span 3;
+  }
+
+  html #navbar .nav-link {
+    align-items: center;
+    display: flex;
+    font-size: 0.875rem;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.5rem;
+    white-space: nowrap;
+  }
+
+  html #navbar .nav-item:has(> #search-toggle) {
+    position: absolute;
+    right: 111px;
+    top: 2px;
+  }
+
+  html #navbar #search-toggle .nav-link {
+    font-size: 0;
+    padding: 0;
+    width: 44px;
+  }
+
+  html #navbar #search-toggle i {
+    font-size: 1rem;
+  }
+
+  html #navbar .nav-item.active > .nav-link {
+    background: color-mix(in srgb, var(--global-theme-color) 7%, var(--global-bg-color));
+    border-radius: 0.25rem;
+  }
+
+  html .toggle-container {
+    gap: 0.25rem;
+    margin: 0;
+    position: absolute;
+    right: 15px;
+    top: 2px;
+  }
+
+  html .toggle-container::before {
+    flex-basis: 44px;
+    height: 44px;
+    margin: 0;
+  }
+
+  html #random-color-toggle {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  html article .cv .card,
+  html .publications h2.bibliography {
+    scroll-margin-top: calc(var(--mobile-preview-header-height, 145px) + 1rem);
+  }
+
+  .mobile-preview-adjusted .post > .post-header {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .mobile-preview-adjusted .post-header .post-description:empty {
+    display: none;
+  }
+
+  .mobile-preview-adjusted .post-header .post-title {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-preview-adjusted .post-header:has(+ article > .profile) .post-title {
+    font-size: 2rem;
+  }
+
+  .mobile-preview-adjusted article > .profile {
+    float: none;
+    margin: 0 0 1.25rem;
+  }
+
+  .mobile-preview-adjusted .profile-email,
+  .mobile-preview-adjusted .profile-email code {
+    font-size: 0.75rem;
+  }
+
+  .mobile-preview-adjusted .profile-email code {
+    padding: 0 0.15rem;
+  }
+
+  .mobile-preview-adjusted .home-research-interests {
+    line-height: 1.5;
+    padding-left: 1.25rem;
+  }
+
+  .mobile-preview-adjusted .home-research-interests li + li {
+    margin-top: 0.5rem;
+  }
+
+  html .social .contact-icons {
+    flex-wrap: wrap;
+    font-size: 2rem;
+    gap: clamp(0.35rem, 3vw, 0.8rem);
+    min-height: 44px;
+  }
+
+  html .social .contact-icons > a {
+    flex-basis: 44px;
+    height: 44px;
+    width: 44px;
+  }
+
+  .mobile-preview-adjusted #toc-sidebar {
+    height: auto;
+    margin-bottom: 1rem;
+    position: static;
+    visibility: visible;
+  }
+
+  .mobile-preview-adjusted #toc-sidebar .toc-list {
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: auto !important;
+    padding: 0 0 0.25rem;
+  }
+
+  .mobile-preview-adjusted #toc-sidebar .toc-list-item {
+    flex-shrink: 0;
+  }
+
+  .mobile-preview-adjusted #toc-sidebar .toc-link {
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    display: flex;
+    font-size: 0.875rem;
+    min-height: 44px;
+    padding: 0.5rem 0.625rem;
+    white-space: nowrap;
+  }
+
+  .mobile-preview-adjusted #toc-sidebar .is-active-link {
+    border-bottom-color: var(--global-theme-color);
+  }
+
+  .mobile-preview-adjusted article .cv .card {
+    box-shadow: 0 1px 3px rgb(0 0 0 / 6%);
+    scroll-margin-top: calc(var(--mobile-preview-header-height, 145px) + 1rem);
+  }
+
+  .mobile-preview-adjusted article .cv .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .mobile-preview-adjusted article .cv .list-group-item {
+    padding: 1rem 0;
+  }
+
+  .mobile-preview-adjusted article .cv .list-group-item:first-child {
+    padding-top: 0;
+  }
+
+  .mobile-preview-adjusted article .cv .list-group-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .mobile-preview-adjusted article .cv .list-group-item + .list-group-item {
+    border-top: 1px solid var(--global-divider-color);
+  }
+
+  .mobile-preview-adjusted article .cv .date-column {
+    flex: 0 0 100%;
+    margin-bottom: 0.375rem;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .mobile-preview-adjusted article .cv .table-cv,
+  .mobile-preview-adjusted article .cv .table-cv tr,
+  .mobile-preview-adjusted article .cv .table-cv td {
+    display: block;
+    padding: 0;
+  }
+
+  .mobile-preview-adjusted article .cv .table-cv {
+    margin: 0;
+    width: auto;
+  }
+
+  .mobile-preview-adjusted article .cv .table-cv tbody {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .mobile-preview-adjusted article .cv p.location {
+    font-size: 0.75rem;
+    margin: 0;
+  }
+
+  .mobile-preview-adjusted article .cv .title,
+  .mobile-preview-adjusted article .cv .affiliation-text,
+  .mobile-preview-adjusted .project-affiliation,
+  .mobile-preview-adjusted .misc-demo-title {
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .mobile-preview-adjusted .misc-project-links a {
+    align-items: center;
+    display: inline-flex;
+    min-height: 44px;
+    padding-inline: 0.2rem;
+  }
+
+  .mobile-preview-adjusted .publications h2.bibliography {
+    color: var(--global-text-color-light);
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0 0 1rem;
+    padding-top: 0;
+    scroll-margin-top: calc(var(--mobile-preview-header-height, 145px) + 1rem);
+    text-align: left;
+  }
+
+  .mobile-preview-adjusted .publications ol.bibliography > li {
+    border-bottom: 1px solid var(--global-divider-color);
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .mobile-preview-adjusted .publications .abbr abbr.badge {
+    padding: 0.3rem 0.5rem;
+  }
+
+  .mobile-preview-adjusted article .publications .abbr figure {
+    aspect-ratio: auto;
+    height: 8rem;
+  }
+
+  .mobile-preview-adjusted .mobile-preview-figure-link {
+    display: block;
+    height: 100%;
+  }
+
+  .mobile-preview-adjusted .mobile-preview-figure-link:focus-visible {
+    outline: 2px solid var(--global-theme-color);
+    outline-offset: -2px;
+  }
+
+  .mobile-preview-adjusted article .publications .abbr figure .preview {
+    object-fit: contain !important;
+    object-position: center;
+  }
+
+  .mobile-preview-adjusted .publications .title br {
+    display: none;
+  }
+
+  .mobile-preview-adjusted .publications .author,
+  .mobile-preview-adjusted .publications .periodical,
+  .mobile-preview-adjusted .misc-publication-list .author,
+  .mobile-preview-adjusted .misc-publication-list .periodical {
+    font-weight: 400;
+  }
+
+  .mobile-preview-adjusted .misc-demo-local-play {
+    font-size: 1rem;
+    height: 44px;
+    width: 44px;
+  }
+
+  .mobile-preview-adjusted .affiliation-brand-kics {
+    color: #19788f;
+  }
+
+  html.mobile-preview-adjusted[data-theme="dark"] [class*="affiliation-brand-"] {
+    color: #a6c2f5;
+  }
+
+  html.mobile-preview-adjusted[data-theme="dark"] .affiliation-brand-ut-austin {
+    color: #f4a767;
+  }
+
+  html.mobile-preview-adjusted[data-theme="dark"] .affiliation-brand-postech {
+    color: #ff8baa;
+  }
+
+  html.mobile-preview-adjusted[data-theme="dark"] .affiliation-brand-kics {
+    color: #7ed4e8;
+  }
+}
+
+/* Match the theme's utility layer so these overrides can beat its !important utilities. */
+@layer utilities {
+  @media (max-width: 575px) {
+    html #navbar .navbar-collapse-main {
+      display: block !important;
+    }
+
+    .mobile-preview-adjusted body > .container.mt-5 {
+      margin-top: 1.25rem !important;
+    }
+
+    .mobile-preview-adjusted article .cv .date-column {
+      text-align: left !important;
+    }
+
+    .mobile-preview-adjusted article .cv .date-column + div {
+      margin-top: 0 !important;
+    }
+
+    .mobile-preview-adjusted article .cv .ml-1 {
+      margin-left: 0 !important;
+    }
+
+    .mobile-preview-adjusted .publications .abbr abbr.badge {
+      width: auto !important;
+    }
   }
 }
