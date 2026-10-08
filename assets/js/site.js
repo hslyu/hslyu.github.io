@@ -65,7 +65,7 @@
     const loadPreview = () => {
       const url = new URL(currentPath, window.location.origin);
       url.searchParams.set("mobile-preview", selectedMode());
-      url.searchParams.set("preview-rev", "4");
+      url.searchParams.set("preview-rev", "5");
       openLink.href = url.href;
       frame.src = url.href;
       status.textContent = "화면을 불러오는 중…";
@@ -108,6 +108,53 @@
       document.documentElement.style.setProperty("--mobile-preview-header-height", `${navbar.getBoundingClientRect().height}px`);
     new ResizeObserver(updateHeight).observe(navbar);
     updateHeight();
+
+    const navScroller = navbar.querySelector(".navbar-collapse-main");
+    const navContainer = navbar.querySelector(".container");
+    const createScrollButton = (direction, label, symbol) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `mobile-nav-scroll-button mobile-nav-scroll-button--${direction}`;
+      button.setAttribute("aria-label", label);
+      button.textContent = symbol;
+      button.hidden = true;
+      button.addEventListener("click", () =>
+        navScroller.scrollBy({
+          left: (direction === "right" ? 1 : -1) * navScroller.clientWidth * 0.7,
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        })
+      );
+      navContainer.append(button);
+      return button;
+    };
+    const previousButton = createScrollButton("left", "Show previous tabs", "‹");
+    const nextButton = createScrollButton("right", "Show next tabs", "›");
+    const mobileViewport = window.matchMedia("(max-width: 575px)");
+    const updateScrollHints = () => {
+      const canScroll = mobileViewport.matches && navScroller.scrollWidth > navScroller.clientWidth + 1;
+      previousButton.hidden = !canScroll || navScroller.scrollLeft <= 4;
+      nextButton.hidden = !canScroll || navScroller.scrollLeft >= navScroller.scrollWidth - navScroller.clientWidth - 4;
+    };
+    const revealActiveTab = () => {
+      if (!mobileViewport.matches) {
+        updateScrollHints();
+        return;
+      }
+      const activeTab = navScroller.querySelector(".nav-item.active > .nav-link");
+      if (activeTab) {
+        const scrollerBounds = navScroller.getBoundingClientRect();
+        const activeBounds = activeTab.getBoundingClientRect();
+        if (activeBounds.left < scrollerBounds.left + 24 || activeBounds.right > scrollerBounds.right - 24) {
+          navScroller.scrollLeft += activeBounds.left - scrollerBounds.left - (navScroller.clientWidth - activeBounds.width) / 2;
+        }
+      }
+      updateScrollHints();
+    };
+    navScroller.addEventListener("scroll", updateScrollHints, { passive: true });
+    window.addEventListener("resize", updateScrollHints, { passive: true });
+    mobileViewport.addEventListener("change", revealActiveTab);
+    window.requestAnimationFrame(revealActiveTab);
+    document.fonts?.ready.then(revealActiveTab);
   };
 
   const isValidAccent = (accent) => accent && typeof accent.name === "string" && /^#[0-9a-f]{6}$/i.test(accent.hex);

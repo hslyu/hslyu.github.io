@@ -9,7 +9,7 @@ search: false
 
 <div class="mobile-review" data-mobile-review>
   <div class="mobile-review-controls">
-    <p><strong>미리보기 업데이트 4</strong> · 오른쪽 화면 상단에 About, Experiences, Publications, Demos, Miscellaneous가 두 줄로 표시됩니다.</p>
+    <p><strong>미리보기 업데이트 5</strong> · 오른쪽 화면의 헤더 탭을 좌우로 스와이프해 모든 페이지로 이동할 수 있습니다.</p>
     <p>오른쪽 휴대폰 화면에서 모든 헤더 탭을 확인할 수 있습니다. 아래 탭으로 페이지를 바꾸고 이전 디자인과 적용한 디자인을 비교해 보세요.</p>
 
     <div class="mobile-review-pages" role="group" aria-label="미리 볼 페이지">
@@ -39,7 +39,7 @@ search: false
   </div>
 
   <div class="mobile-review-stage">
-    <iframe id="mobile-review-frame" title="모바일 디자인 미리보기" src="/publications/?mobile-preview=adjusted&amp;preview-rev=4"></iframe>
+    <iframe id="mobile-review-frame" title="모바일 디자인 미리보기" src="/publications/?mobile-preview=adjusted&amp;preview-rev=5"></iframe>
   </div>
 
   <div class="mobile-review-audit">
@@ -88,7 +88,7 @@ search: false
 
     <details class="mobile-review-method">
       <summary>공통 조정과 검토 기준</summary>
-      <p>본문은 16px를 유지합니다. 모바일 헤더에는 5개 탭을 항상 표시하고, 좁은 화면에서는 줄바꿈합니다. 검색·색상·테마 버튼도 바로 사용할 수 있습니다. 상단 여백, 메뉴 배경의 비침, 연도·보조 글자의 대비를 조정했습니다. 어두운 모드의 Amber와 소속기관 색상은 같은 색 계열에서 밝기를 높였습니다.</p>
+      <p>본문은 16px를 유지합니다. 모바일 헤더의 5개 탭은 한 줄로 표시하고 좌우로 넘길 수 있습니다. 검색·색상·테마 버튼도 바로 사용할 수 있습니다. 상단 여백, 메뉴 배경의 비침, 연도·보조 글자의 대비를 조정했습니다. 어두운 모드의 Amber와 소속기관 색상은 같은 색 계열에서 밝기를 높였습니다.</p>
       <p>390px에서 5개 탭을 이미지로 확인하고 320·390·430px에서 가로 넘침과 조작을 점검했습니다. 이는 모바일 사용성 검토이며 전체 접근성 인증은 아닙니다.</p>
       <p>참고: <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html" target="_blank" rel="noopener">WCAG Reflow</a>, <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html" target="_blank" rel="noopener">Target Size</a>, <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html" target="_blank" rel="noopener">Contrast</a>. 주요 조작은 44px를 목표로 했으며, WCAG의 최소 크기 기준은 예외 조건을 포함한 24px입니다.</p>
     </details>

@@ -7,7 +7,7 @@ footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a>.
   Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
   <br>Unauthorized collection of email addresses posted on this website is prohibited.
-  <script defer src="/assets/js/site.js?v=20261008-mobile-release"></script>
+  <script defer src="/assets/js/site.js?v=20261008-mobile-tabs"></script>
 keywords: wireless communications, artificial intelligence, robotics, mobile robots
 lang: en
 icon: logo.png

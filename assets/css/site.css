@@ -1540,25 +1540,32 @@ article:has(.publications-content-marker) .publications {
   }
 
   html #navbar .navbar-collapse-main {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
     visibility: visible;
     width: 100%;
   }
 
+  html #navbar .navbar-collapse-main::-webkit-scrollbar {
+    display: none;
+  }
+
   html #navbar .navbar-menu-list {
-    align-items: stretch;
-    display: grid;
-    gap: 4px;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+    min-width: 100%;
+    padding-right: 0.5rem;
+    width: max-content;
   }
 
   html #navbar .nav-item {
-    grid-column: span 2;
+    flex: 0 0 auto;
     width: auto;
-  }
-
-  html #navbar .nav-item:nth-child(4),
-  html #navbar .nav-item:nth-child(5) {
-    grid-column: span 3;
   }
 
   html #navbar .nav-link {
@@ -1567,18 +1574,58 @@ article:has(.publications-content-marker) .publications {
     font-size: 0.875rem;
     justify-content: center;
     min-height: 44px;
-    padding: 0.5rem;
+    min-width: 72px;
+    padding: 0.5rem 0.875rem;
     white-space: nowrap;
   }
 
-  html #navbar .nav-item:has(> #search-toggle) {
+  html #navbar .mobile-nav-scroll-button {
+    align-items: center;
+    border: 0;
+    color: var(--global-text-color-light);
+    cursor: pointer;
+    display: flex;
+    font-family: inherit;
+    font-size: 1.125rem;
+    height: 44px;
+    line-height: 1;
+    padding: 0 0.25rem;
     position: absolute;
+    top: 48px;
+    width: 44px;
+    z-index: 2;
+  }
+
+  html #navbar .mobile-nav-scroll-button[hidden] {
+    display: none;
+  }
+
+  html #navbar .mobile-nav-scroll-button:focus-visible {
+    outline: 2px solid var(--global-theme-color);
+    outline-offset: -2px;
+  }
+
+  html #navbar .mobile-nav-scroll-button--right {
+    background: linear-gradient(to right, transparent, var(--global-bg-color) 42%);
+    justify-content: flex-end;
+    right: 15px;
+  }
+
+  html #navbar .mobile-nav-scroll-button--left {
+    background: linear-gradient(to left, transparent, var(--global-bg-color) 42%);
+    justify-content: flex-start;
+    left: 15px;
+  }
+
+  html #navbar .nav-item:has(> #search-toggle) {
+    position: fixed;
     right: 111px;
     top: 2px;
   }
 
   html #navbar #search-toggle .nav-link {
     font-size: 0;
+    min-width: 44px;
     padding: 0;
     width: 44px;
   }
@@ -1595,7 +1642,7 @@ article:has(.publications-content-marker) .publications {
   html .toggle-container {
     gap: 0.25rem;
     margin: 0;
-    position: absolute;
+    position: fixed;
     right: 15px;
     top: 2px;
   }
