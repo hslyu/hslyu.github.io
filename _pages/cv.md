@@ -62,7 +62,9 @@ nav_order: 1
 {% for award in experience.awards %}
 <li class="list-group-item">
   <div class="row">
-    {% include portfolio/date-column.liquid label=award.year %}
+    {% assign award_date = award.year %}
+    {% if award.show_date %}{% assign award_date = award.date %}{% endif %}
+    {% include portfolio/date-column.liquid label=award_date %}
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0 cv-entry-copy">
       <h6 class="title font-weight-bold ml-1 ml-md-4">{{ award.title }}</h6>
       <h6 class="affiliation-text ml-1 ml-md-4">{% include portfolio/branded-text.liquid text=award.organization brands=experience.affiliation_brands %}</h6>
