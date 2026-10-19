@@ -16,8 +16,9 @@ nav_order: 2
 {% assign publications_markup = publications_markup | replace: '(TCOM)', '(<span class="venue-initials">TCOM</span>)' %}
 {% assign publications_markup = publications_markup | replace: '(JSAC)', '(<span class="venue-initials">JSAC</span>)' %}
 {% assign publications_markup = publications_markup | replace: '(T-ITS)', '(<span class="venue-initials">T-ITS</span>)' %}
+{% assign publications_markup = publications_markup | replace: '(TVT)', '(<span class="venue-initials">TVT</span>)' %}
 {% assign publications_markup = publications_markup | replace: '(OJ-CS)', '(<span class="venue-initials">OJ-CS</span>)' %}
-{% assign note_venue_specs = 'IEEE Trans. Wirel. Commun.|TWC,IEEE Trans. Commun.|TCOM,IEEE J. Sel. Areas Commun.|JSAC,IEEE Trans. Intell. Transp. Syst.|T-ITS,IEEE Open J. Comput. Soc.|OJ-CS' | split: ',' %}
+{% assign note_venue_specs = 'IEEE Trans. Wirel. Commun.|TWC,IEEE Trans. Commun.|TCOM,IEEE J. Sel. Areas Commun.|JSAC,IEEE Trans. Intell. Transp. Syst.|T-ITS,IEEE Trans. Veh. Technol.|TVT,IEEE Open J. Comput. Soc.|OJ-CS' | split: ',' %}
 {% for note_venue_spec in note_venue_specs %}
 {% assign note_venue_parts = note_venue_spec | split: '|' %}
 {% assign note_venue_name = note_venue_parts[0] %}
