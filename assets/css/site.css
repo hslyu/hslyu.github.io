@@ -1117,6 +1117,10 @@ article:has(.publications-content-marker) .publications .abbr figure .preview {
   width: 100% !important;
 }
 
+article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2026_preprint_PASSFlow.png"]) {
+  --publication-preview-aspect: 1600 / 498;
+}
+
 article:has(.publications-content-marker) .publications .abbr figure:has(.preview[src$="2020_IROS.gif"]) {
   --publication-preview-aspect: 400 / 225;
 }

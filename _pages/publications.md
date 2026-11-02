@@ -63,7 +63,7 @@ nav_order: 2
 {% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
-{% assign hidden_preprint_venue_entry_keys = 'airgc_cd,llm_assisted_ldpc,prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,secure_multihop,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
+{% assign hidden_preprint_venue_entry_keys = 'passflow,airgc_cd,llm_assisted_ldpc,prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,secure_multihop,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
 {% for entry_key in hidden_preprint_venue_entry_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
 {% assign entry_head = publications_markup | split: entry_marker | first %}
