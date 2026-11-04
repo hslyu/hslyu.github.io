@@ -234,6 +234,16 @@ miscellaneous:
       venue: Proc. KICS Winter Conf.
       date: February 2021
   patents:
+    - title: Method and Apparatus for Prediction-Uncertainty-Based LDPC Re-Decoding of V2X Safety Messages
+      inventors: Hyun Jong Yang; Sojeong Park; Hyeonsu Lyu; Minwoo Kim
+      jurisdiction: KR
+      application: 10-2026-0217419
+      status: Filed
+    - title: Doppler Correction Filter Network for Integrated Sensing and Communication in Multi-User MIMO-OFDM Systems
+      inventors: Hyeonho Noh; Hyeonsu Lyu; Hyun Jong Yang
+      jurisdiction: KR
+      application: 10-2026-0108835
+      status: Filed
     - title: Method and Device for Converting 3D Scenes
       inventors: Hyeonsu Lyu; Hyun Jong Yang
       jurisdiction: KR
