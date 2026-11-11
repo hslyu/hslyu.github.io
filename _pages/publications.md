@@ -123,7 +123,7 @@ nav_order: 2
 {% assign publications_markup = publications_markup | replace_first: original_title, wrapped_title %}
 {% endfor %}
 
-{% assign title_link_keys = 'joint_optimization,dcfnet,active_starris,unveiling_hidden,noniterative_aerial,end_to_end,secure_connection,accuracy_delay,maneuver_balloon,privacy_uav,autonomous_sem' | split: ',' %}
+{% assign title_link_keys = 'joint_optimization,dcfnet,active_starris,unveiling_hidden,noniterative_aerial,end_to_end,fed_zoe,secure_connection,accuracy_delay,maneuver_balloon,privacy_uav,autonomous_sem' | split: ',' %}
 {% assign title_link_keys = title_link_keys | concat: arxiv_entry_keys %}
 {% for entry_key in title_link_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
