@@ -11,21 +11,13 @@ nav_order: 2
 {% capture publications_markup %}{% bibliography --query @*[website_hidden != true] %}{% endcapture %}
 {% assign publications_markup = publications_markup | replace: 'loading="eager"', 'loading="lazy"' %}
 {% assign publications_markup = publications_markup | replace: 'Best Paper Award', '<span class="paper-award">Best Paper Award</span>' %}
-{% assign publications_markup = publications_markup | replace: '(TWC); <span class="paper-award">Best Paper Award</span>', '(<span class="venue-initials">TWC</span>); <span class="paper-award">Best Paper Award</span>' %}
-{% assign publications_markup = publications_markup | replace: '(TWC)', '(<span class="venue-initials">TWC</span>)' %}
-{% assign publications_markup = publications_markup | replace: '(TCOM)', '(<span class="venue-initials">TCOM</span>)' %}
-{% assign publications_markup = publications_markup | replace: '(JSAC)', '(<span class="venue-initials">JSAC</span>)' %}
-{% assign publications_markup = publications_markup | replace: '(T-ITS)', '(<span class="venue-initials">T-ITS</span>)' %}
-{% assign publications_markup = publications_markup | replace: '(TVT)', '(<span class="venue-initials">TVT</span>)' %}
-{% assign publications_markup = publications_markup | replace: '(OJ-CS)', '(<span class="venue-initials">OJ-CS</span>)' %}
-{% assign note_venue_specs = 'IEEE Trans. Wirel. Commun.|TWC,IEEE Trans. Commun.|TCOM,IEEE J. Sel. Areas Commun.|JSAC,IEEE Trans. Intell. Transp. Syst.|T-ITS,IEEE Trans. Veh. Technol.|TVT,IEEE Open J. Comput. Soc.|OJ-CS' | split: ',' %}
-{% for note_venue_spec in note_venue_specs %}
-{% assign note_venue_parts = note_venue_spec | split: '|' %}
-{% assign note_venue_name = note_venue_parts[0] %}
-{% assign note_venue_initials = note_venue_parts[1] %}
-{% capture plain_note_venue %}{{ note_venue_name }} (<span class="venue-initials">{{ note_venue_initials }}</span>){% endcapture %}
-{% capture styled_note_venue %}<em>{{ note_venue_name }}</em> (<span class="venue-initials">{{ note_venue_initials }}</span>){% endcapture %}
+{% for venue_entry in site.data.venues %}
+{% assign venue = venue_entry[1] %}
+{% for note_name in venue.note_names %}
+{% capture plain_note_venue %}{{ note_name }} ({{ venue.initials }}){% endcapture %}
+{% capture styled_note_venue %}<em>{{ note_name }}</em> ({{ venue.initials }}){% endcapture %}
 {% assign publications_markup = publications_markup | replace: plain_note_venue, styled_note_venue %}
+{% endfor %}
 {% endfor %}
 {% capture secure_entry_marker %}id="secure_multihop"{% endcapture %}
 {% assign secure_entry_head = publications_markup | split: secure_entry_marker | first %}
@@ -45,22 +37,17 @@ nav_order: 2
 {% assign full_venue_parts = venue_markup | split: '<em>' %}
 {% assign full_venue = full_venue_parts[1] | split: '</em>' | first %}
 {% capture original_venue %}<em>{{ full_venue }}</em>{% endcapture %}
-{% capture abbreviated_venue %}<em>{{ abbreviated_venue_name }}</em> (<span class="venue-initials">{{ venue_initials }}</span>)<span class="sr-only"> {{ full_venue }}</span>{% endcapture %}
+{% capture abbreviated_venue %}<em>{{ abbreviated_venue_name }}</em> ({{ venue_initials }})<span class="sr-only"> {{ full_venue }}</span>{% endcapture %}
 {% assign publications_markup = publications_markup | replace_first: original_venue, abbreviated_venue %}
 {% endfor %}
 
-{% assign equal_contribution_specs = 'end_to_end|Hyeonsu Lyu|Yumin Kim,unveiling_hidden|Jonggyu Jang|Hyeonsu Lyu,noniterative_aerial|Hyeonsu Lyu|Jonggyu Jang' | split: ',' %}
-{% for equal_contribution_spec in equal_contribution_specs %}
-{% assign equal_contribution_parts = equal_contribution_spec | split: '|' %}
-{% assign entry_key = equal_contribution_parts[0] %}
-{% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
-{% assign entry_head = publications_markup | split: entry_marker | first %}
-{% assign entry_tail = publications_markup | split: entry_marker | last %}
-{% for contributor in equal_contribution_parts offset: 1 %}
-{% capture marked_contributor %}{{ contributor }}<sup>=</sup>{% endcapture %}
-{% assign entry_tail = entry_tail | replace_first: contributor, marked_contributor %}
-{% endfor %}
-{% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
+{% for venue_entry in site.data.venues %}
+{% assign venue = venue_entry[1] %}
+{% if venue.initials %}
+{% capture plain_initials %}({{ venue.initials }}){% endcapture %}
+{% capture highlighted_initials %}(<span class="venue-initials">{{ venue.initials }}</span>){% endcapture %}
+{% assign publications_markup = publications_markup | replace: plain_initials, highlighted_initials %}
+{% endif %}
 {% endfor %}
 
 {% assign hidden_preprint_venue_entry_keys = 'passflow,airgc_cd,llm_assisted_ldpc,prediction_aided_v2x,temporal_channel_estimation,ambiguity_aware_isac,lucid,secure_multihop,jang2024rethinkingmodelinversionattacks,replace_perturb' | split: ',' %}
@@ -123,7 +110,7 @@ nav_order: 2
 {% assign publications_markup = publications_markup | replace_first: original_title, wrapped_title %}
 {% endfor %}
 
-{% assign title_link_keys = 'joint_optimization,dcfnet,active_starris,unveiling_hidden,noniterative_aerial,end_to_end,fed_zoe,secure_connection,accuracy_delay,maneuver_balloon,privacy_uav,autonomous_sem' | split: ',' %}
+{% assign title_link_keys = 'joint_optimization,dcfnet,active_starris,unveiling_hidden,noniterative_aerial,end_to_end,fed_zoe,secure_connection,accuracy_delay,faithful_fast,maneuver_balloon,privacy_uav,autonomous_sem' | split: ',' %}
 {% assign title_link_keys = title_link_keys | concat: arxiv_entry_keys %}
 {% for entry_key in title_link_keys %}
 {% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
@@ -137,18 +124,6 @@ nav_order: 2
 {% capture linked_title %}<div class="title"><a href="{{ entry_link_href }}" target="_blank" rel="external nofollow noopener">{{ entry_title }}</a></div>{% endcapture %}
 {% capture original_links %}<div class="links">{{ entry_link_markup }}</div>{% endcapture %}
 {% assign publications_markup = publications_markup | replace_first: original_title, linked_title | replace_first: original_links, '' %}
-{% endfor %}
-
-{% assign hidden_link_button_entry_keys = 'fed_zoe' | split: ',' %}
-{% for entry_key in hidden_link_button_entry_keys %}
-{% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
-{% assign entry_head = publications_markup | split: entry_marker | first %}
-{% assign entry_tail = publications_markup | split: entry_marker | last %}
-{% assign entry_link_parts = entry_tail | split: '<div class="links">' %}
-{% assign entry_link_markup = entry_link_parts[1] | split: '</div>' | first %}
-{% capture original_links %}<div class="links">{{ entry_link_markup }}</div>{% endcapture %}
-{% assign entry_tail = entry_tail | replace_first: original_links, '' %}
-{% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
 {% assign publication_sections = publications_markup | split: '<h2 class="bibliography">' %}

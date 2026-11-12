@@ -1,12 +1,46 @@
+# initials: highlighted uniformly in parenthesized publication venue labels.
+# note_names: venue spellings italicized in submission and review notes.
 "IEEE TCOM":
+  initials: TCOM
+  note_names: [IEEE Trans. Commun.]
   url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=26
   color: "#00629b"
 "IEEE TWC":
+  initials: TWC
+  note_names: [IEEE Trans. Wirel. Commun.]
   url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7693
   color: "#00629b"
 "IEEE ICTC":
+  initials: ICTC
   url: https://www.ictc.org/
   color: "#00629b"
 "arXiv":
   url: https://arxiv.org/
   color: "#b31b1b"
+"IEEE JSAC":
+  initials: JSAC
+  note_names: [IEEE J. Sel. Areas Commun.]
+"IEEE TVT":
+  initials: TVT
+  note_names: [IEEE Trans. Veh. Technol.]
+"IEEE IoTJ":
+  initials: IoTJ
+  note_names: [IEEE Internet Things J.]
+"IEEE T-ITS":
+  initials: T-ITS
+  note_names: [IEEE Trans. Intell. Transp. Syst.]
+"IEEE OJ-CS":
+  initials: OJ-CS
+  note_names: [IEEE Open J. Comput. Soc.]
+"IEEE TNNLS":
+  initials: TNNLS
+"NeurIPS":
+  initials: NeurIPS
+"GLOBECOMW":
+  initials: GLOBECOMW
+"ICMLW":
+  initials: ICMLW
+"IEEE IROS":
+  initials: IROS
+"MMA":
+  initials: MMA

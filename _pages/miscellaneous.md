@@ -37,7 +37,7 @@ nav_order: 4
     <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
       <h6 class="title ml-1 ml-md-4">{{ paper.title }}</h6>
       <div class="author ml-1 ml-md-4">{{ authors_markup }}</div>
-      <div class="periodical ml-1 ml-md-4"><em>{{ paper.venue }}</em>, {{ paper.date }}{% if paper.note %}; {{ paper.note }}{% endif %}</div>
+      <div class="periodical ml-1 ml-md-4"><em>{{ paper.venue }}</em>, {{ paper.date }}{% if paper.note %}; {{ paper.note | escape | replace: 'Best Paper Award', '<span class="paper-award">Best Paper Award</span>' }}{% endif %}</div>
     </div>
   </div>
 </li>

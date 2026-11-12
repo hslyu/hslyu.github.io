@@ -29,7 +29,7 @@ home:
     - Building real-world UNIX-based embedded systems for robotic applications
     - Developing digital-twin platforms for training, testing, and deploying robots
   current_focus: Right now, I am focusing on wireless cloud robotics and wireless digital twins for the era of Physical AI.
-  additional_note: I also enjoy creating high-quality research figures as a co-lead of FigureWorks Std. and automating Linux systems as a system administrator at AISLab for more than eight years.
+  additional_note: I also enjoy creating high-quality research figures as a co-lead of FigureWorks Std. and automating Linux systems as a system administrator at AiSLab for more than eight years.
 
 news:
   - { date: "2026.03", text: Joined Seoul National University as a Postdoctoral Researcher. }
@@ -51,7 +51,7 @@ experience:
     - { name: KAI, slug: kai }
     - { name: KISTI, slug: kisti }
   professional:
-    - period: "Mar. 2026 – Feb. 2027"
+    - period: "Mar. 2026 - Feb. 2027"
       years: "2026 - 2027"
       title: Postdoctoral Researcher
       organization: Seoul National University
@@ -61,7 +61,7 @@ experience:
         - Advised by Prof. Hyun Jong Yang.
         - Developing AI-native RAN systems for humanoid and robotic applications using wireless digital-twin platforms.
         - Mentoring Ph.D. and M.S. students and advising research projects and paper preparation.
-    - period: "Aug. 2025 – Jan. 2026"
+    - period: "Aug. 2025 - Jan. 2026"
       years: "2025 - 2026"
       title: Visiting Scholar
       organization: University of Texas at Austin
@@ -71,7 +71,7 @@ experience:
         - Designed and configured a multi-host, multi-USRP N320 RF testbed with Cisco Layer-3 switching, isolated management and 10-Gb/s SFP+ radio-data paths, IEEE 1588v2 PTP synchronization, and correlation-based latency measurement.
         - Developed radio-ready digital-twin workflows that transfer aligned camera, object, and robot geometry from Isaac Sim to Sionna RT for ray-traced propagation and OFDM channel evaluation.
   education:
-    - period: "Mar. 2021 – Feb. 2026"
+    - period: "Mar. 2021 - Feb. 2026"
       years: "2021 - 2026"
       degree: Doctor of Philosophy
       field: Electrical Engineering
@@ -79,7 +79,7 @@ experience:
       location: Pohang, Korea
       adviser: Dr. Hyun Jong Yang
       dissertation: Advancing Aerial Networks over Heterogeneous Aerial Platforms
-    - period: "Mar. 2018 – Feb. 2021"
+    - period: "Mar. 2018 - Feb. 2021"
       years: "2018 - 2021"
       degree: Master of Science
       field: Electrical Engineering
@@ -87,7 +87,7 @@ experience:
       location: Ulsan, Korea
       adviser: Dr. Hyun Jong Yang
       thesis: A Study on Building a Test Platform and System Implementation for Unmanned Aerial Vehicle Automation
-    - period: "Mar. 2014 – Feb. 2018"
+    - period: "Mar. 2014 - Feb. 2018"
       years: "2014 - 2018"
       degree: Bachelor of Science
       field: Applied Mathematics and Computer Science
@@ -99,7 +99,6 @@ experience:
     - {
         year: 2025,
         date: "2025.08.01",
-        show_date: true,
         title: International Collaboration Support Program,
         organization: IITP–6G·Cloud Research and Education Open Hub,
       }
@@ -112,20 +111,20 @@ experience:
     - { year: 2015, title: "National Supercomputing Competition, Second Award", organization: KISTI }
   reviewer:
     - { abbr: JSAC, name: IEEE Journal on Selected Areas in Communications, years: 2025 }
-    - { abbr: TWC, name: IEEE Transactions on Wireless Communications, years: 2025–2026 }
+    - { abbr: TWC, name: IEEE Transactions on Wireless Communications, years: 2025 - 2026 }
     - { abbr: TNSE, name: IEEE Transactions on Network Science and Engineering, years: 2026 }
     - { abbr: TCOM, name: IEEE Transactions on Communications, years: 2026 }
     - { abbr: TVT, name: IEEE Transactions on Vehicular Technology, years: 2026 }
-    - { abbr: IoTJ, name: IEEE Internet of Things Journal, years: 2024–2026 }
+    - { abbr: IoTJ, name: IEEE Internet of Things Journal, years: 2024 - 2026 }
     - { abbr: ToN, name: IEEE/ACM Transactions on Networking, years: 2025 }
-    - { abbr: WCL, name: IEEE Wireless Communications Letters, years: 2023–2026 }
-    - { abbr: CCNC, name: IEEE Consumer Communications & Networking Conference, years: 2023–2024 }
+    - { abbr: WCL, name: IEEE Wireless Communications Letters, years: 2023 - 2026 }
+    - { abbr: CCNC, name: IEEE Consumer Communications & Networking Conference, years: 2023 - 2024 }
     - { abbr: JCN, name: Journal of Communications and Networks, years: 2026 }
-    - { abbr: KICS, name: KICS Journal, years: 2022–2023 }
+    - { abbr: KICS, name: KICS Journal, years: 2022 - 2023 }
   other_service:
     localization:
-      - { years: 2018–2021, title: QGroundControl Localization, contribution: 2nd highest contributor }
-      - { years: 2018–2021, title: PX4 User Guide Localization }
+      - { years: 2018 - 2021, title: QGroundControl Localization, contribution: 2nd highest contributor }
+      - { years: 2018 - 2021, title: PX4 User Guide Localization }
     talks:
       - "‘The Role of Aerial Networks in 6G Wireless’ — KICS Summer Conference, June 2025"
 
@@ -322,7 +321,7 @@ miscellaneous:
       author: Hyeonsu Lyu
       registration: C-2019-034510
   projects:
-    - period: 2024–2028
+    - period: 2024 - 2028
       program: 차세대네트워크(6G)산업기술개발
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
@@ -332,7 +331,7 @@ miscellaneous:
         - Studied AI-native architectures that jointly orchestrate network connectivity, computing resources, and intelligent services.
         - Connected communication-aware decision making with edge–cloud execution for future Physical AI systems.
       keywords: AI-native 6G, service orchestration, edge–cloud continuum, network intelligence
-    - period: 2023–2026
+    - period: 2023 - 2026
       program: 개인기초연구(과기정통부)
       ministry: Ministry of Science and ICT (MSIT)
       agency: National Research Foundation of Korea (NRF)
@@ -342,7 +341,7 @@ miscellaneous:
         - Developed learning-based coordination and trajectory–resource optimization methods for practical multi-UAV base-station systems.
         - Studied coverage maximization and reliable connectivity under mobility and inter-UAV coordination constraints.
       keywords: multi-UAV base stations, multi-agent reinforcement learning, trajectory optimization, coverage, wireless resource allocation
-    - period: 2021–2028
+    - period: 2021 - 2028
       program: 정보통신방송혁신인재양성
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
@@ -352,7 +351,7 @@ miscellaneous:
         - Investigated reliable aerial-network operation for high-density urban air mobility and heterogeneous aerial platforms.
         - Analyzed coverage, blockage, and radio-resource trade-offs for robust low-latency connectivity.
       keywords: urban air mobility, aerial networks, reliability, coverage analysis, radio-resource optimization
-    - period: 2018–2022
+    - period: 2018 - 2022
       program: 방송통신산업기술개발
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
@@ -367,7 +366,7 @@ miscellaneous:
           url: "https://www.youtube.com/playlist?list=PL5q1DIhtyZHvQWb0DogrOd4uKk8lpbK0J"
         - label: KAI paper award
           url: "https://www.m-i.kr/news/articleView.html?idxno=967355"
-    - period: 2026–2030
+    - period: 2026 - 2030
       program: AI-RAN글로벌선도프로젝트
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
@@ -376,7 +375,7 @@ miscellaneous:
       contributions:
         - Contributed to research directions for AI-native RAN operation and intelligent network control.
       keywords: AI-RAN, RAN intelligence, network automation, wireless systems
-    - period: 2026-2028
+    - period: 2026 - 2028
       program: 차세대네트워크(6G)산업기술개발
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
@@ -385,7 +384,7 @@ miscellaneous:
       contributions:
         - Studied adaptive RAN/RIC control strategies for application-level performance and QoS guarantees.
       keywords: RAN/RIC, closed-loop control, QoS, network optimization
-    - period: 2024–2028
+    - period: 2024 - 2028
       program: 정보통신방송혁신인재양성
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
@@ -394,7 +393,7 @@ miscellaneous:
       contributions:
         - Helped develop an open cloud–edge research environment for reproducible 6G, AI, and networked-robotics experiments.
       keywords: 6G cloud, edge computing, wireless testbed, reproducible research, networked robotics
-    - period: 2024–2028
+    - period: 2024 - 2028
       program: 방송통신산업기술개발
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
@@ -403,7 +402,7 @@ miscellaneous:
       contributions:
         - Worked on a virtualized RAN research platform for programmable wireless-network experiments and evaluation.
       keywords: 5G-Advanced, vRAN, Open RAN, network platform, wireless experimentation
-    - period: 2019–2020
+    - period: 2019 - 2020
       program: MOTIE R&D Program
       ministry: Ministry of Trade, Industry and Energy (MOTIE)
       agency: N/A
@@ -423,29 +422,29 @@ miscellaneous:
         - label: Paper
           url: "https://ieeexplore.ieee.org/document/9341041"
   miscellaneous_projects:
-    - period: 2023.10–2024.12
+    - period: 2023.10 - 2024.12
       agency: Agency for Defense Development (ADD)
       title: Data processing methods and simulated signal generation for AI radar data analysis
       acknowledge: "912975101"
-    - period: 2021–2025
+    - period: 2021 - 2025
       program: 방송통신산업기술개발
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
       title: Post MIMO system research for massive connectivity and new wireless spectrum
       acknowledge: 2021-0-00161
-    - period: 2015–2020
+    - period: 2015 - 2020
       program: 방송통신산업기술개발
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
       title: Research on Near-Zero Latency Network for 5G Immersive Service
       acknowledge: 2015-0-00278
-    - period: 2017–2020
+    - period: 2017 - 2020
       program: 정보통신방송혁신인재양성
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
       title: Self-powered Miniature Nationwide Mobile Position Tracker System Technology
       acknowledge: 2017-0-01635
-    - period: 2023–2027
+    - period: 2023 - 2027
       program: ICT R&D Program
       ministry: Ministry of Science and ICT (MSIT)
       agency: Institute of Information & Communications Technology Planning & Evaluation (IITP)
