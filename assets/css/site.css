@@ -238,6 +238,12 @@ article:has(.publications-content-marker) .publications .preview {
   box-shadow: none !important;
 }
 
+.publications .abbr abbr.badge,
+.publications .abbr abbr.badge > a,
+.publications .abbr abbr.badge > div {
+  color: #fff !important;
+}
+
 .publications ol.bibliography li .title a,
 .publications ol.bibliography li .title a:hover {
   color: var(--global-text-color);
