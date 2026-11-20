@@ -1284,6 +1284,12 @@ article:has(.publications-content-marker) .publications {
   margin-bottom: 0.2rem;
 }
 
+@media (min-width: 992px) {
+  .publications #speculative_decoding_networks .title {
+    letter-spacing: -0.015em;
+  }
+}
+
 .publications ol.bibliography li .author,
 .misc-publication-list .author,
 .publications ol.bibliography li .periodical,

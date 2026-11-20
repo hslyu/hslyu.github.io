@@ -24,7 +24,7 @@ nav_order: 2
 {% assign secure_entry_tail = publications_markup | split: secure_entry_marker | last %}
 {% assign secure_entry_tail = secure_entry_tail | replace_first: '; <span class="paper-award">Best Paper Award</span>', '</div><div class="periodical"><span class="paper-award">Best Paper Award</span>' %}
 {% capture publications_markup %}{{ secure_entry_head }}{{ secure_entry_marker }}{{ secure_entry_tail }}{% endcapture %}
-{% assign venue_specs = 'joint_optimization|IEEE Trans. Commun.|TCOM,dcfnet|IEEE Trans. Wirel. Commun.|TWC,active_starris|IEEE Internet Things J.|IoTJ,noniterative_aerial|IEEE Trans. Wirel. Commun.|TWC,end_to_end|IEEE Trans. Veh. Technol.|TVT,unveiling_hidden|IEEE Trans. Neural Netw. Learn. Syst.|TNNLS,deeper_understanding|Adv. Neural Inf. Process. Syst.|NeurIPS,secure_connection|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,accuracy_delay|IEEE Global Commun. Conf. Workshops|GLOBECOMW,scenebaker|IEEE Global Commun. Conf. Workshops|GLOBECOMW,faithful_fast|ICML Workshop Mech. Interpret.|ICMLW,maneuver_balloon|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,autonomous_sem|IEEE/RSJ Int. Conf. Intell. Robots Syst.|IROS,fed_zoe|IEEE J. Sel. Areas Commun.|JSAC' | split: ',' %}
+{% assign venue_specs = 'scene_aware_pinching|Int. Conf. Electron. Inf. Commun.|ICEIC,speculative_decoding_networks|Int. Conf. Electron. Inf. Commun.|ICEIC,joint_optimization|IEEE Trans. Commun.|TCOM,dcfnet|IEEE Trans. Wirel. Commun.|TWC,active_starris|IEEE Internet Things J.|IoTJ,noniterative_aerial|IEEE Trans. Wirel. Commun.|TWC,end_to_end|IEEE Trans. Veh. Technol.|TVT,unveiling_hidden|IEEE Trans. Neural Netw. Learn. Syst.|TNNLS,deeper_understanding|Adv. Neural Inf. Process. Syst.|NeurIPS,secure_connection|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,accuracy_delay|IEEE Global Commun. Conf. Workshops|GLOBECOMW,scenebaker|IEEE Global Commun. Conf. Workshops|GLOBECOMW,faithful_fast|ICML Workshop Mech. Interpret.|ICMLW,maneuver_balloon|IEEE Int. Conf. Inf. Commun. Technol. Converg.|ICTC,autonomous_sem|IEEE/RSJ Int. Conf. Intell. Robots Syst.|IROS,fed_zoe|IEEE J. Sel. Areas Commun.|JSAC' | split: ',' %}
 {% for venue_spec in venue_specs %}
 {% assign venue_parts = venue_spec | split: '|' %}
 {% assign entry_key = venue_parts[0] %}
@@ -39,6 +39,22 @@ nav_order: 2
 {% capture original_venue %}<em>{{ full_venue }}</em>{% endcapture %}
 {% capture abbreviated_venue %}<em>{{ abbreviated_venue_name }}</em> ({{ venue_initials }})<span class="sr-only"> {{ full_venue }}</span>{% endcapture %}
 {% assign publications_markup = publications_markup | replace_first: original_venue, abbreviated_venue %}
+{% endfor %}
+
+{% assign inline_acceptance_entry_keys = 'scene_aware_pinching,speculative_decoding_networks' | split: ',' %}
+{% for entry_key in inline_acceptance_entry_keys %}
+{% capture entry_marker %}id="{{ entry_key }}"{% endcapture %}
+{% assign entry_head = publications_markup | split: entry_marker | first %}
+{% assign entry_tail = publications_markup | split: entry_marker | last %}
+{% assign entry_periodical_parts = entry_tail | split: '<div class="periodical">' %}
+{% assign venue_markup = entry_periodical_parts[1] | split: '</div>' | first %}
+{% assign note_markup = entry_periodical_parts[2] | split: '</div>' | first %}
+{% capture original_venue %}<div class="periodical">{{ venue_markup }}</div>{% endcapture %}
+{% capture original_note %}<div class="periodical">{{ note_markup }}</div>{% endcapture %}
+{% assign acceptance_note = note_markup | strip %}
+{% capture venue_with_acceptance %}<div class="periodical">{{ venue_markup | strip }} · {{ acceptance_note }}</div>{% endcapture %}
+{% assign entry_tail = entry_tail | replace_first: original_note, '' | replace_first: original_venue, venue_with_acceptance %}
+{% capture publications_markup %}{{ entry_head }}{{ entry_marker }}{{ entry_tail }}{% endcapture %}
 {% endfor %}
 
 {% for venue_entry in site.data.venues %}
